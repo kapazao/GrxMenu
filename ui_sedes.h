@@ -35,6 +35,12 @@ public:
     QComboBox *comboBox_IP;
     QComboBox *comboBox_NODO;
     QLabel *label;
+    QLabel *label_34;
+    QComboBox *comboBox_TLF;
+    QLabel *label_35;
+    QComboBox *comboBox_extension;
+    QLabel *label_38;
+    QComboBox *comboBox_CP;
     QFrame *frame_3;
     QLineEdit *lineEdit_contacto;
     QLabel *label_11;
@@ -202,6 +208,26 @@ public:
         label = new QLabel(frame);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(9, 15, 38, 17));
+        label_34 = new QLabel(frame);
+        label_34->setObjectName(QStringLiteral("label_34"));
+        label_34->setGeometry(QRect(630, 15, 67, 17));
+        comboBox_TLF = new QComboBox(frame);
+        comboBox_TLF->setObjectName(QStringLiteral("comboBox_TLF"));
+        comboBox_TLF->setGeometry(QRect(710, 10, 111, 25));
+        label_35 = new QLabel(frame);
+        label_35->setObjectName(QStringLiteral("label_35"));
+        label_35->setGeometry(QRect(830, 15, 67, 17));
+        comboBox_extension = new QComboBox(frame);
+        comboBox_extension->setObjectName(QStringLiteral("comboBox_extension"));
+        comboBox_extension->setGeometry(QRect(910, 10, 86, 25));
+        comboBox_extension->setEditable(true);
+        label_38 = new QLabel(frame);
+        label_38->setObjectName(QStringLiteral("label_38"));
+        label_38->setGeometry(QRect(1010, 15, 67, 17));
+        comboBox_CP = new QComboBox(frame);
+        comboBox_CP->setObjectName(QStringLiteral("comboBox_CP"));
+        comboBox_CP->setGeometry(QRect(1040, 10, 86, 25));
+        comboBox_CP->setEditable(true);
         frame_3 = new QFrame(Sedes);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 250, 621, 111));
@@ -464,7 +490,7 @@ public:
 
         frame_6 = new QFrame(Sedes);
         frame_6->setObjectName(QStringLiteral("frame_6"));
-        frame_6->setGeometry(QRect(640, 266, 621, 61));
+        frame_6->setGeometry(QRect(640, 260, 621, 61));
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
         label_28 = new QLabel(frame_6);
@@ -499,16 +525,18 @@ public:
 
         frame_7 = new QFrame(Sedes);
         frame_7->setObjectName(QStringLiteral("frame_7"));
-        frame_7->setGeometry(QRect(640, 332, 621, 101));
+        frame_7->setGeometry(QRect(640, 320, 621, 111));
         frame_7->setFrameShape(QFrame::StyledPanel);
         frame_7->setFrameShadow(QFrame::Raised);
         layoutWidget5 = new QWidget(frame_7);
         layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
         layoutWidget5->setGeometry(QRect(11, 10, 601, 91));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget5);
+        horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setSpacing(0);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         pB_web = new QPushButton(layoutWidget5);
         pB_web->setObjectName(QStringLiteral("pB_web"));
@@ -614,7 +642,7 @@ public:
 
         frame_9 = new QFrame(Sedes);
         frame_9->setObjectName(QStringLiteral("frame_9"));
-        frame_9->setGeometry(QRect(640, 440, 621, 101));
+        frame_9->setGeometry(QRect(640, 430, 621, 101));
         frame_9->setFrameShape(QFrame::StyledPanel);
         frame_9->setFrameShadow(QFrame::Raised);
         layoutWidget8 = new QWidget(frame_9);
@@ -793,6 +821,9 @@ public:
 #endif // QT_NO_STATUSTIP
         label_2->setText(QApplication::translate("Sedes", "IP", Q_NULLPTR));
         label->setText(QApplication::translate("Sedes", "Nodo", Q_NULLPTR));
+        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", Q_NULLPTR));
+        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
+        label_38->setText(QApplication::translate("Sedes", "CP", Q_NULLPTR));
         label_11->setText(QApplication::translate("Sedes", "Persona de contacto", Q_NULLPTR));
         label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", Q_NULLPTR));
         label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));

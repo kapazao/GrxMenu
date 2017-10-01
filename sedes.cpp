@@ -68,22 +68,41 @@ void Sedes::cargaCombo(){
 
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery* query = new QSqlQuery(db);
+    QSqlQuery* query_tlf = new QSqlQuery(db);
     QString sql;
-    sql = "select NOMBRE,ipLinea from nodo";
+    QString sql_tlf;
+    sql = "select NOMBRE,ipLinea,codigoPostal,extension from nodo";
+    sql_tlf = "select * from telefononodo";
     query->prepare(sql);
-    if(!query->exec()){
+    query_tlf->prepare(sql_tlf);
+
+    if(!query->exec())
         qDebug () << "Error en la consulta: " << query->lastError();
-    }else{
+    else{
         qDebug () << "Consulta realizada con exito: " << query->lastQuery();
+
+        model->setQuery(*query);
+        ui->comboBox_IP->setModel(model);
+        ui->comboBox_IP->setModelColumn(1);
+        ui->comboBox_CP->setModel(model);
+        ui->comboBox_CP->setModelColumn(2);
+        ui->comboBox_extension->setModel(model);
+        ui->comboBox_extension->setModelColumn(3);
+        ui->comboBox_NODO->setModel(model);
+        on_comboBox_NODO_activated(ui->comboBox_NODO->itemText(0));
+        ui->comboBox_NODO->setFocus();
     }
-    model->setQuery(*query);
-    model_ip->setQuery(*query);
-    ui->comboBox_IP->setModel(model_ip);
-    ui->comboBox_IP->setModelColumn(1);
-    ui->comboBox_NODO->setModel(model);
-    on_comboBox_NODO_activated(ui->comboBox_NODO->itemText(0));
-    ui->comboBox_NODO->setFocus();
+
+    if(!query_tlf->exec())
+        qDebug () << "Error en la consulta: " << query_tlf->lastError();
+    else{
+        qDebug () << "Consulta realizada con exito: " << query_tlf->lastQuery();
+        model_tlf->setQuery(*query_tlf);
+        ui->comboBox_TLF->setModel(model_tlf);
+        ui->comboBox_TLF->setModelColumn(1);
+    }
     delete query;
+    delete query_tlf;
 
 }
 
@@ -107,9 +126,13 @@ void Sedes::consultaNodo(const QString &nombre){
     if (consultar.exec() and consultar.first()){
             clean_checkbox();
             ui->comboBox_IP->clear();
+            ui->comboBox_CP->clear();
+            ui->comboBox_extension->clear();
             idNodo = consultar.value(1).toString();
             idAnio = ui->comboBox_anio->currentText();
-            ui->comboBox_IP->setItemText(0,(consultar.value(21).toString()));
+            //ui->comboBox_IP->setItemText(0,(consultar.value(21).toString()));
+            //ui->comboBox_CP->setItemText(0,(consultar.value(11).toString()));
+            //ui->comboBox_extension->setItemText(0,(consultar.value(15).toString()));
             ui->lineEdit_adsl->setText(consultar.value(19).toString());
             ui->lineEdit_via->setText(consultar.value(4).toString());
             ui->lineEdit_direccion->setText(consultar.value(5).toString());
@@ -215,8 +238,19 @@ void Sedes::on_comboBox_NODO_activated(const QString &nombre)
         QSqlQuery query=model->query();
         consultaNodo(nombre);
         ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-
+        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
 }
+
+void Sedes::on_comboBox_extension_activated(const QString &ext)
+{
+    QSqlQuery query=model->query();
+    consultaNodo(query.value(0).toString());
+    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+}
+
+
+
 
 void Sedes::on_comboBox_IP_activated(const QString &ip)
 {
@@ -226,7 +260,10 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
         if( myIP.setAddress(ip)){
             consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
             ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-        }else
+            ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+            ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
+        }
+        else
             qDebug() << "Invalid IP address"<<endl;
 }
 
@@ -271,3 +308,4 @@ void Sedes::on_pB_escudo_clicked()
     QProcess process;
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());
 }
+

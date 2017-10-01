@@ -22,7 +22,8 @@ public:
     explicit Sedes(QWidget *parent = 0);
     ~Sedes();
     QSqlQueryModel *model = new QSqlQueryModel();
-    QSqlQueryModel *model_ip = new QSqlQueryModel();
+    QSqlQueryModel *model_tlf = new QSqlQueryModel();
+
 private slots:
     void on_comboBox_NODO_activated(const QString &arg1);
 
@@ -51,6 +52,8 @@ private slots:
     void on_comboBox_IP_activated(const QString &arg1);
 
     void on_pB_escudo_clicked();
+
+    void on_comboBox_extension_activated(const QString &arg1);
 
 private:
     Ui::Sedes *ui;
