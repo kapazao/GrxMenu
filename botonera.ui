@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Botonera</class>
+ <widget class="QMainWindow" name="Botonera">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>973</width>
+    <height>142</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Botonera</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>973</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuNuevo">
+    <property name="title">
+     <string>Ar&amp;chivo</string>
+    </property>
+    <addaction name="actionNuevo_Men"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuAplicaciones">
+    <property name="title">
+     <string>Ap&amp;licaciones</string>
+    </property>
+    <addaction name="actionUsuarios"/>
+    <addaction name="actionSoporte"/>
+    <addaction name="actionCronos"/>
+    <addaction name="actionWebmail"/>
+    <addaction name="actionBeiro"/>
+    <addaction name="actionGlpi"/>
+    <addaction name="actionOcs"/>
+    <addaction name="actionActiveDirectory"/>
+    <addaction name="actionISL"/>
+    <addaction name="actionConfigurar"/>
+   </widget>
+   <addaction name="menuNuevo"/>
+   <addaction name="menuAplicaciones"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionUsuarios"/>
+   <addaction name="actionSoporte"/>
+   <addaction name="actionSedes"/>
+   <addaction name="actionCronos"/>
+   <addaction name="actionWebmail"/>
+   <addaction name="actionBeiro"/>
+   <addaction name="actionGlpi"/>
+   <addaction name="actionOcs"/>
+   <addaction name="actionActiveDirectory"/>
+   <addaction name="actionISL"/>
+   <addaction name="actionConfigurar"/>
+   <addaction name="actionSalir"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionUsuarios">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/usuarios.png</normaloff>iconos/usuarios.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Usuarios</string>
+   </property>
+   <property name="toolTip">
+    <string>Usuarios</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F1</string>
+   </property>
+  </action>
+  <action name="actionCronos">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/cronos.png</normaloff>iconos/cronos.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cronos</string>
+   </property>
+   <property name="toolTip">
+    <string>Cronos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F2</string>
+   </property>
+  </action>
+  <action name="actionWebmail">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/WebMail.png</normaloff>iconos/WebMail.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Webmail</string>
+   </property>
+   <property name="toolTip">
+    <string>Webmail</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F3</string>
+   </property>
+  </action>
+  <action name="actionBeiro">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/beiro_cartera.png</normaloff>iconos/beiro_cartera.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Beiro</string>
+   </property>
+   <property name="toolTip">
+    <string>Beiro</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="actionGlpi">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/glpi.png</normaloff>iconos/glpi.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Glpi</string>
+   </property>
+   <property name="toolTip">
+    <string>Glpi</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F5</string>
+   </property>
+  </action>
+  <action name="actionOcs">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/ocs.png</normaloff>iconos/ocs.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Ocs</string>
+   </property>
+   <property name="toolTip">
+    <string>Ocs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F6</string>
+   </property>
+  </action>
+  <action name="actionActiveDirectory">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/AD.png</normaloff>iconos/AD.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;activeDirectory</string>
+   </property>
+   <property name="toolTip">
+    <string>Active Directory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F7</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/salida.jpg</normaloff>iconos/salida.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Salir</string>
+   </property>
+   <property name="toolTip">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F8</string>
+   </property>
+  </action>
+  <action name="actionNuevo_Men">
+   <property name="text">
+    <string>&amp;Nueva Botonera</string>
+   </property>
+  </action>
+  <action name="actionISL">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/ISL50x50.png</normaloff>iconos/ISL50x50.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;ISL</string>
+   </property>
+   <property name="toolTip">
+    <string>ISLlight</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+9</string>
+   </property>
+  </action>
+  <action name="actionConfigurar">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/update.png</normaloff>iconos/update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Co&amp;nfigurar</string>
+   </property>
+  </action>
+  <action name="actionSoporte">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/equipos.gif</normaloff>iconos/equipos.gif</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Soporte</string>
+   </property>
+   <property name="toolTip">
+    <string>Soporte</string>
+   </property>
+  </action>
+  <action name="actionSedes">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/sedes.png</normaloff>iconos/sedes.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sedes</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
