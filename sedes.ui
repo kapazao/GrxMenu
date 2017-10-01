@@ -108,6 +108,9 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_35">
     <property name="geometry">
@@ -1460,6 +1463,70 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>comboBox_NODO</tabstop>
+  <tabstop>comboBox_IP</tabstop>
+  <tabstop>comboBox_TLF</tabstop>
+  <tabstop>comboBox_extension</tabstop>
+  <tabstop>comboBox_CP</tabstop>
+  <tabstop>lineEdit_via</tabstop>
+  <tabstop>lineEdit_direccion</tabstop>
+  <tabstop>lineEdit_numero</tabstop>
+  <tabstop>lineEdit_puerta</tabstop>
+  <tabstop>lineEdit_piso</tabstop>
+  <tabstop>lineEdit_letra</tabstop>
+  <tabstop>lineEdit_cp</tabstop>
+  <tabstop>lineEdit_municipio</tabstop>
+  <tabstop>lineEdit_latitud</tabstop>
+  <tabstop>lineEdit_longitud</tabstop>
+  <tabstop>lineEdit_contacto</tabstop>
+  <tabstop>comboBox_email</tabstop>
+  <tabstop>comboBox_telefonos</tabstop>
+  <tabstop>lineEdit_extension</tabstop>
+  <tabstop>lineEdit_fax</tabstop>
+  <tabstop>lineEdit_movil</tabstop>
+  <tabstop>lineEdit_mancomunidad</tabstop>
+  <tabstop>lineEdit_comarca</tabstop>
+  <tabstop>lineEdit_habitantes</tabstop>
+  <tabstop>lineEdit_superficie</tabstop>
+  <tabstop>lineEdit_altitud</tabstop>
+  <tabstop>lineEdit_latitud_municipio</tabstop>
+  <tabstop>lineEdit_longitud_municipio</tabstop>
+  <tabstop>comboBox_anio</tabstop>
+  <tabstop>checkBox_siapol</tabstop>
+  <tabstop>lineEdit_adsl</tabstop>
+  <tabstop>lineEdit_n_adm</tabstop>
+  <tabstop>lineEdit_ip_cifrado</tabstop>
+  <tabstop>lineEdit_servicio</tabstop>
+  <tabstop>lineEdit_caudal</tabstop>
+  <tabstop>lineEdit_equipamiento</tabstop>
+  <tabstop>lineEdit_cif</tabstop>
+  <tabstop>lineEdit_dir3</tabstop>
+  <tabstop>lineEdit_ine</tabstop>
+  <tabstop>pB_web</tabstop>
+  <tabstop>lineEdit_web</tabstop>
+  <tabstop>pB_bandera</tabstop>
+  <tabstop>lineEdit_bandera</tabstop>
+  <tabstop>pB_escudo</tabstop>
+  <tabstop>lineEdit_escudo</tabstop>
+  <tabstop>pB_sede</tabstop>
+  <tabstop>lineEdit_sede</tabstop>
+  <tabstop>sP_tablon</tabstop>
+  <tabstop>lineEdit_tablon</tabstop>
+  <tabstop>pB_portalTransparencia</tabstop>
+  <tabstop>lineEdit_portar_transparencia</tabstop>
+  <tabstop>checkBox_portal_web</tabstop>
+  <tabstop>checkBox_epol_movil</tabstop>
+  <tabstop>checkBox_correo</tabstop>
+  <tabstop>checkBox_basedatos_juridica</tabstop>
+  <tabstop>checkBox_suscripcion</tabstop>
+  <tabstop>checkBox_epol</tabstop>
+  <tabstop>checkBox_perfil_contratante</tabstop>
+  <tabstop>checkBox_gestion_municipal</tabstop>
+  <tabstop>checkBox_gestion_economica</tabstop>
+  <tabstop>checkBox_soporte</tabstop>
+  <tabstop>checkBox_sede_electronica</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

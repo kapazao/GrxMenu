@@ -55,6 +55,10 @@ private slots:
 
     void on_comboBox_extension_activated(const QString &arg1);
 
+    void on_comboBox_CP_activated(const QString &arg1);
+
+    void on_comboBox_TLF_activated(const QString &arg1);
+
 private:
     Ui::Sedes *ui;
     QSqlDatabase db;

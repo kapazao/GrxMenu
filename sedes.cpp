@@ -71,7 +71,7 @@ void Sedes::cargaCombo(){
     QSqlQuery* query_tlf = new QSqlQuery(db);
     QString sql;
     QString sql_tlf;
-    sql = "select NOMBRE,ipLinea,codigoPostal,extension from nodo";
+    sql = "select NOMBRE,ipLinea,codigoPostal,extension,id from nodo";
     sql_tlf = "select * from telefononodo";
     query->prepare(sql);
     query_tlf->prepare(sql_tlf);
@@ -130,9 +130,7 @@ void Sedes::consultaNodo(const QString &nombre){
             ui->comboBox_extension->clear();
             idNodo = consultar.value(1).toString();
             idAnio = ui->comboBox_anio->currentText();
-            //ui->comboBox_IP->setItemText(0,(consultar.value(21).toString()));
-            //ui->comboBox_CP->setItemText(0,(consultar.value(11).toString()));
-            //ui->comboBox_extension->setItemText(0,(consultar.value(15).toString()));
+
             ui->lineEdit_adsl->setText(consultar.value(19).toString());
             ui->lineEdit_via->setText(consultar.value(4).toString());
             ui->lineEdit_direccion->setText(consultar.value(5).toString());
@@ -178,6 +176,7 @@ void Sedes::consultaNodo(const QString &nombre){
             consultar_telefono.prepare(QString("select * from telefononodo where idNodo =:idNodo"));
             consultar_telefono.bindValue(":idNodo",idNodo);
             if (consultar_telefono.exec() and consultar_telefono.first()){
+                ui->comboBox_TLF->setCurrentIndex(ui->comboBox_TLF->findText(consultar_telefono.value(1).toString()));
                 do{
                     ui->comboBox_telefonos->addItem(consultar_telefono.value(1).toString());
                 }while(consultar_telefono.next());
@@ -235,11 +234,11 @@ void Sedes::consultaNodo(const QString &nombre){
 
 void Sedes::on_comboBox_NODO_activated(const QString &nombre)
 {
-        QSqlQuery query=model->query();
-        consultaNodo(nombre);
-        ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
+    QSqlQuery query=model->query();
+    consultaNodo(nombre);
+    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
+    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
 }
 
 void Sedes::on_comboBox_extension_activated(const QString &ext)
@@ -247,24 +246,53 @@ void Sedes::on_comboBox_extension_activated(const QString &ext)
     QSqlQuery query=model->query();
     consultaNodo(query.value(0).toString());
     ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
+    ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
+    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
 }
-
-
-
 
 void Sedes::on_comboBox_IP_activated(const QString &ip)
 {
-        //Vamos a usar el modelo
-        QHostAddress myIP;
-        QSqlQuery query= model->query();
-        if( myIP.setAddress(ip)){
-            consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
-            ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-            ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-            ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-        }
-        else
-            qDebug() << "Invalid IP address"<<endl;
+    //Vamos a usar el modelo
+    QHostAddress myIP;
+    QSqlQuery query= model->query();
+    if( myIP.setAddress(ip)){
+        consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
+        ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
+        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
+    }
+    else
+        qDebug() << "Invalid IP address"<<endl;
+}
+
+void Sedes::on_comboBox_CP_activated(const QString &arg1)
+{
+    QSqlQuery query=model->query();
+    consultaNodo(query.value(0).toString());
+    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
+    ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
+
+}
+
+void Sedes::on_comboBox_TLF_activated(const QString &arg1)
+{
+    QSqlQuery query_tlf=model_tlf->query();
+    QSqlQuery query=model->query();
+    QVariant datos;
+    QString tmp;
+    datos = model->data(model->index(query_tlf.value(0).toInt()-1,0));
+    tmp = datos.toString();
+    if (tmp != ui->comboBox_NODO->currentText())
+    {
+        consultaNodo(datos.toString());
+        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+        ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
+        ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
+        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
+    }
+
 }
 
 void Sedes::on_comboBox_anio_activated(const QString &arg1)
