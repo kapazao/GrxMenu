@@ -6048,7 +6048,7 @@
      <bool>false</bool>
     </property>
     <property name="tristate">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_correo">
@@ -6066,6 +6066,9 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="tristate">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_basedatos_juridica">
     <property name="geometry">
@@ -6081,6 +6084,9 @@
     </property>
     <property name="checkable">
      <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_suscripcion">
@@ -6098,6 +6104,9 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="tristate">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_perfil_contratante">
     <property name="geometry">
@@ -6110,6 +6119,9 @@
     </property>
     <property name="text">
      <string>E. Perfil del contratante</string>
+    </property>
+    <property name="tristate">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_gestion_municipal">
@@ -6127,6 +6139,9 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="tristate">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_gestion_economica">
     <property name="geometry">
@@ -6143,6 +6158,9 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="tristate">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_soporte">
     <property name="geometry">
@@ -6158,6 +6176,9 @@
     </property>
     <property name="checkable">
      <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_sede_electronica">
@@ -6194,6 +6215,9 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="tristate">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_epol_movil">
     <property name="geometry">
@@ -6209,6 +6233,9 @@
     </property>
     <property name="checkable">
      <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_siapol">

@@ -338,12 +338,110 @@ void Sedes::on_pB_escudo_clicked()
 }
 
 
-void Sedes::on_pb_Edicion_clicked()
+void Sedes::on_pb_Edicion_toggled(bool checked)
 {
     if (ui->pb_Edicion->isChecked()){
         ui->pb_Edicion->setStyleSheet("background-color:red");
-        ui->lineEdit_adsl->
+        ui->lineEdit_adsl->setReadOnly(false);
+        ui->lineEdit_altitud->setReadOnly(false);
+        ui->lineEdit_bandera->setReadOnly(false);
+        ui->lineEdit_caudal->setReadOnly(false);
+        ui->lineEdit_cif->setReadOnly(false);
+        ui->lineEdit_comarca->setReadOnly(false);
+        ui->lineEdit_contacto->setReadOnly(false);
+        ui->lineEdit_cp->setReadOnly(false);
+        ui->lineEdit_dir3->setReadOnly(false);
+        ui->lineEdit_direccion->setReadOnly(false);
+        ui->lineEdit_equipamiento->setReadOnly(false);
+        ui->lineEdit_escudo->setReadOnly(false);
+        ui->lineEdit_extension->setReadOnly(false);
+        ui->lineEdit_fax->setReadOnly(false);
+        ui->lineEdit_habitantes->setReadOnly(false);
+        ui->lineEdit_ine->setReadOnly(false);
+        ui->lineEdit_ip_cifrado->setReadOnly(false);
+        ui->lineEdit_latitud->setReadOnly(false);
+        ui->lineEdit_latitud_municipio->setReadOnly(false);
+        ui->lineEdit_letra->setReadOnly(false);
+        ui->lineEdit_longitud->setReadOnly(false);
+        ui->lineEdit_longitud_municipio->setReadOnly(false);
+        ui->lineEdit_mancomunidad->setReadOnly(false);
+        ui->lineEdit_movil->setReadOnly(false);
+        ui->lineEdit_municipio->setReadOnly(false);
+        ui->lineEdit_numero->setReadOnly(false);
+        ui->lineEdit_n_adm->setReadOnly(false);
+        ui->lineEdit_piso->setReadOnly(false);
+        ui->lineEdit_portar_transparencia->setReadOnly(false);
+        ui->lineEdit_puerta->setReadOnly(false);
+        ui->lineEdit_sede->setReadOnly(false);
+        ui->lineEdit_servicio->setReadOnly(false);
+        //ui->lineEdit_superficie->setReadOnly(false);
+        ui->lineEdit_tablon->setReadOnly(false);
+        ui->lineEdit_via->setReadOnly(false);
+        ui->lineEdit_web->setReadOnly(false);
+        ui->checkBox_basedatos_juridica->set(false);
+        ui->checkBox_correo->setCheckable(false);
+        ui->checkBox_epol->setCheckable(false);
+        ui->checkBox_epol_movil->setCheckable(false);
+        ui->checkBox_gestion_economica->setCheckable(false);
+        ui->checkBox_gestion_municipal->setCheckable(false);
+        ui->checkBox_perfil_contratante->setCheckable(false);
+        ui->checkBox_portal_web->setCheckable(false);
+        ui->checkBox_sede_electronica->setCheckable(false);
+        ui->checkBox_siapol->setCheckable(false);
+        ui->checkBox_soporte->setCheckable(false);
+        ui->checkBox_suscripcion->setCheckable(false);
+
     }
-    else
+    else{
         ui->pb_Edicion->setStyleSheet("background-color:#00aa7f");
+        ui->lineEdit_adsl->setReadOnly(true);
+        ui->lineEdit_altitud->setReadOnly(true);
+        ui->lineEdit_bandera->setReadOnly(true);
+        ui->lineEdit_caudal->setReadOnly(true);
+        ui->lineEdit_cif->setReadOnly(true);
+        ui->lineEdit_comarca->setReadOnly(true);
+        ui->lineEdit_contacto->setReadOnly(true);
+        ui->lineEdit_cp->setReadOnly(true);
+        ui->lineEdit_dir3->setReadOnly(true);
+        ui->lineEdit_direccion->setReadOnly(true);
+        ui->lineEdit_equipamiento->setReadOnly(true);
+        ui->lineEdit_escudo->setReadOnly(true);
+        ui->lineEdit_extension->setReadOnly(true);
+        ui->lineEdit_fax->setReadOnly(true);
+        ui->lineEdit_habitantes->setReadOnly(true);
+        ui->lineEdit_ine->setReadOnly(true);
+        ui->lineEdit_ip_cifrado->setReadOnly(true);
+        ui->lineEdit_latitud->setReadOnly(true);
+        ui->lineEdit_latitud_municipio->setReadOnly(true);
+        ui->lineEdit_letra->setReadOnly(true);
+        ui->lineEdit_longitud->setReadOnly(true);
+        ui->lineEdit_longitud_municipio->setReadOnly(true);
+        ui->lineEdit_mancomunidad->setReadOnly(true);
+        ui->lineEdit_movil->setReadOnly(true);
+        ui->lineEdit_municipio->setReadOnly(true);
+        ui->lineEdit_numero->setReadOnly(true);
+        ui->lineEdit_n_adm->setReadOnly(true);
+        ui->lineEdit_piso->setReadOnly(true);
+        ui->lineEdit_portar_transparencia->setReadOnly(true);
+        ui->lineEdit_puerta->setReadOnly(true);
+        ui->lineEdit_sede->setReadOnly(true);
+        ui->lineEdit_servicio->setReadOnly(true);
+        //ui->lineEdit_superficie->setReadOnly(true);
+        ui->lineEdit_tablon->setReadOnly(true);
+        ui->lineEdit_via->setReadOnly(true);
+        ui->lineEdit_web->setReadOnly(true);
+        ui->checkBox_basedatos_juridica->setAcceptDrops(true);
+        ui->checkBox_correo->setCheckable(true);
+        ui->checkBox_epol->setCheckable(true);
+        ui->checkBox_epol_movil->setCheckable(true);
+        ui->checkBox_gestion_economica->setCheckable(true);
+        ui->checkBox_gestion_municipal->setCheckable(true);
+        ui->checkBox_perfil_contratante->setCheckable(true);
+        ui->checkBox_portal_web->setCheckable(true);
+        ui->checkBox_sede_electronica->setCheckable(true);
+        ui->checkBox_siapol->setCheckable(true);
+        ui->checkBox_soporte->setCheckable(true);
+        ui->checkBox_suscripcion->setCheckable(true);
+
+    }
 }

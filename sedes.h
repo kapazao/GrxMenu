@@ -59,7 +59,7 @@ private slots:
 
     void on_comboBox_TLF_activated(const QString &arg1);
 
-    void on_pb_Edicion_clicked();
+    void on_pb_Edicion_toggled(bool checked);
 
 private:
     Ui::Sedes *ui;
