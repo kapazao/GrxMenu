@@ -59,6 +59,8 @@ private slots:
 
     void on_comboBox_TLF_activated(const QString &arg1);
 
+    void on_pb_Edicion_clicked();
+
 private:
     Ui::Sedes *ui;
     QSqlDatabase db;

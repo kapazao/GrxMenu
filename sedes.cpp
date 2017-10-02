@@ -337,3 +337,13 @@ void Sedes::on_pB_escudo_clicked()
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());
 }
 
+
+void Sedes::on_pb_Edicion_clicked()
+{
+    if (ui->pb_Edicion->isChecked()){
+        ui->pb_Edicion->setStyleSheet("background-color:red");
+        ui->lineEdit_adsl->
+    }
+    else
+        ui->pb_Edicion->setStyleSheet("background-color:#00aa7f");
+}
