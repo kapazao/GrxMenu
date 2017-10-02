@@ -378,7 +378,7 @@ void Sedes::on_pb_Edicion_toggled(bool checked)
         ui->lineEdit_tablon->setReadOnly(false);
         ui->lineEdit_via->setReadOnly(false);
         ui->lineEdit_web->setReadOnly(false);
-        ui->checkBox_basedatos_juridica->set(false);
+        ui->checkBox_basedatos_juridica->setCheckable(false);
         ui->checkBox_correo->setCheckable(false);
         ui->checkBox_epol->setCheckable(false);
         ui->checkBox_epol_movil->setCheckable(false);
