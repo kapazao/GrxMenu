@@ -37,10 +37,6 @@ void Sedes::checkBox_tresEstados(){
 
 }
 
-void Sedes::cambio_estado(){
-    qDebug()<<"eeee";
-}
-
 void Sedes::clean_checkbox(){
     ui->checkBox_portal_web->setCheckState((Qt::CheckState)0);
     ui->checkBox_correo->setCheckState((Qt::CheckState)0);
@@ -113,28 +109,59 @@ void Sedes::cargaCombo(){
 
 }
 
-
 void Sedes::conectar_checkbox(){
+    connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_correo, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_epol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_epol_movil, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_gestion_economica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_perfil_contratante, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_gestion_municipal, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_portal_web, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_sede_electronica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_siapol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_soporte, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
+    connect(ui->checkBox_suscripcion, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
 
-connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_correo, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_epol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_epol_movil, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_gestion_economica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_perfil_contratante, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_gestion_municipal, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_portal_web, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_sede_electronica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_siapol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_soporte, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
-connect(ui->checkBox_suscripcion, SIGNAL(clicked(bool)), this, SLOT(cambio_estado()));
+    connect(ui->lineEdit_adsl, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_altitud, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_bandera, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_caudal, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_cif, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_comarca, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_contacto, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_cp, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_dir3, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_direccion, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_equipamiento, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_escudo, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_extension, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_fax, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_habitantes, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_ine, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_ip_cifrado, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_latitud, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_latitud_municipio, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_letra, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_longitud, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_longitud_municipio, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_mancomunidad, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_movil, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_municipio, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_numero, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_n_adm, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_piso, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_portar_transparencia, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_puerta, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_sede, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_servicio, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_superficie, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_tablon, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_via, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_web, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+
 }
-
-
-
-
-
 
 void Sedes::consultaNodo(const QString &nombre){
 
@@ -367,7 +394,6 @@ void Sedes::on_pB_escudo_clicked()
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());
 }
 
-
 void Sedes::on_pb_Edicion_toggled(bool checked)
 {
     if (ui->pb_Edicion->isChecked()){
@@ -480,7 +506,7 @@ void Sedes::on_pb_Edicion_toggled(bool checked)
     }
 }
 
-void Sedes::comprueba_datos_cambiados()
+bool Sedes::comprueba_datos_cambiados()
 {
     if         (ui->lineEdit_adsl->isModified()||
                 ui->lineEdit_adsl->isModified()||
@@ -518,30 +544,36 @@ void Sedes::comprueba_datos_cambiados()
                 ui->lineEdit_tablon->isModified()||
                 ui->lineEdit_via->isModified()||
                 ui->lineEdit_web->isModified())
-             /*   ui->checkBox_basedatos_juridica->||
-                ui->checkBox_correo->isModified()||
-                ui->checkBox_epol->isModified()||
-                ui->checkBox_epol_movil->isModified()||
-                ui->checkBox_gestion_economica->isModified()||
-                ui->checkBox_gestion_municipal->isModified()||
-                ui->checkBox_perfil_contratante->isModified()||
-                ui->checkBox_portal_web->isModified()||
-                ui->checkBox_sede_electronica->isModified()||
-                ui->checkBox_siapol->isModified()||
-                ui->checkBox_soporte->isModified()||
-                ui->checkBox_suscripcion->isModified())
-            */
 
     {
-        qDebug() << ui->lineEdit_adsl->isModified();
-        qDebug()<< ui->lineEdit_adsl->text();
+        return true;
         qDebug()<< "ha cambiado";
     }
-
-
+return false;
 }
 
 void Sedes::on_comboBox_NODO_currentIndexChanged(int index)
 {
+          if (comprueba_datos_cambiados()||cambiado)
+              qDebug()<<"si ha cambiado";
+}
 
+void Sedes::on_lineEdit_adsl_textChanged(const QString &arg1)
+{
+    cambio_estado_line();
+}
+
+void Sedes::cambio_estado_line(){
+    QLineEdit * linea =qobject_cast<QLineEdit*>(sender());
+    if (linea->isModified()){
+        linea->setStyleSheet("color:red");
+        cambiado = true;
+    }
+}
+
+void Sedes::cambio_estado_checkbox(){
+     QCheckBox * CB =qobject_cast<QCheckBox*>(sender());
+
+         CB->setStyleSheet("color:red");
+         cambiado = true;
 }

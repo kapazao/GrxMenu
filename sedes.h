@@ -23,6 +23,7 @@ public:
     ~Sedes();
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQueryModel *model_tlf = new QSqlQueryModel();
+    bool cambiado = false;
 
 private slots:
     void on_comboBox_NODO_activated(const QString &arg1);
@@ -63,11 +64,15 @@ private slots:
 
     void on_comboBox_NODO_currentIndexChanged(int index);
 
-    void comprueba_datos_cambiados();
-
-    void cambio_estado();
+    bool comprueba_datos_cambiados();
 
     void conectar_checkbox();
+
+    void cambio_estado_line();
+
+    void cambio_estado_checkbox();
+
+    void on_lineEdit_adsl_textChanged(const QString &arg1);
 
 
 private:
