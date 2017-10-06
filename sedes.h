@@ -61,6 +61,15 @@ private slots:
 
     void on_pb_Edicion_toggled(bool checked);
 
+    void on_comboBox_NODO_currentIndexChanged(int index);
+
+    void comprueba_datos_cambiados();
+
+    void cambio_estado();
+
+    void conectar_checkbox();
+
+
 private:
     Ui::Sedes *ui;
     QSqlDatabase db;
