@@ -9,10 +9,11 @@ Sedes::Sedes(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
    // mascaraIP();//Ponemos una mascara para validar la ip introducida
+    cambio_estados_readonly(false);
     cargaCombo();//Cargamos las sedes en los combobox
-    //checkBox_tresEstados();//Ponemos los checkbox con tres estados
+    checkBox_Enabled(false);
+    checkBox_tresEstados(true);//Ponemos los checkbox con tres estados
 }
 
 Sedes::~Sedes()
@@ -20,20 +21,36 @@ Sedes::~Sedes()
     delete ui;
 }
 
-void Sedes::checkBox_tresEstados(){
+void Sedes::checkBox_tresEstados(bool estado){
 
-    ui->checkBox_basedatos_juridica->setTristate(true);
-    ui->checkBox_correo->setTristate(true);
-    ui->checkBox_epol->setTristate(true);
-    ui->checkBox_epol_movil->setTristate(true);
-    ui->checkBox_gestion_economica->setTristate(true);
-    ui->checkBox_perfil_contratante ->setTristate(true);
-    ui->checkBox_gestion_municipal->setTristate(true);
-    ui->checkBox_portal_web->setTristate(true);
-    ui->checkBox_sede_electronica->setTristate(true);
-    ui->checkBox_siapol->setTristate(true);
-    ui->checkBox_soporte->setTristate(true);
-    ui->checkBox_suscripcion->setTristate(true);
+    ui->checkBox_basedatos_juridica->setTristate(estado);
+    ui->checkBox_correo->setTristate(estado);
+    ui->checkBox_epol->setTristate(estado);
+    ui->checkBox_epol_movil->setTristate(estado);
+    ui->checkBox_gestion_economica->setTristate(estado);
+    ui->checkBox_perfil_contratante ->setTristate(estado);
+    ui->checkBox_gestion_municipal->setTristate(estado);
+    ui->checkBox_portal_web->setTristate(estado);
+    ui->checkBox_sede_electronica->setTristate(estado);
+    ui->checkBox_siapol->setTristate(estado);
+    ui->checkBox_soporte->setTristate(estado);
+    ui->checkBox_suscripcion->setTristate(estado);
+}
+
+void Sedes::checkBox_Enabled(bool estado){
+
+    ui->checkBox_basedatos_juridica->setEnabled(estado);
+    ui->checkBox_correo->setEnabled(estado);
+    ui->checkBox_epol->setEnabled(estado);
+    ui->checkBox_epol_movil->setEnabled(estado);
+    ui->checkBox_gestion_economica->setEnabled(estado);
+    ui->checkBox_perfil_contratante ->setEnabled(estado);
+    ui->checkBox_gestion_municipal->setEnabled(estado);
+    ui->checkBox_portal_web->setEnabled(estado);
+    ui->checkBox_sede_electronica->setEnabled(estado);
+    ui->checkBox_siapol->setEnabled(estado);
+    ui->checkBox_soporte->setEnabled(estado);
+    ui->checkBox_suscripcion->setEnabled(estado);
 
 }
 
@@ -50,6 +67,19 @@ void Sedes::clean_checkbox(){
     ui->checkBox_epol->setCheckState((Qt::CheckState)0);
     ui->checkBox_epol_movil->setCheckState((Qt::CheckState)0);
     ui->checkBox_siapol->setCheckState((Qt::CheckState)0);
+
+    ui->checkBox_portal_web->setStyleSheet("color:black");
+    ui->checkBox_correo->setStyleSheet("color:black");
+    ui->checkBox_basedatos_juridica->setStyleSheet("color:black");
+    ui->checkBox_gestion_municipal->setStyleSheet("color:black");
+    ui->checkBox_suscripcion->setStyleSheet("color:black");
+    ui->checkBox_perfil_contratante->setStyleSheet("color:black");
+    ui->checkBox_gestion_economica->setStyleSheet("color:black");
+    ui->checkBox_soporte->setStyleSheet("color:black");
+    ui->checkBox_sede_electronica->setStyleSheet("color:black");
+    ui->checkBox_epol->setStyleSheet("color:black");
+    ui->checkBox_epol_movil->setStyleSheet("color:black");
+    ui->checkBox_siapol->setStyleSheet("color:black");
 }
 
 void Sedes::mascaraIP(){
@@ -102,14 +132,14 @@ void Sedes::cargaCombo(){
         ui->comboBox_TLF->setModel(model_tlf);
         ui->comboBox_TLF->setModelColumn(1);
     }
-    conectar_checkbox();
+    conectar_checkbox_lineEdit();
 
     delete query;
     delete query_tlf;
 
 }
 
-void Sedes::conectar_checkbox(){
+void Sedes::conectar_checkbox_lineEdit(){
     connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
     connect(ui->checkBox_correo, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
     connect(ui->checkBox_epol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
@@ -121,7 +151,6 @@ void Sedes::conectar_checkbox(){
     connect(ui->checkBox_sede_electronica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
     connect(ui->checkBox_siapol, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
     connect(ui->checkBox_soporte, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
-    connect(ui->checkBox_basedatos_juridica, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
     connect(ui->checkBox_suscripcion, SIGNAL(clicked(bool)), this, SLOT(cambio_estado_checkbox()));
 
     connect(ui->lineEdit_adsl, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
@@ -289,18 +318,10 @@ void Sedes::consultaNodo(const QString &nombre){
 
 }
 
-void Sedes::on_comboBox_NODO_activated(const QString &nombre)
-{
-    QSqlQuery query=model->query();
-    consultaNodo(nombre);
-    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-}
-
 void Sedes::on_comboBox_extension_activated(const QString &ext)
 {
     QSqlQuery query=model->query();
+    boton_edicion_apagado();
     consultaNodo(query.value(0).toString());
     ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
     ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
@@ -308,24 +329,135 @@ void Sedes::on_comboBox_extension_activated(const QString &ext)
     ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
 }
 
-void Sedes::on_comboBox_IP_activated(const QString &ip)
+void Sedes::on_comboBox_NODO_activated(const QString &nombre)
 {
-    //Vamos a usar el modelo
-    QHostAddress myIP;
-    QSqlQuery query= model->query();
-    if( myIP.setAddress(ip)){
-        consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
-        ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-    }
-    else
-        qDebug() << "Invalid IP address"<<endl;
+    QSqlQuery query=model->query();
+    consultaNodo(nombre);
+    boton_edicion_apagado();
+    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
+    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
 }
 
+void Sedes::on_comboBox_IP_activated(const QString &ip)
+{
+    QHostAddress myIP;
+    QSqlQuery query= model->query();
+
+
+    //Cambios *cambios = new Cambios();
+
+    if (comprueba_datos_cambiados()||cambiado)
+        if ((QMessageBox::critical(this, "¿Guardar datos?", "Ha modificado algunos datos.\n¿Desea guardar los cambios?",
+                                        QMessageBox::Save|QMessageBox::Cancel))==QMessageBox::Save)
+        {
+            qDebug()<< "si";
+            grabar_datos(1);
+        }
+        else
+            qDebug()<< "no";
+
+        cambiado = false;
+        //Vamos a usar el modelo
+        cambio_color("black");
+        boton_edicion_apagado();
+
+        if( myIP.setAddress(ip)){
+            consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
+            ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
+            ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
+            ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
+        }
+            else
+                qDebug() << "Invalid IP address"<<endl;
+
+}
+
+void Sedes::grabar_datos(int id){
+    QSqlQuery consultar;
+    QSqlQuery consultar_telefono;
+    QSqlQuery consultar_email;
+    QSqlQuery consultar_poblacion;
+    QSqlQuery consultar_municipio;
+    QSqlQuery consultar_comarca;
+    QSqlQuery consultar_mancomunidad;
+    QSqlQuery consultar_programa;
+    QString idNodo;
+    QString idAnio;
+    QString idMunicipio;
+    QString tipoVia, nombreVia, extension,fax,sede,numeroDireccion, puertaDireccion, pisoDireccion,letraDireccion, codigoPostal, latitud, longitud, contacto, adslLinea, numAdministrativo, ipCifradoLinea, servicioLinea, caudalLinea, movil, equipamientoLinea;
+
+    consultar.prepare(QString("update nodo set tipoVia= :tipoVia, nombreVia = :nombreVia, numeroDireccion = :numeroDireccion,"
+                              "puertaDireccion = :puertaDireccion, pisoDireccion = :pisoDireccion, letraDireccion = :letraDireccion,"
+                               "codigoPostal = :codigoPostal, latitud =:latitud, longitud =:longitud,contacto =:contacto, movil= :movil, extension= :extension,fax = :fax,sede = :sede "
+                              "where id=:id"));
+    consultar.bindValue(":tipoVia", tipoVia);
+    consultar.bindValue(":nombreVia", nombreVia);
+    consultar.bindValue(":numeroDireccion", numeroDireccion);
+    consultar.bindValue(":puertaDireccion", puertaDireccion);
+    consultar.bindValue(":pisoDireccion", pisoDireccion );
+    consultar.bindValue(":letraDireccion", letraDireccion);
+    consultar.bindValue(":codigoPostal", codigoPostal);
+    consultar.bindValue(":latitud", latitud);
+    consultar.bindValue(":longitud", longitud);
+    consultar.bindValue(":contacto", contacto);
+    consultar.bindValue(":adslLinea", adslLinea);
+    consultar.bindValue(":numAdministrativo", numAdministrativo);
+    consultar.bindValue(":ipCifradoLinea", ipCifradoLinea);
+    consultar.bindValue(":servicioLinea", servicioLinea);
+    consultar.bindValue(":caudalLinea", caudalLinea);
+    consultar.bindValue(":movil", movil);
+    consultar.bindValue(":equipamientoLinea", equipamientoLinea);
+    consultar.bindValue(":id", id);
+    consultar.bindValue(":sede", sede);
+    consultar.bindValue(":fax", fax);
+    consultar.bindValue(":extension", extension);
+
+    tipoVia = ui->lineEdit_via->text();
+    nombreVia = ui->lineEdit_direccion->text();
+    numeroDireccion = ui->lineEdit_numero->text();
+    puertaDireccion = ui->lineEdit_puerta->text();
+    pisoDireccion = ui->lineEdit_piso->text();
+    letraDireccion = ui->lineEdit_letra->text();
+    codigoPostal = ui->lineEdit_cp->text();
+    latitud = ui->lineEdit_latitud->text();
+    longitud = ui->lineEdit_longitud->text();
+    contacto = ui->lineEdit_contacto->text();
+    adslLinea = ui->lineEdit_adsl->text();
+    numAdministrativo = ui->lineEdit_n_adm->text();
+    ipCifradoLinea = ui->lineEdit_ip_cifrado->text();
+    servicioLinea = ui->lineEdit_servicio->text();
+    caudalLinea = ui->lineEdit_caudal->text();
+    movil = ui->lineEdit_movil->text();
+    equipamientoLinea= ui->lineEdit_equipamiento->text();
+    sede = ui->lineEdit_sede->text();
+    fax = ui->lineEdit_fax->text();
+    extension = ui->lineEdit_extension->text();
+
+    qDebug() << tipoVia;
+    qDebug() << nombreVia;
+    qDebug() <<extension;
+    qDebug() <<fax;
+    qDebug() <<sede;
+    qDebug() <<numeroDireccion;
+    qDebug() <<puertaDireccion;
+    qDebug() << pisoDireccion;
+    qDebug() <<letraDireccion;
+    qDebug() <<codigoPostal;
+    qDebug() <<latitud;
+    qDebug() <<longitud;
+    qDebug() <<contacto;
+    qDebug() <<adslLinea, numAdministrativo, ipCifradoLinea, servicioLinea, caudalLinea;
+    qDebug() <<movil, equipamientoLinea;
+
+    if (!consultar.exec())
+        qDebug()<< consultar.lastError();
+
+}
 void Sedes::on_comboBox_CP_activated(const QString &arg1)
 {
     QSqlQuery query=model->query();
+    boton_edicion_apagado();
     consultaNodo(query.value(0).toString());
     ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
     ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
@@ -394,115 +526,120 @@ void Sedes::on_pB_escudo_clicked()
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());
 }
 
+void Sedes::cambio_estados_readonly(bool estado){
+    ui->lineEdit_adsl->setReadOnly(estado);
+    ui->lineEdit_altitud->setReadOnly(estado);
+    ui->lineEdit_bandera->setReadOnly(estado);
+    ui->lineEdit_caudal->setReadOnly(estado);
+    ui->lineEdit_cif->setReadOnly(estado);
+    ui->lineEdit_comarca->setReadOnly(estado);
+    ui->lineEdit_contacto->setReadOnly(estado);
+    ui->lineEdit_cp->setReadOnly(estado);
+    ui->lineEdit_dir3->setReadOnly(estado);
+    ui->lineEdit_direccion->setReadOnly(estado);
+    ui->lineEdit_equipamiento->setReadOnly(estado);
+    ui->lineEdit_escudo->setReadOnly(estado);
+    ui->lineEdit_extension->setReadOnly(estado);
+    ui->lineEdit_fax->setReadOnly(estado);
+    ui->lineEdit_habitantes->setReadOnly(estado);
+    ui->lineEdit_ine->setReadOnly(estado);
+    ui->lineEdit_ip_cifrado->setReadOnly(estado);
+    ui->lineEdit_latitud->setReadOnly(estado);
+    ui->lineEdit_latitud_municipio->setReadOnly(estado);
+    ui->lineEdit_letra->setReadOnly(estado);
+    ui->lineEdit_longitud->setReadOnly(estado);
+    ui->lineEdit_longitud_municipio->setReadOnly(estado);
+    ui->lineEdit_mancomunidad->setReadOnly(estado);
+    ui->lineEdit_movil->setReadOnly(estado);
+    ui->lineEdit_municipio->setReadOnly(estado);
+    ui->lineEdit_numero->setReadOnly(estado);
+    ui->lineEdit_n_adm->setReadOnly(estado);
+    ui->lineEdit_piso->setReadOnly(estado);
+    ui->lineEdit_portar_transparencia->setReadOnly(estado);
+    ui->lineEdit_puerta->setReadOnly(estado);
+    ui->lineEdit_sede->setReadOnly(estado);
+    ui->lineEdit_servicio->setReadOnly(estado);
+    //ui->lineEdit_superficie->setReadOnly(estado);
+    ui->lineEdit_tablon->setReadOnly(estado);
+    ui->lineEdit_via->setReadOnly(estado);
+    ui->lineEdit_web->setReadOnly(estado);
+    }
+
+void Sedes::cambio_color(QString color){
+ui->lineEdit_adsl->setStyleSheet("color:"+color);
+ui->lineEdit_altitud->setStyleSheet("color:"+color);
+ui->lineEdit_bandera->setStyleSheet("color:"+color);
+ui->lineEdit_caudal->setStyleSheet("color:"+color);
+ui->lineEdit_cif->setStyleSheet("color:"+color);
+ui->lineEdit_comarca->setStyleSheet("color:"+color);
+ui->lineEdit_contacto->setStyleSheet("color:"+color);
+ui->lineEdit_cp->setStyleSheet("color:"+color);
+ui->lineEdit_dir3->setStyleSheet("color:"+color);
+ui->lineEdit_direccion->setStyleSheet("color:"+color);
+ui->lineEdit_equipamiento->setStyleSheet("color:"+color);
+ui->lineEdit_escudo->setStyleSheet("color:"+color);
+ui->lineEdit_extension->setStyleSheet("color:"+color);
+ui->lineEdit_fax->setStyleSheet("color:"+color);
+ui->lineEdit_habitantes->setStyleSheet("color:"+color);
+ui->lineEdit_ine->setStyleSheet("color:"+color);
+ui->lineEdit_ip_cifrado->setStyleSheet("color:"+color);
+ui->lineEdit_latitud->setStyleSheet("color:"+color);
+ui->lineEdit_latitud_municipio->setStyleSheet("color:"+color);
+ui->lineEdit_letra->setStyleSheet("color:"+color);
+ui->lineEdit_longitud->setStyleSheet("color:"+color);
+ui->lineEdit_longitud_municipio->setStyleSheet("color:"+color);
+ui->lineEdit_mancomunidad->setStyleSheet("color:"+color);
+ui->lineEdit_movil->setStyleSheet("color:"+color);
+ui->lineEdit_municipio->setStyleSheet("color:"+color);
+ui->lineEdit_numero->setStyleSheet("color:"+color);
+ui->lineEdit_n_adm->setStyleSheet("color:"+color);
+ui->lineEdit_piso->setStyleSheet("color:"+color);
+ui->lineEdit_portar_transparencia->setStyleSheet("color:"+color);
+ui->lineEdit_puerta->setStyleSheet("color:"+color);
+ui->lineEdit_sede->setStyleSheet("color:"+color);
+ui->lineEdit_servicio->setStyleSheet("color:"+color);
+//ui->lineEdit_superficie->setStyleSheet("color:"+color);
+ui->lineEdit_tablon->setStyleSheet("color:"+color);
+ui->lineEdit_via->setStyleSheet("color:"+color);
+ui->lineEdit_web->setStyleSheet("color:"+color);
+ui->checkBox_basedatos_juridica->setStyleSheet("color:"+color);
+ui->checkBox_correo->setStyleSheet("color:"+color);
+ui->checkBox_epol->setStyleSheet("color:"+color);
+ui->checkBox_epol_movil->setStyleSheet("color:"+color);
+ui->checkBox_gestion_economica->setStyleSheet("color:"+color);
+ui->checkBox_gestion_municipal->setStyleSheet("color:"+color);
+ui->checkBox_perfil_contratante->setStyleSheet("color:"+color);
+ui->checkBox_portal_web->setStyleSheet("color:"+color);
+ui->checkBox_sede_electronica->setStyleSheet("color:"+color);
+ui->checkBox_siapol->setStyleSheet("color:"+color);
+ui->checkBox_soporte->setStyleSheet("color:"+color);
+ui->checkBox_suscripcion->setStyleSheet("color:"+color);
+
+
+}
+
+void Sedes::boton_edicion_apagado(){
+
+    checkBox_Enabled(false);
+    ui->pb_Edicion->setStyleSheet("background-color:#00aa7f");
+    ui->pb_Edicion->setChecked(false);
+    cambio_estados_readonly(true);
+}
+
+void Sedes::boton_edicion_encendido(){
+    checkBox_Enabled(true);
+    ui->pb_Edicion->setStyleSheet("background-color:red");
+    ui->pb_Edicion->setChecked(true);
+    cambio_estados_readonly(false);
+}
+
 void Sedes::on_pb_Edicion_toggled(bool checked)
 {
     if (ui->pb_Edicion->isChecked()){
-        ui->pb_Edicion->setStyleSheet("background-color:red");
-        ui->lineEdit_adsl->setReadOnly(false);
-        ui->lineEdit_altitud->setReadOnly(false);
-        ui->lineEdit_bandera->setReadOnly(false);
-        ui->lineEdit_caudal->setReadOnly(false);
-        ui->lineEdit_cif->setReadOnly(false);
-        ui->lineEdit_comarca->setReadOnly(false);
-        ui->lineEdit_contacto->setReadOnly(false);
-        ui->lineEdit_cp->setReadOnly(false);
-        ui->lineEdit_dir3->setReadOnly(false);
-        ui->lineEdit_direccion->setReadOnly(false);
-        ui->lineEdit_equipamiento->setReadOnly(false);
-        ui->lineEdit_escudo->setReadOnly(false);
-        ui->lineEdit_extension->setReadOnly(false);
-        ui->lineEdit_fax->setReadOnly(false);
-        ui->lineEdit_habitantes->setReadOnly(false);
-        ui->lineEdit_ine->setReadOnly(false);
-        ui->lineEdit_ip_cifrado->setReadOnly(false);
-        ui->lineEdit_latitud->setReadOnly(false);
-        ui->lineEdit_latitud_municipio->setReadOnly(false);
-        ui->lineEdit_letra->setReadOnly(false);
-        ui->lineEdit_longitud->setReadOnly(false);
-        ui->lineEdit_longitud_municipio->setReadOnly(false);
-        ui->lineEdit_mancomunidad->setReadOnly(false);
-        ui->lineEdit_movil->setReadOnly(false);
-        ui->lineEdit_municipio->setReadOnly(false);
-        ui->lineEdit_numero->setReadOnly(false);
-        ui->lineEdit_n_adm->setReadOnly(false);
-        ui->lineEdit_piso->setReadOnly(false);
-        ui->lineEdit_portar_transparencia->setReadOnly(false);
-        ui->lineEdit_puerta->setReadOnly(false);
-        ui->lineEdit_sede->setReadOnly(false);
-        ui->lineEdit_servicio->setReadOnly(false);
-        //ui->lineEdit_superficie->setReadOnly(false);
-        ui->lineEdit_tablon->setReadOnly(false);
-        ui->lineEdit_via->setReadOnly(false);
-        ui->lineEdit_web->setReadOnly(false);
-        ui->checkBox_basedatos_juridica->setCheckable(false);
-        ui->checkBox_correo->setCheckable(false);
-        ui->checkBox_epol->setCheckable(false);
-        ui->checkBox_epol_movil->setCheckable(false);
-        ui->checkBox_gestion_economica->setCheckable(false);
-        ui->checkBox_gestion_municipal->setCheckable(false);
-        ui->checkBox_perfil_contratante->setCheckable(false);
-        ui->checkBox_portal_web->setCheckable(false);
-        ui->checkBox_sede_electronica->setCheckable(false);
-        ui->checkBox_siapol->setCheckable(false);
-        ui->checkBox_soporte->setCheckable(false);
-        ui->checkBox_suscripcion->setCheckable(false);
-
+        boton_edicion_encendido();
     }
     else{
-        ui->pb_Edicion->setStyleSheet("background-color:#00aa7f");
-        ui->lineEdit_adsl->setReadOnly(true);
-        ui->lineEdit_altitud->setReadOnly(true);
-        ui->lineEdit_bandera->setReadOnly(true);
-        ui->lineEdit_caudal->setReadOnly(true);
-        ui->lineEdit_cif->setReadOnly(true);
-        ui->lineEdit_comarca->setReadOnly(true);
-        ui->lineEdit_contacto->setReadOnly(true);
-        ui->lineEdit_cp->setReadOnly(true);
-        ui->lineEdit_dir3->setReadOnly(true);
-        ui->lineEdit_direccion->setReadOnly(true);
-        ui->lineEdit_equipamiento->setReadOnly(true);
-        ui->lineEdit_escudo->setReadOnly(true);
-        ui->lineEdit_extension->setReadOnly(true);
-        ui->lineEdit_fax->setReadOnly(true);
-        ui->lineEdit_habitantes->setReadOnly(true);
-        ui->lineEdit_ine->setReadOnly(true);
-        ui->lineEdit_ip_cifrado->setReadOnly(true);
-        ui->lineEdit_latitud->setReadOnly(true);
-        ui->lineEdit_latitud_municipio->setReadOnly(true);
-        ui->lineEdit_letra->setReadOnly(true);
-        ui->lineEdit_longitud->setReadOnly(true);
-        ui->lineEdit_longitud_municipio->setReadOnly(true);
-        ui->lineEdit_mancomunidad->setReadOnly(true);
-        ui->lineEdit_movil->setReadOnly(true);
-        ui->lineEdit_municipio->setReadOnly(true);
-        ui->lineEdit_numero->setReadOnly(true);
-        ui->lineEdit_n_adm->setReadOnly(true);
-        ui->lineEdit_piso->setReadOnly(true);
-        ui->lineEdit_portar_transparencia->setReadOnly(true);
-        ui->lineEdit_puerta->setReadOnly(true);
-        ui->lineEdit_sede->setReadOnly(true);
-        ui->lineEdit_servicio->setReadOnly(true);
-        //ui->lineEdit_superficie->setReadOnly(true);
-        ui->lineEdit_tablon->setReadOnly(true);
-        ui->lineEdit_via->setReadOnly(true);
-        ui->lineEdit_web->setReadOnly(true);
-
-        ui->checkBox_basedatos_juridica->setAttribute(Qt::WA_TransparentForMouseEvents,true);
-        ui->checkBox_basedatos_juridica->setFocusPolicy(Qt::NoFocus);
-
-
-        ui->checkBox_correo->setCheckable(true);
-        ui->checkBox_epol->setCheckable(true);
-        ui->checkBox_epol_movil->setCheckable(true);
-        ui->checkBox_gestion_economica->setCheckable(true);
-        ui->checkBox_gestion_municipal->setCheckable(true);
-        ui->checkBox_perfil_contratante->setCheckable(true);
-        ui->checkBox_portal_web->setCheckable(true);
-        ui->checkBox_sede_electronica->setCheckable(true);
-        ui->checkBox_siapol->setCheckable(true);
-        ui->checkBox_soporte->setCheckable(true);
-        ui->checkBox_suscripcion->setCheckable(true);
-
+        boton_edicion_apagado();
     }
 }
 
@@ -554,26 +691,20 @@ return false;
 
 void Sedes::on_comboBox_NODO_currentIndexChanged(int index)
 {
-          if (comprueba_datos_cambiados()||cambiado)
+          if (comprueba_datos_cambiados())
               qDebug()<<"si ha cambiado";
-}
-
-void Sedes::on_lineEdit_adsl_textChanged(const QString &arg1)
-{
-    cambio_estado_line();
 }
 
 void Sedes::cambio_estado_line(){
     QLineEdit * linea =qobject_cast<QLineEdit*>(sender());
     if (linea->isModified()){
         linea->setStyleSheet("color:red");
-        cambiado = true;
     }
 }
 
 void Sedes::cambio_estado_checkbox(){
      QCheckBox * CB =qobject_cast<QCheckBox*>(sender());
-
          CB->setStyleSheet("color:red");
          cambiado = true;
 }
+

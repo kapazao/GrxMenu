@@ -5406,9 +5406,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5416,35 +5416,35 @@
        <brush brushstyle="SolidPattern">
         <color alpha="255">
          <red>255</red>
-         <green>216</green>
-         <blue>39</blue>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>225</red>
-         <green>188</green>
-         <blue>19</blue>
+         <red>233</red>
+         <green>235</green>
+         <blue>231</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
-         <blue>0</blue>
+         <red>105</red>
+         <green>107</green>
+         <blue>103</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>131</red>
-         <green>107</green>
-         <blue>0</blue>
+         <red>141</red>
+         <green>143</green>
+         <blue>138</blue>
         </color>
        </brush>
       </colorrole>
@@ -5487,9 +5487,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5505,9 +5505,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>225</red>
-         <green>207</green>
-         <blue>127</blue>
+         <red>233</red>
+         <green>235</green>
+         <blue>231</blue>
         </color>
        </brush>
       </colorrole>
@@ -5543,9 +5543,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5553,35 +5553,35 @@
        <brush brushstyle="SolidPattern">
         <color alpha="255">
          <red>255</red>
-         <green>216</green>
-         <blue>39</blue>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>225</red>
-         <green>188</green>
-         <blue>19</blue>
+         <red>233</red>
+         <green>235</green>
+         <blue>231</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
-         <blue>0</blue>
+         <red>105</red>
+         <green>107</green>
+         <blue>103</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>131</red>
-         <green>107</green>
-         <blue>0</blue>
+         <red>141</red>
+         <green>143</green>
+         <blue>138</blue>
         </color>
        </brush>
       </colorrole>
@@ -5624,9 +5624,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5642,9 +5642,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>225</red>
-         <green>207</green>
-         <blue>127</blue>
+         <red>233</red>
+         <green>235</green>
+         <blue>231</blue>
         </color>
        </brush>
       </colorrole>
@@ -5671,8 +5671,8 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
+         <red>0</red>
+         <green>0</green>
          <blue>0</blue>
         </color>
        </brush>
@@ -5680,9 +5680,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5690,43 +5690,43 @@
        <brush brushstyle="SolidPattern">
         <color alpha="255">
          <red>255</red>
-         <green>216</green>
-         <blue>39</blue>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Midlight">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>225</red>
-         <green>188</green>
-         <blue>19</blue>
+         <red>233</red>
+         <green>235</green>
+         <blue>231</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Dark">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
-         <blue>0</blue>
+         <red>105</red>
+         <green>107</green>
+         <blue>103</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Mid">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>131</red>
-         <green>107</green>
-         <blue>0</blue>
+         <red>141</red>
+         <green>143</green>
+         <blue>138</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Text">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
+         <red>0</red>
+         <green>0</green>
          <blue>0</blue>
         </color>
        </brush>
@@ -5743,8 +5743,8 @@
       <colorrole role="ButtonText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>98</red>
-         <green>80</green>
+         <red>0</red>
+         <green>0</green>
          <blue>0</blue>
         </color>
        </brush>
@@ -5752,18 +5752,18 @@
       <colorrole role="Base">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>238</red>
+         <green>238</green>
+         <blue>236</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>211</red>
+         <green>215</green>
+         <blue>207</blue>
         </color>
        </brush>
       </colorrole>
@@ -5779,9 +5779,9 @@
       <colorrole role="AlternateBase">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>196</red>
-         <green>160</green>
-         <blue>0</blue>
+         <red>238</red>
+         <green>238</green>
+         <blue>236</blue>
         </color>
        </brush>
       </colorrole>
@@ -6033,6 +6033,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_portal_web">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6055,6 +6058,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_correo">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6074,6 +6080,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_basedatos_juridica">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6093,6 +6102,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_suscripcion">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6112,6 +6124,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_perfil_contratante">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6128,6 +6143,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_gestion_municipal">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6147,6 +6165,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_gestion_economica">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6166,6 +6187,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_soporte">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6185,6 +6209,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_sede_electronica">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6204,6 +6231,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_epol">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6223,6 +6253,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_epol_movil">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -6242,6 +6275,9 @@
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_siapol">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>420</x>

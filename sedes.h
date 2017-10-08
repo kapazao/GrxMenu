@@ -9,6 +9,7 @@
 #include "QtDebug"
 #include "nmap_xml.h"
 #include "configuracion.h"
+#include <QMessageBox>
 
 namespace Ui {
 class Sedes;
@@ -34,13 +35,17 @@ private slots:
 
     void cargaCombo();
 
-    void checkBox_tresEstados();
+    void checkBox_tresEstados(bool estado);
 
     void clean_checkbox();
 
     void consultaNodo(const QString &nombre);
 
     void on_pB_web_clicked();
+
+    void boton_edicion_apagado();
+
+    void boton_edicion_encendido();
 
     void on_pB_sede_clicked();
 
@@ -49,6 +54,8 @@ private slots:
     void on_pB_portalTransparencia_clicked();
 
     void on_pB_bandera_clicked();
+
+    void grabar_datos(int id);
 
     void on_comboBox_IP_activated(const QString &arg1);
 
@@ -66,13 +73,17 @@ private slots:
 
     bool comprueba_datos_cambiados();
 
-    void conectar_checkbox();
+    void conectar_checkbox_lineEdit();
 
     void cambio_estado_line();
 
-    void cambio_estado_checkbox();
+    void cambio_estados_readonly(bool estado);
 
-    void on_lineEdit_adsl_textChanged(const QString &arg1);
+    void cambio_color(QString color);
+
+    void checkBox_Enabled(bool estado);
+
+    void cambio_estado_checkbox();
 
 
 private:
