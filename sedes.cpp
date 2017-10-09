@@ -385,75 +385,37 @@ void Sedes::grabar_datos(int id){
     QString idNodo;
     QString idAnio;
     QString idMunicipio;
-    QString tipoVia, nombreVia, extension,fax,sede,numeroDireccion, puertaDireccion, pisoDireccion,letraDireccion, codigoPostal, latitud, longitud, contacto, adslLinea, numAdministrativo, ipCifradoLinea, servicioLinea, caudalLinea, movil, equipamientoLinea;
 
     consultar.prepare(QString("update nodo set tipoVia= :tipoVia, nombreVia = :nombreVia, numeroDireccion = :numeroDireccion,"
                               "puertaDireccion = :puertaDireccion, pisoDireccion = :pisoDireccion, letraDireccion = :letraDireccion,"
                                "codigoPostal = :codigoPostal, latitud =:latitud, longitud =:longitud,contacto =:contacto, movil= :movil, extension= :extension,fax = :fax,sede = :sede "
                               "where id=:id"));
-    consultar.bindValue(":tipoVia", tipoVia);
-    consultar.bindValue(":nombreVia", nombreVia);
-    consultar.bindValue(":numeroDireccion", numeroDireccion);
-    consultar.bindValue(":puertaDireccion", puertaDireccion);
-    consultar.bindValue(":pisoDireccion", pisoDireccion );
-    consultar.bindValue(":letraDireccion", letraDireccion);
-    consultar.bindValue(":codigoPostal", codigoPostal);
-    consultar.bindValue(":latitud", latitud);
-    consultar.bindValue(":longitud", longitud);
-    consultar.bindValue(":contacto", contacto);
-    consultar.bindValue(":adslLinea", adslLinea);
-    consultar.bindValue(":numAdministrativo", numAdministrativo);
-    consultar.bindValue(":ipCifradoLinea", ipCifradoLinea);
-    consultar.bindValue(":servicioLinea", servicioLinea);
-    consultar.bindValue(":caudalLinea", caudalLinea);
-    consultar.bindValue(":movil", movil);
-    consultar.bindValue(":equipamientoLinea", equipamientoLinea);
     consultar.bindValue(":id", id);
-    consultar.bindValue(":sede", sede);
-    consultar.bindValue(":fax", fax);
-    consultar.bindValue(":extension", extension);
-
-    tipoVia = ui->lineEdit_via->text();
-    nombreVia = ui->lineEdit_direccion->text();
-    numeroDireccion = ui->lineEdit_numero->text();
-    puertaDireccion = ui->lineEdit_puerta->text();
-    pisoDireccion = ui->lineEdit_piso->text();
-    letraDireccion = ui->lineEdit_letra->text();
-    codigoPostal = ui->lineEdit_cp->text();
-    latitud = ui->lineEdit_latitud->text();
-    longitud = ui->lineEdit_longitud->text();
-    contacto = ui->lineEdit_contacto->text();
-    adslLinea = ui->lineEdit_adsl->text();
-    numAdministrativo = ui->lineEdit_n_adm->text();
-    ipCifradoLinea = ui->lineEdit_ip_cifrado->text();
-    servicioLinea = ui->lineEdit_servicio->text();
-    caudalLinea = ui->lineEdit_caudal->text();
-    movil = ui->lineEdit_movil->text();
-    equipamientoLinea= ui->lineEdit_equipamiento->text();
-    sede = ui->lineEdit_sede->text();
-    fax = ui->lineEdit_fax->text();
-    extension = ui->lineEdit_extension->text();
-
-    qDebug() << tipoVia;
-    qDebug() << nombreVia;
-    qDebug() <<extension;
-    qDebug() <<fax;
-    qDebug() <<sede;
-    qDebug() <<numeroDireccion;
-    qDebug() <<puertaDireccion;
-    qDebug() << pisoDireccion;
-    qDebug() <<letraDireccion;
-    qDebug() <<codigoPostal;
-    qDebug() <<latitud;
-    qDebug() <<longitud;
-    qDebug() <<contacto;
-    qDebug() <<adslLinea, numAdministrativo, ipCifradoLinea, servicioLinea, caudalLinea;
-    qDebug() <<movil, equipamientoLinea;
-
+    consultar.bindValue(":tipoVia", ui->lineEdit_via->text());
+    consultar.bindValue(":nombreVia", ui->lineEdit_direccion->text());
+    consultar.bindValue(":numeroDireccion", ui->lineEdit_numero->text());
+    consultar.bindValue(":puertaDireccion", ui->lineEdit_puerta->text());
+    consultar.bindValue(":pisoDireccion", ui->lineEdit_piso->text() );
+    consultar.bindValue(":letraDireccion", ui->lineEdit_letra->text());
+    consultar.bindValue(":codigoPostal", ui->lineEdit_cp->text());
+    consultar.bindValue(":latitud", ui->lineEdit_latitud->text());
+    consultar.bindValue(":longitud", ui->lineEdit_longitud->text());
+    consultar.bindValue(":contacto", ui->lineEdit_contacto->text());
+    consultar.bindValue(":adslLinea", ui->lineEdit_adsl->text());
+    consultar.bindValue(":numAdministrativo", ui->lineEdit_n_adm->text());
+    consultar.bindValue(":ipCifradoLinea", ui->lineEdit_ip_cifrado->text());
+    consultar.bindValue(":servicioLinea", ui->lineEdit_servicio->text());
+    consultar.bindValue(":caudalLinea", ui->lineEdit_caudal->text());
+    consultar.bindValue(":movil", ui->lineEdit_movil->text());
+    consultar.bindValue(":equipamientoLinea", ui->lineEdit_equipamiento->text());
+    consultar.bindValue(":sede", ui->lineEdit_sede->text());
+    consultar.bindValue(":fax", ui->lineEdit_fax->text());
+    consultar.bindValue(":extension", ui->lineEdit_extension->text());
     if (!consultar.exec())
         qDebug()<< consultar.lastError();
 
 }
+
 void Sedes::on_comboBox_CP_activated(const QString &arg1)
 {
     QSqlQuery query=model->query();

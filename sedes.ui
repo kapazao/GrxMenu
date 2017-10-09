@@ -2215,6 +2215,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
       <widget class="QLineEdit" name="lineEdit_cp">
+       <property name="inputMask">
+        <string>99999</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -2255,6 +2258,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
       <widget class="QLineEdit" name="lineEdit_numero">
+       <property name="inputMask">
+        <string>AAA</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -2262,6 +2268,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_puerta">
+       <property name="inputMask">
+        <string>AAA</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -2269,6 +2278,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_piso">
+       <property name="inputMask">
+        <string>AAA</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -2276,6 +2288,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_letra">
+       <property name="inputMask">
+        <string>A</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -2314,6 +2329,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_11">
      <item>
       <widget class="QLineEdit" name="lineEdit_via">
+       <property name="inputMask">
+        <string>AAAAAAAAAAAAAAAA</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -3827,6 +3845,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
       <widget class="QLineEdit" name="lineEdit_cif">
+       <property name="inputMask">
+        <string>&gt;A9999999A</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>

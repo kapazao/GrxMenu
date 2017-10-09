@@ -1652,6 +1652,12 @@ public:
         label_4->setText(QApplication::translate("Sedes", "N\303\272mero", Q_NULLPTR));
         label_6->setText(QApplication::translate("Sedes", "Letra", Q_NULLPTR));
         label_7->setText(QApplication::translate("Sedes", "Puerta", Q_NULLPTR));
+        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", Q_NULLPTR));
+        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", Q_NULLPTR));
+        lineEdit_via->setInputMask(QApplication::translate("Sedes", "AAAAAAAAAAAAAAAA", Q_NULLPTR));
         label_22->setText(QApplication::translate("Sedes", "Adsl", Q_NULLPTR));
         label_21->setText(QApplication::translate("Sedes", "N. Administrativo", Q_NULLPTR));
         label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", Q_NULLPTR));
@@ -1663,6 +1669,7 @@ public:
         label_28->setText(QApplication::translate("Sedes", "Dir3", Q_NULLPTR));
         label_29->setText(QApplication::translate("Sedes", "Ine", Q_NULLPTR));
         label_27->setText(QApplication::translate("Sedes", "Cif", Q_NULLPTR));
+        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", Q_NULLPTR));
         pB_web->setText(QApplication::translate("Sedes", "web", Q_NULLPTR));
         pB_bandera->setText(QApplication::translate("Sedes", "Bandera", Q_NULLPTR));
         pB_escudo->setText(QApplication::translate("Sedes", "Escudo", Q_NULLPTR));
