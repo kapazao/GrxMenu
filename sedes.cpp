@@ -375,7 +375,6 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
 
 void Sedes::grabar_datos(int id){
     QSqlQuery consultar;
-    QSqlQuery consultar_telefono;
     QSqlQuery consultar_email;
     QSqlQuery consultar_poblacion;
     QSqlQuery consultar_municipio;
@@ -385,11 +384,13 @@ void Sedes::grabar_datos(int id){
     QString idNodo;
     QString idAnio;
     QString idMunicipio;
+    QSqlError error;
 
     consultar.prepare(QString("update nodo set tipoVia= :tipoVia, nombreVia = :nombreVia, numeroDireccion = :numeroDireccion,"
                               "puertaDireccion = :puertaDireccion, pisoDireccion = :pisoDireccion, letraDireccion = :letraDireccion,"
-                               "codigoPostal = :codigoPostal, latitud =:latitud, longitud =:longitud,contacto =:contacto, movil= :movil, extension= :extension,fax = :fax,sede = :sede "
-                              "where id=:id"));
+                              "codigoPostal = :codigoPostal, latitud =:latitud, longitud =:longitud, contacto =:contacto, adslLinea=:adslLinea, numAdministrativoLinea=:numAdministrativoLinea,"
+                              "movil= :movil, extension= :extension, fax = :fax, sede = :sede, ipCifradoLinea= :ipCifradoLinea, servicioLinea=:servicioLinea, caudalLinea=:caudalLinea,"
+                              "equipamientoLinea=:equipamientoLinea, sede=:sede, fax=:fax, extension=:extension where id=:id"));
     consultar.bindValue(":id", id);
     consultar.bindValue(":tipoVia", ui->lineEdit_via->text());
     consultar.bindValue(":nombreVia", ui->lineEdit_direccion->text());
@@ -402,7 +403,7 @@ void Sedes::grabar_datos(int id){
     consultar.bindValue(":longitud", ui->lineEdit_longitud->text());
     consultar.bindValue(":contacto", ui->lineEdit_contacto->text());
     consultar.bindValue(":adslLinea", ui->lineEdit_adsl->text());
-    consultar.bindValue(":numAdministrativo", ui->lineEdit_n_adm->text());
+    consultar.bindValue(":numAdministrativoLinea", ui->lineEdit_n_adm->text());
     consultar.bindValue(":ipCifradoLinea", ui->lineEdit_ip_cifrado->text());
     consultar.bindValue(":servicioLinea", ui->lineEdit_servicio->text());
     consultar.bindValue(":caudalLinea", ui->lineEdit_caudal->text());
@@ -411,10 +412,66 @@ void Sedes::grabar_datos(int id){
     consultar.bindValue(":sede", ui->lineEdit_sede->text());
     consultar.bindValue(":fax", ui->lineEdit_fax->text());
     consultar.bindValue(":extension", ui->lineEdit_extension->text());
-    if (!consultar.exec())
-        qDebug()<< consultar.lastError();
+
+
+   // error = (QString)consultar.lastError();
+    if (!consultar.exec()){
+        QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error: "+error.text(),QMessageBox::Ok);
+        qDebug()<<"error"<<error.text();
+    }
+    else{
+        consultar_municipio.prepare(QString("update municipio set urlBandera=:urlBandera,urlEscudo=:urlEscudo, superficie= :superficie,"
+                                  "CIF= :CIF, codigoINE = :codigoINE,latitud=:latitud,altitud=:altitud,longitud=:longitud,altitud=:altitud,"
+                                            " codigoDIR3 = :codigoDIR3,urlTablon=:urlTablon, url_PortalTransparencia=:url_PortalTransparencia,"
+                                            "numeroHabitantes=:numeroHabitantes,web=:web where id=:id"));
+            consultar_municipio.bindValue(":id", id);
+            consultar_municipio.bindValue(":web", ui->lineEdit_web->text());
+            consultar_municipio.bindValue(":urlBandera", ui->lineEdit_bandera->text());
+            consultar_municipio.bindValue(":urlEscudo", ui->lineEdit_escudo->text());
+            consultar_municipio.bindValue(":superficie", ui->lineEdit_superficie->text());
+            consultar_municipio.bindValue(":CIF", ui->lineEdit_cif->text());
+            consultar_municipio.bindValue(":codigoINE", ui->lineEdit_ine->text());
+            consultar_municipio.bindValue(":latitud", ui->lineEdit_latitud_municipio->text());
+            consultar_municipio.bindValue(":longitud", ui->lineEdit_longitud_municipio->text());
+            consultar_municipio.bindValue(":codigoDIR3", ui->lineEdit_dir3->text());
+            consultar_municipio.bindValue(":urlTablon", ui->lineEdit_tablon->text());
+            consultar_municipio.bindValue(":url_PortalTransparencia", ui->lineEdit_portar_transparencia->text());
+            consultar_municipio.bindValue(":web", ui->lineEdit_web->text());
+            consultar_municipio.bindValue(":altitud", ui->lineEdit_altitud->text());
+            consultar_municipio.bindValue(":numeroHabitantes", ui->lineEdit_habitantes->text());
+    }
+        if (!consultar_municipio.exec())
+            qDebug()<< consultar_municipio.lastError();
+
+        consultar_programa.prepare(QString("update programa set portal_web=:portal_web,correo=:correo, basedatos_juridica= :basedatos_juridica,"
+                                  "suscripcion= :suscripcion, perfil_contratante =:perfil_contratante,gestion_municipal=:gestion_municipal,"
+                                            "gestion_economica=:gestion_economica,soporte=:soporte, sede_electronica=:sede_electronica,"
+                                            "epol=:epol,siapol=:siapol,epol_movil=:epol_movil where id=:id and anio=:anio"));
+        consultar_programa.bindValue(":id", id);
+        consultar_programa.bindValue(":anio", ui->comboBox_anio->currentText());
+        consultar_programa.bindValue(":portal_web", (int)ui->checkBox_portal_web->checkState());
+        consultar_programa.bindValue(":correo", (int)ui->checkBox_correo->checkState());
+        consultar_programa.bindValue(":basedatos_juridica", (int)ui->checkBox_basedatos_juridica->checkState());
+        consultar_programa.bindValue(":suscripcion",(int) ui->checkBox_suscripcion->checkState());
+        consultar_programa.bindValue(":perfil_contratante", (int)ui->checkBox_perfil_contratante->checkState());
+        consultar_programa.bindValue(":gestion_municipal",(int) ui->checkBox_gestion_municipal->checkState());
+        consultar_programa.bindValue(":gestion_economica",(int) ui->checkBox_gestion_economica->checkState());
+        consultar_programa.bindValue(":soporte",(int) ui->checkBox_soporte->checkState());
+        consultar_programa.bindValue(":sede_electronica", (int)ui->checkBox_sede_electronica->checkState());
+        consultar_programa.bindValue(":epol", (int)ui->checkBox_epol->checkState());
+        consultar_programa.bindValue(":epol_movil",(int) ui->checkBox_epol_movil->checkState());
+        consultar_programa.bindValue(":siapol", (int)ui->checkBox_siapol->checkState());
+
+        if (!consultar_programa.exec())
+            qDebug()<< consultar_municipio.lastError();
 
 }
+
+
+
+
+
+
 
 void Sedes::on_comboBox_CP_activated(const QString &arg1)
 {
@@ -521,7 +578,7 @@ void Sedes::cambio_estados_readonly(bool estado){
     ui->lineEdit_puerta->setReadOnly(estado);
     ui->lineEdit_sede->setReadOnly(estado);
     ui->lineEdit_servicio->setReadOnly(estado);
-    //ui->lineEdit_superficie->setReadOnly(estado);
+    ui->lineEdit_superficie->setReadOnly(estado);
     ui->lineEdit_tablon->setReadOnly(estado);
     ui->lineEdit_via->setReadOnly(estado);
     ui->lineEdit_web->setReadOnly(estado);

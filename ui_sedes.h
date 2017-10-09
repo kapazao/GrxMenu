@@ -1657,7 +1657,7 @@ public:
         lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
         lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
         lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", Q_NULLPTR));
-        lineEdit_via->setInputMask(QApplication::translate("Sedes", "AAAAAAAAAAAAAAAA", Q_NULLPTR));
+        lineEdit_via->setInputMask(QString());
         label_22->setText(QApplication::translate("Sedes", "Adsl", Q_NULLPTR));
         label_21->setText(QApplication::translate("Sedes", "N. Administrativo", Q_NULLPTR));
         label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", Q_NULLPTR));
