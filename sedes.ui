@@ -2330,7 +2330,7 @@
      <item>
       <widget class="QLineEdit" name="lineEdit_via">
        <property name="inputMask">
-        <string>AAAAAAAAAAAAAAAA</string>
+        <string/>
        </property>
        <property name="readOnly">
         <bool>true</bool>
