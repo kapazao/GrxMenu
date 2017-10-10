@@ -28,10 +28,9 @@ public:
     QString cual_es_beiro();
     QString cual_es_DataBaseName();
     QString cual_es_HostName();
-    QString cual_es_puertoDB();
     QString cual_es_UserName();
     QString cual_es_PaswordDB();
-    int cual_es_PuertoDB();
+    QString cual_es_PuertoDB();
     QString cual_es_ServidorSSH();
     QString cual_es_usuario_ssh();
     QString cual_es_clave_ssh();
@@ -104,7 +103,7 @@ private:
     QString DataBaseName;
     QString HostName;
     QString UserName;
-    int PuertoDB;
+    QString PuertoDB;
     QString PasswordDB;
     QString UsarSSH;
     QString ServidorSSH;

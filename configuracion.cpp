@@ -38,8 +38,6 @@ Configuracion::~Configuracion()
 {
     delete ui;
 }
-
-
 QString  Configuracion::cual_es_home(){
     return home_usuario;
 }
@@ -70,7 +68,7 @@ QString  Configuracion::cual_es_DataBaseName(){
 QString  Configuracion::cual_es_HostName(){
     return HostName;
 }
-int  Configuracion::cual_es_PuertoDB(){
+QString  Configuracion::cual_es_PuertoDB(){
     return PuertoDB;
 }
 QString  Configuracion::cual_es_UserName(){
@@ -140,7 +138,6 @@ return false;
 QString  Configuracion::cual_es_resolucion(){
       return Resolucion;
 }
-
 void Configuracion::carga_configuracion_color(){
 
     ui->fr_linux->setStyleSheet("background-color:"+Fr_linux+";");
@@ -149,7 +146,6 @@ void Configuracion::carga_configuracion_color(){
     ui->fr_TS->setStyleSheet("background-color:"+Fr_TS+";");
     ui->fr_kerberos->setStyleSheet("background-color:"+Fr_kerberos+";");
 }
-
 void Configuracion::carga_configuracion()
 {
     //Carga de los valores de las variables de configuracion
@@ -163,7 +159,7 @@ void Configuracion::carga_configuracion()
     ClaveAD = s.value("Configuracion/ClaveAD").toString();
     DataBaseName = s.value("Configuracion/DataBaseName").toString();
     HostName = s.value("Configuracion/HostName").toString();
-    PuertoDB = s.value("Configuracion/PuertoDB").toInt();
+    PuertoDB = s.value("Configuracion/PuertoDB").toString();
     UserName = s.value("Configuracion/UserName").toString();
     PasswordDB = s.value("Configuracion/PasswordDB").toString();
     UsarSSH = s.value("Configuracion/UsarSSH").toString();
@@ -236,7 +232,6 @@ void Configuracion::carga_configuracion()
     ui->clave_remoto->setText(ClaveRemoto);
     ui->cb_resolucion->setCurrentText(Resolucion);
 }
-
 void Configuracion::habilitaSSH(){
     ui->puerto_Local_ssh->setEnabled(true);
     ui->servidor_SSH->setEnabled(true);
@@ -300,15 +295,12 @@ void Configuracion::on_buttonBox_accepted()
     else
         s.setValue("Configuracion/Rdesktop","False");
 }
-
 void Configuracion::on_Btn_Kerberos_clicked()
 {
     QProcess process;
     process.startDetached("wbinfo -K", QStringList() << ui->tecnico->text());
 
 }
-
-
 void Configuracion::on_PB_linux_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::blue, this );
@@ -318,7 +310,6 @@ void Configuracion::on_PB_linux_clicked()
           ui->fr_linux->setStyleSheet("background-color:"+Fr_linux+";");
         }
 }
-
 void Configuracion::on_PB_rutas_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::blue, this );
@@ -328,7 +319,6 @@ void Configuracion::on_PB_rutas_clicked()
           ui->fr_rutas->setStyleSheet("background-color:"+Fr_rutas+";");
         }
 }
-
 void Configuracion::on_PB_TS_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::blue, this );
@@ -338,7 +328,6 @@ void Configuracion::on_PB_TS_clicked()
           ui->fr_TS->setStyleSheet("background-color:"+Fr_TS+";");
         }
 }
-
 void Configuracion::on_PB_DB_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::blue, this );
@@ -348,7 +337,6 @@ void Configuracion::on_PB_DB_clicked()
           ui->fr_DB->setStyleSheet("background-color:"+Fr_DB+";");
         }
 }
-
 void Configuracion::on_PB_kerberos_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::blue, this );
@@ -368,9 +356,6 @@ void Configuracion::on_lb_rutas_linkActivated(const QString &link)
           ui->fr_rutas->setStyleSheet("background-color:"+Fr_rutas+";");
         }
 }
-
-
-
 
 void Configuracion::on_Btn_lupa_clicked()
 {
