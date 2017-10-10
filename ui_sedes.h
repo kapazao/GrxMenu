@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sedes.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.1
+** Created by: Qt User Interface Compiler version 5.6.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -122,8 +122,8 @@ public:
     QLabel *label_26;
     QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_2;
-    QLineEdit *lineEdit_mancomunidad;
-    QLineEdit *lineEdit_comarca;
+    QComboBox *comboBox_mancomunidad;
+    QComboBox *comboBox_comarca;
     QFrame *frame_6;
     QLabel *label_28;
     QLabel *label_29;
@@ -926,17 +926,15 @@ public:
         horizontalLayout_2 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        lineEdit_mancomunidad = new QLineEdit(layoutWidget3);
-        lineEdit_mancomunidad->setObjectName(QStringLiteral("lineEdit_mancomunidad"));
-        lineEdit_mancomunidad->setReadOnly(true);
+        comboBox_mancomunidad = new QComboBox(layoutWidget3);
+        comboBox_mancomunidad->setObjectName(QStringLiteral("comboBox_mancomunidad"));
 
-        horizontalLayout_2->addWidget(lineEdit_mancomunidad);
+        horizontalLayout_2->addWidget(comboBox_mancomunidad);
 
-        lineEdit_comarca = new QLineEdit(layoutWidget3);
-        lineEdit_comarca->setObjectName(QStringLiteral("lineEdit_comarca"));
-        lineEdit_comarca->setReadOnly(true);
+        comboBox_comarca = new QComboBox(layoutWidget3);
+        comboBox_comarca->setObjectName(QStringLiteral("comboBox_comarca"));
 
-        horizontalLayout_2->addWidget(lineEdit_comarca);
+        horizontalLayout_2->addWidget(comboBox_comarca);
 
         frame_6 = new QFrame(Sedes);
         frame_6->setObjectName(QStringLiteral("frame_6"));
@@ -1574,9 +1572,7 @@ public:
         QWidget::setTabOrder(comboBox_telefonos, lineEdit_extension);
         QWidget::setTabOrder(lineEdit_extension, lineEdit_fax);
         QWidget::setTabOrder(lineEdit_fax, lineEdit_movil);
-        QWidget::setTabOrder(lineEdit_movil, lineEdit_mancomunidad);
-        QWidget::setTabOrder(lineEdit_mancomunidad, lineEdit_comarca);
-        QWidget::setTabOrder(lineEdit_comarca, lineEdit_habitantes);
+        QWidget::setTabOrder(lineEdit_movil, lineEdit_habitantes);
         QWidget::setTabOrder(lineEdit_habitantes, lineEdit_superficie);
         QWidget::setTabOrder(lineEdit_superficie, lineEdit_altitud);
         QWidget::setTabOrder(lineEdit_altitud, lineEdit_latitud_municipio);
@@ -1623,92 +1619,92 @@ public:
 
     void retranslateUi(QWidget *Sedes)
     {
-        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", Q_NULLPTR));
+        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", 0));
 #ifndef QT_NO_STATUSTIP
         Sedes->setStatusTip(QString());
 #endif // QT_NO_STATUSTIP
-        label_2->setText(QApplication::translate("Sedes", "IP", Q_NULLPTR));
-        label->setText(QApplication::translate("Sedes", "Nodo", Q_NULLPTR));
-        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", Q_NULLPTR));
-        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
-        label_38->setText(QApplication::translate("Sedes", "CP", Q_NULLPTR));
-        pb_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", Q_NULLPTR));
-        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", Q_NULLPTR));
-        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", Q_NULLPTR));
-        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
-        label_14->setText(QApplication::translate("Sedes", "Fax", Q_NULLPTR));
-        label_15->setText(QApplication::translate("Sedes", "M\303\263vil", Q_NULLPTR));
-        label_16->setText(QApplication::translate("Sedes", "Email", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Sedes", "IP", 0));
+        label->setText(QApplication::translate("Sedes", "Nodo", 0));
+        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", 0));
+        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
+        label_38->setText(QApplication::translate("Sedes", "CP", 0));
+        pb_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", 0));
+        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", 0));
+        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", 0));
+        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
+        label_14->setText(QApplication::translate("Sedes", "Fax", 0));
+        label_15->setText(QApplication::translate("Sedes", "M\303\263vil", 0));
+        label_16->setText(QApplication::translate("Sedes", "Email", 0));
         lineEdit_extension->setText(QString());
         lineEdit_fax->setText(QString());
         lineEdit_movil->setText(QString());
-        label_8->setText(QApplication::translate("Sedes", "Piso", Q_NULLPTR));
-        label_9->setText(QApplication::translate("Sedes", "CP", Q_NULLPTR));
-        label_10->setText(QApplication::translate("Sedes", "Municipio", Q_NULLPTR));
-        label_17->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
-        label_18->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", Q_NULLPTR));
-        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", Q_NULLPTR));
-        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", Q_NULLPTR));
-        label_6->setText(QApplication::translate("Sedes", "Letra", Q_NULLPTR));
-        label_7->setText(QApplication::translate("Sedes", "Puerta", Q_NULLPTR));
-        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", Q_NULLPTR));
-        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Sedes", "Piso", 0));
+        label_9->setText(QApplication::translate("Sedes", "CP", 0));
+        label_10->setText(QApplication::translate("Sedes", "Municipio", 0));
+        label_17->setText(QApplication::translate("Sedes", "Latitud", 0));
+        label_18->setText(QApplication::translate("Sedes", "Longitud", 0));
+        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", 0));
+        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", 0));
+        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", 0));
+        label_6->setText(QApplication::translate("Sedes", "Letra", 0));
+        label_7->setText(QApplication::translate("Sedes", "Puerta", 0));
+        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", 0));
+        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", 0));
+        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", 0));
+        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", 0));
+        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", 0));
         lineEdit_via->setInputMask(QString());
-        label_22->setText(QApplication::translate("Sedes", "Adsl", Q_NULLPTR));
-        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", Q_NULLPTR));
-        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", Q_NULLPTR));
-        label_20->setText(QApplication::translate("Sedes", "Servicio", Q_NULLPTR));
-        label_23->setText(QApplication::translate("Sedes", "Caudal", Q_NULLPTR));
-        label_24->setText(QApplication::translate("Sedes", "Equipamiento", Q_NULLPTR));
-        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", Q_NULLPTR));
-        label_26->setText(QApplication::translate("Sedes", "Comarca", Q_NULLPTR));
-        label_28->setText(QApplication::translate("Sedes", "Dir3", Q_NULLPTR));
-        label_29->setText(QApplication::translate("Sedes", "Ine", Q_NULLPTR));
-        label_27->setText(QApplication::translate("Sedes", "Cif", Q_NULLPTR));
-        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", Q_NULLPTR));
-        pB_web->setText(QApplication::translate("Sedes", "web", Q_NULLPTR));
-        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", Q_NULLPTR));
-        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", Q_NULLPTR));
-        label_31->setText(QApplication::translate("Sedes", "N\303\272mero de Habitantes", Q_NULLPTR));
-        label_32->setText(QApplication::translate("Sedes", "Superficie Km", Q_NULLPTR));
-        label_33->setText(QApplication::translate("Sedes", "Altitud", Q_NULLPTR));
-        label_36->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
-        label_37->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
-        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", Q_NULLPTR));
-        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", Q_NULLPTR));
-        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", Q_NULLPTR));
-        label_30->setText(QApplication::translate("Sedes", "N\302\272", Q_NULLPTR));
-        label_41->setText(QApplication::translate("Sedes", "Programa", Q_NULLPTR));
-        label_46->setText(QApplication::translate("Sedes", "165", Q_NULLPTR));
-        label_47->setText(QApplication::translate("Sedes", "166", Q_NULLPTR));
-        label_48->setText(QApplication::translate("Sedes", "167", Q_NULLPTR));
-        label_49->setText(QApplication::translate("Sedes", "168", Q_NULLPTR));
-        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", Q_NULLPTR));
-        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", Q_NULLPTR));
-        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", Q_NULLPTR));
-        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", Q_NULLPTR));
-        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", Q_NULLPTR));
-        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", Q_NULLPTR));
-        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", Q_NULLPTR));
-        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", Q_NULLPTR));
-        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", Q_NULLPTR));
-        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", Q_NULLPTR));
-        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", Q_NULLPTR));
-        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", Q_NULLPTR));
-        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", Q_NULLPTR));
-        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", Q_NULLPTR));
-        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", Q_NULLPTR));
-        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", Q_NULLPTR));
-        label_44->setText(QApplication::translate("Sedes", "A\303\261o", Q_NULLPTR));
+        label_22->setText(QApplication::translate("Sedes", "Adsl", 0));
+        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", 0));
+        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", 0));
+        label_20->setText(QApplication::translate("Sedes", "Servicio", 0));
+        label_23->setText(QApplication::translate("Sedes", "Caudal", 0));
+        label_24->setText(QApplication::translate("Sedes", "Equipamiento", 0));
+        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", 0));
+        label_26->setText(QApplication::translate("Sedes", "Comarca", 0));
+        label_28->setText(QApplication::translate("Sedes", "Dir3", 0));
+        label_29->setText(QApplication::translate("Sedes", "Ine", 0));
+        label_27->setText(QApplication::translate("Sedes", "Cif", 0));
+        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", 0));
+        pB_web->setText(QApplication::translate("Sedes", "web", 0));
+        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", 0));
+        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", 0));
+        label_31->setText(QApplication::translate("Sedes", "N\303\272mero de Habitantes", 0));
+        label_32->setText(QApplication::translate("Sedes", "Superficie Km", 0));
+        label_33->setText(QApplication::translate("Sedes", "Altitud", 0));
+        label_36->setText(QApplication::translate("Sedes", "Latitud", 0));
+        label_37->setText(QApplication::translate("Sedes", "Longitud", 0));
+        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", 0));
+        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", 0));
+        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", 0));
+        label_30->setText(QApplication::translate("Sedes", "N\302\272", 0));
+        label_41->setText(QApplication::translate("Sedes", "Programa", 0));
+        label_46->setText(QApplication::translate("Sedes", "165", 0));
+        label_47->setText(QApplication::translate("Sedes", "166", 0));
+        label_48->setText(QApplication::translate("Sedes", "167", 0));
+        label_49->setText(QApplication::translate("Sedes", "168", 0));
+        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", 0));
+        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", 0));
+        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", 0));
+        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", 0));
+        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", 0));
+        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", 0));
+        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", 0));
+        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", 0));
+        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", 0));
+        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", 0));
+        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", 0));
+        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", 0));
+        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", 0));
+        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", 0));
+        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", 0));
+        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", 0));
+        label_44->setText(QApplication::translate("Sedes", "A\303\261o", 0));
         comboBox_anio->clear();
         comboBox_anio->insertItems(0, QStringList()
-         << QApplication::translate("Sedes", "16/17", Q_NULLPTR)
-         << QApplication::translate("Sedes", "18/19", Q_NULLPTR)
-         << QApplication::translate("Sedes", "20/21", Q_NULLPTR)
+         << QApplication::translate("Sedes", "16/17", 0)
+         << QApplication::translate("Sedes", "18/19", 0)
+         << QApplication::translate("Sedes", "20/21", 0)
         );
     } // retranslateUi
 

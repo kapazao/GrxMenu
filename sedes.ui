@@ -3348,18 +3348,10 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLineEdit" name="lineEdit_mancomunidad">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
+      <widget class="QComboBox" name="comboBox_mancomunidad"/>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_comarca">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
+      <widget class="QComboBox" name="comboBox_comarca"/>
      </item>
     </layout>
    </widget>
@@ -6381,8 +6373,6 @@
   <tabstop>lineEdit_extension</tabstop>
   <tabstop>lineEdit_fax</tabstop>
   <tabstop>lineEdit_movil</tabstop>
-  <tabstop>lineEdit_mancomunidad</tabstop>
-  <tabstop>lineEdit_comarca</tabstop>
   <tabstop>lineEdit_habitantes</tabstop>
   <tabstop>lineEdit_superficie</tabstop>
   <tabstop>lineEdit_altitud</tabstop>
