@@ -31,7 +31,7 @@ public:
     QString cual_es_puertoDB();
     QString cual_es_UserName();
     QString cual_es_PaswordDB();
-    QString cual_es_PuertoDB();
+    int cual_es_PuertoDB();
     QString cual_es_ServidorSSH();
     QString cual_es_usuario_ssh();
     QString cual_es_clave_ssh();
@@ -80,6 +80,7 @@ private slots:
     void on_Btn_lupa_clicked();
 
     void deshabilitaSSH();
+
     void habilitaSSH();
 
     void on_checkBox_ssh_clicked();
@@ -103,7 +104,7 @@ private:
     QString DataBaseName;
     QString HostName;
     QString UserName;
-    QString PuertoDB;
+    int PuertoDB;
     QString PasswordDB;
     QString UsarSSH;
     QString ServidorSSH;

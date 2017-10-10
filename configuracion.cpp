@@ -70,7 +70,7 @@ QString  Configuracion::cual_es_DataBaseName(){
 QString  Configuracion::cual_es_HostName(){
     return HostName;
 }
-QString  Configuracion::cual_es_PuertoDB(){
+int  Configuracion::cual_es_PuertoDB(){
     return PuertoDB;
 }
 QString  Configuracion::cual_es_UserName(){
@@ -163,7 +163,7 @@ void Configuracion::carga_configuracion()
     ClaveAD = s.value("Configuracion/ClaveAD").toString();
     DataBaseName = s.value("Configuracion/DataBaseName").toString();
     HostName = s.value("Configuracion/HostName").toString();
-    PuertoDB = s.value("Configuracion/PuertoDB").toString();
+    PuertoDB = s.value("Configuracion/PuertoDB").toInt();
     UserName = s.value("Configuracion/UserName").toString();
     PasswordDB = s.value("Configuracion/PasswordDB").toString();
     UsarSSH = s.value("Configuracion/UsarSSH").toString();
@@ -213,7 +213,7 @@ void Configuracion::carga_configuracion()
     ui->servidor->setText(ServidorAD);
     ui->usuario_ad->setText(UsuarioAD);
     ui->DataBaseName->setText(DataBaseName);
-    ui->puerto_DB->setText(PuertoDB);
+    ui->puerto_DB->setText((QString)PuertoDB);
     ui->servidor_DB->setText(HostName);
     ui->Usuario_DB->setText(UserName);
     ui->password_DB->setText(PasswordDB);
