@@ -28,10 +28,19 @@ public:
     QString cual_es_beiro();
     QString cual_es_DataBaseName();
     QString cual_es_HostName();
+    QString cual_es_puertoDB();
     QString cual_es_UserName();
     QString cual_es_PaswordDB();
-    QString cual_es_puerto();
+    QString cual_es_PuertoDB();
+    QString cual_es_ServidorSSH();
+    QString cual_es_usuario_ssh();
+    QString cual_es_clave_ssh();
+    QString cual_es_servidorSSH();
+    QString cual_es_usuarioSSH();
+    QString cual_es_puerto_remoto_ssh();
+    QString cual_es_puerto_local_ssh();
     QString cual_es_isl();
+    QString cual_es_puerto();
     QString cual_es_ocs();
     QString cual_es_glpi();
     QString cual_es_cronos();
@@ -39,6 +48,7 @@ public:
     QString cual_es_clave_cifrado();
     QString cual_es_clave_remoto();
     bool es_rdesktop();
+    bool es_usarSSH();
     QString cual_es_rdesktop();
     QString cual_es_resolucion();
     bool createConnection();
@@ -69,6 +79,11 @@ private slots:
 
     void on_Btn_lupa_clicked();
 
+    void deshabilitaSSH();
+    void habilitaSSH();
+
+    void on_checkBox_ssh_clicked();
+
 private:
 
     QString home_usuario;
@@ -88,7 +103,14 @@ private:
     QString DataBaseName;
     QString HostName;
     QString UserName;
+    QString PuertoDB;
     QString PasswordDB;
+    QString UsarSSH;
+    QString ServidorSSH;
+    QString UsuarioSSH;
+    QString ClaveSSH;
+    QString PuertoRemotoSSH;
+    QString PuertoLocalSSH;
     QString Password;
     QString ClaveCifrado;
     QString ClaveRemoto;

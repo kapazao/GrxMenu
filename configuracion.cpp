@@ -70,6 +70,9 @@ QString  Configuracion::cual_es_DataBaseName(){
 QString  Configuracion::cual_es_HostName(){
     return HostName;
 }
+QString  Configuracion::cual_es_PuertoDB(){
+    return PuertoDB;
+}
 QString  Configuracion::cual_es_UserName(){
     return UserName;
 }
@@ -81,6 +84,21 @@ QString  Configuracion::cual_es_usuario_remoto(){
 }
 QString  Configuracion::cual_es_puerto(){
       return Puerto;
+}
+QString  Configuracion::cual_es_servidorSSH(){
+    return ServidorSSH;
+}
+QString  Configuracion::cual_es_usuarioSSH(){
+    return UsuarioSSH;
+}
+QString  Configuracion::cual_es_clave_ssh(){
+      return ClaveSSH;
+}
+QString  Configuracion::cual_es_puerto_remoto_ssh(){
+      return PuertoRemotoSSH;
+}
+QString  Configuracion::cual_es_puerto_local_ssh(){
+      return PuertoLocalSSH;
 }
 QString  Configuracion::cual_es_isl(){
       return ISL;
@@ -114,6 +132,11 @@ bool Configuracion::es_rdesktop(){
           return true;
 return false;
 }
+bool Configuracion::es_usarSSH(){
+      if (UsarSSH =="True")
+          return true;
+return false;
+}
 QString  Configuracion::cual_es_resolucion(){
       return Resolucion;
 }
@@ -140,8 +163,15 @@ void Configuracion::carga_configuracion()
     ClaveAD = s.value("Configuracion/ClaveAD").toString();
     DataBaseName = s.value("Configuracion/DataBaseName").toString();
     HostName = s.value("Configuracion/HostName").toString();
+    PuertoDB = s.value("Configuracion/PuertoDB").toString();
     UserName = s.value("Configuracion/UserName").toString();
     PasswordDB = s.value("Configuracion/PasswordDB").toString();
+    UsarSSH = s.value("Configuracion/UsarSSH").toString();
+    ServidorSSH = s.value("Configuracion/ServidorSSH").toString();
+    UsuarioSSH =  s.value("Configuracion/UsuarioSSH").toString();
+    ClaveSSH = s.value("Configuracion/ClaveSSH").toString();
+    PuertoRemotoSSH = s.value("Configuracion/PuertoRemotoSSH").toString();
+    PuertoLocalSSH = s.value("Configuracion/PuertoLocalSSH").toString();
     ISL = s.value("Configuracion/ISL").toString();
     OCS = s.value("Configuracion/OCS").toString();
     GLPI = s.value("Configuracion/GLPI").toString();
@@ -169,14 +199,29 @@ void Configuracion::carga_configuracion()
     else
         ui->rb_freerdp->setChecked(true);
 
+    if (es_usarSSH()){
+        ui->checkBox_ssh->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_ssh->setChecked(false);
+        deshabilitaSSH();
+    }
+
     ui->tecnico->setText(Tecnico);
     ui->clave->setText(Clave);
     ui->servidor->setText(ServidorAD);
     ui->usuario_ad->setText(UsuarioAD);
     ui->DataBaseName->setText(DataBaseName);
+    ui->puerto_DB->setText(PuertoDB);
     ui->servidor_DB->setText(HostName);
     ui->Usuario_DB->setText(UserName);
     ui->password_DB->setText(PasswordDB);
+    ui->servidor_SSH->setText(ServidorSSH);
+    ui->usuario_ssh_BD->setText(UsuarioSSH);
+    ui->clave_ssh_BD->setText(ClaveSSH);
+    ui->puerto_Local_ssh->setText(PuertoLocalSSH);
+    ui->puerto_Remoto_ssh->setText(PuertoRemotoSSH);
     ui->clave_ad->setText(ClaveAD);
     ui->usuario_remoto->setText(UsuarioRemoto);
     ui->puerto->setText(Puerto);
@@ -192,7 +237,21 @@ void Configuracion::carga_configuracion()
     ui->cb_resolucion->setCurrentText(Resolucion);
 }
 
+void Configuracion::habilitaSSH(){
+    ui->puerto_Local_ssh->setEnabled(true);
+    ui->servidor_SSH->setEnabled(true);
+    ui->usuario_ssh_BD->setEnabled(true);
+    ui->clave_ssh_BD->setEnabled(true);
+    ui->puerto_Remoto_ssh->setEnabled(true);
 
+}
+void Configuracion::deshabilitaSSH(){
+    ui->puerto_Local_ssh->setEnabled(false);
+    ui->servidor_SSH->setEnabled(false);
+    ui->usuario_ssh_BD->setEnabled(false);
+    ui->clave_ssh_BD->setEnabled(false);
+    ui->puerto_Remoto_ssh->setEnabled(false);
+}
 void Configuracion::on_buttonBox_accepted()
 {
     //Usamos Qsettings para guardar los valores de las variables en un archivo .ini
@@ -211,6 +270,12 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/HostName", ui->servidor_DB->text());
     s.setValue("Configuracion/UserName", ui->Usuario_DB->text());
     s.setValue("Configuracion/PasswordDB", ui->password_DB->text());
+    s.setValue("Configuracion/PuertoDB", ui->puerto_DB->text());
+    s.setValue("Configuracion/ServidorSSH", ui->servidor_SSH->text());
+    s.setValue("Configuracion/UsuarioSSH", ui->usuario_ssh_BD->text());
+    s.setValue("Configuracion/ClaveSSH", ui->clave_ssh_BD->text());
+    s.setValue("Configuracion/PuertoRemotoSSH", ui->puerto_Remoto_ssh->text());
+    s.setValue("Configuracion/PuertoLocalSSH", ui->puerto_Local_ssh->text());
     s.setValue("Configuracion/OCS", ui->OCS->text());
     s.setValue("Configuracion/GLPI", ui->GLPI->text());
     s.setValue("Configuracion/Beiro", ui->beiro->text());
@@ -219,12 +284,16 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/ClaveCifrado",ui->clave_cifrado->text());
     s.setValue("Configuracion/ClaveRemoto",ui->clave_remoto->text());
     s.setValue("Configuracion/Resolucion",ui->cb_resolucion->currentText());
-
     s.setValue("Configuracion/fr_linux",Fr_linux);
     s.setValue("Configuracion/fr_kerberos",Fr_kerberos);
     s.setValue("Configuracion/fr_DB",Fr_DB);
     s.setValue("Configuracion/fr_TS",Fr_TS);
     s.setValue("Configuracion/fr_rutas",Fr_rutas);
+
+    if (ui->checkBox_ssh->isChecked())
+        s.setValue("Configuracion/UsarSSH","True");
+    else
+        s.setValue("Configuracion/UsarSSH","False");
 
     if (ui->rb_rdesktop->isChecked())
         s.setValue("Configuracion/Rdesktop","True");
@@ -308,4 +377,12 @@ void Configuracion::on_Btn_lupa_clicked()
     QString fichero = QFileDialog::getOpenFileName(this, tr("Selecciona el ejecutable"),ui->ISL->text());
     ui->ISL->setText(fichero);
 
+}
+
+void Configuracion::on_checkBox_ssh_clicked()
+{
+    if (ui->checkBox_ssh->isChecked())
+        habilitaSSH();
+    else
+        deshabilitaSSH();
 }

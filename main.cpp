@@ -10,6 +10,7 @@ bool createConnection()
 {
     Configuracion *configuracion = new Configuracion;
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+
     db.setDatabaseName(configuracion->cual_es_DataBaseName());
     db.setHostName(configuracion->cual_es_HostName());
     db.setUserName(configuracion->cual_es_UserName());

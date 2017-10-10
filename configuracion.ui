@@ -6,33 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
-    <height>511</height>
+    <width>962</width>
+    <height>739</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Configuración</string>
   </property>
-  <widget class="QLabel" name="label_11">
-   <property name="geometry">
-    <rect>
-     <x>506</x>
-     <y>43</y>
-     <width>16</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QFrame" name="fr_DB">
    <property name="geometry">
     <rect>
      <x>540</x>
      <y>210</y>
      <width>411</width>
-     <height>181</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -44,7 +31,7 @@
    <widget class="QPushButton" name="PB_DB">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>359</x>
       <y>10</y>
       <width>31</width>
       <height>25</height>
@@ -68,9 +55,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
-      <width>349</width>
-      <height>21</height>
+      <y>20</y>
+      <width>272</width>
+      <height>22</height>
      </rect>
     </property>
     <property name="font">
@@ -84,83 +71,181 @@
      <string>Configuración de la Base de Datos</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>381</width>
-      <height>122</height>
+      <x>10</x>
+      <y>50</y>
+      <width>391</width>
+      <height>412</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <layout class="QVBoxLayout" name="verticalLayout_12">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QLabel" name="label_25">
-         <property name="text">
-          <string>Servidor BD</string>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QLabel" name="label_25">
+           <property name="text">
+            <string>Servidor BD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>Puerto</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_26">
+           <property name="text">
+            <string>Nombre de la BD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>Usuario BD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_28">
+           <property name="text">
+            <string>Password BD</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_26">
-         <property name="text">
-          <string>Nombre de la BD</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_27">
-         <property name="text">
-          <string>Usuario BD</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_28">
-         <property name="text">
-          <string>Password BD</string>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QLineEdit" name="servidor_DB">
+           <property name="toolTip">
+            <string>IP del servidor terminal server donde nos queremos conectar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="puerto_DB"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="DataBaseName">
+           <property name="toolTip">
+            <string>Nombre de usuario del técnico en el dominio (si_manolito)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="Usuario_DB">
+           <property name="toolTip">
+            <string>Clave del técnico en el dominio</string>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Normal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="password_DB">
+           <property name="toolTip">
+            <string>Nombre de usuario del técnico en el dominio (si_manolito)</string>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_8">
+      <widget class="QCheckBox" name="checkBox_ssh">
+       <property name="text">
+        <string>Usar tunel cifrado</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
-        <widget class="QLineEdit" name="servidor_DB">
-         <property name="toolTip">
-          <string>IP del servidor terminal server donde nos queremos conectar</string>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>Servidor SSH</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_30">
+           <property name="text">
+            <string>Usuario ssh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_31">
+           <property name="text">
+            <string>Clave ssh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>Puerto Remoto</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>Puerto Local</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLineEdit" name="DataBaseName">
-         <property name="toolTip">
-          <string>Nombre de usuario del técnico en el dominio (si_manolito)</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="Usuario_DB">
-         <property name="toolTip">
-          <string>Clave del técnico en el dominio</string>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="password_DB">
-         <property name="toolTip">
-          <string>Nombre de usuario del técnico en el dominio (si_manolito)</string>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Password</enum>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QLineEdit" name="servidor_SSH"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="usuario_ssh_BD"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="clave_ssh_BD">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="puerto_Remoto_ssh">
+           <property name="inputMask">
+            <string>99999</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="puerto_Local_ssh">
+           <property name="inputMask">
+            <string>99999</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -198,10 +283,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>40</y>
-      <width>381</width>
-      <height>151</height>
+      <width>391</width>
+      <height>154</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -364,7 +449,7 @@
    <property name="geometry">
     <rect>
      <x>790</x>
-     <y>470</y>
+     <y>700</y>
      <width>160</width>
      <height>25</height>
     </rect>
@@ -382,10 +467,10 @@
   <widget class="QFrame" name="fr_kerberos">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>390</y>
-     <width>411</width>
-     <height>71</height>
+     <x>0</x>
+     <y>530</y>
+     <width>541</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -399,8 +484,8 @@
      <rect>
       <x>20</x>
       <y>40</y>
-      <width>311</width>
-      <height>29</height>
+      <width>511</width>
+      <height>36</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -446,7 +531,7 @@
    <widget class="QPushButton" name="PB_kerberos">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>500</x>
       <y>10</y>
       <width>31</width>
       <height>25</height>
@@ -471,9 +556,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>240</y>
+     <y>280</y>
      <width>541</width>
-     <height>221</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -528,13 +613,13 @@
      </size>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>12</x>
       <y>41</y>
       <width>521</width>
-      <height>171</height>
+      <height>201</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -633,7 +718,6 @@
    <zorder>layoutWidget</zorder>
    <zorder>lb_rutas</zorder>
    <zorder>PB_rutas</zorder>
-   <zorder>Btn_lupa</zorder>
   </widget>
   <widget class="QFrame" name="fr_linux">
    <property name="geometry">
@@ -641,7 +725,7 @@
      <x>0</x>
      <y>0</y>
      <width>541</width>
-     <height>241</height>
+     <height>281</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -656,7 +740,7 @@
       <x>10</x>
       <y>40</y>
       <width>521</width>
-      <height>191</height>
+      <height>234</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -826,8 +910,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>470</y>
+     <x>680</x>
+     <y>700</y>
      <width>89</width>
      <height>25</height>
     </rect>
