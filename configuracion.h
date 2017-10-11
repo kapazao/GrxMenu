@@ -31,7 +31,6 @@ public:
     QString cual_es_UserName();
     QString cual_es_PaswordDB();
     QString cual_es_PuertoDB();
-    QString cual_es_ServidorSSH();
     QString cual_es_usuario_ssh();
     QString cual_es_clave_ssh();
     QString cual_es_servidorSSH();

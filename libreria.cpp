@@ -14,25 +14,31 @@ int puerto_libre(){
  return 0;
 }
 
+int creatunelDB(QString puerto_remoto,QString usuario,QString servidor){
+    QProcess process;
+    int puerto_local;
+    puerto_local=puerto_libre();
+    qDebug()<<puerto_local;
+    qDebug()<<puerto_local;
+    qDebug()<<puerto_remoto;
+
+    process.startDetached("ssh -N -tt -p"+puerto_remoto+" -L "+QString::number(puerto_local)+":localhost:3306 "+usuario+"@"+servidor+ " -A -C -X -2 -4 -f");
+
+    return puerto_local;
+}
+
 bool createConnection()
 {
-
-    QProcess process;
     QProcess sleep;
-
     Configuracion *configuracion = new Configuracion;
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    int puertoLocal;
-    puertoLocal=puerto_libre();
-    qDebug()<<puertoLocal;
+    int puerto_local,contador;
 
     if (configuracion->es_usarSSH()){ //creamos tunel ssh
-     process.startDetached("ssh -N -tt -p"+configuracion->cual_es_puerto_remoto_ssh()+" -L "+QString::number(puertoLocal)+":localhost:3306 "+configuracion->cual_es_usuarioSSH()+"@"+configuracion->cual_es_servidorSSH()+ "  -A -C -X -2 -4 -f");
-     sleep.start("sleep 2");
-     sleep.waitForFinished();
-     db.setPort(puertoLocal);
-
-     qDebug()<<"con tunel";
+        puerto_local=creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), configuracion->cual_es_usuarioSSH(), configuracion->cual_es_servidorSSH());
+        db.setPort(puerto_local);
+        qDebug()<<puerto_local;
+        qDebug()<<"con tunel";
     }else{
         db.setPort(configuracion->cual_es_PuertoDB().toInt());
         qDebug()<<"sin tunel";
@@ -42,13 +48,28 @@ bool createConnection()
     db.setHostName(configuracion->cual_es_HostName());
     db.setUserName(configuracion->cual_es_UserName());
     db.setPassword(configuracion->cual_es_PaswordDB());
+    contador=0;
+    bool DB;
+    do{
+           sleep.start("sleep 1");
+           sleep.waitForFinished();
+           DB = db.open();
+           contador++;
+           qDebug()<<contador;
+           qDebug()<<"DB"<< !DB;
+           if (contador>4){
+               delete configuracion;
+               return false;
+           }
+           else
 
-    delete configuracion;
-    bool ok = db.open();
-    if ( !ok ) {
-       qDebug() << ("No puedo abrir la base de datos\n");
-       return false;
-    }
+               return true;
+    }while (true);
+
+
 
    return true;
+   delete configuracion;
 }
+/*
+        */
