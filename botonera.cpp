@@ -5,13 +5,13 @@
 #include "sedes.h"
 #include "configuracion.h"
 #include "equipos.h"
-
+#include "libreria.h"
 Botonera::Botonera(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Botonera)
 {
     ui->setupUi(this);
-
+    createConnection();
 }
 
 Botonera::~Botonera()

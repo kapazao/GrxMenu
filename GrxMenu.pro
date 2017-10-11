@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     nmap_xml.cpp \
     sedes.cpp \
     soporte.cpp \
-    equipos.cpp
+    equipos.cpp \
+    libreria.cpp
 
 HEADERS  += \
     botonera.h \
@@ -26,7 +27,8 @@ HEADERS  += \
     nmap_xml.h \
     sedes.h \
     soporte.h \
-    equipos.h
+    equipos.h \
+    libreria.h
 
 FORMS    += \
     botonera.ui \
