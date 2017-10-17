@@ -22,13 +22,13 @@ int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre
     Tunel *ssh = new Tunel;
     QThread *hilo= new QThread;
 
-    ssh->keyfile1="/home/alberto/.ssh/id_rsa.pub";
-    ssh->keyfile2="/home/alberto/.ssh/id_rsa";
-    ssh->username="alberto";
-    ssh->password="Bo3d90";
-    ssh->server_ip="192.168.1.137";
-    ssh->local_listenip="127.0.0.1";
-    ssh->remote_port=8080;
+    ssh->keyfile1="";
+    ssh->keyfile2="";
+    ssh->username="";
+    ssh->password="";
+    ssh->server_ip="";
+    ssh->local_listenip="";
+    ssh->remote_port=;
     ssh->local_listenport=puerto_libre;
     ssh->remote_desthost="localhost";
     ssh->remote_destport=3306;
