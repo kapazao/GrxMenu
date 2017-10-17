@@ -92,10 +92,10 @@ QString  Configuracion::cual_es_usuarioSSH(){
 QString  Configuracion::cual_es_clave_ssh(){
       return ClaveSSH;
 }
-QString  Configuracion::cual_es_puerto_remoto_ssh(){
+int  Configuracion::cual_es_puerto_remoto_ssh(){
       return PuertoRemotoSSH;
 }
-QString  Configuracion::cual_es_puerto_local_ssh(){
+int  Configuracion::cual_es_puerto_local_ssh(){
       return PuertoLocalSSH;
 }
 QString  Configuracion::cual_es_isl(){
@@ -166,8 +166,8 @@ void Configuracion::carga_configuracion()
     ServidorSSH = s.value("Configuracion/ServidorSSH").toString();
     UsuarioSSH =  s.value("Configuracion/UsuarioSSH").toString();
     ClaveSSH = s.value("Configuracion/ClaveSSH").toString();
-    PuertoRemotoSSH = s.value("Configuracion/PuertoRemotoSSH").toString();
-    PuertoLocalSSH = s.value("Configuracion/PuertoLocalSSH").toString();
+    PuertoRemotoSSH = s.value("Configuracion/PuertoRemotoSSH").toInt();
+    PuertoLocalSSH = s.value("Configuracion/PuertoLocalSSH").toInt();
     ISL = s.value("Configuracion/ISL").toString();
     OCS = s.value("Configuracion/OCS").toString();
     GLPI = s.value("Configuracion/GLPI").toString();
@@ -216,8 +216,8 @@ void Configuracion::carga_configuracion()
     ui->servidor_SSH->setText(ServidorSSH);
     ui->usuario_ssh_BD->setText(UsuarioSSH);
     ui->clave_ssh_BD->setText(ClaveSSH);
-    ui->puerto_Local_ssh->setText(PuertoLocalSSH);
-    ui->puerto_Remoto_ssh->setText(PuertoRemotoSSH);
+    ui->puerto_Local_ssh->setText(QString::number(PuertoLocalSSH));
+    ui->puerto_Remoto_ssh->setText(QString::number(PuertoRemotoSSH));
     ui->clave_ad->setText(ClaveAD);
     ui->usuario_remoto->setText(UsuarioRemoto);
     ui->puerto->setText(Puerto);

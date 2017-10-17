@@ -35,8 +35,8 @@ public:
     QString cual_es_clave_ssh();
     QString cual_es_servidorSSH();
     QString cual_es_usuarioSSH();
-    QString cual_es_puerto_remoto_ssh();
-    QString cual_es_puerto_local_ssh();
+    int cual_es_puerto_remoto_ssh();
+    int cual_es_puerto_local_ssh();
     QString cual_es_isl();
     QString cual_es_puerto();
     QString cual_es_ocs();
@@ -108,8 +108,8 @@ private:
     QString ServidorSSH;
     QString UsuarioSSH;
     QString ClaveSSH;
-    QString PuertoRemotoSSH;
-    QString PuertoLocalSSH;
+    int PuertoRemotoSSH;
+    int PuertoLocalSSH;
     QString Password;
     QString ClaveCifrado;
     QString ClaveRemoto;

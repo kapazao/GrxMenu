@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'equipos.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.9.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -111,18 +111,18 @@ public:
 
     void retranslateUi(QWidget *Equipos)
     {
-        Equipos->setWindowTitle(QApplication::translate("Equipos", "Form", 0));
-        pushButton->setText(QApplication::translate("Equipos", "Carpeta", 0));
-        pushButton_2->setText(QApplication::translate("Equipos", "ssh", 0));
-        pushButton_3->setText(QApplication::translate("Equipos", "systemconfig", 0));
-        pushButton_4->setText(QApplication::translate("Equipos", "networkmanager", 0));
-        pushButton_5->setText(QApplication::translate("Equipos", "CUPS", 0));
-        pushButton_6->setText(QApplication::translate("Equipos", "PushButton", 0));
-        pushButton_7->setText(QApplication::translate("Equipos", "PushButton", 0));
-        pushButton_8->setText(QApplication::translate("Equipos", "PushButton", 0));
-        pushButton_9->setText(QApplication::translate("Equipos", "PushButton", 0));
-        pushButton_10->setText(QApplication::translate("Equipos", "PushButton", 0));
-        pushButton_11->setText(QApplication::translate("Equipos", "PushButton", 0));
+        Equipos->setWindowTitle(QApplication::translate("Equipos", "Form", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Equipos", "Carpeta", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("Equipos", "ssh", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("Equipos", "systemconfig", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("Equipos", "networkmanager", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("Equipos", "CUPS", Q_NULLPTR));
+        pushButton_6->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        pushButton_7->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        pushButton_8->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        pushButton_9->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        pushButton_10->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        pushButton_11->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
     } // retranslateUi
 
 };

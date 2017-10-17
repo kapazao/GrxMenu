@@ -5,6 +5,9 @@
 #include <QtSql/QSqlError>
 #include <QSqlQueryModel>
 #include <QProcess>
+#include "hilos.h"
+#include <QtDebug>
+#include "qthread.h"
 
 int puerto_libre(){
     QTcpServer server;
@@ -14,31 +17,70 @@ int puerto_libre(){
  return 0;
 }
 
-int creatunelDB(QString puerto_remoto,QString usuario,QString servidor){
-    QProcess process;
-    int puerto_local;
-    puerto_local=puerto_libre();
-    qDebug()<<puerto_local;
-    qDebug()<<puerto_local;
-    qDebug()<<puerto_remoto;
+int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre){
 
-    process.startDetached("ssh -N -tt -p"+puerto_remoto+" -L "+QString::number(puerto_local)+":localhost:3306 "+usuario+"@"+servidor+ " -A -C -X -2 -4 -f");
+    Tunel *ssh = new Tunel;
+    QThread *hilo= new QThread;
+   /* ssh->moveToThread(hilo);
+    connect(ssh, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
+    connect(hilo, SIGNAL (started()), ssh, SLOT (crea_fordwarding()));
+    connect(ssh, SIGNAL (finished()), hilo, SLOT (quit()));
+    connect(ssh, SIGNAL (finished()), ssh, SLOT (deleteLater()));
+    connect(hilo, SIGNAL (finished()), hilo, SLOT (deleteLater()));
+    */
+    ssh->keyfile1="/home/alberto/.ssh/id_rsa.pub";
+    ssh->keyfile2="/home/alberto/.ssh/id_rsa";
+    ssh->username="gorgojo";
+    ssh->password="C*nstelac10n";
+    ssh->server_ip="10.7.15.193";
+    ssh->local_listenip="127.0.0.1";
+    ssh->remote_port =22;
+    ssh->local_listenport=2222;
+    ssh->remote_desthost="localhost";
+    ssh->remote_destport=3306;
+    ssh->crea_fordwarding();
+    hilo->start();
 
-    return puerto_local;
+    if (ssh->inicia_libssh2())
+         fprintf (stderr, "No he podido inicializar libssh2 (%d)\n");
+    else
+        if ((ssh->crea_socket(servidor,puerto_remoto)))
+            fprintf (stderr, "No he podido crear un socket (%d)\n");
+        else
+            if (ssh->crea_sesion())
+                fprintf (stderr, "No he podido crear un socket (%d)\n");
+            else
+                if (ssh->muestra_fingerprint())
+                        fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
+                else
+                    if (ssh->autenticacion(usuario,"C*nstelac10n"))
+                        fprintf (stderr, "No he podido autenticarme (%d)\n");
+                    else
+                         if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
+                             fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
+    ssh->cierra_conexion();
+}
+
+char* convierte(QString dato){
+    char *c = dato.toStdString().c_str();
+    return c;
 }
 
 bool createConnection()
 {
-    QProcess sleep;
+
     Configuracion *configuracion = new Configuracion;
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+
     int puerto_local,contador;
 
+    puerto_local=puerto_libre();
     if (configuracion->es_usarSSH()){ //creamos tunel ssh
-        puerto_local=creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), configuracion->cual_es_usuarioSSH(), configuracion->cual_es_servidorSSH());
+        //creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
+        creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
         db.setPort(puerto_local);
-        qDebug()<<puerto_local;
         qDebug()<<"con tunel";
+
     }else{
         db.setPort(configuracion->cual_es_PuertoDB().toInt());
         qDebug()<<"sin tunel";
@@ -51,25 +93,16 @@ bool createConnection()
     contador=0;
     bool DB;
     do{
-           sleep.start("sleep 1");
-           sleep.waitForFinished();
+
            DB = db.open();
            contador++;
-           qDebug()<<contador;
-           qDebug()<<"DB"<< !DB;
            if (contador>4){
                delete configuracion;
                return false;
            }
            else
-
                return true;
     }while (true);
-
-
-
    return true;
    delete configuracion;
 }
-/*
-        */

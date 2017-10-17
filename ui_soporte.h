@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'soporte.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.9.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -319,25 +319,25 @@ public:
 
     void retranslateUi(QDialog *Soporte)
     {
-        Soporte->setWindowTitle(QApplication::translate("Soporte", "Dialog", 0));
-        label_13->setText(QApplication::translate("Soporte", "Soporte Inform\303\241tico", 0));
-        label_2->setText(QApplication::translate("Soporte", "Sede", 0));
-        label->setText(QApplication::translate("Soporte", "Ip/red ", 0));
-        label_3->setText(QApplication::translate("Soporte", "Tel\303\251fono", 0));
-        label_4->setText(QApplication::translate("Soporte", "Extensi\303\263n", 0));
-        label_5->setText(QApplication::translate("Soporte", "Direcci\303\263n", 0));
-        label_6->setText(QApplication::translate("Soporte", "N\303\272mero", 0));
-        label_7->setText(QApplication::translate("Soporte", "ADSL", 0));
-        label_8->setText(QApplication::translate("Soporte", "N\302\272Adm", 0));
-        label_9->setText(QApplication::translate("Soporte", "Centro", 0));
-        label_10->setText(QApplication::translate("Soporte", "Tel\303\251fono", 0));
-        label_11->setText(QApplication::translate("Soporte", "Servicio", 0));
-        label_12->setText(QApplication::translate("Soporte", "Caudal", 0));
-        Btn_Buscar->setText(QApplication::translate("Soporte", "Escanear", 0));
-        pushButton->setText(QApplication::translate("Soporte", "Ping", 0));
-        pushButton_2->setText(QApplication::translate("Soporte", "Incidencia", 0));
-        pushButton_3->setText(QApplication::translate("Soporte", "mtr", 0));
-        pushButton_4->setText(QApplication::translate("Soporte", "PushButton", 0));
+        Soporte->setWindowTitle(QApplication::translate("Soporte", "Dialog", Q_NULLPTR));
+        label_13->setText(QApplication::translate("Soporte", "Soporte Inform\303\241tico", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Soporte", "Sede", Q_NULLPTR));
+        label->setText(QApplication::translate("Soporte", "Ip/red ", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Soporte", "Tel\303\251fono", Q_NULLPTR));
+        label_4->setText(QApplication::translate("Soporte", "Extensi\303\263n", Q_NULLPTR));
+        label_5->setText(QApplication::translate("Soporte", "Direcci\303\263n", Q_NULLPTR));
+        label_6->setText(QApplication::translate("Soporte", "N\303\272mero", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Soporte", "ADSL", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Soporte", "N\302\272Adm", Q_NULLPTR));
+        label_9->setText(QApplication::translate("Soporte", "Centro", Q_NULLPTR));
+        label_10->setText(QApplication::translate("Soporte", "Tel\303\251fono", Q_NULLPTR));
+        label_11->setText(QApplication::translate("Soporte", "Servicio", Q_NULLPTR));
+        label_12->setText(QApplication::translate("Soporte", "Caudal", Q_NULLPTR));
+        Btn_Buscar->setText(QApplication::translate("Soporte", "Escanear", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Soporte", "Ping", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("Soporte", "Incidencia", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("Soporte", "mtr", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("Soporte", "PushButton", Q_NULLPTR));
     } // retranslateUi
 
 };

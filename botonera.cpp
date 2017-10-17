@@ -11,7 +11,7 @@ Botonera::Botonera(QWidget *parent) :
     ui(new Ui::Botonera)
 {
     ui->setupUi(this);
-    createConnection();
+    //createConnection(); //CREA CONEXIONES DB
 }
 
 Botonera::~Botonera()
@@ -96,7 +96,7 @@ void Botonera::on_actionNuevo_Men_triggered()
 
 void Botonera::on_actionSedes_triggered()
 {
-
+    createConnection(); //CREA CONEXIONES DB
     Sedes *sedes = new Sedes;
     sedes->show();
 }

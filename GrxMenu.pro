@@ -10,6 +10,9 @@ TARGET = GrxMenu
 TEMPLATE = app
 CONFIG += c++11
 
+QMAKE_CFLAGS = -fpermissive
+QMAKE_CXXFLAGS = -fpermissive
+QMAKE_LFLAGS = -fpermissive
 SOURCES += main.cpp \
     botonera.cpp \
     configuracion.cpp \
@@ -18,7 +21,8 @@ SOURCES += main.cpp \
     sedes.cpp \
     soporte.cpp \
     equipos.cpp \
-    libreria.cpp
+    libreria.cpp \
+    tunel.cpp
 
 HEADERS  += \
     botonera.h \
@@ -28,7 +32,8 @@ HEADERS  += \
     sedes.h \
     soporte.h \
     equipos.h \
-    libreria.h
+    libreria.h \
+    tunel.h
 
 FORMS    += \
     botonera.ui \
@@ -37,3 +42,5 @@ FORMS    += \
     sedes.ui \
     soporte.ui \
     equipos.ui
+
+LIBS += -lssh2
