@@ -58,7 +58,7 @@ int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre
                     if (ssh->muestra_fingerprint())
                             fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
                     else
-                        if (ssh->autenticacion(usuario,"Bo3d90"))
+                        if (ssh->autenticacion(usuario,"password"))
                             fprintf (stderr, "No he podido autenticarme (%d)\n");
                         else
                              if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
