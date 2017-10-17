@@ -29,7 +29,7 @@ extern "C"
 #include <QString>
 #include "qdebug.h"
 
-class Tunel :QObject
+class Tunel : public QObject
 {
 Q_OBJECT
 private:
@@ -60,6 +60,7 @@ private:
 
 public:
 
+
     const char *keyfile1 = "/home/usuario/.ssh/id_rsa.pub";
     const char *keyfile2 = "/home/usuario/.ssh/id_rsa";
     const char *username = "usuario";
@@ -72,11 +73,14 @@ public:
     unsigned int remote_destport = 3306;//mysql
 
 
+    explicit Tunel();
+    ~Tunel();
+
     /*
      * Hace todo el proceso
      * Usa los datos de arriba
      */
-   int crea_fordwarding();
+   void crea_fordwarding();
     /*
      * Inicializa la libreria libssh2
      * Devuelve -1 en caso de error();

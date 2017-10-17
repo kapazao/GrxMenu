@@ -1,6 +1,13 @@
 #include "tunel.h"
 
-int Tunel::crea_fordwarding(){
+Tunel::Tunel(){
+
+}
+Tunel::~Tunel(){
+
+};
+
+void Tunel::crea_fordwarding(){
 
         rc = libssh2_init (0);
         if (rc != 0) {
@@ -21,7 +28,7 @@ int Tunel::crea_fordwarding(){
         }
         sin.sin_port = htons(remote_port);
 
-        if (connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
+        if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
             fprintf(stderr, "failed to connect!\n");
         }
 
@@ -145,7 +152,7 @@ int Tunel::crea_fordwarding(){
                     fprintf(stderr, "The client at %s:%d disconnected!\n", shost,sport);
                     //cierra_conexion();
                     //return -1;
-                    return -1;
+                    cierra_conexion();
                 }
                 wr = 0;
                 while(wr < len) {
@@ -216,9 +223,13 @@ int Tunel::crea_socket(char *server_ip, unsigned int remote_port)//segundo paso,
         sin.sin_family = AF_INET;
         if (INADDR_NONE == (sin.sin_addr.s_addr = inet_addr(server_ip)))
              return -1;
+
         sin.sin_port = htons(remote_port);
-         if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0)
+        fprintf (stderr, "paso por aqui");
+         if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0){
+             fprintf (stderr, "y por aqui");
              return -1;
+         }
     return 0;
     }
 

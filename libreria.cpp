@@ -5,7 +5,7 @@
 #include <QtSql/QSqlError>
 #include <QSqlQueryModel>
 #include <QProcess>
-#include "hilos.h"
+#include "tunel.h"
 #include <QtDebug>
 #include "qthread.h"
 
@@ -21,44 +21,55 @@ int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre
 
     Tunel *ssh = new Tunel;
     QThread *hilo= new QThread;
-   /* ssh->moveToThread(hilo);
-    connect(ssh, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
-    connect(hilo, SIGNAL (started()), ssh, SLOT (crea_fordwarding()));
-    connect(ssh, SIGNAL (finished()), hilo, SLOT (quit()));
-    connect(ssh, SIGNAL (finished()), ssh, SLOT (deleteLater()));
-    connect(hilo, SIGNAL (finished()), hilo, SLOT (deleteLater()));
-    */
+
     ssh->keyfile1="/home/alberto/.ssh/id_rsa.pub";
     ssh->keyfile2="/home/alberto/.ssh/id_rsa";
-    ssh->username="gorgojo";
-    ssh->password="C*nstelac10n";
-    ssh->server_ip="10.7.15.193";
+    ssh->username="alberto";
+    ssh->password="Bo3d90";
+    ssh->server_ip="192.168.1.137";
     ssh->local_listenip="127.0.0.1";
-    ssh->remote_port =22;
-    ssh->local_listenport=2222;
+    ssh->remote_port=8080;
+    ssh->local_listenport=puerto_libre;
     ssh->remote_desthost="localhost";
     ssh->remote_destport=3306;
-    ssh->crea_fordwarding();
-    hilo->start();
 
+    ssh->moveToThread(hilo);
+    //QObject::connect(ssh, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
+    QObject::connect(hilo, SIGNAL (started()), ssh, SLOT (crea_fordwarding()));
+    QObject::connect(ssh, SIGNAL (finished()), hilo, SLOT (quit()));
+    QObject::connect(ssh, SIGNAL (finished()), ssh, SLOT (cierra_conexion()));
+    QObject::connect(ssh, SIGNAL (finished()), ssh, SLOT (deleteLater()));
+    QObject::connect(hilo, SIGNAL (finished()), hilo, SLOT (deleteLater()));
+
+    hilo->start();
+/*
     if (ssh->inicia_libssh2())
          fprintf (stderr, "No he podido inicializar libssh2 (%d)\n");
-    else
-        if ((ssh->crea_socket(servidor,puerto_remoto)))
-            fprintf (stderr, "No he podido crear un socket (%d)\n");
-        else
-            if (ssh->crea_sesion())
-                fprintf (stderr, "No he podido crear un socket (%d)\n");
-            else
-                if (ssh->muestra_fingerprint())
-                        fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
-                else
-                    if (ssh->autenticacion(usuario,"C*nstelac10n"))
-                        fprintf (stderr, "No he podido autenticarme (%d)\n");
+    else{
+            fprintf (stderr, "SI he podido inicializar libssh2 (%d)\n");
+            if ((ssh->crea_socket(servidor,puerto_remoto)))
+             fprintf (stderr, "No he podido crear un socket (%d)\n");
+            else{
+                fprintf (stderr, "SI he podido crear un socket (%d)\n");
+                if (ssh->crea_sesion())
+                    fprintf (stderr, "No he podido crear un socket (%d)\n");
+                else{
+                     fprintf (stderr, "SI he podido mostrar el fingerprint (%d)\n");
+                    if (ssh->muestra_fingerprint())
+                            fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
                     else
-                         if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
-                             fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
-    ssh->cierra_conexion();
+                        if (ssh->autenticacion(usuario,"Bo3d90"))
+                            fprintf (stderr, "No he podido autenticarme (%d)\n");
+                        else
+                             if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
+                                 fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
+                    }
+
+               }
+        }
+
+*/
+    //ssh->cierra_conexion();
 }
 
 char* convierte(QString dato){
