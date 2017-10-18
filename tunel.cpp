@@ -5,10 +5,23 @@ Tunel::Tunel(){
 }
 Tunel::~Tunel(){
 
-};
+}
+
+int Tunel::puerto_libre(){
+    QTcpServer server;
+    if(server.listen(QHostAddress::Any, 0))
+           return server.serverPort();
+
+ return 0;
+}
+
+char* Tunel::convierte(QString dato){
+    char *c = dato.toStdString().c_str();
+    return c;
+}
 
 void Tunel::crea_fordwarding(){
-
+        fprintf(stderr, "Ha entrado\n");
         rc = libssh2_init (0);
         if (rc != 0) {
             fprintf (stderr, "libssh2 initialization failed (%d)\n", rc);
@@ -20,18 +33,18 @@ void Tunel::crea_fordwarding(){
             perror("socket");
 
         }
-
+        fprintf(stderr, "Ha creado el socket\n");
         sin.sin_family = AF_INET;
         if (INADDR_NONE == (sin.sin_addr.s_addr = inet_addr(server_ip))) {
             perror("inet_addr");
 
         }
         sin.sin_port = htons(remote_port);
-
-        if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
+        fprintf(stderr, "conecta\n");
+        if (conectado(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
             fprintf(stderr, "failed to connect!\n");
         }
-
+        fprintf(stderr, "ya not\n");
         /* Create a session instance */
         session = libssh2_session_init();
 
@@ -53,7 +66,7 @@ void Tunel::crea_fordwarding(){
         fprintf(stderr, "\n");
 
         userauthlist = libssh2_userauth_list(session, username, strlen(username));
-
+        fprintf(stderr, "Hautenocket\n");
         fprintf(stderr, "Authentication methods: %s\n", userauthlist);
         if (strstr(userauthlist, "password"))
             auth |= AUTH_PASSWORD;
@@ -131,7 +144,7 @@ void Tunel::crea_fordwarding(){
 
         /* Must use non-blocking IO hereafter due to the current libssh2 API */
         libssh2_session_set_blocking(session, 0);
-
+fprintf(stderr, "while");
 
         while (1) {
             FD_ZERO(&fds);
@@ -150,8 +163,6 @@ void Tunel::crea_fordwarding(){
                     cierra_conexion();
                 } else if (0 == len) {
                     fprintf(stderr, "The client at %s:%d disconnected!\n", shost,sport);
-                    //cierra_conexion();
-                    //return -1;
                     cierra_conexion();
                 }
                 wr = 0;
@@ -196,6 +207,108 @@ void Tunel::crea_fordwarding(){
         }
 
 }
+
+int Tunel::creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre){
+    Tunel *ssh = new Tunel;
+    QThread *hilo= new QThread;
+
+    ssh->keyfile1="";
+    ssh->keyfile2="";
+    ssh->username="gorgojo";
+    qDebug()<<"usuario"<< usuario;
+    ssh->password="C*nstelac10n";
+    ssh->server_ip=servidor;
+    qDebug()<<"servidor"<< servidor;
+    ssh->local_listenip="127.0.0.1";
+    ssh->remote_port=22;
+    ssh->local_listenport=puerto_libre;
+    ssh->remote_desthost="localhost";
+    ssh->remote_destport=3306;
+    //ssh->crea_fordwarding();
+    ssh->moveToThread(hilo);
+    connect(hilo, &QThread::started, this, &Tunel::crea_fordwarding);
+    /*connect(ssh, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
+    connect(ssh, &Tunel::destroyed, hilo, &QThread::quit);
+    connect(ssh, &Tunel::destroyed, ssh, &Tunel::deleteLater);
+
+    connect(hilo, SIGNAL (started()), this ,SLOT (crea_fordwarding()));
+    connect(ssh, SIGNAL (destroyed()), this, SLOT (crea_fordwarding()));
+
+   // connect(ssh, SIGNAL (destroyed()), hilo, SLOT (quit()));
+   // connect(ssh, SIGNAL::destroyed, ssh, &Tunel::deleteLater);
+    //ssh->connect(hilo, &QThread::finished, hilo, &Tunel::cierra_conexion);
+*/
+    hilo->start();
+
+/*
+    if (ssh->inicia_libssh2())
+         fprintf (stderr, "No he podido inicializar libssh2 (%d)\n");
+    else{
+            fprintf (stderr, "SI he podido inicializar libssh2 (%d)\n");
+            if ((ssh->crea_socket(servidor,puerto_remoto)))
+             fprintf (stderr, "No he podido crear un socket (%d)\n");
+            else{
+                fprintf (stderr, "SI he podido crear un socket (%d)\n");
+                if (ssh->crea_sesion())
+                    fprintf (stderr, "No he podido crear un socket (%d)\n");
+                else{
+                     fprintf (stderr, "SI he podido mostrar el fingerprint (%d)\n");
+                    if (ssh->muestra_fingerprint())
+                            fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
+                    else
+                        if (ssh->autenticacion(usuario,"password"))
+                            fprintf (stderr, "No he podido autenticarme (%d)\n");
+                        else
+                             if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
+                                 fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
+                    }
+
+               }
+        }
+
+*/
+    //ssh->cierra_conexion();
+}
+
+bool Tunel::createConnection()
+{
+    Configuracion *configuracion = new Configuracion;
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+
+    int puerto_local,contador;
+
+    puerto_local=puerto_libre();
+    if (configuracion->es_usarSSH()){ //creamos tunel ssh
+        //creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
+        creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
+        db.setPort(puerto_local);
+        qDebug()<<"con tunel";
+
+    }else{
+        db.setPort(configuracion->cual_es_PuertoDB().toInt());
+        qDebug()<<"sin tunel";
+    }
+
+    db.setDatabaseName(configuracion->cual_es_DataBaseName());
+    db.setHostName(configuracion->cual_es_HostName());
+    db.setUserName(configuracion->cual_es_UserName());
+    db.setPassword(configuracion->cual_es_PaswordDB());
+    contador=0;
+    bool DB;
+    do{
+
+           DB = db.open();
+           contador++;
+           if (contador>4){
+               delete configuracion;
+               return false;
+           }
+           else
+               return true;
+    }while (true);
+   return true;
+   delete configuracion;
+};
 
 /*
      * Inicializa la libreria libssh2

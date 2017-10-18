@@ -5,7 +5,7 @@
 #include "sedes.h"
 #include "configuracion.h"
 #include "equipos.h"
-#include "libreria.h"
+#include "tunel.h"
 Botonera::Botonera(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Botonera)
@@ -96,7 +96,8 @@ void Botonera::on_actionNuevo_Men_triggered()
 
 void Botonera::on_actionSedes_triggered()
 {
-    createConnection(); //CREA CONEXIONES DB
+    Tunel *tunel = new Tunel;
+    tunel->createConnection(); //CREA CONEXIONES DB
     Sedes *sedes = new Sedes;
     sedes->show();
 }

@@ -1,6 +1,15 @@
 #ifndef SSH_H
 #define SSH_H
-
+#include <QTcpServer>
+#include "configuracion.h"
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
+#include <QSqlQueryModel>
+#include <QProcess>
+#include "tunel.h"
+#include <QtDebug>
+#include "qthread.h"
 
 
 extern "C"
@@ -29,7 +38,7 @@ extern "C"
 #include <QString>
 #include "qdebug.h"
 
-class Tunel : public QObject
+class Tunel: public QObject
 {
 Q_OBJECT
 private:
@@ -65,15 +74,14 @@ public:
     const char *keyfile2 = "/home/usuario/.ssh/id_rsa";
     const char *username = "usuario";
     const char *password = "password";
-    const char *server_ip = "10.10.10.10";
+    const char *server_ip = "10.7.15.193";
     const char *local_listenip = "127.0.0.1";
     unsigned int remote_port = 22;
     unsigned int local_listenport = 2223;
     const char *remote_desthost = "localhost";
     unsigned int remote_destport = 3306;//mysql
 
-
-    explicit Tunel();
+    Tunel();
     ~Tunel();
 
     /*
@@ -118,8 +126,14 @@ public:
     int escucha(unsigned int local_listenport,char *local_listenip,unsigned int remote_destport);
 
     int cierra_conexion();
+
+    int puerto_libre();
+
+    int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre);
+
+    char* convierte(QString dato);
+
+    bool createConnection();
 };
 
-#endif 
-
-
+#endif
