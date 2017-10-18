@@ -4,7 +4,6 @@ Tunel::Tunel(){
 
 }
 Tunel::~Tunel(){
-
 }
 
 int Tunel::puerto_libre(){
@@ -39,6 +38,7 @@ void Tunel::crea_fordwarding(){
             perror("inet_addr");
 
         }
+
         sin.sin_port = htons(remote_port);
         fprintf(stderr, "conecta\n");
         if (conectado(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
@@ -124,7 +124,6 @@ void Tunel::crea_fordwarding(){
             perror("accept");
           cierra_conexion();
         }
-
 
         shost = inet_ntoa(sin.sin_addr);
         sport = ntohs(sin.sin_port);
@@ -214,9 +213,9 @@ int Tunel::creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puert
 
     ssh->keyfile1="";
     ssh->keyfile2="";
-    ssh->username="gorgojo";
+    ssh->username="";
     qDebug()<<"usuario"<< usuario;
-    ssh->password="C*nstelac10n";
+    ssh->password="";
     ssh->server_ip=servidor;
     qDebug()<<"servidor"<< servidor;
     ssh->local_listenip="127.0.0.1";
