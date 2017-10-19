@@ -56,7 +56,6 @@ SOURCES       = main.cpp \
 		sedes.cpp \
 		soporte.cpp \
 		equipos.cpp \
-		libreria.cpp \
 		tunel.cpp moc_botonera.cpp \
 		moc_configuracion.cpp \
 		moc_usuario.cpp \
@@ -72,7 +71,6 @@ OBJECTS       = main.o \
 		sedes.o \
 		soporte.o \
 		equipos.o \
-		libreria.o \
 		tunel.o \
 		moc_botonera.o \
 		moc_configuracion.o \
@@ -159,7 +157,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		sedes.h \
 		soporte.h \
 		equipos.h \
-		libreria.h \
 		tunel.h main.cpp \
 		botonera.cpp \
 		configuracion.cpp \
@@ -168,7 +165,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		sedes.cpp \
 		soporte.cpp \
 		equipos.cpp \
-		libreria.cpp \
 		tunel.cpp
 QMAKE_TARGET  = GrxMenu
 DESTDIR       = 
@@ -350,8 +346,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents botonera.h configuracion.h usuario.h nmap_xml.h sedes.h soporte.h equipos.h libreria.h tunel.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp botonera.cpp configuracion.cpp usuario.cpp nmap_xml.cpp sedes.cpp soporte.cpp equipos.cpp libreria.cpp tunel.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents botonera.h configuracion.h usuario.h nmap_xml.h sedes.h soporte.h equipos.h tunel.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp botonera.cpp configuracion.cpp usuario.cpp nmap_xml.cpp sedes.cpp soporte.cpp equipos.cpp tunel.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents botonera.ui configuracion.ui usuario.ui sedes.ui soporte.ui equipos.ui $(DISTDIR)/
 
 
@@ -409,7 +405,9 @@ moc_equipos.cpp: equipos.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/alberto/Programacion/GrxMenu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include equipos.h -o moc_equipos.cpp
 
-moc_tunel.cpp: tunel.h \
+moc_tunel.cpp: configuracion.h \
+		libssh2_config.h \
+		tunel.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/alberto/Programacion/GrxMenu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include tunel.h -o moc_tunel.cpp
 
@@ -464,7 +462,8 @@ botonera.o: botonera.cpp botonera.h \
 		nmap_xml.h \
 		sedes.h \
 		equipos.h \
-		libreria.h
+		tunel.h \
+		libssh2_config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o botonera.o botonera.cpp
 
 configuracion.o: configuracion.cpp configuracion.h \
@@ -495,10 +494,9 @@ equipos.o: equipos.cpp equipos.h \
 		configuracion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipos.o equipos.cpp
 
-libreria.o: libreria.cpp configuracion.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o libreria.o libreria.cpp
-
-tunel.o: tunel.cpp tunel.h
+tunel.o: tunel.cpp tunel.h \
+		configuracion.h \
+		libssh2_config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tunel.o tunel.cpp
 
 moc_botonera.o: moc_botonera.cpp 

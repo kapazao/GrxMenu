@@ -41,7 +41,7 @@ void Tunel::crea_fordwarding(){
 
         sin.sin_port = htons(remote_port);
         fprintf(stderr, "conecta\n");
-        if (conectado(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
+        if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0) {
             fprintf(stderr, "failed to connect!\n");
         }
         fprintf(stderr, "ya not\n");
@@ -207,66 +207,80 @@ fprintf(stderr, "while");
 
 }
 
-int Tunel::creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre){
-    Tunel *ssh = new Tunel;
-    QThread *hilo= new QThread;
-
-    ssh->keyfile1="";
-    ssh->keyfile2="";
-    ssh->username="";
-    qDebug()<<"usuario"<< usuario;
-    ssh->password="";
-    ssh->server_ip=servidor;
-    qDebug()<<"servidor"<< servidor;
-    ssh->local_listenip="127.0.0.1";
-    ssh->remote_port=22;
-    ssh->local_listenport=puerto_libre;
-    ssh->remote_desthost="localhost";
-    ssh->remote_destport=3306;
-    //ssh->crea_fordwarding();
-    ssh->moveToThread(hilo);
-    connect(hilo, &QThread::started, this, &Tunel::crea_fordwarding);
-    /*connect(ssh, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
-    connect(ssh, &Tunel::destroyed, hilo, &QThread::quit);
-    connect(ssh, &Tunel::destroyed, ssh, &Tunel::deleteLater);
-
-    connect(hilo, SIGNAL (started()), this ,SLOT (crea_fordwarding()));
-    connect(ssh, SIGNAL (destroyed()), this, SLOT (crea_fordwarding()));
-
-   // connect(ssh, SIGNAL (destroyed()), hilo, SLOT (quit()));
-   // connect(ssh, SIGNAL::destroyed, ssh, &Tunel::deleteLater);
-    //ssh->connect(hilo, &QThread::finished, hilo, &Tunel::cierra_conexion);
-*/
-    hilo->start();
-
-/*
-    if (ssh->inicia_libssh2())
+void Tunel::crea_conexion(){
+    if (this->inicia_libssh2())
          fprintf (stderr, "No he podido inicializar libssh2 (%d)\n");
     else{
             fprintf (stderr, "SI he podido inicializar libssh2 (%d)\n");
-            if ((ssh->crea_socket(servidor,puerto_remoto)))
+            if ((this->crea_socket("192.168.1.137",8080)))
              fprintf (stderr, "No he podido crear un socket (%d)\n");
             else{
                 fprintf (stderr, "SI he podido crear un socket (%d)\n");
-                if (ssh->crea_sesion())
+                if (this->crea_sesion())
                     fprintf (stderr, "No he podido crear un socket (%d)\n");
                 else{
                      fprintf (stderr, "SI he podido mostrar el fingerprint (%d)\n");
-                    if (ssh->muestra_fingerprint())
+                    if (this->muestra_fingerprint())
                             fprintf (stderr, "No he podido mostrar el fingerprint (%d)\n");
                     else
-                        if (ssh->autenticacion(usuario,"password"))
+                        if (this->autenticacion("usuario","password"))
                             fprintf (stderr, "No he podido autenticarme (%d)\n");
                         else
-                             if (ssh->escucha(puerto_libre,"127.0.0.1",3306));
+                             if (this->escucha(3332,"127.0.0.1",3306))
                                  fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
+
                     }
 
                }
         }
+    this->cierra_conexion();
+}
 
-*/
-    //ssh->cierra_conexion();
+int Tunel::creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre,QSqlDatabase db){
+    QThread *hilo= new QThread;
+    this->keyfile1="/home/alberto/.ssh/id_rsa.pub";
+    this->keyfile2="/home/alberto/.ssh/id_rsa";
+    this->username="";
+    qDebug()<<"usuario"<< usuario;
+    this->password="";
+    this->server_ip=servidor;
+    qDebug()<<"servidor"<< servidor;
+    this->local_listenip="127.0.0.1";
+    this->remote_port=8080;
+    this->local_listenport=3332;//puerto_libre;
+    this->remote_desthost="localhost";
+    this->remote_destport=3306;
+    this->moveToThread(hilo);
+    //connect(hilo, &QThread::started, this, &Tunel::crea_fordwarding);
+    connect(hilo, &QThread::started, this, &Tunel::crea_conexion);
+    connect(this, &Tunel::destroyed, hilo, &QThread::quit);
+
+    //connect(this,&Tunel::sshConectado,this,&Tunel::conexDB);
+    connect(this,SIGNAL(sshConectado()),this,SLOT(conexDB(db)));
+    //connect(this,&Tunel::sshConectado,[=]( const QString &DB ) { this->( "conexDB", DB ); });
+    hilo->setParent(0);
+    hilo->start();
+    return 0;
+}
+
+bool Tunel::conexDB(QSqlDatabase db)
+{
+    //Intentamos conectarnos 4 veces
+    int contador=0;
+    bool DB;
+    do{
+
+           DB = db.open();
+           contador++;
+           if (contador>4){
+
+               return false;
+           }
+           else
+               return true;
+    }while (true);
+
+    qDebug()<<"hola";
 }
 
 bool Tunel::createConnection()
@@ -277,9 +291,9 @@ bool Tunel::createConnection()
     int puerto_local,contador;
 
     puerto_local=puerto_libre();
+    qDebug()<<puerto_local;
     if (configuracion->es_usarSSH()){ //creamos tunel ssh
-        //creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
-        creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "10.7.15.193",puerto_local);
+        creatunelDB(configuracion->cual_es_puerto_remoto_ssh(), convierte(configuracion->cual_es_usuarioSSH()), "192.168.1.137",puerto_local,db);
         db.setPort(puerto_local);
         qDebug()<<"con tunel";
 
@@ -292,7 +306,7 @@ bool Tunel::createConnection()
     db.setHostName(configuracion->cual_es_HostName());
     db.setUserName(configuracion->cual_es_UserName());
     db.setPassword(configuracion->cual_es_PaswordDB());
-    contador=0;
+/*    contador=0;
     bool DB;
     do{
 
@@ -306,7 +320,11 @@ bool Tunel::createConnection()
                return true;
     }while (true);
    return true;
-   delete configuracion;
+
+
+  delete configuracion;
+
+*/
 };
 
 /*
@@ -435,6 +453,7 @@ int Tunel::escucha(unsigned int local_listenport,char *local_listenip,unsigned i
             return -1;
         if (-1 == listen(listensock, 2))
             return -1;
+        emit sshConectado(); // Emitimos la señal de esperando conexiones
         fprintf(stderr, "Esperando conexiones TCP en %s:%d...\n",
             inet_ntoa(sin.sin_addr), ntohs(sin.sin_port));
 

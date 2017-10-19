@@ -89,6 +89,8 @@ public:
      * Usa los datos de arriba
      */
    void crea_fordwarding();
+   void crea_conexion();
+   bool conexDB(QSqlDatabase db);
     /*
      * Inicializa la libreria libssh2
      * Devuelve -1 en caso de error();
@@ -129,11 +131,15 @@ public:
 
     int puerto_libre();
 
-    int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre);
+    int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre,QSqlDatabase db);
 
     char* convierte(QString dato);
 
     bool createConnection();
+
+
+signals:
+    void sshConectado();
 };
 
 #endif
