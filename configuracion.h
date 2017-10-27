@@ -27,12 +27,12 @@ public:
     QString cual_es_usuario_remoto();
     QString cual_es_beiro();
     QString cual_es_DataBaseName();
-    QString cual_es_HostName();
-    QString cual_es_UserName();
-    QString cual_es_PaswordDB();
+    QString cual_es_hostnameDB();
+    QString cual_es_usernameDB();
+    QString cual_es_passwordDB();
     QString cual_es_PuertoDB();
     QString cual_es_usuario_ssh();
-    QString cual_es_clave_ssh();
+    QString cual_es_password_ssh();
     QString cual_es_servidorSSH();
     QString cual_es_usuarioSSH();
     int cual_es_puerto_remoto_ssh();
@@ -42,13 +42,14 @@ public:
     QString cual_es_ocs();
     QString cual_es_glpi();
     QString cual_es_cronos();
-    QString cual_es_password();
     QString cual_es_clave_cifrado();
     QString cual_es_clave_remoto();
     bool es_rdesktop();
     bool es_usarSSH();
     QString cual_es_rdesktop();
     QString cual_es_resolucion();
+    QString cual_es_keyfile_privada();
+    QString cual_es_keyfile_publica();
     bool createConnection();
 
     ~Configuracion();
@@ -82,6 +83,10 @@ private slots:
     void habilitaSSH();
 
     void on_checkBox_ssh_clicked();
+
+    void on_Btn_lupa_2_clicked();
+
+    void on_Btn_lupa_3_clicked();
 
 private:
 
@@ -120,6 +125,8 @@ private:
     QString Fr_DB;
     QString Fr_TS;
     QString Fr_kerberos;
+    QString KeyFile_privada;
+    QString KeyFile_publica;
 
 
     Ui::Configuracion *ui;

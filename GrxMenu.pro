@@ -21,7 +21,6 @@ SOURCES += main.cpp \
     sedes.cpp \
     soporte.cpp \
     equipos.cpp \
-    libreria.cpp \
     tunel.cpp
 
 HEADERS  += \
@@ -32,7 +31,6 @@ HEADERS  += \
     sedes.h \
     soporte.h \
     equipos.h \
-    libreria.h \
     tunel.h
 
 FORMS    += \

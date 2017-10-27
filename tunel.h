@@ -2,15 +2,11 @@
 #define SSH_H
 #include <QTcpServer>
 #include "configuracion.h"
-#include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlQuery>
-#include <QtSql/QSqlError>
-#include <QSqlQueryModel>
 #include <QProcess>
 #include "tunel.h"
 #include <QtDebug>
 #include "qthread.h"
-
+#include <QMessageBox>
 
 extern "C"
 {
@@ -61,28 +57,26 @@ private:
     fd_set fds;
     struct timeval tv;
     ssize_t len, wr;
-    char buf[16384];
+    char buf[65536];
     int sockopt, sock = -1;
     int listensock = -1, forwardsock = -1;
 
 
-
 public:
-
-
-    const char *keyfile1 = "/home/usuario/.ssh/id_rsa.pub";
-    const char *keyfile2 = "/home/usuario/.ssh/id_rsa";
-    const char *username = "usuario";
-    const char *password = "password";
-    const char *server_ip = "10.7.15.193";
-    const char *local_listenip = "127.0.0.1";
-    unsigned int remote_port = 22;
-    unsigned int local_listenport = 2223;
-    const char *remote_desthost = "localhost";
-    unsigned int remote_destport = 3306;//mysql
-
-    Tunel();
+    explicit Tunel();
     ~Tunel();
+    char *keyfile1;
+    char *keyfile2;
+    char *username_ssh;
+    char *password_ssh;
+    char *server_ip;
+    char *local_listenip;
+    unsigned int remote_port;
+    unsigned int local_listenport;
+    const char *remote_desthost;
+    unsigned int remote_destport;//mysql
+
+
 
     /*
      * Hace todo el proceso
@@ -90,7 +84,7 @@ public:
      */
    void crea_fordwarding();
    void crea_conexion();
-   bool conexDB(QSqlDatabase db);
+
     /*
      * Inicializa la libreria libssh2
      * Devuelve -1 en caso de error();
@@ -123,23 +117,22 @@ public:
      * Devuelve -1 en caso de error();
      * Paso quinto
      */
-    int autenticacion(char *username,char *password);
+    int autenticacion();
 
-    int escucha(unsigned int local_listenport,char *local_listenip,unsigned int remote_destport);
+    int escucha();
 
     int cierra_conexion();
 
-    int puerto_libre();
-
-    int creatunelDB(int puerto_remoto,char *usuario,char *servidor, int puerto_libre,QSqlDatabase db);
+    unsigned int puerto_libre();
 
     char* convierte(QString dato);
 
-    bool createConnection();
+
 
 
 signals:
     void sshConectado();
+    void sshDesconectado();
 };
 
 #endif

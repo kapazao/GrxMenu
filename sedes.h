@@ -88,7 +88,7 @@ private slots:
 
 private:
     Ui::Sedes *ui;
-    QSqlDatabase db;
+    //QSqlDatabase db;
     QSqlQuery consultar;
 };
 

@@ -96,10 +96,9 @@ void Botonera::on_actionNuevo_Men_triggered()
 
 void Botonera::on_actionSedes_triggered()
 {
-    QProcess por;
-    Tunel *tunel = new Tunel;
-    tunel->createConnection(); //CREA CONEXIONES DB
-    por.start("sleep 5");
+    //QProcess por;
+    //por.start("sleep 5");
+    //por.waitForFinished();
     Sedes *sedes = new Sedes;
     sedes->show();
 }

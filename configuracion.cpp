@@ -65,23 +65,23 @@ QString  Configuracion::cual_es_beiro(){
 QString  Configuracion::cual_es_DataBaseName(){
     return DataBaseName;
 }
-QString  Configuracion::cual_es_HostName(){
+QString  Configuracion::cual_es_hostnameDB(){
     return HostName;
 }
 QString  Configuracion::cual_es_PuertoDB(){
     return PuertoDB;
 }
-QString  Configuracion::cual_es_UserName(){
+QString  Configuracion::cual_es_usernameDB(){
     return UserName;
 }
-QString  Configuracion::cual_es_PaswordDB(){
+QString  Configuracion::cual_es_passwordDB(){
     return PasswordDB;
 }
 QString  Configuracion::cual_es_usuario_remoto(){
-      return UsuarioRemoto;
+    return UsuarioRemoto;
 }
 QString  Configuracion::cual_es_puerto(){
-      return Puerto;
+    return Puerto;
 }
 QString  Configuracion::cual_es_servidorSSH(){
     return ServidorSSH;
@@ -89,47 +89,52 @@ QString  Configuracion::cual_es_servidorSSH(){
 QString  Configuracion::cual_es_usuarioSSH(){
     return UsuarioSSH;
 }
-QString  Configuracion::cual_es_clave_ssh(){
-      return ClaveSSH;
+QString  Configuracion::cual_es_password_ssh(){
+    return ClaveSSH;
 }
 int  Configuracion::cual_es_puerto_remoto_ssh(){
-      return PuertoRemotoSSH;
+    return PuertoRemotoSSH;
 }
 int  Configuracion::cual_es_puerto_local_ssh(){
-      return PuertoLocalSSH;
+    return PuertoLocalSSH;
 }
 QString  Configuracion::cual_es_isl(){
-      return ISL;
+    return ISL;
 }
 QString  Configuracion::cual_es_cronos(){
-      return Cronos;
+    return Cronos;
 }
 QString  Configuracion::cual_es_correo(){
-      return Correo;
+    return Correo;
 }
 QString  Configuracion::cual_es_glpi(){
-      return GLPI;
+    return GLPI;
 }
 QString  Configuracion::cual_es_ocs(){
-      return OCS;
-}
-QString  Configuracion::cual_es_password(){
-      return Password;
+    return OCS;
 }
 QString  Configuracion::cual_es_clave_cifrado(){
-      return ClaveCifrado;
+    return ClaveCifrado;
 }
 QString  Configuracion::cual_es_clave_remoto(){
-      return ClaveRemoto;
+     return ClaveRemoto;
 }
 QString  Configuracion::cual_es_rdesktop(){
-      return Rdesktop;
+    return Rdesktop;
 }
 bool Configuracion::es_rdesktop(){
-      if (Rdesktop =="True")
+    if (Rdesktop =="True")
           return true;
 return false;
 }
+QString  Configuracion::cual_es_keyfile_privada(){
+    return KeyFile_privada;
+}
+QString  Configuracion::cual_es_keyfile_publica(){
+    return KeyFile_publica;
+}
+
+
 bool Configuracion::es_usarSSH(){
       if (UsarSSH =="True")
           return true;
@@ -182,6 +187,8 @@ void Configuracion::carga_configuracion()
     Rdesktop = s.value("Configuracion/Rdesktop").toString();
     Resolucion = s.value("Configuracion/Resolucion").toString();
 
+    KeyFile_privada = s.value("Configuracion/KeyFile_privada").toString();
+    KeyFile_publica = s.value("Configuracion/KeyFile_publica").toString();
     //Colores
     Fr_linux = s.value("Configuracion/fr_linux").toString();
     Fr_kerberos = s.value("Configuracion/fr_kerberos").toString();
@@ -216,7 +223,8 @@ void Configuracion::carga_configuracion()
     ui->servidor_SSH->setText(ServidorSSH);
     ui->usuario_ssh_BD->setText(UsuarioSSH);
     ui->clave_ssh_BD->setText(ClaveSSH);
-    ui->puerto_Local_ssh->setText(QString::number(PuertoLocalSSH));
+    ui->keyfile_privada->setText(KeyFile_privada);
+    ui->keyfile_publica->setText(KeyFile_publica);
     ui->puerto_Remoto_ssh->setText(QString::number(PuertoRemotoSSH));
     ui->clave_ad->setText(ClaveAD);
     ui->usuario_remoto->setText(UsuarioRemoto);
@@ -233,7 +241,8 @@ void Configuracion::carga_configuracion()
     ui->cb_resolucion->setCurrentText(Resolucion);
 }
 void Configuracion::habilitaSSH(){
-    ui->puerto_Local_ssh->setEnabled(true);
+    ui->keyfile_privada->setEnabled(true);
+    ui->keyfile_publica->setEnabled(true);
     ui->servidor_SSH->setEnabled(true);
     ui->usuario_ssh_BD->setEnabled(true);
     ui->clave_ssh_BD->setEnabled(true);
@@ -241,7 +250,8 @@ void Configuracion::habilitaSSH(){
 
 }
 void Configuracion::deshabilitaSSH(){
-    ui->puerto_Local_ssh->setEnabled(false);
+    ui->keyfile_privada->setEnabled(false);
+    ui->keyfile_publica->setEnabled(false);
     ui->servidor_SSH->setEnabled(false);
     ui->usuario_ssh_BD->setEnabled(false);
     ui->clave_ssh_BD->setEnabled(false);
@@ -270,7 +280,9 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/UsuarioSSH", ui->usuario_ssh_BD->text());
     s.setValue("Configuracion/ClaveSSH", ui->clave_ssh_BD->text());
     s.setValue("Configuracion/PuertoRemotoSSH", ui->puerto_Remoto_ssh->text());
-    s.setValue("Configuracion/PuertoLocalSSH", ui->puerto_Local_ssh->text());
+    s.setValue("Configuracion/KeyFile_privada", ui->keyfile_privada->text());
+    s.setValue("Configuracion/KeyFile_publica", ui->keyfile_publica->text());
+
     s.setValue("Configuracion/OCS", ui->OCS->text());
     s.setValue("Configuracion/GLPI", ui->GLPI->text());
     s.setValue("Configuracion/Beiro", ui->beiro->text());
@@ -361,7 +373,6 @@ void Configuracion::on_Btn_lupa_clicked()
 {
     QString fichero = QFileDialog::getOpenFileName(this, tr("Selecciona el ejecutable"),ui->ISL->text());
     ui->ISL->setText(fichero);
-
 }
 
 void Configuracion::on_checkBox_ssh_clicked()
@@ -370,4 +381,16 @@ void Configuracion::on_checkBox_ssh_clicked()
         habilitaSSH();
     else
         deshabilitaSSH();
+}
+
+void Configuracion::on_Btn_lupa_2_clicked()
+{
+    QString fichero = QFileDialog::getOpenFileName(this, tr("Selecciona el keyfile publico"),ui->keyfile_publica->text());
+    ui->keyfile_publica->setText(fichero);
+}
+
+void Configuracion::on_Btn_lupa_3_clicked()
+{
+    QString fichero = QFileDialog::getOpenFileName(this, tr("Selecciona el keyfile privado"),ui->keyfile_privada->text());
+    ui->keyfile_privada->setText(fichero);
 }
