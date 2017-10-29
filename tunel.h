@@ -97,7 +97,7 @@ public:
      * Devuelve -1 en caso de error();
      * Es el segundo paso para conectar por ssh
     */
-    int crea_socket(char *server_ip, unsigned int remote_port);
+    int crea_socket();
 
     /*
      * Crea una sesion con el socket creado en crea_socket

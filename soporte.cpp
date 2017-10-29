@@ -117,9 +117,11 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
 void Soporte::on_Btn_Buscar_clicked()
 {
+
     NMap* nmap = new NMap();
     QString s;
     QList<QString> puertos;
+
     ui->TextoSalida->appendPlainText("Escaneando: "+ui->lineEdit_ip->text());
     nmap->nmap_run_scan("-vvv -p22,80,8080,9100,443,139",ui->lineEdit_ip->text());
     puertos= nmap->nmap_ports_open(ui->lineEdit_ip->text());

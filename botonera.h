@@ -7,6 +7,7 @@
 #include "QProcess"
 #include "configuracion.h"
 #include "QtDebug"
+#include <QtSql/QSqlDatabase>
 
 namespace Ui {
 class Botonera;
@@ -17,6 +18,7 @@ class Botonera : public QMainWindow
     Q_OBJECT
 
 public:
+    QSqlDatabase db;
     explicit Botonera(QWidget *parent = 0);
     ~Botonera();
 
@@ -45,6 +47,15 @@ private slots:
 
     void on_actionSoporte_triggered();
 
+    bool cargaVariables();
+
+    bool creaConexion();
+
+    char* convierte(QString dato);
+
+    bool basedatos();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Botonera *ui;

@@ -19,15 +19,13 @@ char* Tunel::convierte(QString dato){
 void Tunel::crea_conexion(){
 
     if (this->inicia_libssh2())
-        QMessageBox::warning(0,"Error SSH", "¡ATENCION!\nNo he podido inicializar libssh2\nCompruebe que tiene la librería instalada y funcionando\n"
-                                           "No podrá usar el apartado 'Soporte'' ni 'Sedes'",QMessageBox::Ok);
-         //fprintf (stderr, "No he podido inicializar libssh2 (%d)\n");
+        QMessageBox::warning(0,"Sql Error", "¡ATENCION!\nNo ha sido posible inicializa libssh\nCompruebe que tiene instalada la libreria\nNo podrá usar el apartado 'Soporte'' ni 'Sedes'",QMessageBox::Ok);
     else{
          printf ("Se ha podido inicializar libssh2\n");
-         if ((this->crea_socket(server_ip,remote_port))){
-             fprintf (stderr, "No he podido crear un socket (%d)\n"
-                              "Compruebe que tiene acceso a la red y al puerto ssh");
-         }
+         if ((this->crea_socket()))
+            // QMessageBox::warning(0,"SSH Error", "¡ATENCION!\nNo ha sido posible crear el socket\nNo podrá usar el apartado 'Soporte'' ni 'Sedes'",QMessageBox::Ok);
+             //QMessageBox::warning(this,"Error ", "¡ATENCION!\nNo he podido crear el socket\nCompruebe que tiene acceso a la red y al puerto ssh\no que la ip del servidor es correcta\n",QMessageBox::Ok);
+             qDebug()<<"por aqui";
          else{
              fprintf (stderr, "SI he podido crear un socket (%d)\n");
              if (this->crea_sesion())
@@ -40,7 +38,7 @@ void Tunel::crea_conexion(){
                         if (this->autenticacion())
                             fprintf (stderr, "No he podido autenticarme (%d)\n");
                         else{
-                            printf("He podido autenticarme");
+                            printf("He podido autenticarme\n");
                              if (this->escucha())
                                  fprintf (stderr, "No he podido ejecutar escucha (%d)\n");
                         }
@@ -56,7 +54,7 @@ void Tunel::crea_conexion(){
      * Devuelve -1 en caso de error();
      * Es el primer paso para conectar por ssh
     */
-int Tunel::inicia_libssh2()
+int Tunel::inicia_libssh2()//primer paso
     {
         printf("Inicializando libssh2\n");
         rc = libssh2_init (0);
@@ -70,24 +68,24 @@ int Tunel::inicia_libssh2()
      * Devuelve -1 en caso de error();
      * Es el segundo paso para conectar por ssh
     */
-int Tunel::crea_socket(char *server_ip, unsigned int remote_port)//segundo paso,
-    {
-        printf("Creando socket\n");
+int Tunel::crea_socket()//segundo paso,
+{
         sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
         if (sock == -1)
-             return -1;
-        sin.sin_family = AF_INET;
-        if (INADDR_NONE == (sin.sin_addr.s_addr = inet_addr(server_ip)))
-             return -1;
+                return -1;
 
+        sin.sin_family = AF_INET;
+        if (INADDR_NONE == (sin.sin_addr.s_addr = inet_addr(server_ip))){
+            fprintf (stderr, "La ip del servidor esta mal formada\n");
+             return -1;
+        }
         sin.sin_port = htons(remote_port);
         if (::connect(sock, (struct sockaddr*)(&sin),sizeof(struct sockaddr_in)) != 0){
              fprintf (stderr, "No he podido crear el socket");
              return -1;
-         }
+        }
     return 0;
-    }
-
+}
 /*
      * Crea una sesion con el socket creado en crea_socket
      * Devuelve -1 en caso de error();
