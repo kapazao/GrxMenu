@@ -18,7 +18,6 @@ Equipos::~Equipos()
     delete ui;
 }
 
-
 void Equipos::on_pushButton_clicked()
 {
     QTemporaryDir dir;

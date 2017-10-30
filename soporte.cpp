@@ -2,14 +2,16 @@
 #include "ui_soporte.h"
 #include "qdebug.h"
 #include "equipos.h"
-
+#include <QThread>
+#include "ejecutahilo.h"
+#include <QTimer>
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
 {
     ui->setupUi(this);
     //Vamos a poner en el constructor la máscara para validar la ip introducida
-
+/*
     QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5][-]25[0-5])";
     QRegExp ipRegex ("^" + ipRange
                      + "\\." + ipRange
@@ -17,6 +19,7 @@ Soporte::Soporte(QWidget *parent) :
                      + "\\." + ipRange + "$");
     QRegExpValidator *ipValidator = new QRegExpValidator(ipRegex, this);
     ui->lineEdit_ip->setValidator(ipValidator);
+    */
 
 //Cargamos las sedes en el combobox
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -117,7 +120,7 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
 void Soporte::on_Btn_Buscar_clicked()
 {
-
+    QThread* hilo =new QThread();
     NMap* nmap = new NMap();
     QString s;
     QList<QString> puertos;
@@ -148,4 +151,54 @@ void Soporte::on_pushButton_4_clicked()
 {
     Equipos *equipos = new Equipos("10.100.251.30");
     equipos->show();
+}
+
+void Soporte::resultados(QList<QString> ip){
+    for (int i = 0; i < ip.size(); ++i)
+       ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
+
+}
+
+void Soporte::activa_barra_progreso(){
+
+    ui->progressBar->show();
+    ui->progressBar->setTextVisible(false);
+    ui->progressBar->setRange(0, 0);
+    //ui->progressBar->setMaximum(0);
+    //ui->progressBar->setMinimum(0);
+
+}
+
+
+void Soporte::desActiva_barra_progreso(){
+     ui->progressBar->hide();
+
+}
+void Soporte::ejecuta_nmap()
+{
+
+    QThread *hilo =new QThread();
+    ejecutaHilo *hebra = new ejecutaHilo("192.168.1.1");
+    hebra->moveToThread(hilo);
+    qRegisterMetaType<QList<QString> >("QList<QString>");
+    connect(hilo, &QThread::started, this, &Soporte::activa_barra_progreso );
+    connect(hilo, &QThread::started, hebra, &ejecutaHilo::ejecuta);
+    connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<QString>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
+    connect(hebra, &ejecutaHilo::resultadoListo, this, &Soporte::desActiva_barra_progreso);
+    connect(hilo, &QThread::finished, hilo, &QObject::deleteLater);
+
+    hilo->start();
+
+
+
+  /*  connect(hilo, &ejecutaHilo::started, hilo, &ejecutaHilo::ejecuta);
+    connect(hilo, reinterpret_cast<void (ejecutaHilo::*)(QString)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
+    connect(hilo, &ejecutaHilo::finished, hilo, &QObject::deleteLater);
+    hilo->start();
+    */
+}
+
+void Soporte::on_pushButton_5_clicked()
+{
+    ejecuta_nmap();
 }

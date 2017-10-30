@@ -31,6 +31,16 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void ejecuta_nmap();
+
+    void resultados(QList<QString> ip);
+
+    void on_pushButton_5_clicked();
+
+    void activa_barra_progreso();
+
+    void desActiva_barra_progreso();
+
 private:
     Ui::Soporte *ui;
     QSqlDatabase db;

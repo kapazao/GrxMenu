@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     sedes.cpp \
     soporte.cpp \
     equipos.cpp \
-    tunel.cpp
+    tunel.cpp \
+    ejecutahilo.cpp
 
 HEADERS  += \
     botonera.h \
@@ -31,7 +32,8 @@ HEADERS  += \
     sedes.h \
     soporte.h \
     equipos.h \
-    tunel.h
+    tunel.h \
+    ejecutahilo.h
 
 FORMS    += \
     botonera.ui \

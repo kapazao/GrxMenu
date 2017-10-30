@@ -270,3 +270,9 @@ void Botonera::on_pushButton_clicked()
 {
     cargaVariables();
 }
+
+void Botonera::on_pushButton_2_clicked()
+{
+    Soporte *soporte = new Soporte;
+    soporte->show();
+}
