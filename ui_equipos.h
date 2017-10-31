@@ -41,10 +41,10 @@ public:
     {
         if (Equipos->objectName().isEmpty())
             Equipos->setObjectName(QStringLiteral("Equipos"));
-        Equipos->resize(400, 300);
+        Equipos->resize(453, 460);
         layoutWidget = new QWidget(Equipos);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(40, 10, 125, 436));
+        layoutWidget->setGeometry(QRect(40, 10, 127, 436));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);

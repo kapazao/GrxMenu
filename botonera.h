@@ -59,6 +59,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_actionAtalaya_triggered();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Botonera *ui;
 

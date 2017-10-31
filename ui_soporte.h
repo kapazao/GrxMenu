@@ -70,6 +70,8 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QLabel *Estado;
+    QPushButton *Btn_Limpiar;
 
     void setupUi(QDialog *Soporte)
     {
@@ -80,7 +82,7 @@ public:
         TextoSalida->setObjectName(QStringLiteral("TextoSalida"));
         TextoSalida->setGeometry(QRect(10, 350, 781, 331));
         TextoSalida->setFocusPolicy(Qt::NoFocus);
-        TextoSalida->setReadOnly(true);
+        TextoSalida->setReadOnly(false);
         label_13 = new QLabel(Soporte);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(260, 10, 291, 31));
@@ -309,7 +311,13 @@ public:
 
         pushButton_4 = new QPushButton(Soporte);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(420, 290, 89, 25));
+        pushButton_4->setGeometry(QRect(390, 300, 89, 25));
+        Estado = new QLabel(Soporte);
+        Estado->setObjectName(QStringLiteral("Estado"));
+        Estado->setGeometry(QRect(10, 700, 59, 14));
+        Btn_Limpiar = new QPushButton(Soporte);
+        Btn_Limpiar->setObjectName(QStringLiteral("Btn_Limpiar"));
+        Btn_Limpiar->setGeometry(QRect(690, 300, 80, 21));
 
         retranslateUi(Soporte);
         QObject::connect(lineEdit_ip, SIGNAL(returnPressed()), Btn_Buscar, SLOT(click()));
@@ -338,6 +346,8 @@ public:
         pushButton_2->setText(QApplication::translate("Soporte", "Incidencia", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Soporte", "mtr", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("Soporte", "PushButton", Q_NULLPTR));
+        Estado->setText(QString());
+        Btn_Limpiar->setText(QApplication::translate("Soporte", "Limpiar", Q_NULLPTR));
     } // retranslateUi
 
 };

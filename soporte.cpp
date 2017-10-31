@@ -5,6 +5,7 @@
 #include <QThread>
 #include "ejecutahilo.h"
 #include <QTimer>
+#include <QMovie>
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
@@ -31,10 +32,10 @@ Soporte::Soporte(QWidget *parent) :
         qDebug() <<"Error en la consulta: "<< query->lastError();
     }else{
         qDebug() <<"Consulta realizada con exito: "<<query->lastQuery();
+        model->setQuery(*query);
+        ui->cb_sede->setModel(model);
+        on_cb_sede_activated(ui->cb_sede->itemText(0));
     }
-    model->setQuery(*query);
-    ui->cb_sede->setModel(model);
-    on_cb_sede_activated(ui->cb_sede->itemText(0));
 }
 
 Soporte::~Soporte()
@@ -120,21 +121,7 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
 void Soporte::on_Btn_Buscar_clicked()
 {
-    QThread* hilo =new QThread();
-    NMap* nmap = new NMap();
-    QString s;
-    QList<QString> puertos;
-
-    ui->TextoSalida->appendPlainText("Escaneando: "+ui->lineEdit_ip->text());
-    nmap->nmap_run_scan("-vvv -p22,80,8080,9100,443,139",ui->lineEdit_ip->text());
-    puertos= nmap->nmap_ports_open(ui->lineEdit_ip->text());
-    if (!puertos.isEmpty()){
-      foreach( s, puertos )
-        ui->TextoSalida->appendPlainText("Puerto abierto: "+s);
-    } else{
-        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
-    }
-    delete nmap;
+    ejecuta_nmap();
 }
 
 void Soporte::on_pushButton_clicked()
@@ -154,31 +141,34 @@ void Soporte::on_pushButton_4_clicked()
 }
 
 void Soporte::resultados(QList<QString> ip){
-    for (int i = 0; i < ip.size(); ++i)
-       ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
+    if(ip.empty()){
+        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
+    }else
+        for (int i = 0; i < ip.size(); ++i)
+               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
 
 }
 
 void Soporte::activa_barra_progreso(){
-
-    ui->progressBar->show();
-    ui->progressBar->setTextVisible(false);
-    ui->progressBar->setRange(0, 0);
-    //ui->progressBar->setMaximum(0);
-    //ui->progressBar->setMinimum(0);
-
+    QMovie *movie = new QMovie("iconos/buscando.gif");
+    QLabel *processLabel = new QLabel(this);
+    ui->Estado->show();
+    ui->Estado->setMovie(movie);
+    processLabel->setMovie(movie);
+    movie->start();
 }
 
 
 void Soporte::desActiva_barra_progreso(){
-     ui->progressBar->hide();
+     ui->Estado->hide();
 
 }
 void Soporte::ejecuta_nmap()
 {
 
     QThread *hilo =new QThread();
-    ejecutaHilo *hebra = new ejecutaHilo("192.168.1.1");
+    ejecutaHilo *hebra = new ejecutaHilo(ui->lineEdit_ip->text());
+    ui->TextoSalida->appendPlainText("Realizando escaneo para la ip:  "+ui->lineEdit_ip->text());
     hebra->moveToThread(hilo);
     qRegisterMetaType<QList<QString> >("QList<QString>");
     connect(hilo, &QThread::started, this, &Soporte::activa_barra_progreso );
@@ -186,19 +176,15 @@ void Soporte::ejecuta_nmap()
     connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<QString>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
     connect(hebra, &ejecutaHilo::resultadoListo, this, &Soporte::desActiva_barra_progreso);
     connect(hilo, &QThread::finished, hilo, &QObject::deleteLater);
-
     hilo->start();
-
-
-
-  /*  connect(hilo, &ejecutaHilo::started, hilo, &ejecutaHilo::ejecuta);
-    connect(hilo, reinterpret_cast<void (ejecutaHilo::*)(QString)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
-    connect(hilo, &ejecutaHilo::finished, hilo, &QObject::deleteLater);
-    hilo->start();
-    */
 }
 
 void Soporte::on_pushButton_5_clicked()
 {
-    ejecuta_nmap();
+
+}
+
+void Soporte::on_Btn_Limpiar_clicked()
+{
+    ui->TextoSalida->clear();
 }

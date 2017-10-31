@@ -990,13 +990,13 @@ public:
         frame_6->setFrameShadow(QFrame::Raised);
         label_28 = new QLabel(frame_6);
         label_28->setObjectName(QStringLiteral("label_28"));
-        label_28->setGeometry(QRect(212, 0, 30, 18));
+        label_28->setGeometry(QRect(212, 3, 30, 18));
         label_29 = new QLabel(frame_6);
         label_29->setObjectName(QStringLiteral("label_29"));
-        label_29->setGeometry(QRect(415, 0, 22, 18));
+        label_29->setGeometry(QRect(415, 3, 22, 18));
         label_27 = new QLabel(frame_6);
         label_27->setObjectName(QStringLiteral("label_27"));
-        label_27->setGeometry(QRect(10, 0, 20, 18));
+        label_27->setGeometry(QRect(10, 3, 20, 18));
         layoutWidget4 = new QWidget(frame_6);
         layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
         layoutWidget4->setGeometry(QRect(10, 20, 601, 34));

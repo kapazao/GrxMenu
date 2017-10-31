@@ -260,6 +260,7 @@ bool Botonera::cargaVariables(){
     if (name.isEmpty())
         name = qgetenv("USERNAME");
     ui->label_username->setText(name);
+    ui->label_GW->setText("GW");
 
 delete configuracion;
 delete nmap;
@@ -275,4 +276,19 @@ void Botonera::on_pushButton_2_clicked()
 {
     Soporte *soporte = new Soporte;
     soporte->show();
+}
+
+void Botonera::on_actionAtalaya_triggered()
+{
+    Configuracion *configuracion = new Configuracion;
+    QProcess process;
+    process.startDetached("xdg-open" , QStringList() << "http://atalaya.grx");
+    delete configuracion;
+}
+
+void Botonera::on_pushButton_3_clicked()
+{
+    QWebEngineView *view = new QWebEngineView(parent);
+    view->load(QUrl("http://www.qt.io/"));
+    view->show();
 }

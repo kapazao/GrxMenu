@@ -13,10 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -39,10 +43,31 @@ public:
     QAction *actionConfigurar;
     QAction *actionSoporte;
     QAction *actionSedes;
+    QAction *actionAcerca_de;
+    QAction *actionAtalaya;
     QWidget *centralWidget;
+    QLabel *label_2;
+    QFrame *frame;
+    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_4;
+    QLabel *label_6;
+    QPushButton *pushButton_2;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_5;
+    QLabel *label_DB;
+    QPushButton *pushButton;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_3;
+    QLabel *label_username;
+    QLabel *label;
+    QLabel *label_ip;
+    QLabel *label_7;
+    QLabel *label_GW;
     QMenuBar *menuBar;
     QMenu *menuNuevo;
     QMenu *menuAplicaciones;
+    QMenu *menuAcerca_de;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -50,7 +75,7 @@ public:
     {
         if (Botonera->objectName().isEmpty())
             Botonera->setObjectName(QStringLiteral("Botonera"));
-        Botonera->resize(973, 142);
+        Botonera->resize(1143, 563);
         actionUsuarios = new QAction(Botonera);
         actionUsuarios->setObjectName(QStringLiteral("actionUsuarios"));
         QIcon icon;
@@ -113,16 +138,131 @@ public:
         QIcon icon11;
         icon11.addFile(QStringLiteral("iconos/sedes.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSedes->setIcon(icon11);
+        actionAcerca_de = new QAction(Botonera);
+        actionAcerca_de->setObjectName(QStringLiteral("actionAcerca_de"));
+        actionAtalaya = new QAction(Botonera);
+        actionAtalaya->setObjectName(QStringLiteral("actionAtalaya"));
+        QIcon icon12;
+        icon12.addFile(QStringLiteral("iconos/solarwind.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAtalaya->setIcon(icon12);
         centralWidget = new QWidget(Botonera);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(9, 9, 317, 36));
+        QFont font;
+        font.setPointSize(23);
+        label_2->setFont(font);
+        frame = new QFrame(centralWidget);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setGeometry(QRect(0, 70, 792, 44));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_2 = new QHBoxLayout(frame);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_4 = new QLabel(frame);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        horizontalLayout_4->addWidget(label_4);
+
+        label_6 = new QLabel(frame);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Ubuntu Condensed"));
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_6->setFont(font1);
+
+        horizontalLayout_4->addWidget(label_6);
+
+        pushButton_2 = new QPushButton(frame);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+
+        horizontalLayout_4->addWidget(pushButton_2);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout_4);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        label_5 = new QLabel(frame);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        horizontalLayout->addWidget(label_5);
+
+        label_DB = new QLabel(frame);
+        label_DB->setObjectName(QStringLiteral("label_DB"));
+        label_DB->setFont(font1);
+
+        horizontalLayout->addWidget(label_DB);
+
+        pushButton = new QPushButton(frame);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        horizontalLayout->addWidget(pushButton);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_3 = new QLabel(frame);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        horizontalLayout_3->addWidget(label_3);
+
+        label_username = new QLabel(frame);
+        label_username->setObjectName(QStringLiteral("label_username"));
+        label_username->setFont(font1);
+
+        horizontalLayout_3->addWidget(label_username);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout_3);
+
+        label = new QLabel(frame);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        label_ip = new QLabel(frame);
+        label_ip->setObjectName(QStringLiteral("label_ip"));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Ubuntu Condensed"));
+        font2.setBold(true);
+        font2.setItalic(false);
+        font2.setWeight(75);
+        label_ip->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_ip);
+
+        label_7 = new QLabel(frame);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        horizontalLayout_2->addWidget(label_7);
+
+        label_GW = new QLabel(frame);
+        label_GW->setObjectName(QStringLiteral("label_GW"));
+
+        horizontalLayout_2->addWidget(label_GW);
+
         Botonera->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Botonera);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 973, 19));
+        menuBar->setGeometry(QRect(0, 0, 1143, 19));
         menuNuevo = new QMenu(menuBar);
         menuNuevo->setObjectName(QStringLiteral("menuNuevo"));
         menuAplicaciones = new QMenu(menuBar);
         menuAplicaciones->setObjectName(QStringLiteral("menuAplicaciones"));
+        menuAcerca_de = new QMenu(menuBar);
+        menuAcerca_de->setObjectName(QStringLiteral("menuAcerca_de"));
         Botonera->setMenuBar(menuBar);
         mainToolBar = new QToolBar(Botonera);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -135,6 +275,7 @@ public:
 
         menuBar->addAction(menuNuevo->menuAction());
         menuBar->addAction(menuAplicaciones->menuAction());
+        menuBar->addAction(menuAcerca_de->menuAction());
         menuNuevo->addAction(actionNuevo_Men);
         menuNuevo->addSeparator();
         menuNuevo->addAction(actionSalir);
@@ -148,6 +289,7 @@ public:
         menuAplicaciones->addAction(actionActiveDirectory);
         menuAplicaciones->addAction(actionISL);
         menuAplicaciones->addAction(actionConfigurar);
+        menuAcerca_de->addAction(actionAcerca_de);
         mainToolBar->addAction(actionUsuarios);
         mainToolBar->addAction(actionSoporte);
         mainToolBar->addAction(actionSedes);
@@ -158,6 +300,7 @@ public:
         mainToolBar->addAction(actionOcs);
         mainToolBar->addAction(actionActiveDirectory);
         mainToolBar->addAction(actionISL);
+        mainToolBar->addAction(actionAtalaya);
         mainToolBar->addAction(actionConfigurar);
         mainToolBar->addAction(actionSalir);
 
@@ -239,8 +382,27 @@ public:
         actionSoporte->setToolTip(QApplication::translate("Botonera", "Soporte", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         actionSedes->setText(QApplication::translate("Botonera", "Sedes", Q_NULLPTR));
+        actionAcerca_de->setText(QApplication::translate("Botonera", "Acerca de ...", Q_NULLPTR));
+        actionAtalaya->setText(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionAtalaya->setToolTip(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        label_2->setText(QApplication::translate("Botonera", "Informaci\303\263n General", Q_NULLPTR));
+        label_4->setText(QApplication::translate("Botonera", "Ticket Kerberos", Q_NULLPTR));
+        label_6->setText(QApplication::translate("Botonera", "TextLabel", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("Botonera", "Renovar", Q_NULLPTR));
+        label_5->setText(QApplication::translate("Botonera", "Base de Datos", Q_NULLPTR));
+        label_DB->setText(QApplication::translate("Botonera", "TextLabel", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Botonera", "Conecta DB", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Botonera", "Nombre usuario", Q_NULLPTR));
+        label_username->setText(QApplication::translate("Botonera", "TextLabel", Q_NULLPTR));
+        label->setText(QApplication::translate("Botonera", "Direccion IP", Q_NULLPTR));
+        label_ip->setText(QApplication::translate("Botonera", "IP", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Botonera", "Gateway", Q_NULLPTR));
+        label_GW->setText(QString());
         menuNuevo->setTitle(QApplication::translate("Botonera", "Ar&chivo", Q_NULLPTR));
         menuAplicaciones->setTitle(QApplication::translate("Botonera", "Ap&licaciones", Q_NULLPTR));
+        menuAcerca_de->setTitle(QApplication::translate("Botonera", "Ayuda", Q_NULLPTR));
     } // retranslateUi
 
 };

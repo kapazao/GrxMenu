@@ -41,6 +41,8 @@ private slots:
 
     void desActiva_barra_progreso();
 
+    void on_Btn_Limpiar_clicked();
+
 private:
     Ui::Soporte *ui;
     QSqlDatabase db;

@@ -36,8 +36,7 @@ public:
     QFrame *fr_DB;
     QPushButton *PB_DB;
     QLabel *label_24;
-    QWidget *widget;
-    QVBoxLayout *verticalLayout_12;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_7;
     QLabel *label_25;
@@ -52,22 +51,29 @@ public:
     QLineEdit *Usuario_DB;
     QLineEdit *password_DB;
     QCheckBox *checkBox_ssh;
-    QHBoxLayout *horizontalLayout_7;
+    QWidget *layoutWidget1;
+    QHBoxLayout *horizontalLayout_9;
     QVBoxLayout *verticalLayout_8;
     QLabel *label_11;
     QLabel *label_30;
     QLabel *label_31;
     QLabel *label_19;
+    QHBoxLayout *horizontalLayout_7;
     QLabel *label_20;
+    QPushButton *Btn_lupa_2;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_32;
+    QPushButton *Btn_lupa_3;
     QVBoxLayout *verticalLayout_11;
     QLineEdit *servidor_SSH;
     QLineEdit *usuario_ssh_BD;
     QLineEdit *clave_ssh_BD;
     QLineEdit *puerto_Remoto_ssh;
-    QLineEdit *puerto_Local_ssh;
+    QLineEdit *keyfile_publica;
+    QLineEdit *keyfile_privada;
     QFrame *fr_TS;
     QLabel *label_17;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_6;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_3;
@@ -86,7 +92,7 @@ public:
     QLabel *label_16;
     QDialogButtonBox *buttonBox;
     QFrame *fr_kerberos;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout;
     QLabel *label_9;
     QPushButton *Btn_Kerberos;
@@ -95,7 +101,7 @@ public:
     QFrame *fr_rutas;
     QLabel *lb_rutas;
     QPushButton *PB_rutas;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_6;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_15;
@@ -114,7 +120,7 @@ public:
     QLineEdit *OCS;
     QLineEdit *beiro;
     QFrame *fr_linux;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_4;
@@ -140,7 +146,7 @@ public:
     {
         if (Configuracion->objectName().isEmpty())
             Configuracion->setObjectName(QStringLiteral("Configuracion"));
-        Configuracion->resize(962, 739);
+        Configuracion->resize(962, 766);
         fr_DB = new QFrame(Configuracion);
         fr_DB->setObjectName(QStringLiteral("fr_DB"));
         fr_DB->setGeometry(QRect(540, 210, 411, 471));
@@ -155,43 +161,41 @@ public:
         PB_DB->setIconSize(QSize(25, 25));
         label_24 = new QLabel(fr_DB);
         label_24->setObjectName(QStringLiteral("label_24"));
-        label_24->setGeometry(QRect(20, 20, 272, 22));
+        label_24->setGeometry(QRect(20, 10, 272, 22));
         QFont font;
         font.setPointSize(12);
         font.setBold(true);
         font.setWeight(75);
         label_24->setFont(font);
-        widget = new QWidget(fr_DB);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 50, 391, 412));
-        verticalLayout_12 = new QVBoxLayout(widget);
-        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_4 = new QHBoxLayout();
+        layoutWidget = new QWidget(fr_DB);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(11, 40, 391, 188));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        label_25 = new QLabel(widget);
+        label_25 = new QLabel(layoutWidget);
         label_25->setObjectName(QStringLiteral("label_25"));
 
         verticalLayout_7->addWidget(label_25);
 
-        label_21 = new QLabel(widget);
+        label_21 = new QLabel(layoutWidget);
         label_21->setObjectName(QStringLiteral("label_21"));
 
         verticalLayout_7->addWidget(label_21);
 
-        label_26 = new QLabel(widget);
+        label_26 = new QLabel(layoutWidget);
         label_26->setObjectName(QStringLiteral("label_26"));
 
         verticalLayout_7->addWidget(label_26);
 
-        label_27 = new QLabel(widget);
+        label_27 = new QLabel(layoutWidget);
         label_27->setObjectName(QStringLiteral("label_27"));
 
         verticalLayout_7->addWidget(label_27);
 
-        label_28 = new QLabel(widget);
+        label_28 = new QLabel(layoutWidget);
         label_28->setObjectName(QStringLiteral("label_28"));
 
         verticalLayout_7->addWidget(label_28);
@@ -201,28 +205,28 @@ public:
 
         verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        servidor_DB = new QLineEdit(widget);
+        servidor_DB = new QLineEdit(layoutWidget);
         servidor_DB->setObjectName(QStringLiteral("servidor_DB"));
 
         verticalLayout_9->addWidget(servidor_DB);
 
-        puerto_DB = new QLineEdit(widget);
+        puerto_DB = new QLineEdit(layoutWidget);
         puerto_DB->setObjectName(QStringLiteral("puerto_DB"));
 
         verticalLayout_9->addWidget(puerto_DB);
 
-        DataBaseName = new QLineEdit(widget);
+        DataBaseName = new QLineEdit(layoutWidget);
         DataBaseName->setObjectName(QStringLiteral("DataBaseName"));
 
         verticalLayout_9->addWidget(DataBaseName);
 
-        Usuario_DB = new QLineEdit(widget);
+        Usuario_DB = new QLineEdit(layoutWidget);
         Usuario_DB->setObjectName(QStringLiteral("Usuario_DB"));
         Usuario_DB->setEchoMode(QLineEdit::Normal);
 
         verticalLayout_9->addWidget(Usuario_DB);
 
-        password_DB = new QLineEdit(widget);
+        password_DB = new QLineEdit(layoutWidget);
         password_DB->setObjectName(QStringLiteral("password_DB"));
         password_DB->setEchoMode(QLineEdit::Password);
 
@@ -231,80 +235,113 @@ public:
 
         horizontalLayout_4->addLayout(verticalLayout_9);
 
-
-        verticalLayout_12->addLayout(horizontalLayout_4);
-
-        checkBox_ssh = new QCheckBox(widget);
+        checkBox_ssh = new QCheckBox(fr_DB);
         checkBox_ssh->setObjectName(QStringLiteral("checkBox_ssh"));
+        checkBox_ssh->setGeometry(QRect(10, 230, 137, 22));
         checkBox_ssh->setChecked(false);
-
-        verticalLayout_12->addWidget(checkBox_ssh);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        layoutWidget1 = new QWidget(fr_DB);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 260, 391, 196));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
         verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setSpacing(0);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        label_11 = new QLabel(widget);
+        label_11 = new QLabel(layoutWidget1);
         label_11->setObjectName(QStringLiteral("label_11"));
 
         verticalLayout_8->addWidget(label_11);
 
-        label_30 = new QLabel(widget);
+        label_30 = new QLabel(layoutWidget1);
         label_30->setObjectName(QStringLiteral("label_30"));
 
         verticalLayout_8->addWidget(label_30);
 
-        label_31 = new QLabel(widget);
+        label_31 = new QLabel(layoutWidget1);
         label_31->setObjectName(QStringLiteral("label_31"));
 
         verticalLayout_8->addWidget(label_31);
 
-        label_19 = new QLabel(widget);
+        label_19 = new QLabel(layoutWidget1);
         label_19->setObjectName(QStringLiteral("label_19"));
 
         verticalLayout_8->addWidget(label_19);
 
-        label_20 = new QLabel(widget);
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        label_20 = new QLabel(layoutWidget1);
         label_20->setObjectName(QStringLiteral("label_20"));
 
-        verticalLayout_8->addWidget(label_20);
+        horizontalLayout_7->addWidget(label_20);
+
+        Btn_lupa_2 = new QPushButton(layoutWidget1);
+        Btn_lupa_2->setObjectName(QStringLiteral("Btn_lupa_2"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("iconos/lupa.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Btn_lupa_2->setIcon(icon1);
+
+        horizontalLayout_7->addWidget(Btn_lupa_2);
 
 
-        horizontalLayout_7->addLayout(verticalLayout_8);
+        verticalLayout_8->addLayout(horizontalLayout_7);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        label_32 = new QLabel(layoutWidget1);
+        label_32->setObjectName(QStringLiteral("label_32"));
+
+        horizontalLayout_8->addWidget(label_32);
+
+        Btn_lupa_3 = new QPushButton(layoutWidget1);
+        Btn_lupa_3->setObjectName(QStringLiteral("Btn_lupa_3"));
+        Btn_lupa_3->setIcon(icon1);
+
+        horizontalLayout_8->addWidget(Btn_lupa_3);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_8);
+
+
+        horizontalLayout_9->addLayout(verticalLayout_8);
 
         verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setSpacing(0);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        servidor_SSH = new QLineEdit(widget);
+        servidor_SSH = new QLineEdit(layoutWidget1);
         servidor_SSH->setObjectName(QStringLiteral("servidor_SSH"));
 
         verticalLayout_11->addWidget(servidor_SSH);
 
-        usuario_ssh_BD = new QLineEdit(widget);
+        usuario_ssh_BD = new QLineEdit(layoutWidget1);
         usuario_ssh_BD->setObjectName(QStringLiteral("usuario_ssh_BD"));
 
         verticalLayout_11->addWidget(usuario_ssh_BD);
 
-        clave_ssh_BD = new QLineEdit(widget);
+        clave_ssh_BD = new QLineEdit(layoutWidget1);
         clave_ssh_BD->setObjectName(QStringLiteral("clave_ssh_BD"));
         clave_ssh_BD->setEchoMode(QLineEdit::Password);
 
         verticalLayout_11->addWidget(clave_ssh_BD);
 
-        puerto_Remoto_ssh = new QLineEdit(widget);
+        puerto_Remoto_ssh = new QLineEdit(layoutWidget1);
         puerto_Remoto_ssh->setObjectName(QStringLiteral("puerto_Remoto_ssh"));
 
         verticalLayout_11->addWidget(puerto_Remoto_ssh);
 
-        puerto_Local_ssh = new QLineEdit(widget);
-        puerto_Local_ssh->setObjectName(QStringLiteral("puerto_Local_ssh"));
+        keyfile_publica = new QLineEdit(layoutWidget1);
+        keyfile_publica->setObjectName(QStringLiteral("keyfile_publica"));
 
-        verticalLayout_11->addWidget(puerto_Local_ssh);
+        verticalLayout_11->addWidget(keyfile_publica);
+
+        keyfile_privada = new QLineEdit(layoutWidget1);
+        keyfile_privada->setObjectName(QStringLiteral("keyfile_privada"));
+
+        verticalLayout_11->addWidget(keyfile_privada);
 
 
-        horizontalLayout_7->addLayout(verticalLayout_11);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_7);
+        horizontalLayout_9->addLayout(verticalLayout_11);
 
         fr_TS = new QFrame(Configuracion);
         fr_TS->setObjectName(QStringLiteral("fr_TS"));
@@ -314,27 +351,27 @@ public:
         label_17 = new QLabel(fr_TS);
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setGeometry(QRect(11, 101, 16, 17));
-        layoutWidget = new QWidget(fr_TS);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 40, 391, 154));
-        verticalLayout_6 = new QVBoxLayout(layoutWidget);
+        layoutWidget2 = new QWidget(fr_TS);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 40, 391, 154));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        label_7 = new QLabel(layoutWidget);
+        label_7 = new QLabel(layoutWidget2);
         label_7->setObjectName(QStringLiteral("label_7"));
 
         verticalLayout_3->addWidget(label_7);
 
-        label_22 = new QLabel(layoutWidget);
+        label_22 = new QLabel(layoutWidget2);
         label_22->setObjectName(QStringLiteral("label_22"));
 
         verticalLayout_3->addWidget(label_22);
 
-        label_23 = new QLabel(layoutWidget);
+        label_23 = new QLabel(layoutWidget2);
         label_23->setObjectName(QStringLiteral("label_23"));
 
         verticalLayout_3->addWidget(label_23);
@@ -344,17 +381,17 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        servidor = new QLineEdit(layoutWidget);
+        servidor = new QLineEdit(layoutWidget2);
         servidor->setObjectName(QStringLiteral("servidor"));
 
         verticalLayout_4->addWidget(servidor);
 
-        usuario_ad = new QLineEdit(layoutWidget);
+        usuario_ad = new QLineEdit(layoutWidget2);
         usuario_ad->setObjectName(QStringLiteral("usuario_ad"));
 
         verticalLayout_4->addWidget(usuario_ad);
 
-        clave_ad = new QLineEdit(layoutWidget);
+        clave_ad = new QLineEdit(layoutWidget2);
         clave_ad->setObjectName(QStringLiteral("clave_ad"));
         clave_ad->setEchoMode(QLineEdit::Password);
 
@@ -368,19 +405,19 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        rb_rdesktop = new QRadioButton(layoutWidget);
+        rb_rdesktop = new QRadioButton(layoutWidget2);
         rb_rdesktop->setObjectName(QStringLiteral("rb_rdesktop"));
         rb_rdesktop->setAcceptDrops(true);
         rb_rdesktop->setAutoFillBackground(false);
 
         horizontalLayout_2->addWidget(rb_rdesktop);
 
-        rb_freerdp = new QRadioButton(layoutWidget);
+        rb_freerdp = new QRadioButton(layoutWidget2);
         rb_freerdp->setObjectName(QStringLiteral("rb_freerdp"));
 
         horizontalLayout_2->addWidget(rb_freerdp);
 
-        cb_resolucion = new QComboBox(layoutWidget);
+        cb_resolucion = new QComboBox(layoutWidget2);
         cb_resolucion->setObjectName(QStringLiteral("cb_resolucion"));
 
         horizontalLayout_2->addWidget(cb_resolucion);
@@ -399,7 +436,7 @@ public:
         label_16->setFont(font);
         buttonBox = new QDialogButtonBox(Configuracion);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(790, 700, 160, 25));
+        buttonBox->setGeometry(QRect(790, 730, 160, 25));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
         fr_kerberos = new QFrame(Configuracion);
@@ -407,18 +444,18 @@ public:
         fr_kerberos->setGeometry(QRect(0, 530, 541, 81));
         fr_kerberos->setFrameShape(QFrame::StyledPanel);
         fr_kerberos->setFrameShadow(QFrame::Raised);
-        layoutWidget1 = new QWidget(fr_kerberos);
-        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 40, 511, 36));
-        horizontalLayout = new QHBoxLayout(layoutWidget1);
+        layoutWidget3 = new QWidget(fr_kerberos);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(20, 40, 511, 36));
+        horizontalLayout = new QHBoxLayout(layoutWidget3);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(layoutWidget1);
+        label_9 = new QLabel(layoutWidget3);
         label_9->setObjectName(QStringLiteral("label_9"));
 
         horizontalLayout->addWidget(label_9);
 
-        Btn_Kerberos = new QPushButton(layoutWidget1);
+        Btn_Kerberos = new QPushButton(layoutWidget3);
         Btn_Kerberos->setObjectName(QStringLiteral("Btn_Kerberos"));
 
         horizontalLayout->addWidget(Btn_Kerberos);
@@ -447,35 +484,33 @@ public:
         PB_rutas->setGeometry(QRect(500, 10, 31, 25));
         PB_rutas->setIcon(icon);
         PB_rutas->setIconSize(QSize(25, 25));
-        layoutWidget2 = new QWidget(fr_rutas);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(12, 41, 521, 201));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget2);
+        layoutWidget4 = new QWidget(fr_rutas);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(12, 41, 521, 201));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_15 = new QLabel(layoutWidget2);
+        label_15 = new QLabel(layoutWidget4);
         label_15->setObjectName(QStringLiteral("label_15"));
 
         verticalLayout_5->addWidget(label_15);
 
-        label_14 = new QLabel(layoutWidget2);
+        label_14 = new QLabel(layoutWidget4);
         label_14->setObjectName(QStringLiteral("label_14"));
 
         verticalLayout_5->addWidget(label_14);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        label_10 = new QLabel(layoutWidget2);
+        label_10 = new QLabel(layoutWidget4);
         label_10->setObjectName(QStringLiteral("label_10"));
 
         horizontalLayout_5->addWidget(label_10);
 
-        Btn_lupa = new QPushButton(layoutWidget2);
+        Btn_lupa = new QPushButton(layoutWidget4);
         Btn_lupa->setObjectName(QStringLiteral("Btn_lupa"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("iconos/lupa.png"), QSize(), QIcon::Normal, QIcon::Off);
         Btn_lupa->setIcon(icon1);
 
         horizontalLayout_5->addWidget(Btn_lupa);
@@ -483,17 +518,17 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_5);
 
-        label_12 = new QLabel(layoutWidget2);
+        label_12 = new QLabel(layoutWidget4);
         label_12->setObjectName(QStringLiteral("label_12"));
 
         verticalLayout_5->addWidget(label_12);
 
-        label_13 = new QLabel(layoutWidget2);
+        label_13 = new QLabel(layoutWidget4);
         label_13->setObjectName(QStringLiteral("label_13"));
 
         verticalLayout_5->addWidget(label_13);
 
-        label_18 = new QLabel(layoutWidget2);
+        label_18 = new QLabel(layoutWidget4);
         label_18->setObjectName(QStringLiteral("label_18"));
 
         verticalLayout_5->addWidget(label_18);
@@ -504,32 +539,32 @@ public:
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(1);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        correoweb = new QLineEdit(layoutWidget2);
+        correoweb = new QLineEdit(layoutWidget4);
         correoweb->setObjectName(QStringLiteral("correoweb"));
 
         verticalLayout_10->addWidget(correoweb);
 
-        cronos = new QLineEdit(layoutWidget2);
+        cronos = new QLineEdit(layoutWidget4);
         cronos->setObjectName(QStringLiteral("cronos"));
 
         verticalLayout_10->addWidget(cronos);
 
-        ISL = new QLineEdit(layoutWidget2);
+        ISL = new QLineEdit(layoutWidget4);
         ISL->setObjectName(QStringLiteral("ISL"));
 
         verticalLayout_10->addWidget(ISL);
 
-        GLPI = new QLineEdit(layoutWidget2);
+        GLPI = new QLineEdit(layoutWidget4);
         GLPI->setObjectName(QStringLiteral("GLPI"));
 
         verticalLayout_10->addWidget(GLPI);
 
-        OCS = new QLineEdit(layoutWidget2);
+        OCS = new QLineEdit(layoutWidget4);
         OCS->setObjectName(QStringLiteral("OCS"));
 
         verticalLayout_10->addWidget(OCS);
 
-        beiro = new QLineEdit(layoutWidget2);
+        beiro = new QLineEdit(layoutWidget4);
         beiro->setObjectName(QStringLiteral("beiro"));
 
         verticalLayout_10->addWidget(beiro);
@@ -545,46 +580,46 @@ public:
         fr_linux->setGeometry(QRect(0, 0, 541, 281));
         fr_linux->setFrameShape(QFrame::StyledPanel);
         fr_linux->setFrameShadow(QFrame::Raised);
-        layoutWidget3 = new QWidget(fr_linux);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(10, 40, 521, 234));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget3);
+        layoutWidget5 = new QWidget(fr_linux);
+        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(10, 40, 521, 234));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(1);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_4 = new QLabel(layoutWidget3);
+        label_4 = new QLabel(layoutWidget5);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout_2->addWidget(label_4);
 
-        label_2 = new QLabel(layoutWidget3);
+        label_2 = new QLabel(layoutWidget5);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout_2->addWidget(label_2);
 
-        label = new QLabel(layoutWidget3);
+        label = new QLabel(layoutWidget5);
         label->setObjectName(QStringLiteral("label"));
 
         verticalLayout_2->addWidget(label);
 
-        label_8 = new QLabel(layoutWidget3);
+        label_8 = new QLabel(layoutWidget5);
         label_8->setObjectName(QStringLiteral("label_8"));
 
         verticalLayout_2->addWidget(label_8);
 
-        label_3 = new QLabel(layoutWidget3);
+        label_3 = new QLabel(layoutWidget5);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         verticalLayout_2->addWidget(label_3);
 
-        label_5 = new QLabel(layoutWidget3);
+        label_5 = new QLabel(layoutWidget5);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         verticalLayout_2->addWidget(label_5);
 
-        label_6 = new QLabel(layoutWidget3);
+        label_6 = new QLabel(layoutWidget5);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         verticalLayout_2->addWidget(label_6);
@@ -595,40 +630,40 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(1);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        tecnico = new QLineEdit(layoutWidget3);
+        tecnico = new QLineEdit(layoutWidget5);
         tecnico->setObjectName(QStringLiteral("tecnico"));
 
         verticalLayout->addWidget(tecnico);
 
-        clave = new QLineEdit(layoutWidget3);
+        clave = new QLineEdit(layoutWidget5);
         clave->setObjectName(QStringLiteral("clave"));
         clave->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(clave);
 
-        usuario_remoto = new QLineEdit(layoutWidget3);
+        usuario_remoto = new QLineEdit(layoutWidget5);
         usuario_remoto->setObjectName(QStringLiteral("usuario_remoto"));
 
         verticalLayout->addWidget(usuario_remoto);
 
-        puerto = new QLineEdit(layoutWidget3);
+        puerto = new QLineEdit(layoutWidget5);
         puerto->setObjectName(QStringLiteral("puerto"));
 
         verticalLayout->addWidget(puerto);
 
-        password = new QLineEdit(layoutWidget3);
+        password = new QLineEdit(layoutWidget5);
         password->setObjectName(QStringLiteral("password"));
         password->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(password);
 
-        clave_cifrado = new QLineEdit(layoutWidget3);
+        clave_cifrado = new QLineEdit(layoutWidget5);
         clave_cifrado->setObjectName(QStringLiteral("clave_cifrado"));
         clave_cifrado->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(clave_cifrado);
 
-        clave_remoto = new QLineEdit(layoutWidget3);
+        clave_remoto = new QLineEdit(layoutWidget5);
         clave_remoto->setObjectName(QStringLiteral("clave_remoto"));
         clave_remoto->setEchoMode(QLineEdit::Password);
 
@@ -648,7 +683,7 @@ public:
         PB_linux->setIconSize(QSize(25, 25));
         pushButton_2 = new QPushButton(Configuracion);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(680, 700, 89, 25));
+        pushButton_2->setGeometry(QRect(680, 730, 89, 25));
         QWidget::setTabOrder(tecnico, clave);
         QWidget::setTabOrder(clave, usuario_remoto);
         QWidget::setTabOrder(usuario_remoto, puerto);
@@ -694,9 +729,12 @@ public:
         label_30->setText(QApplication::translate("Configuracion", "Usuario ssh", Q_NULLPTR));
         label_31->setText(QApplication::translate("Configuracion", "Clave ssh", Q_NULLPTR));
         label_19->setText(QApplication::translate("Configuracion", "Puerto Remoto", Q_NULLPTR));
-        label_20->setText(QApplication::translate("Configuracion", "Puerto Local", Q_NULLPTR));
+        label_20->setText(QApplication::translate("Configuracion", "KeyFile Publica", Q_NULLPTR));
+        Btn_lupa_2->setText(QString());
+        label_32->setText(QApplication::translate("Configuracion", "KeyFile Privada", Q_NULLPTR));
+        Btn_lupa_3->setText(QString());
         puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", Q_NULLPTR));
-        puerto_Local_ssh->setInputMask(QApplication::translate("Configuracion", "99999", Q_NULLPTR));
+        keyfile_publica->setInputMask(QString());
         label_17->setText(QString());
         label_7->setText(QApplication::translate("Configuracion", "Servidor AD", Q_NULLPTR));
         label_22->setText(QApplication::translate("Configuracion", "Usuario", Q_NULLPTR));
