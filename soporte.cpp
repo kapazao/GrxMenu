@@ -6,23 +6,31 @@
 #include "ejecutahilo.h"
 #include <QTimer>
 #include <QMovie>
+#include <QHostAddress>
+#include <QDesktopServices>
+#include "configuracion.h"
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
 {
     ui->setupUi(this);
     //Vamos a poner en el constructor la máscara para validar la ip introducida
-/*
-    QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5][-]25[0-5])";
+
+    QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
     QRegExp ipRegex ("^" + ipRange
                      + "\\." + ipRange
                      + "\\." + ipRange
                      + "\\." + ipRange + "$");
     QRegExpValidator *ipValidator = new QRegExpValidator(ipRegex, this);
     ui->lineEdit_ip->setValidator(ipValidator);
-    */
+    //Buscamos el terminal por defecto
+   /* QProcess *ter=new QProcess();
+    ter->start("gsettings get org.gnome.desktop.default-applications.terminal exec");
+    ter->waitForFinished(-1);
+    terminal=ter->readAllStandardOutput();
+   */
 
-//Cargamos las sedes en el combobox
+ //Cargamos las sedes en el combobox
     QSqlQueryModel *model = new QSqlQueryModel();
     QString sql;
     sql = "select NOMBRE,ipLinea from nodo";
@@ -43,11 +51,19 @@ Soporte::~Soporte()
     delete ui;
 }
 
+int Soporte::valida_ip(){
+QHostAddress myIP;
+if( myIP.setAddress(ui->lineEdit_ip->text())&& (ui->lineEdit_ip->text().count(QLatin1Char('.'))==3))
+   return true;
+else
+   return false;
+}
 void Soporte::on_lineEdit_ip_textChanged(const QString &arg1)
 {
-
-
-
+    if(valida_ip())
+        ui->lineEdit_ip->setStyleSheet("color:black");
+    else
+        ui->lineEdit_ip->setStyleSheet("color:red");
 }
 
 void Soporte::on_cb_sede_activated(const QString &nombre)
@@ -102,51 +118,45 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
                 ui->lineEdit_telefono_centro->setText(consultar_centro.value(3).toString());
             }
 
-                //ui->lineEdit_mapa->setText(consultar_poblacion.value(3).toString());
-
-           // consultar_email.prepare(QString("select * from emailnodo where idNodo = :idNodo"));
-           // consultar_email.bindValue(":idNodo",idNodo);
-           // if (consultar_email.exec() and consultar_email.first()){
-           //     ui->lineEdit_extension->setText(consultar_email.value(7).toString());
-           // }
-           // consultar_email.prepare(QString("select * from emailnodo where idNodo = :idNodo"));
-           // consultar_email.bindValue(":idNodo",idNodo);
-           // if (consultar_email.exec() and consultar_email.first()){
-           //     ui->lineEdit_servicio->setText(consultar_email.value(2).toString());
-           // }
-
-    } else
+   } else
           qDebug()<<"Error No se ha podido realizar la consulta "<< consultar.lastError();
 }
 
 void Soporte::on_Btn_Buscar_clicked()
 {
-    ejecuta_nmap();
+    if(valida_ip())
+        ejecuta_nmap();
 }
 
-void Soporte::on_pushButton_clicked()
+
+void Soporte::Ping()
 {
-    QProcess* process = new QProcess;
-    ui->TextoSalida->appendPlainText("Haciendo ping a "+ui->lineEdit_ip->text());
-    ui->TextoSalida->appendPlainText("Espere un momento... ");
-    process->startDetached("ping -c4 "+ui->lineEdit_ip->text());
-    ui->TextoSalida->appendPlainText(process->readAllStandardOutput());
-    delete process;
+ ui->TextoSalida->appendPlainText(ping->readAllStandardOutput());
+}
+
+void Soporte::on_Btn_Ping_clicked()
+{
+    if (valida_ip()){
+        ping = new QProcess(this);
+        ui->TextoSalida->appendPlainText("Haciendo ping a "+ui->lineEdit_ip->text());
+        connect(ping,SIGNAL(readyReadStandardOutput()),this,SLOT(Ping()));
+        ping->start("ping -c4 "+ui->lineEdit_ip->text());
+    }
+}
+
+void Soporte::on_Btn_Mtr_clicked()
+{
+    if (valida_ip()){
+        QProcess *mtr = new QProcess;
+        ui->TextoSalida->appendPlainText("Haciendo mtr a "+ui->lineEdit_ip->text());
+        mtr->startDetached("x-terminal-emulator -e mtr "+ ui->lineEdit_ip->text());
+    }
 }
 
 void Soporte::on_pushButton_4_clicked()
 {
     Equipos *equipos = new Equipos("10.100.251.30");
     equipos->show();
-}
-
-void Soporte::resultados(QList<QString> ip){
-    if(ip.empty()){
-        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
-    }else
-        for (int i = 0; i < ip.size(); ++i)
-               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
-
 }
 
 void Soporte::activa_barra_progreso(){
@@ -158,33 +168,57 @@ void Soporte::activa_barra_progreso(){
     movie->start();
 }
 
-
 void Soporte::desActiva_barra_progreso(){
      ui->Estado->hide();
-
 }
+
 void Soporte::ejecuta_nmap()
 {
-
     QThread *hilo =new QThread();
-    ejecutaHilo *hebra = new ejecutaHilo(ui->lineEdit_ip->text());
+    ejecutaHilo *hebra = new ejecutaHilo(ui->lineEdit_ip->text(),"-vvv -p22,80,8080,9100,443,139");
     ui->TextoSalida->appendPlainText("Realizando escaneo para la ip:  "+ui->lineEdit_ip->text());
     hebra->moveToThread(hilo);
-    qRegisterMetaType<QList<QString> >("QList<QString>");
+    qRegisterMetaType<QList<NMapScan>>("QList<NMapScan>");
     connect(hilo, &QThread::started, this, &Soporte::activa_barra_progreso );
     connect(hilo, &QThread::started, hebra, &ejecutaHilo::ejecuta);
-    connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<QString>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
+    connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<NMapScan>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
     connect(hebra, &ejecutaHilo::resultadoListo, this, &Soporte::desActiva_barra_progreso);
     connect(hilo, &QThread::finished, hilo, &QObject::deleteLater);
     hilo->start();
 }
+void Soporte::resultados(QList<NMapScan> res){
 
-void Soporte::on_pushButton_5_clicked()
-{
-
+    NMapScan nmapscan;
+    nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
+    NMap *nmap =new NMap(nmapscan);
+    ui->TextoSalida->appendPlainText(QString::number(nmap->nmap_num_host_up()));
+    ui->TextoSalida->appendPlainText(res.at(0).host.at(0).address.addr);
+    /*if(ip.empty()){
+        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
+    }else
+        for (int i = 0; i < ip.size(); ++i)
+               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
+*/
 }
 
 void Soporte::on_Btn_Limpiar_clicked()
 {
     ui->TextoSalida->clear();
+}
+
+void Soporte::on_Btn_Incidencia_clicked(){
+Configuracion *configuracion = new Configuracion;
+QString para,asunto,cuerpo,datos;
+para= configuracion->cual_es_para();
+asunto= configuracion->cual_es_asunto()+ui->cb_sede->currentText();
+cuerpo= configuracion->cual_es_cuerpo();
+datos="Municipio: "+ui->cb_sede->currentText()+"Dirección: "+ui->lineEdit_direccion->text()+"ADSL: "+ui->lineEdit_adsl->text()+"Numero Administrativo: "
+        +ui->lineEdit_n_adm->text()+"IP: "+ui->lineEdit_ip->text()+"Servicio: "+ui->lineEdit_servicio->text()+"Caudal: "+ui->lineEdit_caudal->text();
+/*cuerpo= "Buenos días.En "+ui->cb_sede->currentText()
+        +" tienen problemas con su línea. Hemos comprobado que no es problema de su red. Haced el favor de echarle un vistazo. Municipio: "
+        +ui->cb_sede->currentText()+"Dirección: "+ui->lineEdit_direccion+"ADSL: "+ui->lineEdit_adsl+"Numero Administrativo: "
+        +ui->lineEdit_n_adm+"IP: "+ui->lineEdit_ip+"Servicio: "+ui->lineEdit_servicio+"Caudal: "+ui->lineEdit_caudal;
+*/
+qDebug()<<"para: "+para+"asunto:"+asunto+"cuerpo:"+datos;
+    QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo+datos, QUrl::TolerantMode));
 }

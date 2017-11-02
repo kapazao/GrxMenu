@@ -192,14 +192,13 @@ class NMap : public QXmlStreamReader {
 
 public:
     NMap();
+    NMap(NMapScan datos);
 
 virtual ~NMap();
 
     void copy_nmapscan(NMapScan &tmp_nmapscan);
     void copy_reader(QXmlStreamReader &tmp_reader);
-
-    void nmap_run_scan(QString opciones,QString equipos);
-    //int nmap_numero_equipos();
+    int nmap_run_scan(QString opciones,QString equipos);
     bool nmap_is_host_up(QString ip);
     int nmap_num_host_up();
     bool nmap_is_open_port(QString ip, QString port);

@@ -27,15 +27,13 @@ private slots:
 
     void on_Btn_Buscar_clicked();
 
-    void on_pushButton_clicked();
+    void on_Btn_Ping_clicked();
 
     void on_pushButton_4_clicked();
 
     void ejecuta_nmap();
 
-    void resultados(QList<QString> ip);
-
-    void on_pushButton_5_clicked();
+    void resultados(QList<NMapScan>);
 
     void activa_barra_progreso();
 
@@ -43,11 +41,21 @@ private slots:
 
     void on_Btn_Limpiar_clicked();
 
+    int valida_ip();
+
+    void on_Btn_Mtr_clicked();
+
+    void Ping();
+
+    void on_Btn_Incidencia_clicked();
+
 private:
     Ui::Soporte *ui;
     QSqlDatabase db;
     QSqlQuery consultar;
-};
+    QProcess *ping;
+    QString terminal="x-terminal-emulator";
+ };
 
 
 

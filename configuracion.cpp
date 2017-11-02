@@ -134,6 +134,17 @@ QString  Configuracion::cual_es_keyfile_publica(){
     return KeyFile_publica;
 }
 
+QString  Configuracion::cual_es_para(){
+    return Para;
+}
+QString  Configuracion::cual_es_asunto(){
+    return Asunto;
+}
+QString  Configuracion::cual_es_cuerpo(){
+    return Cuerpo;
+}
+
+
 
 bool Configuracion::es_usarSSH(){
       if (UsarSSH =="True")
@@ -187,6 +198,11 @@ void Configuracion::carga_configuracion()
     Rdesktop = s.value("Configuracion/Rdesktop").toString();
     Resolucion = s.value("Configuracion/Resolucion").toString();
 
+    Para = s.value("Configuracion/Para").toString();
+    Asunto = s.value("Configuracion/Asunto").toString();
+    Cuerpo = s.value("Configuracion/Cuerpo").toString();
+
+
     KeyFile_privada = s.value("Configuracion/KeyFile_privada").toString();
     KeyFile_publica = s.value("Configuracion/KeyFile_publica").toString();
     //Colores
@@ -239,6 +255,11 @@ void Configuracion::carga_configuracion()
     ui->clave_cifrado->setText(ClaveCifrado);
     ui->clave_remoto->setText(ClaveRemoto);
     ui->cb_resolucion->setCurrentText(Resolucion);
+    ui->para->setText(Para);
+    ui->asunto->setText(Asunto);
+    ui->cuerpo->setText(Cuerpo);
+
+
 }
 void Configuracion::habilitaSSH(){
     ui->keyfile_privada->setEnabled(true);
@@ -296,6 +317,12 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/fr_DB",Fr_DB);
     s.setValue("Configuracion/fr_TS",Fr_TS);
     s.setValue("Configuracion/fr_rutas",Fr_rutas);
+
+    s.setValue("Configuracion/Para",ui->para->text());
+    s.setValue("Configuracion/Asunto",ui->asunto->text());
+    s.setValue("Configuracion/Cuerpo",ui->cuerpo->toPlainText());
+
+
 
     if (ui->checkBox_ssh->isChecked())
         s.setValue("Configuracion/UsarSSH","True");

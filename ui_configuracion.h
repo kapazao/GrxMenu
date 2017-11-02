@@ -25,6 +25,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -73,7 +74,9 @@ public:
     QLineEdit *keyfile_privada;
     QFrame *fr_TS;
     QLabel *label_17;
-    QWidget *layoutWidget2;
+    QPushButton *PB_TS;
+    QLabel *label_16;
+    QWidget *widget;
     QVBoxLayout *verticalLayout_6;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_3;
@@ -88,11 +91,9 @@ public:
     QRadioButton *rb_rdesktop;
     QRadioButton *rb_freerdp;
     QComboBox *cb_resolucion;
-    QPushButton *PB_TS;
-    QLabel *label_16;
     QDialogButtonBox *buttonBox;
     QFrame *fr_kerberos;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_9;
     QPushButton *Btn_Kerberos;
@@ -101,7 +102,7 @@ public:
     QFrame *fr_rutas;
     QLabel *lb_rutas;
     QPushButton *PB_rutas;
-    QWidget *layoutWidget4;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_6;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_15;
@@ -120,7 +121,7 @@ public:
     QLineEdit *OCS;
     QLineEdit *beiro;
     QFrame *fr_linux;
-    QWidget *layoutWidget5;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_4;
@@ -141,6 +142,11 @@ public:
     QLabel *label_34;
     QPushButton *PB_linux;
     QPushButton *pushButton_2;
+    QTextEdit *cuerpo;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_12;
+    QLineEdit *para;
+    QLineEdit *asunto;
 
     void setupUi(QDialog *Configuracion)
     {
@@ -149,7 +155,7 @@ public:
         Configuracion->resize(962, 766);
         fr_DB = new QFrame(Configuracion);
         fr_DB->setObjectName(QStringLiteral("fr_DB"));
-        fr_DB->setGeometry(QRect(540, 210, 411, 471));
+        fr_DB->setGeometry(QRect(540, 170, 411, 471));
         fr_DB->setFrameShape(QFrame::StyledPanel);
         fr_DB->setFrameShadow(QFrame::Raised);
         PB_DB = new QPushButton(fr_DB);
@@ -345,33 +351,42 @@ public:
 
         fr_TS = new QFrame(Configuracion);
         fr_TS->setObjectName(QStringLiteral("fr_TS"));
-        fr_TS->setGeometry(QRect(540, 0, 411, 211));
+        fr_TS->setGeometry(QRect(540, 0, 411, 171));
         fr_TS->setFrameShape(QFrame::StyledPanel);
         fr_TS->setFrameShadow(QFrame::Raised);
         label_17 = new QLabel(fr_TS);
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setGeometry(QRect(11, 101, 16, 17));
-        layoutWidget2 = new QWidget(fr_TS);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(10, 40, 391, 154));
-        verticalLayout_6 = new QVBoxLayout(layoutWidget2);
+        PB_TS = new QPushButton(fr_TS);
+        PB_TS->setObjectName(QStringLiteral("PB_TS"));
+        PB_TS->setGeometry(QRect(370, 10, 30, 25));
+        PB_TS->setIcon(icon);
+        PB_TS->setIconSize(QSize(25, 25));
+        label_16 = new QLabel(fr_TS);
+        label_16->setObjectName(QStringLiteral("label_16"));
+        label_16->setGeometry(QRect(20, 10, 349, 19));
+        label_16->setFont(font);
+        widget = new QWidget(fr_TS);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(11, 41, 391, 114));
+        verticalLayout_6 = new QVBoxLayout(widget);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        label_7 = new QLabel(layoutWidget2);
+        label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
 
         verticalLayout_3->addWidget(label_7);
 
-        label_22 = new QLabel(layoutWidget2);
+        label_22 = new QLabel(widget);
         label_22->setObjectName(QStringLiteral("label_22"));
 
         verticalLayout_3->addWidget(label_22);
 
-        label_23 = new QLabel(layoutWidget2);
+        label_23 = new QLabel(widget);
         label_23->setObjectName(QStringLiteral("label_23"));
 
         verticalLayout_3->addWidget(label_23);
@@ -381,17 +396,17 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        servidor = new QLineEdit(layoutWidget2);
+        servidor = new QLineEdit(widget);
         servidor->setObjectName(QStringLiteral("servidor"));
 
         verticalLayout_4->addWidget(servidor);
 
-        usuario_ad = new QLineEdit(layoutWidget2);
+        usuario_ad = new QLineEdit(widget);
         usuario_ad->setObjectName(QStringLiteral("usuario_ad"));
 
         verticalLayout_4->addWidget(usuario_ad);
 
-        clave_ad = new QLineEdit(layoutWidget2);
+        clave_ad = new QLineEdit(widget);
         clave_ad->setObjectName(QStringLiteral("clave_ad"));
         clave_ad->setEchoMode(QLineEdit::Password);
 
@@ -405,19 +420,19 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        rb_rdesktop = new QRadioButton(layoutWidget2);
+        rb_rdesktop = new QRadioButton(widget);
         rb_rdesktop->setObjectName(QStringLiteral("rb_rdesktop"));
         rb_rdesktop->setAcceptDrops(true);
         rb_rdesktop->setAutoFillBackground(false);
 
         horizontalLayout_2->addWidget(rb_rdesktop);
 
-        rb_freerdp = new QRadioButton(layoutWidget2);
+        rb_freerdp = new QRadioButton(widget);
         rb_freerdp->setObjectName(QStringLiteral("rb_freerdp"));
 
         horizontalLayout_2->addWidget(rb_freerdp);
 
-        cb_resolucion = new QComboBox(layoutWidget2);
+        cb_resolucion = new QComboBox(widget);
         cb_resolucion->setObjectName(QStringLiteral("cb_resolucion"));
 
         horizontalLayout_2->addWidget(cb_resolucion);
@@ -425,15 +440,6 @@ public:
 
         verticalLayout_6->addLayout(horizontalLayout_2);
 
-        PB_TS = new QPushButton(fr_TS);
-        PB_TS->setObjectName(QStringLiteral("PB_TS"));
-        PB_TS->setGeometry(QRect(370, 10, 30, 25));
-        PB_TS->setIcon(icon);
-        PB_TS->setIconSize(QSize(25, 25));
-        label_16 = new QLabel(fr_TS);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(20, 10, 349, 19));
-        label_16->setFont(font);
         buttonBox = new QDialogButtonBox(Configuracion);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(790, 730, 160, 25));
@@ -444,18 +450,18 @@ public:
         fr_kerberos->setGeometry(QRect(0, 530, 541, 81));
         fr_kerberos->setFrameShape(QFrame::StyledPanel);
         fr_kerberos->setFrameShadow(QFrame::Raised);
-        layoutWidget3 = new QWidget(fr_kerberos);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(20, 40, 511, 36));
-        horizontalLayout = new QHBoxLayout(layoutWidget3);
+        layoutWidget2 = new QWidget(fr_kerberos);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(20, 40, 511, 36));
+        horizontalLayout = new QHBoxLayout(layoutWidget2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(layoutWidget3);
+        label_9 = new QLabel(layoutWidget2);
         label_9->setObjectName(QStringLiteral("label_9"));
 
         horizontalLayout->addWidget(label_9);
 
-        Btn_Kerberos = new QPushButton(layoutWidget3);
+        Btn_Kerberos = new QPushButton(layoutWidget2);
         Btn_Kerberos->setObjectName(QStringLiteral("Btn_Kerberos"));
 
         horizontalLayout->addWidget(Btn_Kerberos);
@@ -484,32 +490,32 @@ public:
         PB_rutas->setGeometry(QRect(500, 10, 31, 25));
         PB_rutas->setIcon(icon);
         PB_rutas->setIconSize(QSize(25, 25));
-        layoutWidget4 = new QWidget(fr_rutas);
-        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(12, 41, 521, 201));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget4);
+        layoutWidget3 = new QWidget(fr_rutas);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(12, 41, 521, 201));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_15 = new QLabel(layoutWidget4);
+        label_15 = new QLabel(layoutWidget3);
         label_15->setObjectName(QStringLiteral("label_15"));
 
         verticalLayout_5->addWidget(label_15);
 
-        label_14 = new QLabel(layoutWidget4);
+        label_14 = new QLabel(layoutWidget3);
         label_14->setObjectName(QStringLiteral("label_14"));
 
         verticalLayout_5->addWidget(label_14);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        label_10 = new QLabel(layoutWidget4);
+        label_10 = new QLabel(layoutWidget3);
         label_10->setObjectName(QStringLiteral("label_10"));
 
         horizontalLayout_5->addWidget(label_10);
 
-        Btn_lupa = new QPushButton(layoutWidget4);
+        Btn_lupa = new QPushButton(layoutWidget3);
         Btn_lupa->setObjectName(QStringLiteral("Btn_lupa"));
         Btn_lupa->setIcon(icon1);
 
@@ -518,17 +524,17 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_5);
 
-        label_12 = new QLabel(layoutWidget4);
+        label_12 = new QLabel(layoutWidget3);
         label_12->setObjectName(QStringLiteral("label_12"));
 
         verticalLayout_5->addWidget(label_12);
 
-        label_13 = new QLabel(layoutWidget4);
+        label_13 = new QLabel(layoutWidget3);
         label_13->setObjectName(QStringLiteral("label_13"));
 
         verticalLayout_5->addWidget(label_13);
 
-        label_18 = new QLabel(layoutWidget4);
+        label_18 = new QLabel(layoutWidget3);
         label_18->setObjectName(QStringLiteral("label_18"));
 
         verticalLayout_5->addWidget(label_18);
@@ -539,32 +545,32 @@ public:
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(1);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        correoweb = new QLineEdit(layoutWidget4);
+        correoweb = new QLineEdit(layoutWidget3);
         correoweb->setObjectName(QStringLiteral("correoweb"));
 
         verticalLayout_10->addWidget(correoweb);
 
-        cronos = new QLineEdit(layoutWidget4);
+        cronos = new QLineEdit(layoutWidget3);
         cronos->setObjectName(QStringLiteral("cronos"));
 
         verticalLayout_10->addWidget(cronos);
 
-        ISL = new QLineEdit(layoutWidget4);
+        ISL = new QLineEdit(layoutWidget3);
         ISL->setObjectName(QStringLiteral("ISL"));
 
         verticalLayout_10->addWidget(ISL);
 
-        GLPI = new QLineEdit(layoutWidget4);
+        GLPI = new QLineEdit(layoutWidget3);
         GLPI->setObjectName(QStringLiteral("GLPI"));
 
         verticalLayout_10->addWidget(GLPI);
 
-        OCS = new QLineEdit(layoutWidget4);
+        OCS = new QLineEdit(layoutWidget3);
         OCS->setObjectName(QStringLiteral("OCS"));
 
         verticalLayout_10->addWidget(OCS);
 
-        beiro = new QLineEdit(layoutWidget4);
+        beiro = new QLineEdit(layoutWidget3);
         beiro->setObjectName(QStringLiteral("beiro"));
 
         verticalLayout_10->addWidget(beiro);
@@ -580,46 +586,46 @@ public:
         fr_linux->setGeometry(QRect(0, 0, 541, 281));
         fr_linux->setFrameShape(QFrame::StyledPanel);
         fr_linux->setFrameShadow(QFrame::Raised);
-        layoutWidget5 = new QWidget(fr_linux);
-        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(10, 40, 521, 234));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget5);
+        layoutWidget4 = new QWidget(fr_linux);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(10, 40, 521, 234));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(1);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_4 = new QLabel(layoutWidget5);
+        label_4 = new QLabel(layoutWidget4);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout_2->addWidget(label_4);
 
-        label_2 = new QLabel(layoutWidget5);
+        label_2 = new QLabel(layoutWidget4);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout_2->addWidget(label_2);
 
-        label = new QLabel(layoutWidget5);
+        label = new QLabel(layoutWidget4);
         label->setObjectName(QStringLiteral("label"));
 
         verticalLayout_2->addWidget(label);
 
-        label_8 = new QLabel(layoutWidget5);
+        label_8 = new QLabel(layoutWidget4);
         label_8->setObjectName(QStringLiteral("label_8"));
 
         verticalLayout_2->addWidget(label_8);
 
-        label_3 = new QLabel(layoutWidget5);
+        label_3 = new QLabel(layoutWidget4);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         verticalLayout_2->addWidget(label_3);
 
-        label_5 = new QLabel(layoutWidget5);
+        label_5 = new QLabel(layoutWidget4);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         verticalLayout_2->addWidget(label_5);
 
-        label_6 = new QLabel(layoutWidget5);
+        label_6 = new QLabel(layoutWidget4);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         verticalLayout_2->addWidget(label_6);
@@ -630,40 +636,40 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(1);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        tecnico = new QLineEdit(layoutWidget5);
+        tecnico = new QLineEdit(layoutWidget4);
         tecnico->setObjectName(QStringLiteral("tecnico"));
 
         verticalLayout->addWidget(tecnico);
 
-        clave = new QLineEdit(layoutWidget5);
+        clave = new QLineEdit(layoutWidget4);
         clave->setObjectName(QStringLiteral("clave"));
         clave->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(clave);
 
-        usuario_remoto = new QLineEdit(layoutWidget5);
+        usuario_remoto = new QLineEdit(layoutWidget4);
         usuario_remoto->setObjectName(QStringLiteral("usuario_remoto"));
 
         verticalLayout->addWidget(usuario_remoto);
 
-        puerto = new QLineEdit(layoutWidget5);
+        puerto = new QLineEdit(layoutWidget4);
         puerto->setObjectName(QStringLiteral("puerto"));
 
         verticalLayout->addWidget(puerto);
 
-        password = new QLineEdit(layoutWidget5);
+        password = new QLineEdit(layoutWidget4);
         password->setObjectName(QStringLiteral("password"));
         password->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(password);
 
-        clave_cifrado = new QLineEdit(layoutWidget5);
+        clave_cifrado = new QLineEdit(layoutWidget4);
         clave_cifrado->setObjectName(QStringLiteral("clave_cifrado"));
         clave_cifrado->setEchoMode(QLineEdit::Password);
 
         verticalLayout->addWidget(clave_cifrado);
 
-        clave_remoto = new QLineEdit(layoutWidget5);
+        clave_remoto = new QLineEdit(layoutWidget4);
         clave_remoto->setObjectName(QStringLiteral("clave_remoto"));
         clave_remoto->setEchoMode(QLineEdit::Password);
 
@@ -684,6 +690,25 @@ public:
         pushButton_2 = new QPushButton(Configuracion);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(680, 730, 89, 25));
+        cuerpo = new QTextEdit(Configuracion);
+        cuerpo->setObjectName(QStringLiteral("cuerpo"));
+        cuerpo->setGeometry(QRect(10, 640, 471, 101));
+        widget1 = new QWidget(Configuracion);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(490, 650, 461, 52));
+        verticalLayout_12 = new QVBoxLayout(widget1);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        para = new QLineEdit(widget1);
+        para->setObjectName(QStringLiteral("para"));
+
+        verticalLayout_12->addWidget(para);
+
+        asunto = new QLineEdit(widget1);
+        asunto->setObjectName(QStringLiteral("asunto"));
+
+        verticalLayout_12->addWidget(asunto);
+
         QWidget::setTabOrder(tecnico, clave);
         QWidget::setTabOrder(clave, usuario_remoto);
         QWidget::setTabOrder(usuario_remoto, puerto);
@@ -736,6 +761,8 @@ public:
         puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", Q_NULLPTR));
         keyfile_publica->setInputMask(QString());
         label_17->setText(QString());
+        PB_TS->setText(QString());
+        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", Q_NULLPTR));
         label_7->setText(QApplication::translate("Configuracion", "Servidor AD", Q_NULLPTR));
         label_22->setText(QApplication::translate("Configuracion", "Usuario", Q_NULLPTR));
         label_23->setText(QApplication::translate("Configuracion", "Clave", Q_NULLPTR));
@@ -765,8 +792,6 @@ public:
 #ifndef QT_NO_TOOLTIP
         cb_resolucion->setToolTip(QApplication::translate("Configuracion", "Resoluci\303\263n de pantalla del servidor AD", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        PB_TS->setText(QString());
-        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
@@ -814,6 +839,17 @@ public:
         label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", Q_NULLPTR));
         PB_linux->setText(QString());
         pushButton_2->setText(QApplication::translate("Configuracion", "PushButton", Q_NULLPTR));
+        cuerpo->setHtml(QApplication::translate("Configuracion", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Buenos d\303\255as.<br /><br />Hay una linea con problemas de conexi\303\263n.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Haced el favor de echarle un vistazo.</span></p>\n"
+"<p style=\"-qt-pa"
+                        "ragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", Q_NULLPTR));
+        para->setText(QApplication::translate("Configuracion", "<ie2.cg22@telefonica.com><op.cg22@telefonica.com><marialeticia.larapalomino@telefonica.com>", Q_NULLPTR));
+        asunto->setText(QApplication::translate("Configuracion", "Problemas de conexi\303\263n en ", Q_NULLPTR));
     } // retranslateUi
 
 };

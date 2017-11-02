@@ -431,21 +431,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="Btn_Ping">
       <property name="text">
        <string>Ping</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="Btn_Incidencia">
       <property name="text">
        <string>Incidencia</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="Btn_Mtr">
       <property name="text">
        <string>mtr</string>
       </property>

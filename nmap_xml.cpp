@@ -9,6 +9,15 @@ NMap::NMap():QXmlStreamReader(){//Constructor
 
 }
 
+/**********************************************
+ * Sobrecargamos el constructor
+ * Le pasamos un struct de tipo NMapScan.
+ * De esta forma no hace falta realizar nmap_run_scan
+ * *******************************************/
+NMap::NMap(NMapScan datos):QXmlStreamReader(){//Sobre carga Constructor
+this->nmapscan = datos;
+}
+
 NMap::~NMap() {//Destructor
 }
 
@@ -26,19 +35,20 @@ void NMap::copy_nmapscan(NMapScan &tmp_nmapscan) {
  * Realiza el escaneo de equipos y puertos pasados por parametro.
  * El resultado lo guarda en reader, que es de tipo QXmlStreamReader
  ************************************************************************************/
-void NMap::nmap_run_scan(QString opciones, QString equipos){
+int NMap::nmap_run_scan(QString opciones, QString equipos){
     QTemporaryFile file;
+    QProcess process;
     if (file.open()) {
-        QProcess process;
         process.start ("nmap "+opciones+" -oX "+file.fileName() +" "+equipos);
         process.waitForFinished(-1);
         reader.addData(file.readAll());
         file.close();
+        readXML();
        }
     else
-        qDebug() << "No se ha podido abrir el fichero necesario  ";
+        return -1;
 
-    readXML();
+return process.exitCode();
 }
 
 /******************************nmap_num_host_up********************************

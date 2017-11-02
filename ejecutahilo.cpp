@@ -1,29 +1,27 @@
 #include "ejecutahilo.h"
 #include "qdebug.h"
-#include "nmap_xml.h"
 #include "qdebug.h"
-ejecutaHilo::ejecutaHilo(QString ip_servidor){
-     ip=ip_servidor;
+ejecutaHilo::ejecutaHilo(QString ip_hosts,QString op){
+     ip=ip_hosts;
+     opciones=op;
 }
 
 void ejecutaHilo::ejecuta() {
-    QString resultado;
-    NMap* nmap = new NMap();
-    QList<QString> puertos;
-    nmap->nmap_run_scan("-vvv -p22,80,8080,9100,443,139",ip);
-    puertos= nmap->nmap_ports_open(ip);
-    if (!puertos.isEmpty()){
-      foreach( ip, puertos )
-        qDebug()<<"Puerto abierto: "<<ip;
-    } else{
-       qDebug()<<"No se han encontrado puertos abiertos.";
-    }
+    NMap *nmap = new NMap();
+    NMapScan nmapscan;
+    int errores=0;
+    QList<NMapScan> resultado;
+
+    int i=ip.length()-1;
+    if (ip.at(i)=="0"){
+        ip.chop(1);
+        ip.append("*");
+     }
+    errores = nmap->nmap_run_scan(opciones,ip);
+    if (!errores){
+            nmap->copy_nmapscan(nmapscan);
+            resultado.append(nmapscan);
+        }
     delete nmap;
-
-    resultado = "por aqui si";
-    //emit resultadoListo(resultado);
-    emit resultadoListo(puertos);
+    emit resultadoListo(resultado);
 }
-
-
-

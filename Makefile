@@ -1607,6 +1607,20 @@ moc_ejecutahilo.cpp: ../Qt/5.9.2/gcc_64/include/QtCore/QThread \
 		../Qt/5.9.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qobject_impl.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/QObject \
+		nmap_xml.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/QXmlStreamReader \
+		../Qt/5.9.2/gcc_64/include/QtCore/qxmlstream.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qiodevice.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qvector.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qpoint.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/QTemporaryFile \
+		../Qt/5.9.2/gcc_64/include/QtCore/qtemporaryfile.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qfile.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qfiledevice.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/QProcess \
+		../Qt/5.9.2/gcc_64/include/QtCore/qprocess.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qshareddata.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qhash.h \
 		ejecutahilo.h \
 		moc_predefs.h \
 		../Qt/5.9.2/gcc_64/bin/moc
@@ -2549,7 +2563,24 @@ soporte.o: soporte.cpp soporte.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qpointer.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qjsonobject.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qjsonvalue.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qfactoryinterface.h
+		../Qt/5.9.2/gcc_64/include/QtCore/qfactoryinterface.h \
+		../Qt/5.9.2/gcc_64/include/QtNetwork/QHostAddress \
+		../Qt/5.9.2/gcc_64/include/QtNetwork/qhostaddress.h \
+		../Qt/5.9.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../Qt/5.9.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../Qt/5.9.2/gcc_64/include/QtNetwork/qabstractsocket.h \
+		../Qt/5.9.2/gcc_64/include/QtGui/QDesktopServices \
+		../Qt/5.9.2/gcc_64/include/QtGui/qdesktopservices.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qstandardpaths.h \
+		configuracion.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/QSettings \
+		../Qt/5.9.2/gcc_64/include/QtCore/qsettings.h \
+		../Qt/5.9.2/gcc_64/include/QtWidgets/QColorDialog \
+		../Qt/5.9.2/gcc_64/include/QtWidgets/qcolordialog.h \
+		../Qt/5.9.2/gcc_64/include/QtWidgets/QFileDialog \
+		../Qt/5.9.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qdir.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o soporte.o soporte.cpp
 
 equipos.o: equipos.cpp equipos.h \
@@ -2856,29 +2887,29 @@ ejecutahilo.o: ejecutahilo.cpp ejecutahilo.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qobject_impl.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/QObject \
-		../Qt/5.9.2/gcc_64/include/QtCore/qdebug.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qhash.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qmap.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qtextstream.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qiodevice.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qlocale.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qvariant.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qshareddata.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qvector.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qpoint.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qset.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../Qt/5.9.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		nmap_xml.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/QXmlStreamReader \
 		../Qt/5.9.2/gcc_64/include/QtCore/qxmlstream.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qiodevice.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qvector.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qpoint.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/QTemporaryFile \
 		../Qt/5.9.2/gcc_64/include/QtCore/qtemporaryfile.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qfile.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/qfiledevice.h \
 		../Qt/5.9.2/gcc_64/include/QtCore/QProcess \
-		../Qt/5.9.2/gcc_64/include/QtCore/qprocess.h
+		../Qt/5.9.2/gcc_64/include/QtCore/qprocess.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qshareddata.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qhash.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qdebug.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qmap.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qtextstream.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qlocale.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qvariant.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qset.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../Qt/5.9.2/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ejecutahilo.o ejecutahilo.cpp
 
 moc_botonera.o: moc_botonera.cpp 

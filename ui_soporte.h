@@ -66,9 +66,9 @@ public:
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *Btn_Buscar;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *Btn_Ping;
+    QPushButton *Btn_Incidencia;
+    QPushButton *Btn_Mtr;
     QPushButton *pushButton_4;
     QLabel *Estado;
     QPushButton *Btn_Limpiar;
@@ -294,20 +294,20 @@ public:
 
         horizontalLayout_2->addWidget(Btn_Buscar);
 
-        pushButton = new QPushButton(layoutWidget1);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        Btn_Ping = new QPushButton(layoutWidget1);
+        Btn_Ping->setObjectName(QStringLiteral("Btn_Ping"));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(Btn_Ping);
 
-        pushButton_2 = new QPushButton(layoutWidget1);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        Btn_Incidencia = new QPushButton(layoutWidget1);
+        Btn_Incidencia->setObjectName(QStringLiteral("Btn_Incidencia"));
 
-        horizontalLayout_2->addWidget(pushButton_2);
+        horizontalLayout_2->addWidget(Btn_Incidencia);
 
-        pushButton_3 = new QPushButton(layoutWidget1);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        Btn_Mtr = new QPushButton(layoutWidget1);
+        Btn_Mtr->setObjectName(QStringLiteral("Btn_Mtr"));
 
-        horizontalLayout_2->addWidget(pushButton_3);
+        horizontalLayout_2->addWidget(Btn_Mtr);
 
         pushButton_4 = new QPushButton(Soporte);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
@@ -342,9 +342,9 @@ public:
         label_11->setText(QApplication::translate("Soporte", "Servicio", Q_NULLPTR));
         label_12->setText(QApplication::translate("Soporte", "Caudal", Q_NULLPTR));
         Btn_Buscar->setText(QApplication::translate("Soporte", "Escanear", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Soporte", "Ping", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("Soporte", "Incidencia", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("Soporte", "mtr", Q_NULLPTR));
+        Btn_Ping->setText(QApplication::translate("Soporte", "Ping", Q_NULLPTR));
+        Btn_Incidencia->setText(QApplication::translate("Soporte", "Incidencia", Q_NULLPTR));
+        Btn_Mtr->setText(QApplication::translate("Soporte", "mtr", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("Soporte", "PushButton", Q_NULLPTR));
         Estado->setText(QString());
         Btn_Limpiar->setText(QApplication::translate("Soporte", "Limpiar", Q_NULLPTR));

@@ -64,6 +64,7 @@ public:
     QLabel *label_ip;
     QLabel *label_7;
     QLabel *label_GW;
+    QPushButton *pushButton_3;
     QMenuBar *menuBar;
     QMenu *menuNuevo;
     QMenu *menuAplicaciones;
@@ -253,6 +254,9 @@ public:
 
         horizontalLayout_2->addWidget(label_GW);
 
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(380, 150, 80, 22));
         Botonera->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Botonera);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -400,6 +404,7 @@ public:
         label_ip->setText(QApplication::translate("Botonera", "IP", Q_NULLPTR));
         label_7->setText(QApplication::translate("Botonera", "Gateway", Q_NULLPTR));
         label_GW->setText(QString());
+        pushButton_3->setText(QApplication::translate("Botonera", "PushButton", Q_NULLPTR));
         menuNuevo->setTitle(QApplication::translate("Botonera", "Ar&chivo", Q_NULLPTR));
         menuAplicaciones->setTitle(QApplication::translate("Botonera", "Ap&licaciones", Q_NULLPTR));
         menuAcerca_de->setTitle(QApplication::translate("Botonera", "Ayuda", Q_NULLPTR));

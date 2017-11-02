@@ -288,7 +288,5 @@ void Botonera::on_actionAtalaya_triggered()
 
 void Botonera::on_pushButton_3_clicked()
 {
-    QWebEngineView *view = new QWebEngineView(parent);
-    view->load(QUrl("http://www.qt.io/"));
-    view->show();
+
 }

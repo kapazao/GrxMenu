@@ -51,6 +51,9 @@ public:
     QString cual_es_keyfile_privada();
     QString cual_es_keyfile_publica();
     bool createConnection();
+    QString cual_es_para();
+    QString cual_es_asunto();
+    QString cual_es_cuerpo();
 
     ~Configuracion();
 
@@ -127,6 +130,9 @@ private:
     QString Fr_kerberos;
     QString KeyFile_privada;
     QString KeyFile_publica;
+    QString Para;
+    QString Asunto;
+    QString Cuerpo;
 
 
     Ui::Configuracion *ui;
