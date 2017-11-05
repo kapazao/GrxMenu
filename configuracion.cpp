@@ -113,6 +113,9 @@ QString  Configuracion::cual_es_glpi(){
 QString  Configuracion::cual_es_ocs(){
     return OCS;
 }
+QString  Configuracion::cual_es_atalaya(){
+    return Atalaya;
+}
 QString  Configuracion::cual_es_clave_cifrado(){
     return ClaveCifrado;
 }
@@ -185,6 +188,7 @@ void Configuracion::carga_configuracion()
     PuertoRemotoSSH = s.value("Configuracion/PuertoRemotoSSH").toInt();
     PuertoLocalSSH = s.value("Configuracion/PuertoLocalSSH").toInt();
     ISL = s.value("Configuracion/ISL").toString();
+    Atalaya = s.value("Configuracion/Atalaya").toString();
     OCS = s.value("Configuracion/OCS").toString();
     GLPI = s.value("Configuracion/GLPI").toString();
     Beiro = s.value("Configuracion/Beiro").toString();
@@ -258,8 +262,7 @@ void Configuracion::carga_configuracion()
     ui->para->setText(Para);
     ui->asunto->setText(Asunto);
     ui->cuerpo->setText(Cuerpo);
-
-
+    ui->atalaya->setText(Atalaya);
 }
 void Configuracion::habilitaSSH(){
     ui->keyfile_privada->setEnabled(true);
@@ -292,6 +295,7 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/Puerto", ui->puerto->text());
     s.setValue("Configuracion/Correo", ui->correoweb->text());
     s.setValue("Configuracion/ISL", ui->ISL->text());
+    s.setValue("Configuracion/Atalaya", ui->atalaya->text());
     s.setValue("Configuracion/DataBaseName",ui->DataBaseName->text());
     s.setValue("Configuracion/HostName", ui->servidor_DB->text());
     s.setValue("Configuracion/UserName", ui->Usuario_DB->text());
@@ -421,3 +425,4 @@ void Configuracion::on_Btn_lupa_3_clicked()
     QString fichero = QFileDialog::getOpenFileName(this, tr("Selecciona el keyfile privado"),ui->keyfile_privada->text());
     ui->keyfile_privada->setText(fichero);
 }
+

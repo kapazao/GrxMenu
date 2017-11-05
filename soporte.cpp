@@ -9,6 +9,7 @@
 #include <QHostAddress>
 #include <QDesktopServices>
 #include "configuracion.h"
+#include "tabescaner.h"
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
@@ -23,6 +24,8 @@ Soporte::Soporte(QWidget *parent) :
                      + "\\." + ipRange + "$");
     QRegExpValidator *ipValidator = new QRegExpValidator(ipRegex, this);
     ui->lineEdit_ip->setValidator(ipValidator);
+
+    ui->tabWidget->setTabsClosable(true);
     //Buscamos el terminal por defecto
    /* QProcess *ter=new QProcess();
     ter->start("gsettings get org.gnome.desktop.default-applications.terminal exec");
@@ -126,8 +129,23 @@ void Soporte::on_Btn_Buscar_clicked()
 {
     if(valida_ip())
         ejecuta_nmap();
+    
 }
 
+void Soporte::ejecuta_nmap()
+{
+    QThread *hilo =new QThread();
+    ejecutaHilo *hebra = new ejecutaHilo(ui->lineEdit_ip->text(),"-vvv -p22,80,8080,9100,443,139");
+    ui->TextoSalida->appendPlainText("Realizando escaneo para la ip:  "+ui->lineEdit_ip->text());
+    hebra->moveToThread(hilo);
+    qRegisterMetaType<QList<NMapScan>>("QList<NMapScan>");
+    connect(hilo, &QThread::started, this, &Soporte::activa_barra_progreso );
+    connect(hilo, &QThread::started, hebra, &ejecutaHilo::ejecuta);
+    connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<NMapScan>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
+    connect(hebra, &ejecutaHilo::resultadoListo, this, &Soporte::desActiva_barra_progreso);
+    connect(hilo, &QThread::finished, hilo, &QObject::deleteLater);
+    hilo->start();
+}
 
 void Soporte::Ping()
 {
@@ -172,33 +190,29 @@ void Soporte::desActiva_barra_progreso(){
      ui->Estado->hide();
 }
 
-void Soporte::ejecuta_nmap()
-{
-    QThread *hilo =new QThread();
-    ejecutaHilo *hebra = new ejecutaHilo(ui->lineEdit_ip->text(),"-vvv -p22,80,8080,9100,443,139");
-    ui->TextoSalida->appendPlainText("Realizando escaneo para la ip:  "+ui->lineEdit_ip->text());
-    hebra->moveToThread(hilo);
-    qRegisterMetaType<QList<NMapScan>>("QList<NMapScan>");
-    connect(hilo, &QThread::started, this, &Soporte::activa_barra_progreso );
-    connect(hilo, &QThread::started, hebra, &ejecutaHilo::ejecuta);
-    connect(hebra, reinterpret_cast<void (ejecutaHilo::*)(QList<NMapScan>)>(&ejecutaHilo::resultadoListo), this, &Soporte::resultados);
-    connect(hebra, &ejecutaHilo::resultadoListo, this, &Soporte::desActiva_barra_progreso);
-    connect(hilo, &QThread::finished, hilo, &QObject::deleteLater);
-    hilo->start();
-}
 void Soporte::resultados(QList<NMapScan> res){
 
     NMapScan nmapscan;
     nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
     NMap *nmap =new NMap(nmapscan);
-    ui->TextoSalida->appendPlainText(QString::number(nmap->nmap_num_host_up()));
-    ui->TextoSalida->appendPlainText(res.at(0).host.at(0).address.addr);
+    QWidget *pp=nullptr;
+    ui->TextoSalida->appendPlainText("Equipos Buscados: "+QString::number(nmap->nmap_num_host_find()));
+    ui->TextoSalida->appendPlainText("Equipos Encontrados: "+QString::number(nmap->nmap_num_host_up()));
+    ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
+    ui->tabWidget->insertTab(1,new tabEscaner(&nmapscan),nmap->nmap_arg_find());
+    connect(ui->tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
     /*if(ip.empty()){
         ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
     }else
         for (int i = 0; i < ip.size(); ++i)
                ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
 */
+}
+
+void Soporte::closeTab(int indice){
+    if (indice>0)
+        ui->tabWidget->removeTab(indice);
+
 }
 
 void Soporte::on_Btn_Limpiar_clicked()
@@ -208,17 +222,12 @@ void Soporte::on_Btn_Limpiar_clicked()
 
 void Soporte::on_Btn_Incidencia_clicked(){
 Configuracion *configuracion = new Configuracion;
-QString para,asunto,cuerpo,datos;
+QString para,asunto,cuerpo;
 para= configuracion->cual_es_para();
-asunto= configuracion->cual_es_asunto()+ui->cb_sede->currentText();
-cuerpo= configuracion->cual_es_cuerpo();
-datos="Municipio: "+ui->cb_sede->currentText()+"Dirección: "+ui->lineEdit_direccion->text()+"ADSL: "+ui->lineEdit_adsl->text()+"Numero Administrativo: "
-        +ui->lineEdit_n_adm->text()+"IP: "+ui->lineEdit_ip->text()+"Servicio: "+ui->lineEdit_servicio->text()+"Caudal: "+ui->lineEdit_caudal->text();
-/*cuerpo= "Buenos días.En "+ui->cb_sede->currentText()
-        +" tienen problemas con su línea. Hemos comprobado que no es problema de su red. Haced el favor de echarle un vistazo. Municipio: "
-        +ui->cb_sede->currentText()+"Dirección: "+ui->lineEdit_direccion+"ADSL: "+ui->lineEdit_adsl+"Numero Administrativo: "
-        +ui->lineEdit_n_adm+"IP: "+ui->lineEdit_ip+"Servicio: "+ui->lineEdit_servicio+"Caudal: "+ui->lineEdit_caudal;
-*/
-qDebug()<<"para: "+para+"asunto:"+asunto+"cuerpo:"+datos;
-    QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo+datos, QUrl::TolerantMode));
+asunto= configuracion->cual_es_asunto().arg(ui->cb_sede->currentText(),ui->lineEdit_direccion->text(),ui->lineEdit_adsl->text(),ui->lineEdit_n_adm->text()
+                                            ,ui->lineEdit_ip->text(),ui->lineEdit_servicio->text(),ui->lineEdit_caudal->text(),ui->lineEdit_numero->text());
+cuerpo= configuracion->cual_es_cuerpo().arg(ui->cb_sede->currentText(),ui->lineEdit_direccion->text(),ui->lineEdit_adsl->text(),ui->lineEdit_n_adm->text()
+                                            ,ui->lineEdit_ip->text(),ui->lineEdit_servicio->text(),ui->lineEdit_caudal->text(),ui->lineEdit_numero->text());
+
+QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo, QUrl::TolerantMode));
 }

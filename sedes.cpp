@@ -473,7 +473,6 @@ void Sedes::grabar_datos(int id){
             if (!consultar_municipio.exec()){
                 error = consultar_municipio.lastError();
                 QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error: \n"+error.text(),QMessageBox::Ok);
-
             }
             else{
                  consultar_programa.prepare(QString("update programa set portal_web=:portal_web,correo=:correo, basedatos_juridica= :basedatos_juridica,"

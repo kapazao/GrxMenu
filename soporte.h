@@ -35,6 +35,8 @@ private slots:
 
     void resultados(QList<NMapScan>);
 
+    void closeTab(int indice);
+
     void activa_barra_progreso();
 
     void desActiva_barra_progreso();

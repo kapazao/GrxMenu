@@ -42,6 +42,7 @@ public:
     QString cual_es_ocs();
     QString cual_es_glpi();
     QString cual_es_cronos();
+    QString cual_es_atalaya();
     QString cual_es_clave_cifrado();
     QString cual_es_clave_remoto();
     bool es_rdesktop();
@@ -91,6 +92,7 @@ private slots:
 
     void on_Btn_lupa_3_clicked();
 
+
 private:
 
     QString home_usuario;
@@ -107,6 +109,7 @@ private:
     QString GLPI;
     QString Cronos;
     QString Beiro;
+    QString Atalaya;
     QString DataBaseName;
     QString HostName;
     QString UserName;

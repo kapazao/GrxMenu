@@ -13,6 +13,7 @@ struct NMapRun{
     QString startstr;
     QString version;
     QString xmloutputversion;
+    QString hosts_find;
 };
 
 struct Hostname{
@@ -186,14 +187,12 @@ struct NMapScan{
     RunStats runstats;
 };
 
-
-
 class NMap : public QXmlStreamReader {
 
 public:
     NMap();
     NMap(NMapScan datos);
-
+    QString arg_host_find;
 virtual ~NMap();
 
     void copy_nmapscan(NMapScan &tmp_nmapscan);
@@ -201,6 +200,11 @@ virtual ~NMap();
     int nmap_run_scan(QString opciones,QString equipos);
     bool nmap_is_host_up(QString ip);
     int nmap_num_host_up();
+    int nmap_num_host_down();
+    int nmap_num_host_find();
+    QString nmap_time_elapsed();
+    QString nmap_args();
+    QString nmap_arg_find();
     bool nmap_is_open_port(QString ip, QString port);
     QList <QString> nmap_hosts_up();
     QList <QString> nmap_ports_open(QString ip);

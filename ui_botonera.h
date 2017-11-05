@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'botonera.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -46,9 +46,9 @@ public:
     QAction *actionAcerca_de;
     QAction *actionAtalaya;
     QWidget *centralWidget;
-    QLabel *label_2;
     QFrame *frame;
-    QHBoxLayout *horizontalLayout_2;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_5;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_4;
     QLabel *label_6;
@@ -60,11 +60,9 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
     QLabel *label_username;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLabel *label_ip;
-    QLabel *label_7;
-    QLabel *label_GW;
-    QPushButton *pushButton_3;
     QMenuBar *menuBar;
     QMenu *menuNuevo;
     QMenu *menuAplicaciones;
@@ -76,7 +74,7 @@ public:
     {
         if (Botonera->objectName().isEmpty())
             Botonera->setObjectName(QStringLiteral("Botonera"));
-        Botonera->resize(1143, 563);
+        Botonera->resize(1086, 167);
         actionUsuarios = new QAction(Botonera);
         actionUsuarios->setObjectName(QStringLiteral("actionUsuarios"));
         QIcon icon;
@@ -148,119 +146,110 @@ public:
         actionAtalaya->setIcon(icon12);
         centralWidget = new QWidget(Botonera);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(9, 9, 317, 36));
-        QFont font;
-        font.setPointSize(23);
-        label_2->setFont(font);
         frame = new QFrame(centralWidget);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 70, 792, 44));
+        frame->setGeometry(QRect(0, 0, 1081, 21));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        layoutWidget = new QWidget(frame);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(1, 0, 1081, 21));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        label_4 = new QLabel(frame);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         horizontalLayout_4->addWidget(label_4);
 
-        label_6 = new QLabel(frame);
+        label_6 = new QLabel(layoutWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Ubuntu Condensed"));
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_6->setFont(font1);
+        QFont font;
+        font.setFamily(QStringLiteral("Ubuntu Condensed"));
+        font.setBold(true);
+        font.setWeight(75);
+        label_6->setFont(font);
 
         horizontalLayout_4->addWidget(label_6);
 
-        pushButton_2 = new QPushButton(frame);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
         horizontalLayout_4->addWidget(pushButton_2);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout_4);
+        horizontalLayout_5->addLayout(horizontalLayout_4);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_5 = new QLabel(frame);
+        label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         horizontalLayout->addWidget(label_5);
 
-        label_DB = new QLabel(frame);
+        label_DB = new QLabel(layoutWidget);
         label_DB->setObjectName(QStringLiteral("label_DB"));
-        label_DB->setFont(font1);
+        label_DB->setFont(font);
 
         horizontalLayout->addWidget(label_DB);
 
-        pushButton = new QPushButton(frame);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
 
         horizontalLayout->addWidget(pushButton);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout);
+        horizontalLayout_5->addLayout(horizontalLayout);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_3 = new QLabel(frame);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         horizontalLayout_3->addWidget(label_3);
 
-        label_username = new QLabel(frame);
+        label_username = new QLabel(layoutWidget);
         label_username->setObjectName(QStringLiteral("label_username"));
-        label_username->setFont(font1);
+        label_username->setFont(font);
 
         horizontalLayout_3->addWidget(label_username);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout_3);
+        horizontalLayout_5->addLayout(horizontalLayout_3);
 
-        label = new QLabel(frame);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_2->addWidget(label);
 
-        label_ip = new QLabel(frame);
+        label_ip = new QLabel(layoutWidget);
         label_ip->setObjectName(QStringLiteral("label_ip"));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Ubuntu Condensed"));
-        font2.setBold(true);
-        font2.setItalic(false);
-        font2.setWeight(75);
-        label_ip->setFont(font2);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Ubuntu Condensed"));
+        font1.setBold(true);
+        font1.setItalic(false);
+        font1.setWeight(75);
+        label_ip->setFont(font1);
 
         horizontalLayout_2->addWidget(label_ip);
 
-        label_7 = new QLabel(frame);
-        label_7->setObjectName(QStringLiteral("label_7"));
 
-        horizontalLayout_2->addWidget(label_7);
+        horizontalLayout_5->addLayout(horizontalLayout_2);
 
-        label_GW = new QLabel(frame);
-        label_GW->setObjectName(QStringLiteral("label_GW"));
-
-        horizontalLayout_2->addWidget(label_GW);
-
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(380, 150, 80, 22));
         Botonera->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Botonera);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1143, 19));
+        menuBar->setGeometry(QRect(0, 0, 1086, 30));
         menuNuevo = new QMenu(menuBar);
         menuNuevo->setObjectName(QStringLiteral("menuNuevo"));
         menuAplicaciones = new QMenu(menuBar);
@@ -275,6 +264,10 @@ public:
         Botonera->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(Botonera);
         statusBar->setObjectName(QStringLiteral("statusBar"));
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        statusBar->setFont(font2);
         Botonera->setStatusBar(statusBar);
 
         menuBar->addAction(menuNuevo->menuAction());
@@ -386,12 +379,11 @@ public:
         actionSoporte->setToolTip(QApplication::translate("Botonera", "Soporte", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         actionSedes->setText(QApplication::translate("Botonera", "Sedes", Q_NULLPTR));
-        actionAcerca_de->setText(QApplication::translate("Botonera", "Acerca de ...", Q_NULLPTR));
+        actionAcerca_de->setText(QApplication::translate("Botonera", "&Acerca de ...", Q_NULLPTR));
         actionAtalaya->setText(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         actionAtalaya->setToolTip(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        label_2->setText(QApplication::translate("Botonera", "Informaci\303\263n General", Q_NULLPTR));
         label_4->setText(QApplication::translate("Botonera", "Ticket Kerberos", Q_NULLPTR));
         label_6->setText(QApplication::translate("Botonera", "TextLabel", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("Botonera", "Renovar", Q_NULLPTR));
@@ -402,12 +394,9 @@ public:
         label_username->setText(QApplication::translate("Botonera", "TextLabel", Q_NULLPTR));
         label->setText(QApplication::translate("Botonera", "Direccion IP", Q_NULLPTR));
         label_ip->setText(QApplication::translate("Botonera", "IP", Q_NULLPTR));
-        label_7->setText(QApplication::translate("Botonera", "Gateway", Q_NULLPTR));
-        label_GW->setText(QString());
-        pushButton_3->setText(QApplication::translate("Botonera", "PushButton", Q_NULLPTR));
-        menuNuevo->setTitle(QApplication::translate("Botonera", "Ar&chivo", Q_NULLPTR));
+        menuNuevo->setTitle(QApplication::translate("Botonera", "Archi&vo", Q_NULLPTR));
         menuAplicaciones->setTitle(QApplication::translate("Botonera", "Ap&licaciones", Q_NULLPTR));
-        menuAcerca_de->setTitle(QApplication::translate("Botonera", "Ayuda", Q_NULLPTR));
+        menuAcerca_de->setTitle(QApplication::translate("Botonera", "A&yuda", Q_NULLPTR));
     } // retranslateUi
 
 };

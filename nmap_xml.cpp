@@ -31,6 +31,8 @@ void NMap::copy_nmapscan(NMapScan &tmp_nmapscan) {
 
 }
 
+
+
 /*******************************nmap_ejecuta_scan*************************************
  * Realiza el escaneo de equipos y puertos pasados por parametro.
  * El resultado lo guarda en reader, que es de tipo QXmlStreamReader
@@ -38,6 +40,7 @@ void NMap::copy_nmapscan(NMapScan &tmp_nmapscan) {
 int NMap::nmap_run_scan(QString opciones, QString equipos){
     QTemporaryFile file;
     QProcess process;
+    nmapscan.nmaprun.hosts_find = equipos;
     if (file.open()) {
         process.start ("nmap "+opciones+" -oX "+file.fileName() +" "+equipos);
         process.waitForFinished(-1);
@@ -51,12 +54,50 @@ int NMap::nmap_run_scan(QString opciones, QString equipos){
 return process.exitCode();
 }
 
+/******************************nmap_num_host_find********************************
+ * Devuelve el número de equipos buscados
+ * ***************************************************************************/
+int NMap::nmap_num_host_find(){
+
+    return nmapscan.runstats.hosts.total;
+}
+
+/****************nmap_host_find****************************
+ * Devuelve los equipos pasados por parametro para buscar
+ * *******************************************************/
+
+QString NMap::nmap_arg_find() {
+   return nmapscan.nmaprun.hosts_find;
+}
+
 /******************************nmap_num_host_up********************************
- * Devuelve el número de equipos encontrados
+ * Devuelve el número de equipos encendidos
  * ***************************************************************************/
 int NMap::nmap_num_host_up(){
 
-    return nmapscan.host.count();
+    return nmapscan.runstats.hosts.up;
+}
+/******************************nmap_num_host_down********************************
+ * Devuelve el número de equipos apagados
+ * ***************************************************************************/
+int NMap::nmap_num_host_down(){
+
+    return nmapscan.runstats.hosts.down;
+}
+/******************************nmap_time_elapsed********************************
+ * Devuelve el tiempo que hemos tardado en realizar la consulta
+ * ***************************************************************************/
+QString NMap::nmap_time_elapsed(){
+
+    return nmapscan.runstats.elapsed;
+}
+
+/******************************nmap_nmap_args********************************
+ * Devuelve la búsqueda realizada
+ * ***************************************************************************/
+QString NMap::nmap_args(){
+
+    return nmapscan.nmaprun.args;
 }
 
 /***************************nmap_is_open_port_nmapscan************************

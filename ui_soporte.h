@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'soporte.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -22,6 +22,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -30,7 +31,6 @@ QT_BEGIN_NAMESPACE
 class Ui_Soporte
 {
 public:
-    QPlainTextEdit *TextoSalida;
     QLabel *label_13;
     QFrame *frame;
     QWidget *layoutWidget;
@@ -69,20 +69,17 @@ public:
     QPushButton *Btn_Ping;
     QPushButton *Btn_Incidencia;
     QPushButton *Btn_Mtr;
-    QPushButton *pushButton_4;
     QLabel *Estado;
     QPushButton *Btn_Limpiar;
+    QTabWidget *tabWidget;
+    QWidget *consola;
+    QPlainTextEdit *TextoSalida;
 
     void setupUi(QDialog *Soporte)
     {
         if (Soporte->objectName().isEmpty())
             Soporte->setObjectName(QStringLiteral("Soporte"));
-        Soporte->resize(811, 722);
-        TextoSalida = new QPlainTextEdit(Soporte);
-        TextoSalida->setObjectName(QStringLiteral("TextoSalida"));
-        TextoSalida->setGeometry(QRect(10, 350, 781, 331));
-        TextoSalida->setFocusPolicy(Qt::NoFocus);
-        TextoSalida->setReadOnly(false);
+        Soporte->resize(792, 765);
         label_13 = new QLabel(Soporte);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(260, 10, 291, 31));
@@ -309,18 +306,31 @@ public:
 
         horizontalLayout_2->addWidget(Btn_Mtr);
 
-        pushButton_4 = new QPushButton(Soporte);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(390, 300, 89, 25));
         Estado = new QLabel(Soporte);
         Estado->setObjectName(QStringLiteral("Estado"));
         Estado->setGeometry(QRect(10, 700, 59, 14));
         Btn_Limpiar = new QPushButton(Soporte);
         Btn_Limpiar->setObjectName(QStringLiteral("Btn_Limpiar"));
-        Btn_Limpiar->setGeometry(QRect(690, 300, 80, 21));
+        Btn_Limpiar->setGeometry(QRect(700, 305, 80, 25));
+        tabWidget = new QTabWidget(Soporte);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setGeometry(QRect(10, 340, 781, 421));
+        tabWidget->setStyleSheet(QStringLiteral("color=blue"));
+        consola = new QWidget();
+        consola->setObjectName(QStringLiteral("consola"));
+        TextoSalida = new QPlainTextEdit(consola);
+        TextoSalida->setObjectName(QStringLiteral("TextoSalida"));
+        TextoSalida->setGeometry(QRect(0, 1, 771, 381));
+        TextoSalida->setFocusPolicy(Qt::NoFocus);
+        TextoSalida->setStyleSheet(QStringLiteral("color=blue"));
+        TextoSalida->setReadOnly(false);
+        tabWidget->addTab(consola, QString());
 
         retranslateUi(Soporte);
         QObject::connect(lineEdit_ip, SIGNAL(returnPressed()), Btn_Buscar, SLOT(click()));
+
+        tabWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(Soporte);
     } // setupUi
@@ -345,9 +355,9 @@ public:
         Btn_Ping->setText(QApplication::translate("Soporte", "Ping", Q_NULLPTR));
         Btn_Incidencia->setText(QApplication::translate("Soporte", "Incidencia", Q_NULLPTR));
         Btn_Mtr->setText(QApplication::translate("Soporte", "mtr", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("Soporte", "PushButton", Q_NULLPTR));
         Estado->setText(QString());
         Btn_Limpiar->setText(QApplication::translate("Soporte", "Limpiar", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(consola), QApplication::translate("Soporte", "Consola", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -8,7 +8,7 @@ QT       += core gui widgets sql network
 
 TARGET = GrxMenu
 TEMPLATE = app
-CONFIG += c++11
+CONFIG += c++11 static
 
 QMAKE_CFLAGS = -fpermissive
 QMAKE_CXXFLAGS = -fpermissive
@@ -22,7 +22,9 @@ SOURCES += main.cpp \
     soporte.cpp \
     equipos.cpp \
     tunel.cpp \
-    ejecutahilo.cpp
+    ejecutahilo.cpp \
+    tabescaner.cpp
+
 
 HEADERS  += \
     botonera.h \
@@ -33,7 +35,9 @@ HEADERS  += \
     soporte.h \
     equipos.h \
     tunel.h \
-    ejecutahilo.h
+    ejecutahilo.h \
+    tabescaner.h
+
 
 FORMS    += \
     botonera.ui \
@@ -41,6 +45,7 @@ FORMS    += \
     usuario.ui \
     sedes.ui \
     soporte.ui \
-    equipos.ui
+    equipos.ui \
+
 
 LIBS += -lssh2

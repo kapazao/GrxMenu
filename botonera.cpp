@@ -9,7 +9,9 @@
 #include <QNetworkInterface>
 #include "qdebug.h"
 #include "nmap_xml.h"
-
+#include <QDesktopServices>
+#include "configuracion.h"
+//#include "form_usuarios.h"
 struct variables{
     QString keyfile1;
     QString keyfile2;
@@ -36,6 +38,7 @@ Botonera::Botonera(QWidget *parent) :
     ui->setupUi(this);
 
     cargaVariables();
+    barraEstado();
 
 }
 
@@ -46,8 +49,8 @@ Botonera::~Botonera()
 
 void Botonera::on_actionUsuarios_triggered()
 {
-    Usuario *usuario = new Usuario();
-    usuario->show();
+  //  form_usuarios *usuarios = new form_usuarios();
+  //  usuarios->show();
 }
 
 void Botonera::on_actionSalir_triggered()
@@ -57,35 +60,42 @@ void Botonera::on_actionSalir_triggered()
 
 void Botonera::on_actionCronos_triggered()
 {
-    Configuracion *configuracion = new Configuracion;
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << configuracion->cual_es_cronos());
-    delete configuracion;
+   Configuracion *configuracion = new Configuracion();
+   QDesktopServices::openUrl(QUrl(configuracion->cual_es_cronos()));
+   delete configuracion;
 }
 
 void Botonera::on_actionWebmail_triggered()
 {
-    Configuracion *configuracion = new Configuracion;
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << configuracion->cual_es_correo());
+    Configuracion *configuracion = new Configuracion();
+    QDesktopServices::openUrl(QUrl(configuracion->cual_es_correo()));
     delete configuracion;
 }
 
 void Botonera::on_actionBeiro_triggered()
 {
-    Configuracion *configuracion = new Configuracion;
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << configuracion->cual_es_beiro());
+    Configuracion *configuracion = new Configuracion();
+    QDesktopServices::openUrl(QUrl(configuracion->cual_es_beiro()));
     delete configuracion;
 }
 
 void Botonera::on_actionGlpi_triggered()
 {
-    Configuracion *configuracion = new Configuracion;
-    QProcess process;
-    process.startDetached("xdg-open" , QStringList() << configuracion->cual_es_glpi());
+    Configuracion *configuracion = new Configuracion();
+    QDesktopServices::openUrl(QUrl(configuracion->cual_es_glpi()));
     delete configuracion;
 }
+
+void Botonera::on_actionAtalaya_triggered()
+{
+    Configuracion *configuracion = new Configuracion();
+    QDesktopServices::openUrl(QUrl(configuracion->cual_es_atalaya()));
+    delete configuracion;
+}
+
+
+
+
 
 void Botonera::on_actionActiveDirectory_triggered()
 {
@@ -134,7 +144,7 @@ unsigned int puerto_libre(){
     QTcpServer server;
     if(server.listen(QHostAddress::Any, 0))
            return server.serverPort();
- return -1;
+return -1;
 }
 
 bool Botonera::basedatos(){
@@ -150,7 +160,7 @@ bool Botonera::basedatos(){
         ui->actionSoporte->setDisabled(true);
         return false;
     }else
-        ui->label_DB->setText("Abierto");
+        ui->label_DB->setText("Conectada");
         ui->actionSedes->setEnabled(true);
         ui->actionSoporte->setEnabled(true);
 
@@ -187,7 +197,7 @@ bool Botonera::creaConexion()
     QObject::connect(tunel,&Tunel::sshDesconectado,tunel,&Tunel::cierra_conexion);
     hilo->start();
     return true;
-};
+}
 
 bool Botonera::cargaVariables(){
 
@@ -237,12 +247,11 @@ bool Botonera::cargaVariables(){
                     return false;
                 }
                 else  {
-                    ui->label_DB->setText("Abierto");
+                    ui->label_DB->setText("Conectado");
                     ui->actionSedes->setEnabled(true);
                     ui->actionSoporte->setEnabled(true);
                     }
                 }
-
     }
      else{
         ui->statusBar->messageChanged("Puerto Cerrado");
@@ -260,13 +269,17 @@ bool Botonera::cargaVariables(){
     if (name.isEmpty())
         name = qgetenv("USERNAME");
     ui->label_username->setText(name);
-    ui->label_GW->setText("GW");
 
 delete configuracion;
 delete nmap;
 return true;
 }
-
+bool Botonera::barraEstado(){
+    QString name = qgetenv("USER");
+    if (name.isEmpty())
+        name = qgetenv("USERNAME");
+    ui->statusBar->showMessage("Bienvenido "+name);
+}
 void Botonera::on_pushButton_clicked()
 {
     cargaVariables();
@@ -274,19 +287,6 @@ void Botonera::on_pushButton_clicked()
 
 void Botonera::on_pushButton_2_clicked()
 {
-    Soporte *soporte = new Soporte;
-    soporte->show();
-}
-
-void Botonera::on_actionAtalaya_triggered()
-{
-    Configuracion *configuracion = new Configuracion;
-    QProcess process;
-    process.startDetached("xdg-open" , QStringList() << "http://atalaya.grx");
-    delete configuracion;
-}
-
-void Botonera::on_pushButton_3_clicked()
-{
-
+  //  Soporte *soporte = new Soporte;
+   // soporte->show();
 }
