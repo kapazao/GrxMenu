@@ -60,7 +60,7 @@ tabEscaner::tabEscaner(NMapScan *scan,QWidget *parent) : QWidget(parent)
 
 void tabEscaner::equipoLinux(int i)
 {
-    Equipos *equipos = new Equipos(host_encontrados.at(i).address.addr);
+    Equipos *equipos = new Equipos(&host_encontrados.at(i));
     equipos->show();
 
 }

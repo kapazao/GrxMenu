@@ -196,8 +196,7 @@ void Soporte::on_Btn_Mtr_clicked()
 
 void Soporte::on_pushButton_4_clicked()
 {
-    Equipos *equipos = new Equipos("10.100.251.30");
-    equipos->show();
+
 }
 
 void Soporte::activa_barra_progreso(){

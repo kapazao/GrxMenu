@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'soporte.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -337,7 +337,7 @@ public:
 
     void retranslateUi(QDialog *Soporte)
     {
-        Soporte->setWindowTitle(QApplication::translate("Soporte", "Dialog", Q_NULLPTR));
+        Soporte->setWindowTitle(QApplication::translate("Soporte", "Soporte", Q_NULLPTR));
         label_13->setText(QApplication::translate("Soporte", "Soporte Inform\303\241tico", Q_NULLPTR));
         label_2->setText(QApplication::translate("Soporte", "Sede", Q_NULLPTR));
         label->setText(QApplication::translate("Soporte", "Ip/red ", Q_NULLPTR));

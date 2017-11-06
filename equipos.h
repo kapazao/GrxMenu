@@ -1,6 +1,6 @@
 #ifndef EQUIPOS_H
 #define EQUIPOS_H
-
+#include "nmap_xml.h"
 #include <QWidget>
 
 namespace Ui {
@@ -12,7 +12,7 @@ class Equipos : public QWidget
     Q_OBJECT
 
 public:
-    explicit Equipos(QString ip,QWidget *parent = 0);
+    explicit Equipos(Host *host,QWidget *parent = 0);
     ~Equipos();
 
 private slots:
@@ -27,6 +27,9 @@ private slots:
     void on_pushButton_5_clicked();
 
     int puerto_libre();
+
+    QString host_ports_open_string(Host *host);
+    int host_ports_open_int(Host host);
 
 private:
     Ui::Equipos *ui;

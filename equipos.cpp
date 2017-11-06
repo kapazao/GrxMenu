@@ -5,19 +5,50 @@
 #include <QProcess>
 #include "configuracion.h"
 #include <QTcpServer>
-Equipos::Equipos(QString dir_ip, QWidget *parent) :
+Equipos::Equipos(Host *host, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Equipos)
 {
-    ip=dir_ip;
+    QString puertos;
+    ip=host->address.addr;
     ui->setupUi(this);
-    ui->lineEdit.setText(ip);
+    ui->lineEdit_ip->setText(ip);
+    ui->lineEdit_puertos->setText(host_ports_open_string(host));
+    ui->lineEdit_hostname->setText(host->hostnames.hostname.name);
+    ui->lineEdit_status->setText(host->status.state);
+    ui->lineEdit_tipo->setText(host->address.addrtype);
 }
 
 Equipos::~Equipos()
 {
     delete ui;
 }
+
+/****************host_ports_open****************************
+ * Devuelve los puerto abiertos del host pasado por parametro
+ * *******************************************************/
+
+
+QList <QString> Equipos::host_ports_open(Host &host){
+    QList <QString> lista;
+    for (int i=0;i<host.ports.port.count();i++)
+           lista.append(host.ports.port.at(i).portid);
+    return lista;
+}
+/****************host_ports_open_string****************************
+ * Devuelve los puerto abiertos del host pasado por parametro en un QString
+ * *******************************************************/
+
+
+QString Equipos::host_ports_open_string(Host &host){
+    QString lista;
+    for (int i=0;i<host.ports.port.count();i++)
+           lista.append(host.ports.port.at(i).portid);
+    return lista;
+
+
+}
+
 
 void Equipos::on_pushButton_clicked()
 {

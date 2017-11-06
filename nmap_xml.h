@@ -215,7 +215,9 @@ virtual ~NMap();
     bool is_printer(QString ip);
     QString what_is(QString ip);
     int what_is_int(QString ip);
-
+    QList<QString> host_ports_open(Host host);
+    QString host_ports_open_string(Host host);
+    int host_ports_open_int(Host &host);
 
 private:
     NMapScan nmapscan;
