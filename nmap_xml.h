@@ -207,11 +207,14 @@ virtual ~NMap();
     QString nmap_arg_find();
     bool nmap_is_open_port(QString ip, QString port);
     QList <QString> nmap_hosts_up();
+    QList <Host> nmap_hosts_up_QList();
     QList <QString> nmap_ports_open(QString ip);
     bool is_linux(QString ip);
     bool is_win(QString ip);
     bool is_router(QString ip);
     bool is_printer(QString ip);
+    QString what_is(QString ip);
+    int what_is_int(QString ip);
 
 
 private:

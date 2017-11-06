@@ -93,10 +93,6 @@ void Botonera::on_actionAtalaya_triggered()
     delete configuracion;
 }
 
-
-
-
-
 void Botonera::on_actionActiveDirectory_triggered()
 {
     Configuracion *configuracion = new Configuracion;
@@ -274,12 +270,14 @@ delete configuracion;
 delete nmap;
 return true;
 }
+
 bool Botonera::barraEstado(){
     QString name = qgetenv("USER");
     if (name.isEmpty())
         name = qgetenv("USERNAME");
     ui->statusBar->showMessage("Bienvenido "+name);
 }
+
 void Botonera::on_pushButton_clicked()
 {
     cargaVariables();
@@ -287,6 +285,6 @@ void Botonera::on_pushButton_clicked()
 
 void Botonera::on_pushButton_2_clicked()
 {
-  //  Soporte *soporte = new Soporte;
-   // soporte->show();
+    Soporte *soporte = new Soporte;
+    soporte->show();
 }

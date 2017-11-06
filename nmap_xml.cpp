@@ -125,11 +125,28 @@ return false;
 QList <QString> NMap::nmap_hosts_up(){
     QList  <QString> lista;
     int num_equipos;
-    num_equipos = nmap_num_host_up();
+    num_equipos = nmapscan.host.count();
     for (int i=0;i<num_equipos;i++)
-        lista.append(nmapscan.host[i].address.addr);
+        if (nmapscan.host.at(i).status.state=="up")
+            lista.append(nmapscan.host[i].address.addr);
 return lista;
 }
+
+
+/************************nmap_hosts_up***************************************
+ * Devuelve los equipos encontrados en un QList <Host>
+ * *************************************************************************/
+
+QList <Host> NMap::nmap_hosts_up_QList(){
+    QList <Host> lista;
+    int num_equipos;
+    num_equipos = nmapscan.host.count();
+    for (int i=0;i<num_equipos;i++)
+        if (nmapscan.host.at(i).status.state=="up")
+            lista.append(nmapscan.host[i]);
+return lista;
+}
+
 
 /************************nmap_port_open***************************************
  * Devuelve los puertos abiertos de la ip pasada por parametro
@@ -192,6 +209,34 @@ return false;
  * *************************************************************************/
 bool NMap::is_printer (QString ip){
     return nmap_is_open_port(ip,"9100");
+}
+/************************what_is***************************************
+ * Devuelve que tipo de equipo ha encontrado en QString "router","linux", "win", "printer"
+ * *************************************************************************/
+QString NMap::what_is (QString ip){
+    if (is_printer(ip))
+        return "printer";
+    else if (is_router(ip))
+                return "router";
+    else if (is_win(ip))
+                return "win";
+    else if (is_linux(ip))
+                return "linux";
+    else return "desconocido";
+}
+/************************what_is_int***************************************
+ * Devuelve que tipo de equipo ha encontrado en int 1-router, 2-linux, 3-win, 4-printer,0 desconocido
+ * *************************************************************************/
+int NMap::what_is_int (QString ip){
+    if (is_printer(ip))
+        return 4;
+    else if (is_router(ip))
+                return 1 ;
+    else if (is_win(ip))
+                return 3;
+    else if (is_linux(ip))
+                return 2;
+    else return 0;
 }
 
 /*******************************************************************************

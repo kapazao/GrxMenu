@@ -12,29 +12,12 @@ class tabEscaner : public QWidget
     Q_OBJECT
 public:
     explicit tabEscaner(NMapScan *nmapscan,QWidget *parent = nullptr);
+    NMapScan *nmapscan;
+    QList<Host> host_encontrados;
 signals:
 
 public slots:
-    void equipoLinux(Host host);
+    void equipoLinux(int i);
 };
-
-
-
-class ClickableLabel : public QLabel {
-    Q_OBJECT
-
-public:
-    explicit ClickableLabel(QWidget* parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
-    ~ClickableLabel();
-
-signals:
-    void clicked();
-
-protected:
-    void mousePressEvent(QMouseEvent* event);
-
-};
-
-
 
 #endif // TABESCANER_H

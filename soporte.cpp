@@ -147,6 +147,29 @@ void Soporte::ejecuta_nmap()
     hilo->start();
 }
 
+void Soporte::resultados(QList<NMapScan> res){
+
+    NMapScan nmapscan;
+    nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
+    NMap *nmap =new NMap(nmapscan);
+    QWidget *pp=nullptr;
+    ui->TextoSalida->appendPlainText("Equipos Buscados: "+QString::number(nmap->nmap_num_host_find()));
+    ui->TextoSalida->appendPlainText("Equipos Encontrados: "+QString::number(nmap->nmap_num_host_up()));
+    ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
+    ui->tabWidget->insertTab(1,new tabEscaner(&nmapscan),nmap->nmap_arg_find());
+    connect(ui->tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
+    /*if(ip.empty()){
+        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
+    }else
+        for (int i = 0; i < ip.size(); ++i)
+               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
+*/
+}
+
+
+
+
+
 void Soporte::Ping()
 {
  ui->TextoSalida->appendPlainText(ping->readAllStandardOutput());
@@ -190,24 +213,6 @@ void Soporte::desActiva_barra_progreso(){
      ui->Estado->hide();
 }
 
-void Soporte::resultados(QList<NMapScan> res){
-
-    NMapScan nmapscan;
-    nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
-    NMap *nmap =new NMap(nmapscan);
-    QWidget *pp=nullptr;
-    ui->TextoSalida->appendPlainText("Equipos Buscados: "+QString::number(nmap->nmap_num_host_find()));
-    ui->TextoSalida->appendPlainText("Equipos Encontrados: "+QString::number(nmap->nmap_num_host_up()));
-    ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
-    ui->tabWidget->insertTab(1,new tabEscaner(&nmapscan),nmap->nmap_arg_find());
-    connect(ui->tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
-    /*if(ip.empty()){
-        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
-    }else
-        for (int i = 0; i < ip.size(); ++i)
-               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
-*/
-}
 
 void Soporte::closeTab(int indice){
     if (indice>0)

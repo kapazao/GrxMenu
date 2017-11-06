@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'equipos.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.9.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -36,6 +37,7 @@ public:
     QPushButton *pushButton_9;
     QPushButton *pushButton_10;
     QPushButton *pushButton_11;
+    QLabel *label_ip;
 
     void setupUi(QWidget *Equipos)
     {
@@ -103,6 +105,9 @@ public:
 
         verticalLayout->addWidget(pushButton_11);
 
+        label_ip = new QLabel(Equipos);
+        label_ip->setObjectName(QStringLiteral("label_ip"));
+        label_ip->setGeometry(QRect(260, 40, 59, 14));
 
         retranslateUi(Equipos);
 
@@ -123,6 +128,7 @@ public:
         pushButton_9->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
         pushButton_10->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
         pushButton_11->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
+        label_ip->setText(QApplication::translate("Equipos", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

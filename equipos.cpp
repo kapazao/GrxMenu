@@ -11,6 +11,7 @@ Equipos::Equipos(QString dir_ip, QWidget *parent) :
 {
     ip=dir_ip;
     ui->setupUi(this);
+    ui->lineEdit.setText(ip);
 }
 
 Equipos::~Equipos()
