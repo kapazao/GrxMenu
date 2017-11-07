@@ -13,6 +13,8 @@ class Equipos : public QWidget
 
 public:
     explicit Equipos(Host *host,QWidget *parent = 0);
+    QString host_ports_open_string(Host*);
+    QList <QString> host_ports_open(Host *host);
     ~Equipos();
 
 private slots:
@@ -28,8 +30,7 @@ private slots:
 
     int puerto_libre();
 
-    QString host_ports_open_string(Host *host);
-    int host_ports_open_int(Host host);
+    int host_ports_open_int(Host *host);
 
 private:
     Ui::Equipos *ui;

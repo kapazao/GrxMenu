@@ -29,21 +29,30 @@ Equipos::~Equipos()
  * *******************************************************/
 
 
-QList <QString> Equipos::host_ports_open(Host &host){
+QList <QString> Equipos::host_ports_open(Host *host){
     QList <QString> lista;
-    for (int i=0;i<host.ports.port.count();i++)
-           lista.append(host.ports.port.at(i).portid);
+    for (int i=0;i<host->ports.port.count();i++)
+           lista.append(host->ports.port.at(i).portid);
     return lista;
 }
+
+/****************host_ports_open_int****************************
+ * Devuelve los puerto abiertos del host pasado por parametro
+ * *******************************************************/
+
+int Equipos::host_ports_open_int(Host *host){
+    return host->ports.port.count();
+}
+
 /****************host_ports_open_string****************************
  * Devuelve los puerto abiertos del host pasado por parametro en un QString
  * *******************************************************/
 
 
-QString Equipos::host_ports_open_string(Host &host){
+QString Equipos::host_ports_open_string(Host *host){
     QString lista;
-    for (int i=0;i<host.ports.port.count();i++)
-           lista.append(host.ports.port.at(i).portid);
+    for (int i=0;i<host->ports.port.count();i++)
+           lista.append(host->ports.port.at(i).portid);
     return lista;
 
 
