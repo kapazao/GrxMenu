@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include <QHostAddress>
 #include <QAbstractItemModel>
+#include <QDesktopServices>
 Sedes::Sedes(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Sedes)
@@ -538,39 +539,46 @@ void Sedes::on_comboBox_anio_activated(const QString &arg1)
 
 void Sedes::on_pB_web_clicked()
 {
-    QProcess process;
+    /*QProcess process;
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_web->text());
-
+*/
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_web->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_pB_sede_clicked()
 {
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_sede ->text());
+    /*QProcess process;
+    process.startDetached("xdg-open", QStringList() << ui->lineEdit_sede ->text());*/
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_sede->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_sP_tablon_clicked()
 {
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_tablon->text());
+   /* QProcess process;
+    process.startDetached("xdg-open", QStringList() << ui->lineEdit_tablon->text());*/
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_tablon->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_pB_portalTransparencia_clicked()
 {
-    QProcess process;
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_portar_transparencia->text(), QUrl::TolerantMode));
+   /* QProcess process;
     process.startDetached("xdg-open", QStringList() << ui->lineEdit_portar_transparencia->text());
+    */
 }
 
 void Sedes::on_pB_bandera_clicked()
 {
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_bandera->text());
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_bandera->text(), QUrl::TolerantMode));
+  //  QProcess process;
+  //  process.startDetached("xdg-open", QStringList() << ui->lineEdit_bandera->text());
 }
 
 void Sedes::on_pB_escudo_clicked()
 {
-    QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());
+    /*QProcess process;
+    process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());*/
+    QDesktopServices::openUrl(QUrl(ui->lineEdit_escudo->text(), QUrl::TolerantMode));
 }
 
 void Sedes::cambio_estados_readonly(bool estado){
