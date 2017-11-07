@@ -238,7 +238,7 @@ void Sedes::consultaNodo(const QString &nombre){
             ui->lineEdit_contacto->setText(consultar.value(14).toString());
             ui->lineEdit_movil->setText(consultar.value(26).toString());
 
-            consultar_programa.prepare(QString("select * from programa where id =:idNodo and anio =:idAnio"));
+            consultar_programa.prepare(QString("select * from programa where idNodo =:idNodo and anio =:idAnio"));
             consultar_programa.bindValue(":idNodo",idNodo);
             consultar_programa.bindValue(":idAnio",idAnio);
             //if (consultar_programa.exec() and consultar_programa.first()){
