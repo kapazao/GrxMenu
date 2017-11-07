@@ -23,6 +23,7 @@ void ejecutaHilo::ejecuta() {
             nmap->copy_nmapscan(nmapscan);
             resultado.append(nmapscan);
         }
+
     delete nmap;
     emit resultadoListo(resultado);
 }
