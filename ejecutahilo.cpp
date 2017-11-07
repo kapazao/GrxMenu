@@ -13,9 +13,10 @@ void ejecutaHilo::ejecuta() {
     QList<NMapScan> resultado;
 
     int i=ip.length()-1;
-    if (ip.at(i)=="0"){
+
+    if (ip.at(i)=='0'){
         ip.chop(1);
-        ip.append("*");
+        ip.append('*');
     }
     errores = nmap->nmap_run_scan(opciones,ip);
     if (!errores){
