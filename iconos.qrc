@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/">
+        <file>iconos/300px-Granada_-_Mapa_municipal.svg.png</file>
+        <file>iconos/AD.png</file>
+        <file>iconos/asistencia.png</file>
+        <file>iconos/beiro_cartera.png</file>
+        <file>iconos/color.jpg</file>
+        <file>iconos/color.png</file>
+        <file>iconos/color.xcf</file>
+        <file>iconos/cronos.png</file>
+        <file>iconos/equipos.gif</file>
+        <file>iconos/glpi.png</file>
+        <file>iconos/ISL.png</file>
+        <file>iconos/ISL50x50.png</file>
+        <file>iconos/Linux_pc.png</file>
+        <file>iconos/logo.png</file>
+        <file>iconos/lupa.jpg</file>
+        <file>iconos/lupa.png</file>
+        <file>iconos/nmap.png</file>
+        <file>iconos/ocs.png</file>
+        <file>iconos/online-96x96.png</file>
+        <file>iconos/Printer_pc.png</file>
+        <file>iconos/Router.png</file>
+        <file>iconos/salida.jpg</file>
+        <file>iconos/sedes.png</file>
+        <file>iconos/update.png</file>
+        <file>iconos/usuario.png</file>
+        <file>iconos/usuario_off.png</file>
+        <file>iconos/usuario_on.png</file>
+        <file>iconos/usuarios.png</file>
+        <file>iconos/WebMail.png</file>
+    </qresource>
+</RCC>

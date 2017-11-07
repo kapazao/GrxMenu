@@ -49,3 +49,6 @@ FORMS    += \
 
 
 LIBS += -lssh2
+
+RESOURCES += \
+    iconos.qrc
