@@ -404,8 +404,8 @@
   </action>
   <action name="actionSedes">
    <property name="icon">
-    <iconset>
-     <normaloff>iconos/sedes.png</normaloff>iconos/sedes.png</iconset>
+    <iconset resource="iconos.qrc">
+     <normaloff>:/iconos/sedes.png</normaloff>:/iconos/sedes.png</iconset>
    </property>
    <property name="text">
     <string>Sedes</string>
