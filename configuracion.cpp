@@ -147,13 +147,69 @@ QString  Configuracion::cual_es_cuerpo(){
     return Cuerpo;
 }
 
-
-
 bool Configuracion::es_usarSSH(){
       if (UsarSSH =="True")
           return true;
 return false;
 }
+
+bool Configuracion::usuarios_up(){
+      if (UsarUsuarios =="True")
+          return true;
+return false;
+}
+
+bool Configuracion::soporte_up(){
+      if (UsarSoporte =="True")
+          return true;
+return false;
+}
+bool Configuracion::sedes_up(){
+      if (UsarSedes =="True")
+          return true;
+return false;
+}
+bool Configuracion::cronos_up(){
+      if (UsarCronos =="True")
+          return true;
+return false;
+}
+bool Configuracion::webmail_up(){
+      if (UsarWebmail =="True")
+          return true;
+return false;
+}
+bool Configuracion::beiro_up(){
+      if (UsarBeiro =="True")
+          return true;
+return false;
+}
+bool Configuracion::glpi_up(){
+      if (UsarGlpi =="True")
+          return true;
+return false;
+}
+bool Configuracion::ocs_up(){
+      if (UsarOCS =="True")
+          return true;
+return false;
+}
+bool Configuracion::ts_up(){
+      if (UsarTS =="True")
+          return true;
+return false;
+}
+bool Configuracion::isl_up(){
+      if (UsarISL =="True")
+          return true;
+return false;
+}
+bool Configuracion::atalaya_up(){
+      if (UsarAtalaya =="True")
+          return true;
+return false;
+}
+
 QString  Configuracion::cual_es_resolucion(){
       return Resolucion;
 }
@@ -189,6 +245,19 @@ void Configuracion::carga_configuracion()
     PuertoLocalSSH = s.value("Configuracion/PuertoLocalSSH").toInt();
     ISL = s.value("Configuracion/ISL").toString();
     Atalaya = s.value("Configuracion/Atalaya").toString();
+
+    UsarUsuarios = s.value("Configuracion/UsarUsuarios").toString();
+    UsarSoporte = s.value("Configuracion/UsarSoporte").toString();
+    UsarSedes = s.value("Configuracion/UsarSedes").toString();
+    UsarCronos = s.value("Configuracion/UsarCronos").toString();
+    UsarWebmail = s.value("Configuracion/UsarWebmail").toString();
+    UsarBeiro = s.value("Configuracion/UsarBeiro").toString();
+    UsarGlpi = s.value("Configuracion/UsarGlpi").toString();
+    UsarOCS = s.value("Configuracion/UsarOCS").toString();
+    UsarTS = s.value("Configuracion/UsarTS").toString();
+    UsarISL = s.value("Configuracion/UsarISL").toString();
+    UsarAtalaya = s.value("Configuracion/UsarAtalaya").toString();
+
     OCS = s.value("Configuracion/OCS").toString();
     GLPI = s.value("Configuracion/GLPI").toString();
     Beiro = s.value("Configuracion/Beiro").toString();
@@ -230,6 +299,120 @@ void Configuracion::carga_configuracion()
         ui->checkBox_ssh->setChecked(false);
         deshabilitaSSH();
     }
+//----------------------------------------------------
+    if (usuarios_up()){
+        ui->checkBox_Usuarios->setChecked(true);
+        muestraUsuarios();
+    }
+    else{
+        ui->checkBox_Usuarios->setChecked(false);
+        ocultaUsuarios();
+    }
+    if (soporte_up()){
+        ui->checkBox_Soporte->setChecked(true);
+        muestraSoporte();
+    }
+    else{
+        ui->checkBox_Soporte->setChecked(false);
+        ocultaSoporte();
+    }
+    if (sedes_up()){
+        ui->checkBox_Sedes->setChecked(true);
+        muestraSedes();
+    }
+    else{
+        ui->checkBox_Sedes->setChecked(false);
+        ocultaSedes();
+    }
+    if (cronos_up()){
+        ui->checkBox_Cronos->setChecked(true);
+        muestraCronos();
+    }
+    else{
+        ui->checkBox_Cronos->setChecked(false);
+        ocultaCronos();
+    }
+    if (webmail_up()){
+        ui->checkBox_Webmail->setChecked(true);
+        muestraWebmail();
+    }
+    else{
+        ui->checkBox_Webmail->setChecked(false);
+        deshabilitaSSH();
+    }
+    if (beiro_up()){
+        ui->checkBox_Beiro->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_Beiro->setChecked(false);
+        deshabilitaSSH();
+    }
+    if (glpi_up()){
+        ui->checkBox_GLPI->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_GLPI->setChecked(false);
+        deshabilitaSSH();
+    }
+    if (ocs_up()){
+        ui->checkBox_OCS->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_OCS->setChecked(false);
+        deshabilitaSSH();
+    }
+    if (ts_up()){
+        ui->checkBox_TS->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_TS->setChecked(false);
+        deshabilitaSSH();
+    }
+    if (isl_up()){
+        ui->checkBox_ISL->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_ISL->setChecked(false);
+        deshabilitaSSH();
+    }
+
+    if (atalaya_up()){
+        ui->checkBox_Atalaya->setChecked(true);
+        habilitaSSH();
+    }
+    else{
+        ui->checkBox_Atalaya->setChecked(false);
+        deshabilitaSSH();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     ui->tecnico->setText(Tecnico);
     ui->clave->setText(Clave);
@@ -332,6 +515,18 @@ void Configuracion::on_buttonBox_accepted()
         s.setValue("Configuracion/UsarSSH","True");
     else
         s.setValue("Configuracion/UsarSSH","False");
+
+    if (ui->checkBox_ssh->isChecked())
+        s.setValue("Configuracion/UsarSSH","True");
+    else
+        s.setValue("Configuracion/UsarSSH","False");
+
+
+
+
+
+
+
 
     if (ui->rb_rdesktop->isChecked())
         s.setValue("Configuracion/Rdesktop","True");

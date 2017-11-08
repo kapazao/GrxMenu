@@ -47,6 +47,19 @@ public:
     QString cual_es_clave_remoto();
     bool es_rdesktop();
     bool es_usarSSH();
+
+    bool usuarios_up();
+    bool soporte_up();
+    bool sedes_up();
+    bool cronos_up();
+    bool webmail_up();
+    bool beiro_up();
+    bool glpi_up();
+    bool ocs_up();
+    bool ts_up();
+    bool isl_up();
+    bool atalaya_up();
+
     QString cual_es_rdesktop();
     QString cual_es_resolucion();
     QString cual_es_keyfile_privada();
@@ -116,6 +129,17 @@ private:
     QString PuertoDB;
     QString PasswordDB;
     QString UsarSSH;
+    QString UsarUsuarios;
+    QString UsarSoporte;
+    QString UsarSedes;
+    QString UsarCronos;
+    QString UsarWebmail;
+    QString UsarBeiro;
+    QString UsarGlpi;
+    QString UsarOCS;
+    QString UsarTS;
+    QString UsarISL;
+    QString UsarAtalaya;
     QString ServidorSSH;
     QString UsuarioSSH;
     QString ClaveSSH;

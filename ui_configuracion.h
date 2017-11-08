@@ -41,6 +41,7 @@ public:
     QWidget *scrollAreaWidgetContents_2;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_2;
+    QDialogButtonBox *buttonBox;
     QTabWidget *tabWidget;
     QWidget *remoto;
     QFrame *fr_linux;
@@ -181,7 +182,21 @@ public:
     QLineEdit *para;
     QLineEdit *asunto;
     QTextEdit *cuerpo;
-    QDialogButtonBox *buttonBox;
+    QWidget *menu;
+    QLabel *label_46;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_19;
+    QCheckBox *checkBox_Usuarios;
+    QCheckBox *checkBox_Soporte;
+    QCheckBox *checkBox_Sedes;
+    QCheckBox *checkBox_Cronos;
+    QCheckBox *checkBox_Webmail;
+    QCheckBox *checkBox_Beiro;
+    QCheckBox *checkBox_GLPI;
+    QCheckBox *checkBox_OCS;
+    QCheckBox *checkBox_TS;
+    QCheckBox *checkBox_ISL;
+    QCheckBox *checkBox_Atalaya;
 
     void setupUi(QDialog *Configuracion)
     {
@@ -209,6 +224,13 @@ public:
         groupBox->setFont(font);
         gridLayout_2 = new QGridLayout(groupBox);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        buttonBox = new QDialogButtonBox(groupBox);
+        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
+
+        gridLayout_2->addWidget(buttonBox, 1, 0, 1, 1);
+
         tabWidget = new QTabWidget(groupBox);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         remoto = new QWidget();
@@ -932,15 +954,89 @@ public:
         cuerpo->setObjectName(QStringLiteral("cuerpo"));
         cuerpo->setGeometry(QRect(0, 160, 651, 291));
         tabWidget->addTab(correo, QString());
+        menu = new QWidget();
+        menu->setObjectName(QStringLiteral("menu"));
+        label_46 = new QLabel(menu);
+        label_46->setObjectName(QStringLiteral("label_46"));
+        label_46->setGeometry(QRect(180, 30, 274, 22));
+        QFont font4;
+        font4.setPointSize(14);
+        label_46->setFont(font4);
+        widget = new QWidget(menu);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(240, 80, 150, 315));
+        verticalLayout_19 = new QVBoxLayout(widget);
+        verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
+        verticalLayout_19->setContentsMargins(0, 0, 0, 0);
+        checkBox_Usuarios = new QCheckBox(widget);
+        checkBox_Usuarios->setObjectName(QStringLiteral("checkBox_Usuarios"));
+        checkBox_Usuarios->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Usuarios);
+
+        checkBox_Soporte = new QCheckBox(widget);
+        checkBox_Soporte->setObjectName(QStringLiteral("checkBox_Soporte"));
+        checkBox_Soporte->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Soporte);
+
+        checkBox_Sedes = new QCheckBox(widget);
+        checkBox_Sedes->setObjectName(QStringLiteral("checkBox_Sedes"));
+        checkBox_Sedes->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Sedes);
+
+        checkBox_Cronos = new QCheckBox(widget);
+        checkBox_Cronos->setObjectName(QStringLiteral("checkBox_Cronos"));
+        checkBox_Cronos->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Cronos);
+
+        checkBox_Webmail = new QCheckBox(widget);
+        checkBox_Webmail->setObjectName(QStringLiteral("checkBox_Webmail"));
+        checkBox_Webmail->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Webmail);
+
+        checkBox_Beiro = new QCheckBox(widget);
+        checkBox_Beiro->setObjectName(QStringLiteral("checkBox_Beiro"));
+        checkBox_Beiro->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Beiro);
+
+        checkBox_GLPI = new QCheckBox(widget);
+        checkBox_GLPI->setObjectName(QStringLiteral("checkBox_GLPI"));
+        checkBox_GLPI->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_GLPI);
+
+        checkBox_OCS = new QCheckBox(widget);
+        checkBox_OCS->setObjectName(QStringLiteral("checkBox_OCS"));
+        checkBox_OCS->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_OCS);
+
+        checkBox_TS = new QCheckBox(widget);
+        checkBox_TS->setObjectName(QStringLiteral("checkBox_TS"));
+        checkBox_TS->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_TS);
+
+        checkBox_ISL = new QCheckBox(widget);
+        checkBox_ISL->setObjectName(QStringLiteral("checkBox_ISL"));
+        checkBox_ISL->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_ISL);
+
+        checkBox_Atalaya = new QCheckBox(widget);
+        checkBox_Atalaya->setObjectName(QStringLiteral("checkBox_Atalaya"));
+        checkBox_Atalaya->setChecked(true);
+
+        verticalLayout_19->addWidget(checkBox_Atalaya);
+
+        tabWidget->addTab(menu, QString());
 
         gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
-
-        buttonBox = new QDialogButtonBox(groupBox);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
-
-        gridLayout_2->addWidget(buttonBox, 1, 0, 1, 1);
 
         scrollArea->setWidget(scrollAreaWidgetContents_2);
         QWidget::setTabOrder(tecnico, clave);
@@ -958,7 +1054,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Configuracion, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Configuracion, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(Configuracion);
@@ -968,6 +1064,9 @@ public:
     {
         Configuracion->setWindowTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", Q_NULLPTR));
         PB_linux->setText(QString());
         label_4->setText(QApplication::translate("Configuracion", "T\303\251cnico", Q_NULLPTR));
@@ -992,7 +1091,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         clave_cifrado->setToolTip(QApplication::translate("Configuracion", "Clave del cifrado en los equipos", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        tabWidget->setTabText(tabWidget->indexOf(remoto), QApplication::translate("Configuracion", "Acceso Remoto", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(remoto), QApplication::translate("Configuracion", "Remoto", Q_NULLPTR));
         lb_rutas->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Rutas", Q_NULLPTR));
         PB_rutas->setText(QString());
         label_15->setText(QApplication::translate("Configuracion", "Ruta CorreoWeb", Q_NULLPTR));
@@ -1108,9 +1207,19 @@ public:
                         "t;\">Haced el favor de echarle un vistazo.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;\"><br /></p></body></html>", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(correo), QApplication::translate("Configuracion", "Correo", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
+        label_46->setText(QApplication::translate("Configuracion", "Mostrar los Botones en el men\303\272", Q_NULLPTR));
+        checkBox_Usuarios->setText(QApplication::translate("Configuracion", "Usuarios", Q_NULLPTR));
+        checkBox_Soporte->setText(QApplication::translate("Configuracion", "Soporte", Q_NULLPTR));
+        checkBox_Sedes->setText(QApplication::translate("Configuracion", "Sedes", Q_NULLPTR));
+        checkBox_Cronos->setText(QApplication::translate("Configuracion", "Cronos", Q_NULLPTR));
+        checkBox_Webmail->setText(QApplication::translate("Configuracion", "Welmail", Q_NULLPTR));
+        checkBox_Beiro->setText(QApplication::translate("Configuracion", "Beiro", Q_NULLPTR));
+        checkBox_GLPI->setText(QApplication::translate("Configuracion", "Glpi", Q_NULLPTR));
+        checkBox_OCS->setText(QApplication::translate("Configuracion", "Ocs", Q_NULLPTR));
+        checkBox_TS->setText(QApplication::translate("Configuracion", "Terminal Server", Q_NULLPTR));
+        checkBox_ISL->setText(QApplication::translate("Configuracion", "ISL Online", Q_NULLPTR));
+        checkBox_Atalaya->setText(QApplication::translate("Configuracion", "Atalaya - SolarWin", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(menu), QApplication::translate("Configuracion", "Menu", Q_NULLPTR));
     } // retranslateUi
 
 };
