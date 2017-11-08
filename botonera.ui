@@ -58,7 +58,7 @@
            </font>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -90,7 +90,7 @@
            </font>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -122,7 +122,7 @@
            </font>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -148,7 +148,7 @@
            </font>
           </property>
           <property name="text">
-           <string>IP</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -243,8 +243,8 @@
   </widget>
   <action name="actionUsuarios">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/usuarios.png</normaloff>:/iconos/usuarios.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/usuarios.png</normaloff>../../../usr/share/grx/asistencia/iconos/usuarios.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Usuarios</string>
@@ -258,8 +258,8 @@
   </action>
   <action name="actionCronos">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/cronos.png</normaloff>:/iconos/cronos.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/cronos.png</normaloff>../../../usr/share/grx/asistencia/iconos/cronos.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Cronos</string>
@@ -273,8 +273,8 @@
   </action>
   <action name="actionWebmail">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/WebMail.png</normaloff>:/iconos/WebMail.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/WebMail.png</normaloff>../../../usr/share/grx/asistencia/iconos/WebMail.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Webmail</string>
@@ -288,8 +288,8 @@
   </action>
   <action name="actionBeiro">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/beiro_cartera.png</normaloff>:/iconos/beiro_cartera.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/beiro_cartera.png</normaloff>../../../usr/share/grx/asistencia/iconos/beiro_cartera.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Beiro</string>
@@ -303,8 +303,8 @@
   </action>
   <action name="actionGlpi">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/glpi.png</normaloff>:/iconos/glpi.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/glpi.png</normaloff>../../../usr/share/grx/asistencia/iconos/glpi.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Glpi</string>
@@ -318,8 +318,8 @@
   </action>
   <action name="actionOcs">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/ocs.png</normaloff>:/iconos/ocs.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/ocs.png</normaloff>../../../usr/share/grx/asistencia/iconos/ocs.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Ocs</string>
@@ -333,8 +333,8 @@
   </action>
   <action name="actionActiveDirectory">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/AD.png</normaloff>:/iconos/AD.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/AD.png</normaloff>../../../usr/share/grx/asistencia/iconos/AD.png</iconset>
    </property>
    <property name="text">
     <string>&amp;activeDirectory</string>
@@ -348,8 +348,8 @@
   </action>
   <action name="actionSalir">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/salida.jpg</normaloff>:/iconos/salida.jpg</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/salida.jpg</normaloff>../../../usr/share/grx/asistencia/iconos/salida.jpg</iconset>
    </property>
    <property name="text">
     <string>&amp;Salir</string>
@@ -362,14 +362,18 @@
    </property>
   </action>
   <action name="actionNuevo_Men">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/logo.png</normaloff>../../../usr/share/grx/asistencia/iconos/logo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Nueva Botonera</string>
    </property>
   </action>
   <action name="actionISL">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/ISL50x50.png</normaloff>:/iconos/ISL50x50.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/iconos/ISL50x50.png</iconset>
    </property>
    <property name="text">
     <string>&amp;ISL</string>
@@ -384,7 +388,7 @@
   <action name="actionConfigurar">
    <property name="icon">
     <iconset>
-     <normaloff>iconos/update.png</normaloff>iconos/update.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/update.png</normaloff>../../../usr/share/grx/asistencia/iconos/update.png</iconset>
    </property>
    <property name="text">
     <string>Co&amp;nfigurar</string>
@@ -393,7 +397,7 @@
   <action name="actionSoporte">
    <property name="icon">
     <iconset>
-     <normaloff>iconos/equipos.gif</normaloff>iconos/equipos.gif</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/equipos.gif</normaloff>../../../usr/share/grx/asistencia/iconos/equipos.gif</iconset>
    </property>
    <property name="text">
     <string>&amp;Soporte</string>
@@ -404,8 +408,8 @@
   </action>
   <action name="actionSedes">
    <property name="icon">
-    <iconset resource="iconos.qrc">
-     <normaloff>:/iconos/sedes.png</normaloff>:/iconos/sedes.png</iconset>
+    <iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/sedes.png</normaloff>../../../usr/share/grx/asistencia/iconos/sedes.png</iconset>
    </property>
    <property name="text">
     <string>Sedes</string>
@@ -419,7 +423,7 @@
   <action name="actionAtalaya">
    <property name="icon">
     <iconset>
-     <normaloff>iconos/solarwind.png</normaloff>iconos/solarwind.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/iconos/atalaya.png</normaloff>../../../usr/share/grx/asistencia/iconos/atalaya.png</iconset>
    </property>
    <property name="text">
     <string>Atalaya</string>
@@ -430,8 +434,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="iconos.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -29,5 +29,6 @@
         <file>iconos/usuario_on.png</file>
         <file>iconos/usuarios.png</file>
         <file>iconos/WebMail.png</file>
+        <file>iconos/atalaya.png</file>
     </qresource>
 </RCC>

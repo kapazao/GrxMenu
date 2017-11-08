@@ -55,7 +55,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>iconos/color.png</normaloff>iconos/color.png</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/iconos/color.png</normaloff>../../../usr/share/grx/asistencia/iconos/color.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -303,7 +303,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>iconos/color.png</normaloff>iconos/color.png</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/iconos/color.png</normaloff>../../../usr/share/grx/asistencia/iconos/color.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -365,7 +365,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>iconos/color.png</normaloff>iconos/color.png</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/iconos/color.png</normaloff>../../../usr/share/grx/asistencia/iconos/color.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -671,7 +671,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>iconos/color.png</normaloff>iconos/color.png</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/iconos/color.png</normaloff>../../../usr/share/grx/asistencia/iconos/color.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -700,11 +700,11 @@
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;Buenos días.&lt;br /&gt;&lt;br /&gt;Hay una linea con problemas de conexión.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;Hemos comprobado que no es problema de su red.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;Haced el favor de echarle un vistazo.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Buenos días.&lt;br /&gt;&lt;br /&gt;Hay una linea con problemas de conexión.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hemos comprobado que no es problema de su red.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Haced el favor de echarle un vistazo.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -797,14 +797,14 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QLabel" name="label_38">
          <property name="text">
-          <string>5% - IP</string>
+          <string>%5 - IP</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_39">
          <property name="text">
-          <string>6% - Servicio</string>
+          <string>%6 - Servicio</string>
          </property>
         </widget>
        </item>
@@ -818,14 +818,14 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QLabel" name="label_40">
          <property name="text">
-          <string>7% - Caudal</string>
+          <string>%7 - Caudal</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_41">
          <property name="text">
-          <string>8% - NºSerie</string>
+          <string>%8 - NºSerie</string>
          </property>
         </widget>
        </item>
@@ -849,7 +849,7 @@ p, li { white-space: pre-wrap; }
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>

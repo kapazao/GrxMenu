@@ -9,7 +9,6 @@ QT       += core gui widgets sql network
 TARGET = GrxMenu
 TEMPLATE = app
 CONFIG += c++11 static
-INCLUDEPATH+=/home/alberto/Qt/gcc_64/plugins/sqldrivers/libqsqlmysql.so
 QMAKE_CFLAGS = -fpermissive
 QMAKE_CXXFLAGS = -fpermissive
 QMAKE_LFLAGS = -fpermissive
