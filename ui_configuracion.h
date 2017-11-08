@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'configuracion.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -884,91 +884,91 @@ public:
 
     void retranslateUi(QDialog *Configuracion)
     {
-        Configuracion->setWindowTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", 0));
+        Configuracion->setWindowTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", Q_NULLPTR));
         label_17->setText(QString());
         PB_TS->setText(QString());
-        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", 0));
-        label_7->setText(QApplication::translate("Configuracion", "Servidor AD", 0));
-        label_22->setText(QApplication::translate("Configuracion", "Usuario", 0));
-        label_23->setText(QApplication::translate("Configuracion", "Clave", 0));
+        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Configuracion", "Servidor AD", Q_NULLPTR));
+        label_22->setText(QApplication::translate("Configuracion", "Usuario", Q_NULLPTR));
+        label_23->setText(QApplication::translate("Configuracion", "Clave", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        servidor->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", 0));
+        servidor->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        usuario_ad->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
+        usuario_ad->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        clave_ad->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
+        clave_ad->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        rb_rdesktop->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", 0));
+        rb_rdesktop->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        rb_rdesktop->setText(QApplication::translate("Configuracion", "rdes&ktop", 0));
+        rb_rdesktop->setText(QApplication::translate("Configuracion", "rdes&ktop", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        rb_freerdp->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", 0));
+        rb_freerdp->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        rb_freerdp->setText(QApplication::translate("Configuracion", "f&reerdp", 0));
+        rb_freerdp->setText(QApplication::translate("Configuracion", "f&reerdp", Q_NULLPTR));
         cb_resolucion->clear();
         cb_resolucion->insertItems(0, QStringList()
-         << QApplication::translate("Configuracion", "1920x1080", 0)
-         << QApplication::translate("Configuracion", "1024x740", 0)
-         << QApplication::translate("Configuracion", "800x600", 0)
+         << QApplication::translate("Configuracion", "1920x1080", Q_NULLPTR)
+         << QApplication::translate("Configuracion", "1024x740", Q_NULLPTR)
+         << QApplication::translate("Configuracion", "800x600", Q_NULLPTR)
         );
 #ifndef QT_NO_TOOLTIP
-        cb_resolucion->setToolTip(QApplication::translate("Configuracion", "Resoluci\303\263n de pantalla del servidor AD", 0));
+        cb_resolucion->setToolTip(QApplication::translate("Configuracion", "Resoluci\303\263n de pantalla del servidor AD", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", 0));
+        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        label_9->setText(QApplication::translate("Configuracion", "Actualizar ticket Kerberos", 0));
+        label_9->setText(QApplication::translate("Configuracion", "Actualizar ticket Kerberos", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        Btn_Kerberos->setToolTip(QApplication::translate("Configuracion", "Renueva el token de kerberos", 0));
+        Btn_Kerberos->setToolTip(QApplication::translate("Configuracion", "Renueva el token de kerberos", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        Btn_Kerberos->setText(QApplication::translate("Configuracion", "KeyAD", 0));
-        label_29->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Kerberos", 0));
+        Btn_Kerberos->setText(QApplication::translate("Configuracion", "KeyAD", Q_NULLPTR));
+        label_29->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Kerberos", Q_NULLPTR));
         PB_kerberos->setText(QString());
-        lb_rutas->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Rutas", 0));
+        lb_rutas->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Rutas", Q_NULLPTR));
         PB_rutas->setText(QString());
-        label_15->setText(QApplication::translate("Configuracion", "Ruta CorreoWeb", 0));
-        label_14->setText(QApplication::translate("Configuracion", "Ruta a Cronos", 0));
-        label_10->setText(QApplication::translate("Configuracion", "Ruta a ISL", 0));
+        label_15->setText(QApplication::translate("Configuracion", "Ruta CorreoWeb", Q_NULLPTR));
+        label_14->setText(QApplication::translate("Configuracion", "Ruta a Cronos", Q_NULLPTR));
+        label_10->setText(QApplication::translate("Configuracion", "Ruta a ISL", Q_NULLPTR));
         Btn_lupa->setText(QString());
-        label_12->setText(QApplication::translate("Configuracion", "Ruta a GLPI", 0));
-        label_13->setText(QApplication::translate("Configuracion", "Ruta OCS", 0));
-        label_18->setText(QApplication::translate("Configuracion", "Ruta Beiro", 0));
-        label_45->setText(QApplication::translate("Configuracion", "Atalaya", 0));
+        label_12->setText(QApplication::translate("Configuracion", "Ruta a GLPI", Q_NULLPTR));
+        label_13->setText(QApplication::translate("Configuracion", "Ruta OCS", Q_NULLPTR));
+        label_18->setText(QApplication::translate("Configuracion", "Ruta Beiro", Q_NULLPTR));
+        label_45->setText(QApplication::translate("Configuracion", "Atalaya", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        OCS->setToolTip(QApplication::translate("Configuracion", "Usuario administrador de los equipos linux", 0));
+        OCS->setToolTip(QApplication::translate("Configuracion", "Usuario administrador de los equipos linux", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        label_4->setText(QApplication::translate("Configuracion", "T\303\251cnico", 0));
-        label_2->setText(QApplication::translate("Configuracion", "Clave", 0));
-        label->setText(QApplication::translate("Configuracion", "Usuario Remoto", 0));
-        label_8->setText(QApplication::translate("Configuracion", "Puerto", 0));
-        label_3->setText(QApplication::translate("Configuracion", "Password", 0));
-        label_5->setText(QApplication::translate("Configuracion", "Clave Cifrado", 0));
-        label_6->setText(QApplication::translate("Configuracion", "Clave Remoto", 0));
+        label_4->setText(QApplication::translate("Configuracion", "T\303\251cnico", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Configuracion", "Clave", Q_NULLPTR));
+        label->setText(QApplication::translate("Configuracion", "Usuario Remoto", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Configuracion", "Puerto", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Configuracion", "Password", Q_NULLPTR));
+        label_5->setText(QApplication::translate("Configuracion", "Clave Cifrado", Q_NULLPTR));
+        label_6->setText(QApplication::translate("Configuracion", "Clave Remoto", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        tecnico->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_TOOLTIP
-        clave->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
+        tecnico->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        puerto->setToolTip(QApplication::translate("Configuracion", "Puerto de acceso ssh en los equipos linux", 0));
+        clave->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        password->setToolTip(QApplication::translate("Configuracion", "Clave del usuario administrador de los equipos linux", 0));
+        puerto->setToolTip(QApplication::translate("Configuracion", "Puerto de acceso ssh en los equipos linux", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        clave_cifrado->setToolTip(QApplication::translate("Configuracion", "Clave del cifrado en los equipos", 0));
+        password->setToolTip(QApplication::translate("Configuracion", "Clave del usuario administrador de los equipos linux", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", 0));
+#ifndef QT_NO_TOOLTIP
+        clave_cifrado->setToolTip(QApplication::translate("Configuracion", "Clave del cifrado en los equipos", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", Q_NULLPTR));
         PB_linux->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        cuerpo->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>%1 - Municipio</p><p>%2 - Direcci\303\263n</p><p>%3 - ADSL</p><p>%4 - N\303\272mero Administrativo</p><p>%5 - IP</p><p>%6 - Servicio</p><p>%7 - Caudal</p><p>%8 - N\302\272Serie</p></body></html>", 0));
+        cuerpo->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>%1 - Municipio</p><p>%2 - Direcci\303\263n</p><p>%3 - ADSL</p><p>%4 - N\303\272mero Administrativo</p><p>%5 - IP</p><p>%6 - Servicio</p><p>%7 - Caudal</p><p>%8 - N\302\272Serie</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_STATUSTIP
-        cuerpo->setStatusTip(QApplication::translate("Configuracion", "66", 0));
+        cuerpo->setStatusTip(QApplication::translate("Configuracion", "66", Q_NULLPTR));
 #endif // QT_NO_STATUSTIP
         cuerpo->setHtml(QApplication::translate("Configuracion", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -978,49 +978,49 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Haced el favor de echarle un vistazo.</span></p>\n"
 "<p style=\"-qt-pa"
-                        "ragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", 0));
-        label_42->setText(QApplication::translate("Configuracion", "Leyenda", 0));
-        label_33->setText(QApplication::translate("Configuracion", "%1 - Municipio", 0));
-        label_35->setText(QApplication::translate("Configuracion", "%2 - Direcci\303\263n", 0));
-        label_36->setText(QApplication::translate("Configuracion", "%3 - ADSL", 0));
-        label_37->setText(QApplication::translate("Configuracion", "%4 - N\302\272 Admin.", 0));
-        label_38->setText(QApplication::translate("Configuracion", "5% - IP", 0));
-        label_39->setText(QApplication::translate("Configuracion", "6% - Servicio", 0));
-        label_40->setText(QApplication::translate("Configuracion", "7% - Caudal", 0));
-        label_41->setText(QApplication::translate("Configuracion", "8% - N\302\272Serie", 0));
-        label_43->setText(QApplication::translate("Configuracion", "Para:", 0));
-        label_44->setText(QApplication::translate("Configuracion", "Asunto:", 0));
-        para->setText(QApplication::translate("Configuracion", "<ie2.cg22@telefonica.com><op.cg22@telefonica.com><marialeticia.larapalomino@telefonica.com>", 0));
-        asunto->setText(QApplication::translate("Configuracion", "Problemas de conexi\303\263n en %1", 0));
+                        "ragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", Q_NULLPTR));
+        label_42->setText(QApplication::translate("Configuracion", "Leyenda", Q_NULLPTR));
+        label_33->setText(QApplication::translate("Configuracion", "%1 - Municipio", Q_NULLPTR));
+        label_35->setText(QApplication::translate("Configuracion", "%2 - Direcci\303\263n", Q_NULLPTR));
+        label_36->setText(QApplication::translate("Configuracion", "%3 - ADSL", Q_NULLPTR));
+        label_37->setText(QApplication::translate("Configuracion", "%4 - N\302\272 Admin.", Q_NULLPTR));
+        label_38->setText(QApplication::translate("Configuracion", "%5 - IP", Q_NULLPTR));
+        label_39->setText(QApplication::translate("Configuracion", "%6 - Servicio", Q_NULLPTR));
+        label_40->setText(QApplication::translate("Configuracion", "%7 - Caudal", Q_NULLPTR));
+        label_41->setText(QApplication::translate("Configuracion", "%8 - N\302\272Serie", Q_NULLPTR));
+        label_43->setText(QApplication::translate("Configuracion", "Para:", Q_NULLPTR));
+        label_44->setText(QApplication::translate("Configuracion", "Asunto:", Q_NULLPTR));
+        para->setText(QApplication::translate("Configuracion", "<ie2.cg22@telefonica.com><op.cg22@telefonica.com><marialeticia.larapalomino@telefonica.com>", Q_NULLPTR));
+        asunto->setText(QApplication::translate("Configuracion", "Problemas de conexi\303\263n en %1", Q_NULLPTR));
         PB_DB->setText(QString());
-        label_24->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de la Base de Datos", 0));
-        label_25->setText(QApplication::translate("Configuracion", "Servidor BD", 0));
-        label_21->setText(QApplication::translate("Configuracion", "Puerto", 0));
-        label_26->setText(QApplication::translate("Configuracion", "Nombre de la BD", 0));
-        label_27->setText(QApplication::translate("Configuracion", "Usuario BD", 0));
-        label_28->setText(QApplication::translate("Configuracion", "Password BD", 0));
+        label_24->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de la Base de Datos", Q_NULLPTR));
+        label_25->setText(QApplication::translate("Configuracion", "Servidor BD", Q_NULLPTR));
+        label_21->setText(QApplication::translate("Configuracion", "Puerto", Q_NULLPTR));
+        label_26->setText(QApplication::translate("Configuracion", "Nombre de la BD", Q_NULLPTR));
+        label_27->setText(QApplication::translate("Configuracion", "Usuario BD", Q_NULLPTR));
+        label_28->setText(QApplication::translate("Configuracion", "Password BD", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        servidor_DB->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", 0));
+        servidor_DB->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        DataBaseName->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
+        DataBaseName->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        Usuario_DB->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
+        Usuario_DB->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        password_DB->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
+        password_DB->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        checkBox_ssh->setText(QApplication::translate("Configuracion", "Usar tunel cifrado", 0));
-        label_11->setText(QApplication::translate("Configuracion", "Servidor SSH", 0));
-        label_30->setText(QApplication::translate("Configuracion", "Usuario ssh", 0));
-        label_31->setText(QApplication::translate("Configuracion", "Clave ssh", 0));
-        label_19->setText(QApplication::translate("Configuracion", "Puerto Remoto", 0));
-        label_20->setText(QApplication::translate("Configuracion", "KeyFile Publica", 0));
+        checkBox_ssh->setText(QApplication::translate("Configuracion", "Usar tunel cifrado", Q_NULLPTR));
+        label_11->setText(QApplication::translate("Configuracion", "Servidor SSH", Q_NULLPTR));
+        label_30->setText(QApplication::translate("Configuracion", "Usuario ssh", Q_NULLPTR));
+        label_31->setText(QApplication::translate("Configuracion", "Clave ssh", Q_NULLPTR));
+        label_19->setText(QApplication::translate("Configuracion", "Puerto Remoto", Q_NULLPTR));
+        label_20->setText(QApplication::translate("Configuracion", "KeyFile Publica", Q_NULLPTR));
         Btn_lupa_2->setText(QString());
-        label_32->setText(QApplication::translate("Configuracion", "KeyFile Privada", 0));
+        label_32->setText(QApplication::translate("Configuracion", "KeyFile Privada", Q_NULLPTR));
         Btn_lupa_3->setText(QString());
-        puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", 0));
+        puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", Q_NULLPTR));
         keyfile_publica->setInputMask(QString());
     } // retranslateUi
 
