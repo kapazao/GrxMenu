@@ -115,6 +115,7 @@ void Botonera::on_actionISL_triggered()
 void Botonera::on_actionConfigurar_triggered()
 {
     Configuracion *configuracion= new Configuracion;
+    configuracion->setFixedSize(690,580);
     configuracion->show();
 }
 
