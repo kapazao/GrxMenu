@@ -106,6 +106,7 @@ private slots:
     void on_Btn_lupa_3_clicked();
 
 
+
 private:
 
     QString home_usuario;

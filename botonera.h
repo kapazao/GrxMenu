@@ -49,6 +49,8 @@ private slots:
 
     bool cargaVariables();
 
+    bool muestraBotones();
+
     bool creaConexion();
 
     bool barraEstado();

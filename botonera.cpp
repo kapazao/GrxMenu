@@ -36,10 +36,9 @@ Botonera::Botonera(QWidget *parent) :
 {
     QSqlDatabase db = QSqlDatabase::database();
     ui->setupUi(this);
-
+    muestraBotones();
     cargaVariables();
     barraEstado();
-
 }
 
 Botonera::~Botonera()
@@ -115,7 +114,7 @@ void Botonera::on_actionISL_triggered()
 void Botonera::on_actionConfigurar_triggered()
 {
     Configuracion *configuracion= new Configuracion;
-    configuracion->setFixedSize(690,580);
+    configuracion->setFixedSize(690,590);
     configuracion->show();
 }
 
@@ -194,6 +193,74 @@ bool Botonera::creaConexion()
     QObject::connect(tunel,&Tunel::sshDesconectado,tunel,&Tunel::cierra_conexion);
     hilo->start();
     return true;
+}
+
+
+bool Botonera::muestraBotones(){
+    Configuracion *configuracion = new Configuracion;
+    if (!configuracion->usuarios_up())
+               ui->mainToolBar->actions().at(0)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(0)->setVisible(true);
+
+    if (!configuracion->soporte_up())
+               ui->mainToolBar->actions().at(1)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(1)->setVisible(true);
+
+
+    if (!configuracion->sedes_up())
+               ui->mainToolBar->actions().at(2)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(2)->setVisible(true);
+
+    if (!configuracion->cronos_up())
+               ui->mainToolBar->actions().at(3)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(3)->setVisible(true);
+
+    if (!configuracion->webmail_up())
+               ui->mainToolBar->actions().at(4)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(4)->setVisible(true);
+
+    if (!configuracion->beiro_up())
+               ui->mainToolBar->actions().at(5)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(5)->setVisible(true);
+
+    if (!configuracion->glpi_up())
+               ui->mainToolBar->actions().at(6)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(6)->setVisible(true);
+
+    if (!configuracion->ocs_up())
+               ui->mainToolBar->actions().at(7)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(7)->setVisible(true);
+
+    if (!configuracion->ts_up())
+               ui->mainToolBar->actions().at(8)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(8)->setVisible(true);
+
+
+    if (!configuracion->isl_up())
+               ui->mainToolBar->actions().at(9)->setVisible(false);
+    else
+               ui->mainToolBar->actions().at(9)->setVisible(true);
+
+     if (!configuracion->atalaya_up())
+               ui->mainToolBar->actions().at(10)->setVisible(false);
+     else
+               ui->mainToolBar->actions().at(10)->setVisible(true);
+
+
+
+        //QToolBar::actions().at(3)->setVisible(false);
+    ui->mainToolBar->repaint();
+    ui->mainToolBar->show();
+return true;
 }
 
 bool Botonera::cargaVariables(){
@@ -286,6 +353,8 @@ void Botonera::on_pushButton_clicked()
 
 void Botonera::on_pushButton_2_clicked()
 {
-    Soporte *soporte = new Soporte;
-    soporte->show();
+    ui->mainToolBar->hide();
+    ui->mainToolBar->repaint();
+    ui->mainToolBar->show();
+
 }

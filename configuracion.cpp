@@ -252,7 +252,7 @@ void Configuracion::carga_configuracion()
     UsarCronos = s.value("Configuracion/UsarCronos").toString();
     UsarWebmail = s.value("Configuracion/UsarWebmail").toString();
     UsarBeiro = s.value("Configuracion/UsarBeiro").toString();
-    UsarGlpi = s.value("Configuracion/UsarGlpi").toString();
+    UsarGlpi = s.value("Configuracion/UsarGLPI").toString();
     UsarOCS = s.value("Configuracion/UsarOCS").toString();
     UsarTS = s.value("Configuracion/UsarTS").toString();
     UsarISL = s.value("Configuracion/UsarISL").toString();
@@ -302,115 +302,71 @@ void Configuracion::carga_configuracion()
 //----------------------------------------------------
     if (usuarios_up()){
         ui->checkBox_Usuarios->setChecked(true);
-        muestraUsuarios();
     }
     else{
         ui->checkBox_Usuarios->setChecked(false);
-        ocultaUsuarios();
     }
     if (soporte_up()){
         ui->checkBox_Soporte->setChecked(true);
-        muestraSoporte();
     }
     else{
         ui->checkBox_Soporte->setChecked(false);
-        ocultaSoporte();
     }
     if (sedes_up()){
         ui->checkBox_Sedes->setChecked(true);
-        muestraSedes();
     }
     else{
         ui->checkBox_Sedes->setChecked(false);
-        ocultaSedes();
     }
     if (cronos_up()){
         ui->checkBox_Cronos->setChecked(true);
-        muestraCronos();
     }
     else{
         ui->checkBox_Cronos->setChecked(false);
-        ocultaCronos();
     }
     if (webmail_up()){
         ui->checkBox_Webmail->setChecked(true);
-        muestraWebmail();
     }
     else{
         ui->checkBox_Webmail->setChecked(false);
-        deshabilitaSSH();
     }
     if (beiro_up()){
         ui->checkBox_Beiro->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_Beiro->setChecked(false);
-        deshabilitaSSH();
     }
     if (glpi_up()){
         ui->checkBox_GLPI->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_GLPI->setChecked(false);
-        deshabilitaSSH();
     }
     if (ocs_up()){
         ui->checkBox_OCS->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_OCS->setChecked(false);
-        deshabilitaSSH();
     }
     if (ts_up()){
         ui->checkBox_TS->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_TS->setChecked(false);
-        deshabilitaSSH();
     }
     if (isl_up()){
         ui->checkBox_ISL->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_ISL->setChecked(false);
-        deshabilitaSSH();
     }
 
     if (atalaya_up()){
         ui->checkBox_Atalaya->setChecked(true);
-        habilitaSSH();
     }
     else{
         ui->checkBox_Atalaya->setChecked(false);
-        deshabilitaSSH();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -520,7 +476,71 @@ void Configuracion::on_buttonBox_accepted()
         s.setValue("Configuracion/UsarSSH","True");
     else
         s.setValue("Configuracion/UsarSSH","False");
+//----------------------------------------------------------------
+    if (ui->checkBox_Usuarios->isChecked())
+        s.setValue("Configuracion/UsarUsuarios","True");
+    else
+        s.setValue("Configuracion/UsarUsuarios","False");
 
+    if (ui->checkBox_Soporte->isChecked())
+        s.setValue("Configuracion/UsarSoporte","True");
+    else
+        s.setValue("Configuracion/UsarSoporte","False");
+
+    if (ui->checkBox_Sedes->isChecked())
+        s.setValue("Configuracion/UsarSedes","True");
+    else
+        s.setValue("Configuracion/UsarSedes","False");
+
+    if (ui->checkBox_Cronos->isChecked())
+        s.setValue("Configuracion/UsarCronos","True");
+    else
+        s.setValue("Configuracion/UsarCronos","False");
+
+    if (ui->checkBox_Webmail->isChecked())
+        s.setValue("Configuracion/UsarWebmail","True");
+    else
+        s.setValue("Configuracion/UsarWebmail","False");
+
+    if (ui->checkBox_Beiro->isChecked())
+        s.setValue("Configuracion/UsarBeiro","True");
+    else
+        s.setValue("Configuracion/UsarBeiro","False");
+
+    if (ui->checkBox_GLPI->isChecked())
+        s.setValue("Configuracion/UsarGLPI","True");
+    else
+        s.setValue("Configuracion/UsarGLPI","False");
+
+    if (ui->checkBox_OCS->isChecked())
+        s.setValue("Configuracion/UsarOCS","True");
+    else
+        s.setValue("Configuracion/UsarOCS","False");
+
+    if (ui->checkBox_TS->isChecked())
+        s.setValue("Configuracion/UsarTS","True");
+    else
+        s.setValue("Configuracion/UsarTS","False");
+
+    if (ui->checkBox_ISL->isChecked())
+        s.setValue("Configuracion/UsarISL","True");
+    else
+        s.setValue("Configuracion/UsarISL","False");
+
+    if (ui->checkBox_Atalaya->isChecked())
+        s.setValue("Configuracion/UsarAtalaya","True");
+    else
+        s.setValue("Configuracion/UsarAtalaya","False");
+
+
+
+
+
+
+
+
+
+//----------------------------------
 
 
 

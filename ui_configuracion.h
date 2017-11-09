@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'configuracion.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.6.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -67,9 +67,10 @@ public:
     QLineEdit *clave_remoto;
     QWidget *rutas;
     QFrame *fr_rutas;
-    QGridLayout *gridLayout_4;
     QLabel *lb_rutas;
     QPushButton *PB_rutas;
+    QCheckBox *checkBox_proxychains;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_6;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_15;
@@ -184,7 +185,7 @@ public:
     QTextEdit *cuerpo;
     QWidget *menu;
     QLabel *label_46;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_19;
     QCheckBox *checkBox_Usuarios;
     QCheckBox *checkBox_Soporte;
@@ -197,6 +198,7 @@ public:
     QCheckBox *checkBox_TS;
     QCheckBox *checkBox_ISL;
     QCheckBox *checkBox_Atalaya;
+    QLabel *label_47;
 
     void setupUi(QDialog *Configuracion)
     {
@@ -360,45 +362,45 @@ public:
         fr_rutas->setGeometry(QRect(-10, 0, 661, 451));
         fr_rutas->setFrameShape(QFrame::StyledPanel);
         fr_rutas->setFrameShadow(QFrame::Raised);
-        gridLayout_4 = new QGridLayout(fr_rutas);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         lb_rutas = new QLabel(fr_rutas);
         lb_rutas->setObjectName(QStringLiteral("lb_rutas"));
+        lb_rutas->setGeometry(QRect(20, 20, 211, 19));
         lb_rutas->setFont(font1);
         lb_rutas->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
-
-        gridLayout_4->addWidget(lb_rutas, 0, 0, 1, 1);
-
         PB_rutas = new QPushButton(fr_rutas);
         PB_rutas->setObjectName(QStringLiteral("PB_rutas"));
+        PB_rutas->setGeometry(QRect(610, 10, 37, 31));
         PB_rutas->setIcon(icon);
         PB_rutas->setIconSize(QSize(25, 25));
-
-        gridLayout_4->addWidget(PB_rutas, 0, 1, 1, 1);
-
-        horizontalLayout_6 = new QHBoxLayout();
+        checkBox_proxychains = new QCheckBox(fr_rutas);
+        checkBox_proxychains->setObjectName(QStringLiteral("checkBox_proxychains"));
+        checkBox_proxychains->setGeometry(QRect(20, 420, 155, 24));
+        widget = new QWidget(fr_rutas);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(20, 50, 641, 361));
+        horizontalLayout_6 = new QHBoxLayout(widget);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
         verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setSpacing(1);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_15 = new QLabel(fr_rutas);
+        label_15 = new QLabel(widget);
         label_15->setObjectName(QStringLiteral("label_15"));
 
         verticalLayout_5->addWidget(label_15);
 
-        label_14 = new QLabel(fr_rutas);
+        label_14 = new QLabel(widget);
         label_14->setObjectName(QStringLiteral("label_14"));
 
         verticalLayout_5->addWidget(label_14);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        label_10 = new QLabel(fr_rutas);
+        label_10 = new QLabel(widget);
         label_10->setObjectName(QStringLiteral("label_10"));
 
         horizontalLayout_5->addWidget(label_10);
 
-        Btn_lupa = new QPushButton(fr_rutas);
+        Btn_lupa = new QPushButton(widget);
         Btn_lupa->setObjectName(QStringLiteral("Btn_lupa"));
         QIcon icon1;
         icon1.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/lupa.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -409,22 +411,22 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_5);
 
-        label_12 = new QLabel(fr_rutas);
+        label_12 = new QLabel(widget);
         label_12->setObjectName(QStringLiteral("label_12"));
 
         verticalLayout_5->addWidget(label_12);
 
-        label_13 = new QLabel(fr_rutas);
+        label_13 = new QLabel(widget);
         label_13->setObjectName(QStringLiteral("label_13"));
 
         verticalLayout_5->addWidget(label_13);
 
-        label_18 = new QLabel(fr_rutas);
+        label_18 = new QLabel(widget);
         label_18->setObjectName(QStringLiteral("label_18"));
 
         verticalLayout_5->addWidget(label_18);
 
-        label_45 = new QLabel(fr_rutas);
+        label_45 = new QLabel(widget);
         label_45->setObjectName(QStringLiteral("label_45"));
 
         verticalLayout_5->addWidget(label_45);
@@ -435,37 +437,37 @@ public:
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(1);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        correoweb = new QLineEdit(fr_rutas);
+        correoweb = new QLineEdit(widget);
         correoweb->setObjectName(QStringLiteral("correoweb"));
 
         verticalLayout_10->addWidget(correoweb);
 
-        cronos = new QLineEdit(fr_rutas);
+        cronos = new QLineEdit(widget);
         cronos->setObjectName(QStringLiteral("cronos"));
 
         verticalLayout_10->addWidget(cronos);
 
-        ISL = new QLineEdit(fr_rutas);
+        ISL = new QLineEdit(widget);
         ISL->setObjectName(QStringLiteral("ISL"));
 
         verticalLayout_10->addWidget(ISL);
 
-        GLPI = new QLineEdit(fr_rutas);
+        GLPI = new QLineEdit(widget);
         GLPI->setObjectName(QStringLiteral("GLPI"));
 
         verticalLayout_10->addWidget(GLPI);
 
-        OCS = new QLineEdit(fr_rutas);
+        OCS = new QLineEdit(widget);
         OCS->setObjectName(QStringLiteral("OCS"));
 
         verticalLayout_10->addWidget(OCS);
 
-        beiro = new QLineEdit(fr_rutas);
+        beiro = new QLineEdit(widget);
         beiro->setObjectName(QStringLiteral("beiro"));
 
         verticalLayout_10->addWidget(beiro);
 
-        atalaya = new QLineEdit(fr_rutas);
+        atalaya = new QLineEdit(widget);
         atalaya->setObjectName(QStringLiteral("atalaya"));
 
         verticalLayout_10->addWidget(atalaya);
@@ -473,11 +475,6 @@ public:
 
         horizontalLayout_6->addLayout(verticalLayout_10);
 
-
-        gridLayout_4->addLayout(horizontalLayout_6, 1, 0, 1, 2);
-
-        lb_rutas->raise();
-        PB_rutas->raise();
         tabWidget->addTab(rutas, QString());
         kerberos = new QWidget();
         kerberos->setObjectName(QStringLiteral("kerberos"));
@@ -958,82 +955,85 @@ public:
         menu->setObjectName(QStringLiteral("menu"));
         label_46 = new QLabel(menu);
         label_46->setObjectName(QStringLiteral("label_46"));
-        label_46->setGeometry(QRect(180, 30, 274, 22));
+        label_46->setGeometry(QRect(180, 30, 302, 22));
         QFont font4;
         font4.setPointSize(14);
         label_46->setFont(font4);
-        widget = new QWidget(menu);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(240, 80, 150, 315));
-        verticalLayout_19 = new QVBoxLayout(widget);
+        layoutWidget2 = new QWidget(menu);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(240, 80, 166, 326));
+        verticalLayout_19 = new QVBoxLayout(layoutWidget2);
         verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
         verticalLayout_19->setContentsMargins(0, 0, 0, 0);
-        checkBox_Usuarios = new QCheckBox(widget);
+        checkBox_Usuarios = new QCheckBox(layoutWidget2);
         checkBox_Usuarios->setObjectName(QStringLiteral("checkBox_Usuarios"));
         checkBox_Usuarios->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Usuarios);
 
-        checkBox_Soporte = new QCheckBox(widget);
+        checkBox_Soporte = new QCheckBox(layoutWidget2);
         checkBox_Soporte->setObjectName(QStringLiteral("checkBox_Soporte"));
         checkBox_Soporte->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Soporte);
 
-        checkBox_Sedes = new QCheckBox(widget);
+        checkBox_Sedes = new QCheckBox(layoutWidget2);
         checkBox_Sedes->setObjectName(QStringLiteral("checkBox_Sedes"));
         checkBox_Sedes->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Sedes);
 
-        checkBox_Cronos = new QCheckBox(widget);
+        checkBox_Cronos = new QCheckBox(layoutWidget2);
         checkBox_Cronos->setObjectName(QStringLiteral("checkBox_Cronos"));
         checkBox_Cronos->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Cronos);
 
-        checkBox_Webmail = new QCheckBox(widget);
+        checkBox_Webmail = new QCheckBox(layoutWidget2);
         checkBox_Webmail->setObjectName(QStringLiteral("checkBox_Webmail"));
         checkBox_Webmail->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Webmail);
 
-        checkBox_Beiro = new QCheckBox(widget);
+        checkBox_Beiro = new QCheckBox(layoutWidget2);
         checkBox_Beiro->setObjectName(QStringLiteral("checkBox_Beiro"));
         checkBox_Beiro->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Beiro);
 
-        checkBox_GLPI = new QCheckBox(widget);
+        checkBox_GLPI = new QCheckBox(layoutWidget2);
         checkBox_GLPI->setObjectName(QStringLiteral("checkBox_GLPI"));
         checkBox_GLPI->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_GLPI);
 
-        checkBox_OCS = new QCheckBox(widget);
+        checkBox_OCS = new QCheckBox(layoutWidget2);
         checkBox_OCS->setObjectName(QStringLiteral("checkBox_OCS"));
         checkBox_OCS->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_OCS);
 
-        checkBox_TS = new QCheckBox(widget);
+        checkBox_TS = new QCheckBox(layoutWidget2);
         checkBox_TS->setObjectName(QStringLiteral("checkBox_TS"));
         checkBox_TS->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_TS);
 
-        checkBox_ISL = new QCheckBox(widget);
+        checkBox_ISL = new QCheckBox(layoutWidget2);
         checkBox_ISL->setObjectName(QStringLiteral("checkBox_ISL"));
         checkBox_ISL->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_ISL);
 
-        checkBox_Atalaya = new QCheckBox(widget);
+        checkBox_Atalaya = new QCheckBox(layoutWidget2);
         checkBox_Atalaya->setObjectName(QStringLiteral("checkBox_Atalaya"));
         checkBox_Atalaya->setChecked(true);
 
         verticalLayout_19->addWidget(checkBox_Atalaya);
 
+        label_47 = new QLabel(menu);
+        label_47->setObjectName(QStringLiteral("label_47"));
+        label_47->setGeometry(QRect(50, 420, 574, 18));
         tabWidget->addTab(menu, QString());
 
         gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
@@ -1054,7 +1054,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Configuracion, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Configuracion, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(6);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Configuracion);
@@ -1062,164 +1062,166 @@ public:
 
     void retranslateUi(QDialog *Configuracion)
     {
-        Configuracion->setWindowTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", Q_NULLPTR));
+        Configuracion->setWindowTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", 0));
+        groupBox->setTitle(QApplication::translate("Configuracion", "Configuraci\303\263n", 0));
 #ifndef QT_NO_TOOLTIP
-        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", Q_NULLPTR));
+        buttonBox->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>dd</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
-        label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", Q_NULLPTR));
+        label_34->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de acceso remoto a los equipos Linux", 0));
         PB_linux->setText(QString());
-        label_4->setText(QApplication::translate("Configuracion", "T\303\251cnico", Q_NULLPTR));
-        label_2->setText(QApplication::translate("Configuracion", "Clave", Q_NULLPTR));
-        label->setText(QApplication::translate("Configuracion", "Usuario Remoto", Q_NULLPTR));
-        label_8->setText(QApplication::translate("Configuracion", "Puerto", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Configuracion", "Password", Q_NULLPTR));
-        label_5->setText(QApplication::translate("Configuracion", "Clave Cifrado", Q_NULLPTR));
-        label_6->setText(QApplication::translate("Configuracion", "Clave Remoto", Q_NULLPTR));
+        label_4->setText(QApplication::translate("Configuracion", "T\303\251cnico", 0));
+        label_2->setText(QApplication::translate("Configuracion", "Clave", 0));
+        label->setText(QApplication::translate("Configuracion", "Usuario Remoto", 0));
+        label_8->setText(QApplication::translate("Configuracion", "Puerto", 0));
+        label_3->setText(QApplication::translate("Configuracion", "Password", 0));
+        label_5->setText(QApplication::translate("Configuracion", "Clave Cifrado", 0));
+        label_6->setText(QApplication::translate("Configuracion", "Clave Remoto", 0));
 #ifndef QT_NO_TOOLTIP
-        tecnico->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
+        tecnico->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        clave->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
+        clave->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        puerto->setToolTip(QApplication::translate("Configuracion", "Puerto de acceso ssh en los equipos linux", Q_NULLPTR));
+        puerto->setToolTip(QApplication::translate("Configuracion", "Puerto de acceso ssh en los equipos linux", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        password->setToolTip(QApplication::translate("Configuracion", "Clave del usuario administrador de los equipos linux", Q_NULLPTR));
+        password->setToolTip(QApplication::translate("Configuracion", "Clave del usuario administrador de los equipos linux", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        clave_cifrado->setToolTip(QApplication::translate("Configuracion", "Clave del cifrado en los equipos", Q_NULLPTR));
+        clave_cifrado->setToolTip(QApplication::translate("Configuracion", "Clave del cifrado en los equipos", 0));
 #endif // QT_NO_TOOLTIP
-        tabWidget->setTabText(tabWidget->indexOf(remoto), QApplication::translate("Configuracion", "Remoto", Q_NULLPTR));
-        lb_rutas->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Rutas", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(remoto), QApplication::translate("Configuracion", "Remoto", 0));
+        lb_rutas->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Rutas", 0));
         PB_rutas->setText(QString());
-        label_15->setText(QApplication::translate("Configuracion", "Ruta CorreoWeb", Q_NULLPTR));
-        label_14->setText(QApplication::translate("Configuracion", "Ruta a Cronos", Q_NULLPTR));
-        label_10->setText(QApplication::translate("Configuracion", "Ruta a ISL", Q_NULLPTR));
+        checkBox_proxychains->setText(QApplication::translate("Configuracion", "Usar proxychains", 0));
+        label_15->setText(QApplication::translate("Configuracion", "Ruta CorreoWeb", 0));
+        label_14->setText(QApplication::translate("Configuracion", "Ruta a Cronos", 0));
+        label_10->setText(QApplication::translate("Configuracion", "Ruta a ISL", 0));
         Btn_lupa->setText(QString());
-        label_12->setText(QApplication::translate("Configuracion", "Ruta a GLPI", Q_NULLPTR));
-        label_13->setText(QApplication::translate("Configuracion", "Ruta OCS", Q_NULLPTR));
-        label_18->setText(QApplication::translate("Configuracion", "Ruta Beiro", Q_NULLPTR));
-        label_45->setText(QApplication::translate("Configuracion", "Atalaya", Q_NULLPTR));
+        label_12->setText(QApplication::translate("Configuracion", "Ruta a GLPI", 0));
+        label_13->setText(QApplication::translate("Configuracion", "Ruta OCS", 0));
+        label_18->setText(QApplication::translate("Configuracion", "Ruta Beiro", 0));
+        label_45->setText(QApplication::translate("Configuracion", "Atalaya", 0));
 #ifndef QT_NO_TOOLTIP
-        OCS->setToolTip(QApplication::translate("Configuracion", "Usuario administrador de los equipos linux", Q_NULLPTR));
+        OCS->setToolTip(QApplication::translate("Configuracion", "Usuario administrador de los equipos linux", 0));
 #endif // QT_NO_TOOLTIP
-        tabWidget->setTabText(tabWidget->indexOf(rutas), QApplication::translate("Configuracion", "Rutas", Q_NULLPTR));
-        label_9->setText(QApplication::translate("Configuracion", "Actualizar ticket Kerberos", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(rutas), QApplication::translate("Configuracion", "Rutas", 0));
+        label_9->setText(QApplication::translate("Configuracion", "Actualizar ticket Kerberos", 0));
 #ifndef QT_NO_TOOLTIP
-        Btn_Kerberos->setToolTip(QApplication::translate("Configuracion", "Renueva el token de kerberos", Q_NULLPTR));
+        Btn_Kerberos->setToolTip(QApplication::translate("Configuracion", "Renueva el token de kerberos", 0));
 #endif // QT_NO_TOOLTIP
-        Btn_Kerberos->setText(QApplication::translate("Configuracion", "KeyAD", Q_NULLPTR));
-        label_29->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Kerberos", Q_NULLPTR));
+        Btn_Kerberos->setText(QApplication::translate("Configuracion", "KeyAD", 0));
+        label_29->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Kerberos", 0));
         PB_kerberos->setText(QString());
-        tabWidget->setTabText(tabWidget->indexOf(kerberos), QApplication::translate("Configuracion", "Kerberos", Q_NULLPTR));
-        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(kerberos), QApplication::translate("Configuracion", "Kerberos", 0));
+        label_16->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de Terminal Server", 0));
         PB_TS->setText(QString());
-        label_7->setText(QApplication::translate("Configuracion", "Servidor AD", Q_NULLPTR));
-        label_22->setText(QApplication::translate("Configuracion", "Usuario", Q_NULLPTR));
-        label_23->setText(QApplication::translate("Configuracion", "Clave", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Configuracion", "Servidor AD", 0));
+        label_22->setText(QApplication::translate("Configuracion", "Usuario", 0));
+        label_23->setText(QApplication::translate("Configuracion", "Clave", 0));
 #ifndef QT_NO_TOOLTIP
-        servidor->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", Q_NULLPTR));
+        servidor->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        usuario_ad->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
+        usuario_ad->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        clave_ad->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
+        clave_ad->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        rb_rdesktop->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", Q_NULLPTR));
+        rb_rdesktop->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", 0));
 #endif // QT_NO_TOOLTIP
-        rb_rdesktop->setText(QApplication::translate("Configuracion", "rdes&ktop", Q_NULLPTR));
+        rb_rdesktop->setText(QApplication::translate("Configuracion", "rdes&ktop", 0));
 #ifndef QT_NO_TOOLTIP
-        rb_freerdp->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", Q_NULLPTR));
+        rb_freerdp->setToolTip(QApplication::translate("Configuracion", "Elegir freerdp para acceder al servidor AD", 0));
 #endif // QT_NO_TOOLTIP
-        rb_freerdp->setText(QApplication::translate("Configuracion", "f&reerdp", Q_NULLPTR));
+        rb_freerdp->setText(QApplication::translate("Configuracion", "f&reerdp", 0));
         cb_resolucion->clear();
         cb_resolucion->insertItems(0, QStringList()
-         << QApplication::translate("Configuracion", "1920x1080", Q_NULLPTR)
-         << QApplication::translate("Configuracion", "1024x740", Q_NULLPTR)
-         << QApplication::translate("Configuracion", "800x600", Q_NULLPTR)
+         << QApplication::translate("Configuracion", "1920x1080", 0)
+         << QApplication::translate("Configuracion", "1024x740", 0)
+         << QApplication::translate("Configuracion", "800x600", 0)
         );
 #ifndef QT_NO_TOOLTIP
-        cb_resolucion->setToolTip(QApplication::translate("Configuracion", "Resoluci\303\263n de pantalla del servidor AD", Q_NULLPTR));
+        cb_resolucion->setToolTip(QApplication::translate("Configuracion", "Resoluci\303\263n de pantalla del servidor AD", 0));
 #endif // QT_NO_TOOLTIP
         label_17->setText(QString());
-        tabWidget->setTabText(tabWidget->indexOf(TS), QApplication::translate("Configuracion", "Terminal Server", Q_NULLPTR));
-        label_24->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de la Base de Datos", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(TS), QApplication::translate("Configuracion", "Terminal Server", 0));
+        label_24->setText(QApplication::translate("Configuracion", "Configuraci\303\263n de la Base de Datos", 0));
         PB_DB->setText(QString());
-        label_25->setText(QApplication::translate("Configuracion", "Servidor BD", Q_NULLPTR));
-        label_21->setText(QApplication::translate("Configuracion", "Puerto", Q_NULLPTR));
-        label_26->setText(QApplication::translate("Configuracion", "Nombre de la BD", Q_NULLPTR));
-        label_27->setText(QApplication::translate("Configuracion", "Usuario BD", Q_NULLPTR));
-        label_28->setText(QApplication::translate("Configuracion", "Password BD", Q_NULLPTR));
+        label_25->setText(QApplication::translate("Configuracion", "Servidor BD", 0));
+        label_21->setText(QApplication::translate("Configuracion", "Puerto", 0));
+        label_26->setText(QApplication::translate("Configuracion", "Nombre de la BD", 0));
+        label_27->setText(QApplication::translate("Configuracion", "Usuario BD", 0));
+        label_28->setText(QApplication::translate("Configuracion", "Password BD", 0));
 #ifndef QT_NO_TOOLTIP
-        servidor_DB->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", Q_NULLPTR));
+        servidor_DB->setToolTip(QApplication::translate("Configuracion", "IP del servidor terminal server donde nos queremos conectar", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        DataBaseName->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
+        DataBaseName->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        Usuario_DB->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", Q_NULLPTR));
+        Usuario_DB->setToolTip(QApplication::translate("Configuracion", "Clave del t\303\251cnico en el dominio", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        password_DB->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", Q_NULLPTR));
+        password_DB->setToolTip(QApplication::translate("Configuracion", "Nombre de usuario del t\303\251cnico en el dominio (si_manolito)", 0));
 #endif // QT_NO_TOOLTIP
-        label_11->setText(QApplication::translate("Configuracion", "Servidor SSH", Q_NULLPTR));
-        label_30->setText(QApplication::translate("Configuracion", "Usuario ssh", Q_NULLPTR));
-        label_31->setText(QApplication::translate("Configuracion", "Clave ssh", Q_NULLPTR));
-        label_19->setText(QApplication::translate("Configuracion", "Puerto Remoto", Q_NULLPTR));
-        label_20->setText(QApplication::translate("Configuracion", "KeyFile Publica", Q_NULLPTR));
+        label_11->setText(QApplication::translate("Configuracion", "Servidor SSH", 0));
+        label_30->setText(QApplication::translate("Configuracion", "Usuario ssh", 0));
+        label_31->setText(QApplication::translate("Configuracion", "Clave ssh", 0));
+        label_19->setText(QApplication::translate("Configuracion", "Puerto Remoto", 0));
+        label_20->setText(QApplication::translate("Configuracion", "KeyFile Publica", 0));
         Btn_lupa_2->setText(QString());
-        label_32->setText(QApplication::translate("Configuracion", "KeyFile Privada", Q_NULLPTR));
+        label_32->setText(QApplication::translate("Configuracion", "KeyFile Privada", 0));
         Btn_lupa_3->setText(QString());
-        puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", Q_NULLPTR));
+        puerto_Remoto_ssh->setInputMask(QApplication::translate("Configuracion", "99999", 0));
         keyfile_publica->setInputMask(QString());
-        checkBox_ssh->setText(QApplication::translate("Configuracion", "Usar tunel cifrado", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(DB), QApplication::translate("Configuracion", "Base de Datos", Q_NULLPTR));
-        label_42->setText(QApplication::translate("Configuracion", "Leyenda", Q_NULLPTR));
-        label_33->setText(QApplication::translate("Configuracion", "%1 - Municipio", Q_NULLPTR));
-        label_35->setText(QApplication::translate("Configuracion", "%2 - Direcci\303\263n", Q_NULLPTR));
-        label_36->setText(QApplication::translate("Configuracion", "%3 - ADSL", Q_NULLPTR));
-        label_37->setText(QApplication::translate("Configuracion", "%4 - N\302\272 Admin.", Q_NULLPTR));
-        label_38->setText(QApplication::translate("Configuracion", "%5 - IP", Q_NULLPTR));
-        label_39->setText(QApplication::translate("Configuracion", "%6 - Servicio", Q_NULLPTR));
-        label_40->setText(QApplication::translate("Configuracion", "%7 - Caudal", Q_NULLPTR));
-        label_41->setText(QApplication::translate("Configuracion", "%8 - N\302\272Serie", Q_NULLPTR));
-        label_43->setText(QApplication::translate("Configuracion", "Para:", Q_NULLPTR));
-        label_44->setText(QApplication::translate("Configuracion", "Asunto:", Q_NULLPTR));
-        para->setText(QApplication::translate("Configuracion", "<ie2.cg22@telefonica.com><op.cg22@telefonica.com><marialeticia.larapalomino@telefonica.com>", Q_NULLPTR));
-        asunto->setText(QApplication::translate("Configuracion", "Problemas de conexi\303\263n en %1", Q_NULLPTR));
+        checkBox_ssh->setText(QApplication::translate("Configuracion", "Usar tunel cifrado", 0));
+        tabWidget->setTabText(tabWidget->indexOf(DB), QApplication::translate("Configuracion", "Base de Datos", 0));
+        label_42->setText(QApplication::translate("Configuracion", "Leyenda", 0));
+        label_33->setText(QApplication::translate("Configuracion", "%1 - Municipio", 0));
+        label_35->setText(QApplication::translate("Configuracion", "%2 - Direcci\303\263n", 0));
+        label_36->setText(QApplication::translate("Configuracion", "%3 - ADSL", 0));
+        label_37->setText(QApplication::translate("Configuracion", "%4 - N\302\272 Admin.", 0));
+        label_38->setText(QApplication::translate("Configuracion", "%5 - IP", 0));
+        label_39->setText(QApplication::translate("Configuracion", "%6 - Servicio", 0));
+        label_40->setText(QApplication::translate("Configuracion", "%7 - Caudal", 0));
+        label_41->setText(QApplication::translate("Configuracion", "%8 - N\302\272Serie", 0));
+        label_43->setText(QApplication::translate("Configuracion", "Para:", 0));
+        label_44->setText(QApplication::translate("Configuracion", "Asunto:", 0));
+        para->setText(QApplication::translate("Configuracion", "<ie2.cg22@telefonica.com><op.cg22@telefonica.com><marialeticia.larapalomino@telefonica.com>", 0));
+        asunto->setText(QApplication::translate("Configuracion", "Problemas de conexi\303\263n en %1", 0));
 #ifndef QT_NO_TOOLTIP
-        cuerpo->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>%1 - Municipio</p><p>%2 - Direcci\303\263n</p><p>%3 - ADSL</p><p>%4 - N\303\272mero Administrativo</p><p>%5 - IP</p><p>%6 - Servicio</p><p>%7 - Caudal</p><p>%8 - N\302\272Serie</p></body></html>", Q_NULLPTR));
+        cuerpo->setToolTip(QApplication::translate("Configuracion", "<html><head/><body><p>%1 - Municipio</p><p>%2 - Direcci\303\263n</p><p>%3 - ADSL</p><p>%4 - N\303\272mero Administrativo</p><p>%5 - IP</p><p>%6 - Servicio</p><p>%7 - Caudal</p><p>%8 - N\302\272Serie</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_STATUSTIP
-        cuerpo->setStatusTip(QApplication::translate("Configuracion", "66", Q_NULLPTR));
+        cuerpo->setStatusTip(QApplication::translate("Configuracion", "66", 0));
 #endif // QT_NO_STATUSTIP
         cuerpo->setHtml(QApplication::translate("Configuracion", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10pt;\">Buenos d\303\255as.<br /><br />Hay una linea con problemas de conexi\303\263n.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10p"
-                        "t;\">Haced el favor de echarle un vistazo.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;\"><br /></p></body></html>", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(correo), QApplication::translate("Configuracion", "Correo", Q_NULLPTR));
-        label_46->setText(QApplication::translate("Configuracion", "Mostrar los Botones en el men\303\272", Q_NULLPTR));
-        checkBox_Usuarios->setText(QApplication::translate("Configuracion", "Usuarios", Q_NULLPTR));
-        checkBox_Soporte->setText(QApplication::translate("Configuracion", "Soporte", Q_NULLPTR));
-        checkBox_Sedes->setText(QApplication::translate("Configuracion", "Sedes", Q_NULLPTR));
-        checkBox_Cronos->setText(QApplication::translate("Configuracion", "Cronos", Q_NULLPTR));
-        checkBox_Webmail->setText(QApplication::translate("Configuracion", "Welmail", Q_NULLPTR));
-        checkBox_Beiro->setText(QApplication::translate("Configuracion", "Beiro", Q_NULLPTR));
-        checkBox_GLPI->setText(QApplication::translate("Configuracion", "Glpi", Q_NULLPTR));
-        checkBox_OCS->setText(QApplication::translate("Configuracion", "Ocs", Q_NULLPTR));
-        checkBox_TS->setText(QApplication::translate("Configuracion", "Terminal Server", Q_NULLPTR));
-        checkBox_ISL->setText(QApplication::translate("Configuracion", "ISL Online", Q_NULLPTR));
-        checkBox_Atalaya->setText(QApplication::translate("Configuracion", "Atalaya - SolarWin", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(menu), QApplication::translate("Configuracion", "Menu", Q_NULLPTR));
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Buenos d\303\255as.<br /><br />Hay una linea con problemas de conexi\303\263n.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Haced el favor de echarle un vistazo.</span></p>\n"
+"<p style=\"-qt-p"
+                        "aragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", 0));
+        tabWidget->setTabText(tabWidget->indexOf(correo), QApplication::translate("Configuracion", "Correo", 0));
+        label_46->setText(QApplication::translate("Configuracion", "Mostrar los Botones en el men\303\272", 0));
+        checkBox_Usuarios->setText(QApplication::translate("Configuracion", "Usuarios", 0));
+        checkBox_Soporte->setText(QApplication::translate("Configuracion", "Soporte", 0));
+        checkBox_Sedes->setText(QApplication::translate("Configuracion", "Sedes", 0));
+        checkBox_Cronos->setText(QApplication::translate("Configuracion", "Cronos", 0));
+        checkBox_Webmail->setText(QApplication::translate("Configuracion", "Welmail", 0));
+        checkBox_Beiro->setText(QApplication::translate("Configuracion", "Beiro", 0));
+        checkBox_GLPI->setText(QApplication::translate("Configuracion", "Glpi", 0));
+        checkBox_OCS->setText(QApplication::translate("Configuracion", "Ocs", 0));
+        checkBox_TS->setText(QApplication::translate("Configuracion", "Terminal Server", 0));
+        checkBox_ISL->setText(QApplication::translate("Configuracion", "ISL Online", 0));
+        checkBox_Atalaya->setText(QApplication::translate("Configuracion", "Atalaya - SolarWin", 0));
+        label_47->setText(QApplication::translate("Configuracion", "NOTA*** Necesita reiniciar la aplicaci\303\263n para que los cambios tengan efecto", 0));
+        tabWidget->setTabText(tabWidget->indexOf(menu), QApplication::translate("Configuracion", "Menu", 0));
     } // retranslateUi
 
 };
