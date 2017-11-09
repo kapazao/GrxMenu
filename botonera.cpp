@@ -107,7 +107,10 @@ void Botonera::on_actionISL_triggered()
 {
     Configuracion *configuracion = new Configuracion;
     QProcess process;
-    process.startDetached("/usr/bin/proxychains", QStringList() << configuracion->cual_es_isl());
+    if (configuracion->es_usarproxy_chains())
+        process.startDetached(configuracion->cual_es_proxychains(), QStringList() << configuracion->cual_es_isl());
+    else
+        process.startDetached(configuracion->cual_es_isl());
     delete configuracion;
 }
 
@@ -194,7 +197,6 @@ bool Botonera::creaConexion()
     hilo->start();
     return true;
 }
-
 
 bool Botonera::muestraBotones(){
     Configuracion *configuracion = new Configuracion;
@@ -343,7 +345,27 @@ bool Botonera::barraEstado(){
     QString name = qgetenv("USER");
     if (name.isEmpty())
         name = qgetenv("USERNAME");
-    ui->statusBar->showMessage("Bienvenido "+name);
+    QLabel *nombre = new QLabel("Bienvenido "+name);
+    QLabel *DB = new QLabel("Base de Datos");
+    QLabel *KB = new QLabel("Ticket Kerberos");
+    nombre->font().setBold(true);
+    QFont font_kb = KB->font();
+    font_kb.setPointSize(11);
+    font_kb.setBold(false);
+    KB->setFont(font_kb);
+    QFont font_nombre = nombre->font();
+    font_nombre.setPointSize(12);
+    font_nombre.setBold(true);
+    KB->setFont(font_nombre);
+    ui->statusBar->addWidget(nombre);
+    ui->statusBar->addWidget(KB);
+    ui->statusBar->addWidget(ui->kerberos);
+    ui->statusBar->addWidget(ui->pb_kerberos);
+    ui->statusBar->addWidget(DB);
+    ui->statusBar->addWidget(ui->label_DB);
+    ui->statusBar->addWidget(ui->pb_reconectaDB);
+    ui->statusBar->addWidget(ui->label_username);
+    ui->statusBar->addWidget(ui->label_ip);
 }
 
 void Botonera::on_pushButton_clicked()
@@ -351,10 +373,3 @@ void Botonera::on_pushButton_clicked()
     cargaVariables();
 }
 
-void Botonera::on_pushButton_2_clicked()
-{
-    ui->mainToolBar->hide();
-    ui->mainToolBar->repaint();
-    ui->mainToolBar->show();
-
-}

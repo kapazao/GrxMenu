@@ -61,6 +61,7 @@ if( myIP.setAddress(ui->lineEdit_ip->text())&& (ui->lineEdit_ip->text().count(QL
 else
    return false;
 }
+
 void Soporte::on_lineEdit_ip_textChanged(const QString &arg1)
 {
     if(valida_ip())
@@ -129,7 +130,6 @@ void Soporte::on_Btn_Buscar_clicked()
 {
     if(valida_ip())
         ejecuta_nmap();
-    
 }
 
 void Soporte::ejecuta_nmap()
@@ -158,17 +158,7 @@ void Soporte::resultados(QList<NMapScan> res){
     ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
     ui->tabWidget->insertTab(1,new tabEscaner(&nmapscan),nmap->nmap_arg_find());
     connect(ui->tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
-    /*if(ip.empty()){
-        ui->TextoSalida->appendPlainText("No se han encontrado puertos abiertos.");
-    }else
-        for (int i = 0; i < ip.size(); ++i)
-               ui->TextoSalida->appendPlainText("Puertos abiertos: "+ip.at(i));
-*/
 }
-
-
-
-
 
 void Soporte::Ping()
 {

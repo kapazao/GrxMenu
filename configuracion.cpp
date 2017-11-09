@@ -147,6 +147,16 @@ QString  Configuracion::cual_es_cuerpo(){
     return Cuerpo;
 }
 
+QString Configuracion::cual_es_proxychains(){
+    return ProxyChains;
+}
+
+bool Configuracion::es_usarproxy_chains(){
+    if (UsarProxyChains =="True")
+        return true;
+return false;
+}
+
 bool Configuracion::es_usarSSH(){
       if (UsarSSH =="True")
           return true;
@@ -238,6 +248,8 @@ void Configuracion::carga_configuracion()
     UserName = s.value("Configuracion/UserName").toString();
     PasswordDB = s.value("Configuracion/PasswordDB").toString();
     UsarSSH = s.value("Configuracion/UsarSSH").toString();
+    UsarProxyChains = s.value("Configuracion/UsarProxyChains").toString();
+    ProxyChains = s.value("Configuracion/ProxyChains").toString();
     ServidorSSH = s.value("Configuracion/ServidorSSH").toString();
     UsuarioSSH =  s.value("Configuracion/UsuarioSSH").toString();
     ClaveSSH = s.value("Configuracion/ClaveSSH").toString();
@@ -295,9 +307,13 @@ void Configuracion::carga_configuracion()
         ui->checkBox_ssh->setChecked(true);
         habilitaSSH();
     }
+    if (es_usarproxy_chains()){
+        ui->checkBox_proxychains->setChecked(true);
+        habilitaProxyChains();
+    }
     else{
-        ui->checkBox_ssh->setChecked(false);
-        deshabilitaSSH();
+        ui->checkBox_proxychains->setChecked(false);
+        deshabilitaProxyChains();
     }
 //----------------------------------------------------
     if (usuarios_up()){
@@ -402,7 +418,19 @@ void Configuracion::carga_configuracion()
     ui->asunto->setText(Asunto);
     ui->cuerpo->setText(Cuerpo);
     ui->atalaya->setText(Atalaya);
+    ui->proxychains->setText(ProxyChains);
 }
+void Configuracion::habilitaProxyChains(){
+    ui->proxychains->setEnabled(true);
+}
+
+void Configuracion::deshabilitaProxyChains(){
+    ui->proxychains->setEnabled(false);
+}
+
+
+
+
 void Configuracion::habilitaSSH(){
     ui->keyfile_privada->setEnabled(true);
     ui->keyfile_publica->setEnabled(true);
@@ -446,6 +474,7 @@ void Configuracion::on_buttonBox_accepted()
     s.setValue("Configuracion/PuertoRemotoSSH", ui->puerto_Remoto_ssh->text());
     s.setValue("Configuracion/KeyFile_privada", ui->keyfile_privada->text());
     s.setValue("Configuracion/KeyFile_publica", ui->keyfile_publica->text());
+    s.setValue("Configuracion/ProxyChains", ui->proxychains->text());
 
     s.setValue("Configuracion/OCS", ui->OCS->text());
     s.setValue("Configuracion/GLPI", ui->GLPI->text());
@@ -472,11 +501,16 @@ void Configuracion::on_buttonBox_accepted()
     else
         s.setValue("Configuracion/UsarSSH","False");
 
+    if (ui->checkBox_proxychains->isChecked())
+        s.setValue("Configuracion/UsarProxyChains","True");
+    else
+        s.setValue("Configuracion/UsarProxyChains","False");
+
     if (ui->checkBox_ssh->isChecked())
         s.setValue("Configuracion/UsarSSH","True");
     else
         s.setValue("Configuracion/UsarSSH","False");
-//----------------------------------------------------------------
+
     if (ui->checkBox_Usuarios->isChecked())
         s.setValue("Configuracion/UsarUsuarios","True");
     else
@@ -531,22 +565,6 @@ void Configuracion::on_buttonBox_accepted()
         s.setValue("Configuracion/UsarAtalaya","True");
     else
         s.setValue("Configuracion/UsarAtalaya","False");
-
-
-
-
-
-
-
-
-
-//----------------------------------
-
-
-
-
-
-
 
     if (ui->rb_rdesktop->isChecked())
         s.setValue("Configuracion/Rdesktop","True");
@@ -641,3 +659,11 @@ void Configuracion::on_Btn_lupa_3_clicked()
     ui->keyfile_privada->setText(fichero);
 }
 
+void Configuracion::on_checkBox_proxychains_toggled(bool checked)
+{
+    if (ui->checkBox_proxychains->isChecked())
+        habilitaProxyChains();
+    else
+        deshabilitaProxyChains();
+
+}

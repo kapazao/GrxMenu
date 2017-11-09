@@ -45,9 +45,10 @@ public:
     QString cual_es_atalaya();
     QString cual_es_clave_cifrado();
     QString cual_es_clave_remoto();
+    QString cual_es_proxychains();
     bool es_rdesktop();
     bool es_usarSSH();
-
+    bool es_usarproxy_chains();
     bool usuarios_up();
     bool soporte_up();
     bool sedes_up();
@@ -99,13 +100,17 @@ private slots:
 
     void habilitaSSH();
 
+    void habilitaProxyChains();
+
+    void deshabilitaProxyChains();
+
     void on_checkBox_ssh_clicked();
 
     void on_Btn_lupa_2_clicked();
 
     void on_Btn_lupa_3_clicked();
 
-
+    void on_checkBox_proxychains_toggled(bool checked);
 
 private:
 
@@ -161,7 +166,8 @@ private:
     QString Para;
     QString Asunto;
     QString Cuerpo;
-
+    QString UsarProxyChains;
+    QString ProxyChains;
 
     Ui::Configuracion *ui;
 };

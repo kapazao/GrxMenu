@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'botonera.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -13,8 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -22,7 +20,6 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -48,24 +45,17 @@ public:
     QAction *actionAcerca_de;
     QAction *actionAtalaya;
     QWidget *centralWidget;
-    QFrame *frame;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QGridLayout *gridLayout;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_5;
-    QHBoxLayout *horizontalLayout_4;
-    QLabel *label_4;
-    QLabel *label_6;
-    QPushButton *pushButton_2;
+    QHBoxLayout *barra_estado;
+    QLabel *kerberos;
+    QPushButton *pb_kerberos;
     QHBoxLayout *horizontalLayout;
-    QLabel *label_5;
     QLabel *label_DB;
-    QPushButton *pushButton;
+    QPushButton *pb_reconectaDB;
     QHBoxLayout *horizontalLayout_3;
-    QLabel *label_3;
     QLabel *label_username;
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
     QLabel *label_ip;
     QMenuBar *menuBar;
     QMenu *menuNuevo;
@@ -78,7 +68,7 @@ public:
     {
         if (Botonera->objectName().isEmpty())
             Botonera->setObjectName(QStringLiteral("Botonera"));
-        Botonera->resize(1048, 184);
+        Botonera->resize(1091, 238);
         actionUsuarios = new QAction(Botonera);
         actionUsuarios->setObjectName(QStringLiteral("actionUsuarios"));
         actionUsuarios->setEnabled(true);
@@ -155,69 +145,48 @@ public:
         actionAtalaya->setIcon(icon13);
         centralWidget = new QWidget(Botonera);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        frame = new QFrame(centralWidget);
-        frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 0, 1041, 51));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        scrollArea = new QScrollArea(frame);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setGeometry(QRect(10, 0, 1021, 46));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1019, 44));
-        gridLayout = new QGridLayout(scrollAreaWidgetContents);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        horizontalLayout_5 = new QHBoxLayout();
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 60, 821, 29));
+        horizontalLayout_5 = new QHBoxLayout(widget);
         horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        label_4 = new QLabel(scrollAreaWidgetContents);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        horizontalLayout_4->addWidget(label_4);
-
-        label_6 = new QLabel(scrollAreaWidgetContents);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        barra_estado = new QHBoxLayout();
+        barra_estado->setSpacing(6);
+        barra_estado->setObjectName(QStringLiteral("barra_estado"));
+        kerberos = new QLabel(widget);
+        kerberos->setObjectName(QStringLiteral("kerberos"));
         QFont font;
         font.setFamily(QStringLiteral("Ubuntu Condensed"));
         font.setBold(true);
         font.setWeight(75);
-        label_6->setFont(font);
+        kerberos->setFont(font);
 
-        horizontalLayout_4->addWidget(label_6);
+        barra_estado->addWidget(kerberos);
 
-        pushButton_2 = new QPushButton(scrollAreaWidgetContents);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pb_kerberos = new QPushButton(widget);
+        pb_kerberos->setObjectName(QStringLiteral("pb_kerberos"));
 
-        horizontalLayout_4->addWidget(pushButton_2);
+        barra_estado->addWidget(pb_kerberos);
 
 
-        horizontalLayout_5->addLayout(horizontalLayout_4);
+        horizontalLayout_5->addLayout(barra_estado);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_5 = new QLabel(scrollAreaWidgetContents);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        horizontalLayout->addWidget(label_5);
-
-        label_DB = new QLabel(scrollAreaWidgetContents);
+        label_DB = new QLabel(widget);
         label_DB->setObjectName(QStringLiteral("label_DB"));
         label_DB->setFont(font);
 
         horizontalLayout->addWidget(label_DB);
 
-        pushButton = new QPushButton(scrollAreaWidgetContents);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pb_reconectaDB = new QPushButton(widget);
+        pb_reconectaDB->setObjectName(QStringLiteral("pb_reconectaDB"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(pb_reconectaDB);
 
 
         horizontalLayout_5->addLayout(horizontalLayout);
@@ -225,12 +194,7 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_3 = new QLabel(scrollAreaWidgetContents);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        horizontalLayout_3->addWidget(label_3);
-
-        label_username = new QLabel(scrollAreaWidgetContents);
+        label_username = new QLabel(widget);
         label_username->setObjectName(QStringLiteral("label_username"));
         label_username->setFont(font);
 
@@ -242,12 +206,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label = new QLabel(scrollAreaWidgetContents);
-        label->setObjectName(QStringLiteral("label"));
-
-        horizontalLayout_2->addWidget(label);
-
-        label_ip = new QLabel(scrollAreaWidgetContents);
+        label_ip = new QLabel(widget);
         label_ip->setObjectName(QStringLiteral("label_ip"));
         QFont font1;
         font1.setFamily(QStringLiteral("Ubuntu Condensed"));
@@ -261,16 +220,10 @@ public:
 
         horizontalLayout_5->addLayout(horizontalLayout_2);
 
-
-        gridLayout->addLayout(horizontalLayout_5, 0, 0, 1, 1);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-        scrollArea->raise();
-        scrollArea->raise();
         Botonera->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Botonera);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1048, 19));
+        menuBar->setGeometry(QRect(0, 0, 1091, 22));
         menuNuevo = new QMenu(menuBar);
         menuNuevo->setObjectName(QStringLiteral("menuNuevo"));
         menuAplicaciones = new QMenu(menuBar);
@@ -329,77 +282,91 @@ public:
 
     void retranslateUi(QMainWindow *Botonera)
     {
-        Botonera->setWindowTitle(QApplication::translate("Botonera", "Botonera", 0));
-        actionUsuarios->setText(QApplication::translate("Botonera", "&Usuarios", 0));
+        Botonera->setWindowTitle(QApplication::translate("Botonera", "Botonera", Q_NULLPTR));
+        actionUsuarios->setText(QApplication::translate("Botonera", "&Usuarios", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionUsuarios->setToolTip(QApplication::translate("Botonera", "Usuarios", 0));
+        actionUsuarios->setToolTip(QApplication::translate("Botonera", "Usuarios", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionUsuarios->setShortcut(QApplication::translate("Botonera", "Ctrl+F1", 0));
-        actionCronos->setText(QApplication::translate("Botonera", "&Cronos", 0));
+#ifndef QT_NO_SHORTCUT
+        actionUsuarios->setShortcut(QApplication::translate("Botonera", "Ctrl+F1", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionCronos->setText(QApplication::translate("Botonera", "&Cronos", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionCronos->setToolTip(QApplication::translate("Botonera", "Cronos", 0));
+        actionCronos->setToolTip(QApplication::translate("Botonera", "Cronos", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionCronos->setShortcut(QApplication::translate("Botonera", "Ctrl+F2", 0));
-        actionWebmail->setText(QApplication::translate("Botonera", "&Webmail", 0));
+#ifndef QT_NO_SHORTCUT
+        actionCronos->setShortcut(QApplication::translate("Botonera", "Ctrl+F2", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionWebmail->setText(QApplication::translate("Botonera", "&Webmail", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionWebmail->setToolTip(QApplication::translate("Botonera", "Webmail", 0));
+        actionWebmail->setToolTip(QApplication::translate("Botonera", "Webmail", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionWebmail->setShortcut(QApplication::translate("Botonera", "Ctrl+F3", 0));
-        actionBeiro->setText(QApplication::translate("Botonera", "&Beiro", 0));
+#ifndef QT_NO_SHORTCUT
+        actionWebmail->setShortcut(QApplication::translate("Botonera", "Ctrl+F3", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionBeiro->setText(QApplication::translate("Botonera", "&Beiro", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionBeiro->setToolTip(QApplication::translate("Botonera", "Beiro", 0));
+        actionBeiro->setToolTip(QApplication::translate("Botonera", "Beiro", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionBeiro->setShortcut(QApplication::translate("Botonera", "Ctrl+F4", 0));
-        actionGlpi->setText(QApplication::translate("Botonera", "&Glpi", 0));
+#ifndef QT_NO_SHORTCUT
+        actionBeiro->setShortcut(QApplication::translate("Botonera", "Ctrl+F4", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionGlpi->setText(QApplication::translate("Botonera", "&Glpi", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionGlpi->setToolTip(QApplication::translate("Botonera", "Glpi", 0));
+        actionGlpi->setToolTip(QApplication::translate("Botonera", "Glpi", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionGlpi->setShortcut(QApplication::translate("Botonera", "Ctrl+F5", 0));
-        actionOcs->setText(QApplication::translate("Botonera", "&Ocs", 0));
+#ifndef QT_NO_SHORTCUT
+        actionGlpi->setShortcut(QApplication::translate("Botonera", "Ctrl+F5", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionOcs->setText(QApplication::translate("Botonera", "&Ocs", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionOcs->setToolTip(QApplication::translate("Botonera", "Ocs", 0));
+        actionOcs->setToolTip(QApplication::translate("Botonera", "Ocs", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionOcs->setShortcut(QApplication::translate("Botonera", "Ctrl+F6", 0));
-        actionActiveDirectory->setText(QApplication::translate("Botonera", "&activeDirectory", 0));
+#ifndef QT_NO_SHORTCUT
+        actionOcs->setShortcut(QApplication::translate("Botonera", "Ctrl+F6", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionActiveDirectory->setText(QApplication::translate("Botonera", "&activeDirectory", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionActiveDirectory->setToolTip(QApplication::translate("Botonera", "Active Directory", 0));
+        actionActiveDirectory->setToolTip(QApplication::translate("Botonera", "Active Directory", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionActiveDirectory->setShortcut(QApplication::translate("Botonera", "Ctrl+F7", 0));
-        actionSalir->setText(QApplication::translate("Botonera", "&Salir", 0));
+#ifndef QT_NO_SHORTCUT
+        actionActiveDirectory->setShortcut(QApplication::translate("Botonera", "Ctrl+F7", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionSalir->setText(QApplication::translate("Botonera", "&Salir", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionSalir->setToolTip(QApplication::translate("Botonera", "Salir", 0));
+        actionSalir->setToolTip(QApplication::translate("Botonera", "Salir", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionSalir->setShortcut(QApplication::translate("Botonera", "Ctrl+F8", 0));
-        actionNuevo_Men->setText(QApplication::translate("Botonera", "&Nueva Botonera", 0));
-        actionISL->setText(QApplication::translate("Botonera", "&ISL", 0));
+#ifndef QT_NO_SHORTCUT
+        actionSalir->setShortcut(QApplication::translate("Botonera", "Ctrl+F8", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionNuevo_Men->setText(QApplication::translate("Botonera", "&Nueva Botonera", Q_NULLPTR));
+        actionISL->setText(QApplication::translate("Botonera", "&ISL", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionISL->setToolTip(QApplication::translate("Botonera", "ISLlight", 0));
+        actionISL->setToolTip(QApplication::translate("Botonera", "ISLlight", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionISL->setShortcut(QApplication::translate("Botonera", "Ctrl+9", 0));
-        actionConfigurar->setText(QApplication::translate("Botonera", "Co&nfigurar", 0));
-        actionSoporte->setText(QApplication::translate("Botonera", "&Soporte", 0));
+#ifndef QT_NO_SHORTCUT
+        actionISL->setShortcut(QApplication::translate("Botonera", "Ctrl+9", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionConfigurar->setText(QApplication::translate("Botonera", "Co&nfigurar", Q_NULLPTR));
+        actionSoporte->setText(QApplication::translate("Botonera", "&Soporte", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionSoporte->setToolTip(QApplication::translate("Botonera", "Soporte", 0));
+        actionSoporte->setToolTip(QApplication::translate("Botonera", "Soporte", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        actionSedes->setText(QApplication::translate("Botonera", "Sedes", 0));
-        actionAcerca_de->setText(QApplication::translate("Botonera", "&Acerca de ...", 0));
-        actionAtalaya->setText(QApplication::translate("Botonera", "Atalaya", 0));
+        actionSedes->setText(QApplication::translate("Botonera", "Sedes", Q_NULLPTR));
+        actionAcerca_de->setText(QApplication::translate("Botonera", "&Acerca de ...", Q_NULLPTR));
+        actionAtalaya->setText(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        actionAtalaya->setToolTip(QApplication::translate("Botonera", "Atalaya", 0));
+        actionAtalaya->setToolTip(QApplication::translate("Botonera", "Atalaya", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        label_4->setText(QApplication::translate("Botonera", "Ticket Kerberos", 0));
-        label_6->setText(QString());
-        pushButton_2->setText(QApplication::translate("Botonera", "Renovar", 0));
-        label_5->setText(QApplication::translate("Botonera", "Base de Datos", 0));
+        kerberos->setText(QString());
+        pb_kerberos->setText(QApplication::translate("Botonera", "Renovar", Q_NULLPTR));
         label_DB->setText(QString());
-        pushButton->setText(QApplication::translate("Botonera", "Conecta DB", 0));
-        label_3->setText(QApplication::translate("Botonera", "Nombre usuario", 0));
+        pb_reconectaDB->setText(QApplication::translate("Botonera", "Conecta DB", Q_NULLPTR));
         label_username->setText(QString());
-        label->setText(QApplication::translate("Botonera", "Direccion IP", 0));
         label_ip->setText(QString());
-        menuNuevo->setTitle(QApplication::translate("Botonera", "Archi&vo", 0));
-        menuAplicaciones->setTitle(QApplication::translate("Botonera", "Ap&licaciones", 0));
-        menuAcerca_de->setTitle(QApplication::translate("Botonera", "A&yuda", 0));
+        menuNuevo->setTitle(QApplication::translate("Botonera", "Archi&vo", Q_NULLPTR));
+        menuAplicaciones->setTitle(QApplication::translate("Botonera", "Ap&licaciones", Q_NULLPTR));
+        menuAcerca_de->setTitle(QApplication::translate("Botonera", "A&yuda", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Botonera w;
-    w.setFixedSize(1100,200);
+    w.setFixedSize(1100,150);
     w.show();
     return a.exec();
 }
