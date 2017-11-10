@@ -345,18 +345,18 @@ bool Botonera::barraEstado(){
     QString name = qgetenv("USER");
     if (name.isEmpty())
         name = qgetenv("USERNAME");
-    QLabel *nombre = new QLabel("Bienvenido "+name);
-    QLabel *DB = new QLabel("Base de Datos");
+    QLabel *bienvenido = new QLabel("Bienvenido ");
+    QLabel *nombre = new QLabel(name);
     QLabel *KB = new QLabel("Ticket Kerberos");
+    QLabel *DB = new QLabel("Base de Datos");
+    QLabel *ipdir = new QLabel("Direccion IP");
+    bienvenido->font().setBold(false);
     nombre->font().setBold(true);
-    QFont font_kb = KB->font();
-    font_kb.setPointSize(11);
-    font_kb.setBold(false);
-    KB->setFont(font_kb);
-    QFont font_nombre = nombre->font();
-    font_nombre.setPointSize(12);
-    font_nombre.setBold(true);
-    KB->setFont(font_nombre);
+    KB->font().setBold(false);
+    DB->font().setBold(false);
+
+
+    ui->statusBar->addWidget(bienvenido);
     ui->statusBar->addWidget(nombre);
     ui->statusBar->addWidget(KB);
     ui->statusBar->addWidget(ui->kerberos);
@@ -364,7 +364,6 @@ bool Botonera::barraEstado(){
     ui->statusBar->addWidget(DB);
     ui->statusBar->addWidget(ui->label_DB);
     ui->statusBar->addWidget(ui->pb_reconectaDB);
-    ui->statusBar->addWidget(ui->label_username);
     ui->statusBar->addWidget(ui->label_ip);
 }
 

@@ -45,7 +45,7 @@ public:
     QAction *actionAcerca_de;
     QAction *actionAtalaya;
     QWidget *centralWidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_5;
     QHBoxLayout *barra_estado;
     QLabel *kerberos;
@@ -68,7 +68,7 @@ public:
     {
         if (Botonera->objectName().isEmpty())
             Botonera->setObjectName(QStringLiteral("Botonera"));
-        Botonera->resize(1091, 238);
+        Botonera->resize(1091, 412);
         actionUsuarios = new QAction(Botonera);
         actionUsuarios->setObjectName(QStringLiteral("actionUsuarios"));
         actionUsuarios->setEnabled(true);
@@ -145,10 +145,10 @@ public:
         actionAtalaya->setIcon(icon13);
         centralWidget = new QWidget(Botonera);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 60, 821, 29));
-        horizontalLayout_5 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 60, 821, 29));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget);
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
@@ -156,7 +156,7 @@ public:
         barra_estado = new QHBoxLayout();
         barra_estado->setSpacing(6);
         barra_estado->setObjectName(QStringLiteral("barra_estado"));
-        kerberos = new QLabel(widget);
+        kerberos = new QLabel(layoutWidget);
         kerberos->setObjectName(QStringLiteral("kerberos"));
         QFont font;
         font.setFamily(QStringLiteral("Ubuntu Condensed"));
@@ -166,7 +166,7 @@ public:
 
         barra_estado->addWidget(kerberos);
 
-        pb_kerberos = new QPushButton(widget);
+        pb_kerberos = new QPushButton(layoutWidget);
         pb_kerberos->setObjectName(QStringLiteral("pb_kerberos"));
 
         barra_estado->addWidget(pb_kerberos);
@@ -177,13 +177,13 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_DB = new QLabel(widget);
+        label_DB = new QLabel(layoutWidget);
         label_DB->setObjectName(QStringLiteral("label_DB"));
         label_DB->setFont(font);
 
         horizontalLayout->addWidget(label_DB);
 
-        pb_reconectaDB = new QPushButton(widget);
+        pb_reconectaDB = new QPushButton(layoutWidget);
         pb_reconectaDB->setObjectName(QStringLiteral("pb_reconectaDB"));
 
         horizontalLayout->addWidget(pb_reconectaDB);
@@ -194,7 +194,7 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_username = new QLabel(widget);
+        label_username = new QLabel(layoutWidget);
         label_username->setObjectName(QStringLiteral("label_username"));
         label_username->setFont(font);
 
@@ -206,7 +206,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_ip = new QLabel(widget);
+        label_ip = new QLabel(layoutWidget);
         label_ip->setObjectName(QStringLiteral("label_ip"));
         QFont font1;
         font1.setFamily(QStringLiteral("Ubuntu Condensed"));
