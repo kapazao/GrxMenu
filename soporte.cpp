@@ -10,6 +10,8 @@
 #include <QDesktopServices>
 #include "configuracion.h"
 #include "tabescaner.h"
+
+
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
@@ -224,4 +226,35 @@ cuerpo= configuracion->cual_es_cuerpo().arg(ui->cb_sede->currentText(),ui->lineE
                                             ,ui->lineEdit_ip->text(),ui->lineEdit_servicio->text(),ui->lineEdit_caudal->text(),ui->lineEdit_numero->text());
 
 QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo, QUrl::TolerantMode));
+}
+
+void Soporte::on_Btn_Atalaya_clicked()
+{
+    //QByteArray data=new QByteArray();
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(replyFinished(QNetworkReply*)));
+
+    manager->post(QNetworkRequest(QUrl("http://atalaya.grx")), "data");
+
+    /*
+
+    QUrl url;
+    QByteArray postData;
+    QNetworkAccessManager *networkManager = new QNetworkAccessManager;
+    url.setUrl("http://atalaya.grx");
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
+    QString postUsuario = "username";
+    QString postValueUsuario = "municipios";
+    QString postKeyPassword = "password";
+    QString postValuePassword = "CasaCuna";
+
+    postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
+    postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
+
+    networkManager->post(request,postData);
+*/
+}
+void Soporte::replyFinished(QNetworkReply* m){
+   qDebug()<<m;
 }

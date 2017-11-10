@@ -402,7 +402,7 @@
     <rect>
      <x>10</x>
      <y>300</y>
-     <width>361</width>
+     <width>450</width>
      <height>36</height>
     </rect>
    </property>
@@ -435,12 +435,19 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="Btn_Atalaya">
+      <property name="text">
+       <string>SolarWinds</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="Estado">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>490</x>
      <y>300</y>
      <width>31</width>
      <height>31</height>

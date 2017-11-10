@@ -69,6 +69,7 @@ public:
     QPushButton *Btn_Ping;
     QPushButton *Btn_Incidencia;
     QPushButton *Btn_Mtr;
+    QPushButton *Btn_Atalaya;
     QLabel *Estado;
     QPushButton *Btn_Limpiar;
     QTabWidget *tabWidget;
@@ -282,7 +283,7 @@ public:
 
         layoutWidget1 = new QWidget(Soporte);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 300, 361, 36));
+        layoutWidget1->setGeometry(QRect(10, 300, 450, 36));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -306,9 +307,14 @@ public:
 
         horizontalLayout_2->addWidget(Btn_Mtr);
 
+        Btn_Atalaya = new QPushButton(layoutWidget1);
+        Btn_Atalaya->setObjectName(QStringLiteral("Btn_Atalaya"));
+
+        horizontalLayout_2->addWidget(Btn_Atalaya);
+
         Estado = new QLabel(Soporte);
         Estado->setObjectName(QStringLiteral("Estado"));
-        Estado->setGeometry(QRect(390, 300, 31, 31));
+        Estado->setGeometry(QRect(490, 300, 31, 31));
         Btn_Limpiar = new QPushButton(Soporte);
         Btn_Limpiar->setObjectName(QStringLiteral("Btn_Limpiar"));
         Btn_Limpiar->setGeometry(QRect(700, 305, 80, 25));
@@ -355,6 +361,7 @@ public:
         Btn_Ping->setText(QApplication::translate("Soporte", "Ping", 0));
         Btn_Incidencia->setText(QApplication::translate("Soporte", "Incidencia", 0));
         Btn_Mtr->setText(QApplication::translate("Soporte", "mtr", 0));
+        Btn_Atalaya->setText(QApplication::translate("Soporte", "SolarWinds", 0));
         Estado->setText(QString());
         Btn_Limpiar->setText(QApplication::translate("Soporte", "Limpiar", 0));
         tabWidget->setTabText(tabWidget->indexOf(consola), QApplication::translate("Soporte", "Consola", 0));

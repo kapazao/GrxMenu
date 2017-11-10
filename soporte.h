@@ -7,7 +7,8 @@
 #include <QSqlQueryModel>
 #include "QtDebug"
 #include "nmap_xml.h"
-
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
 namespace Ui {
 class Soporte;
 }
@@ -50,6 +51,10 @@ private slots:
     void Ping();
 
     void on_Btn_Incidencia_clicked();
+
+    void on_Btn_Atalaya_clicked();
+
+    void replyFinished(QNetworkReply*);
 
 private:
     Ui::Soporte *ui;
