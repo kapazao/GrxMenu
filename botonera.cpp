@@ -11,7 +11,19 @@
 #include "nmap_xml.h"
 #include <QDesktopServices>
 #include "configuracion.h"
-//#include "form_usuarios.h"
+#include <QFileInfo>
+
+
+bool fileExists(QString path) {
+    QFileInfo check_file(path);
+    // comprueba que exista y no sea un directorio
+    if (check_file.exists() && check_file.isFile()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 struct variables{
     QString keyfile1;
     QString keyfile2;
@@ -199,7 +211,10 @@ bool Botonera::creaConexion()
 }
 
 bool Botonera::muestraBotones(){
+
     Configuracion *configuracion = new Configuracion;
+
+
     if (!configuracion->usuarios_up())
                ui->mainToolBar->actions().at(0)->setVisible(false);
     else
@@ -269,6 +284,14 @@ bool Botonera::cargaVariables(){
 
     db = QSqlDatabase::addDatabase("QMYSQL");
     Configuracion *configuracion = new Configuracion;
+    home = qgetenv("HOME");
+    GrxMenu = home + "/.grxconf.ini";
+    path =qgetenv("PATH");
+    if (!fileExists(GrxMenu)){
+        QMessageBox::critical(this, "Configurar", "Es la primera vez que ejecuta GrxMenu\no se ha borrado el archivo de configuración\nDebe configurar la aplicación y guardar los cambios",QMessageBox::Ok);
+        on_actionConfigurar_triggered();
+        return false;
+    }
     datos.keyfile1=configuracion->cual_es_keyfile_publica();
     datos.keyfile2=configuracion->cual_es_keyfile_privada();
     datos.username_ssh=configuracion->cual_es_usuarioSSH();
@@ -290,8 +313,9 @@ bool Botonera::cargaVariables(){
     datos.databasename=configuracion->cual_es_DataBaseName();
 
     NMap* nmap = new NMap();
-    nmap->nmap_run_scan(QString::number(datos.remote_port),datos.server_ip);
-    if (nmap->nmap_is_open_port(datos.server_ip, QString::number(datos.remote_port))){
+    if (datos.remote_port!=0){
+        nmap->nmap_run_scan(QString::number(datos.remote_port),datos.server_ip);
+        if (nmap->nmap_is_open_port(datos.server_ip, QString::number(datos.remote_port))){
         if (configuracion->es_usarSSH()){ //Tenemos seleccionado usar tunel ssh
                 datos.local_listenport=puerto_libre();
                 datos.usar_ssh=true;
@@ -319,10 +343,11 @@ bool Botonera::cargaVariables(){
                     }
                 }
     }
-     else{
+        else{
         ui->statusBar->messageChanged("Puerto Cerrado");
         ui->actionSedes->setDisabled(true);
         ui->actionSoporte->setDisabled(true);
+    }
     }
 
     //Muestra la ip

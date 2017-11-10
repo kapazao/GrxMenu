@@ -7,6 +7,7 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <QSqlQueryModel>
+
 Configuracion::Configuracion(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Configuracion)
@@ -38,6 +39,64 @@ Configuracion::~Configuracion()
 {
     delete ui;
 }
+
+void Configuracion::valoresPorDefecto(){
+
+    home_usuario = QStandardPaths::locate(QStandardPaths::HomeLocation, QString(), QStandardPaths::LocateDirectory);
+    QSettings s(home_usuario+".grxconf.ini", QSettings::IniFormat);
+    QString name = qgetenv("USER");
+    if (name.isEmpty())
+        name = qgetenv("USERNAME");
+    Tecnico = name;
+    Clave = "0";
+    ServidorAD = "10.1.1.96";
+    UsuarioAD = name;
+    ClaveAD = "0";
+    DataBaseName = "asismun";
+    HostName = "127.0.0.1";
+    PuertoDB = 3306;
+    UserName = "root";
+    PasswordDB = "0";
+    UsarSSH = "TRUE";
+    UsarProxyChains = "TRUE";
+    ProxyChains = "/usr/bin/proxychains";
+    ServidorSSH = "10.7.15.193";
+    UsuarioSSH =  "gorgojo";
+    ClaveSSH = "0";
+    PuertoRemotoSSH = 22;
+    PuertoLocalSSH = "0";
+    ISL = "/opt/ISL...";
+    Atalaya = "https://atalaya.grx";
+    UsarUsuarios = "True";
+    UsarSoporte = "True";
+    UsarSedes = "True";
+    UsarCronos = "True";
+    UsarWebmail = "True";
+    UsarBeiro = "True";
+    UsarGlpi = "True";
+    UsarOCS = "True";
+    UsarTS = "True";
+    UsarISL = "True";
+    UsarAtalaya = "True";
+    OCS = "https://incidencias.dipgra.es/ocsreport";
+    GLPI = "https://incidencias.dipgra.es/glpi";
+    Beiro = "http://beiro.grx:55555/portal";
+    Cronos = "http://cronos.grx";
+    UsuarioRemoto = "administrador";
+    Puerto = 8080;
+    Correo = "https://correoweb.dipgra.es/";
+    Password = "";
+    ClaveCifrado = "";
+    ClaveRemoto = "";
+    Rdesktop = "";
+    Resolucion = "1024x768";
+    Para = "Pon aqui los destinatarios";
+    Asunto = "Pon aqui el asunto";
+    Cuerpo = "Escribe aqui el cuerpo del mensaje.";
+
+    carga_editLine();
+}
+
 QString  Configuracion::cual_es_home(){
     return home_usuario;
 }
@@ -231,6 +290,7 @@ void Configuracion::carga_configuracion_color(){
     ui->fr_TS->setStyleSheet("background-color:"+Fr_TS+";");
     ui->fr_kerberos->setStyleSheet("background-color:"+Fr_kerberos+";");
 }
+
 void Configuracion::carga_configuracion()
 {
     //Carga de los valores de las variables de configuracion
@@ -297,7 +357,12 @@ void Configuracion::carga_configuracion()
     Fr_TS = s.value("Configuracion/fr_TS").toString();
     Fr_rutas = s.value("Configuracion/fr_rutas").toString();
 
-    //Ahora ponemos los valores en los editLine
+    carga_editLine();
+
+}
+
+void Configuracion::carga_editLine(){
+
     if (es_rdesktop())
         ui->rb_rdesktop->setChecked(true);
     else
@@ -315,7 +380,7 @@ void Configuracion::carga_configuracion()
         ui->checkBox_proxychains->setChecked(false);
         deshabilitaProxyChains();
     }
-//----------------------------------------------------
+
     if (usuarios_up()){
         ui->checkBox_Usuarios->setChecked(true);
     }
@@ -376,15 +441,12 @@ void Configuracion::carga_configuracion()
     else{
         ui->checkBox_ISL->setChecked(false);
     }
-
     if (atalaya_up()){
         ui->checkBox_Atalaya->setChecked(true);
     }
     else{
         ui->checkBox_Atalaya->setChecked(false);
     }
-
-
 
     ui->tecnico->setText(Tecnico);
     ui->clave->setText(Clave);
@@ -420,6 +482,10 @@ void Configuracion::carga_configuracion()
     ui->atalaya->setText(Atalaya);
     ui->proxychains->setText(ProxyChains);
 }
+
+
+
+
 void Configuracion::habilitaProxyChains(){
     ui->proxychains->setEnabled(true);
 }
@@ -427,9 +493,6 @@ void Configuracion::habilitaProxyChains(){
 void Configuracion::deshabilitaProxyChains(){
     ui->proxychains->setEnabled(false);
 }
-
-
-
 
 void Configuracion::habilitaSSH(){
     ui->keyfile_privada->setEnabled(true);
@@ -665,5 +728,12 @@ void Configuracion::on_checkBox_proxychains_toggled(bool checked)
         habilitaProxyChains();
     else
         deshabilitaProxyChains();
+
+}
+
+void Configuracion::on_buttonBox_clicked(QAbstractButton *button)
+{
+    if (button==ui->buttonBox->button(QDialogButtonBox::RestoreDefaults))
+        valoresPorDefecto();
 
 }

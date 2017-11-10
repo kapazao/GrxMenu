@@ -21,6 +21,7 @@ public:
     QSqlDatabase db;
     explicit Botonera(QWidget *parent = 0);
     ~Botonera();
+    QString path,home,user,GrxMenu;
 
 private slots:
     void on_actionUsuarios_triggered();

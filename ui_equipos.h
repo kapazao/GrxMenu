@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'equipos.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.6.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -292,30 +292,30 @@ public:
 
     void retranslateUi(QWidget *Equipos)
     {
-        Equipos->setWindowTitle(QApplication::translate("Equipos", "Equipos", Q_NULLPTR));
-        label->setText(QApplication::translate("Equipos", "Informaci\303\263n del Equipo", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Equipos", "Carpeta", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("Equipos", "ssh", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("Equipos", "systemconfig", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("Equipos", "networkmanager", Q_NULLPTR));
-        pushButton_5->setText(QApplication::translate("Equipos", "CUPS", Q_NULLPTR));
-        pushButton_6->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_7->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_8->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_9->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_10->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_14->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_13->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_12->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        pushButton_11->setText(QApplication::translate("Equipos", "PushButton", Q_NULLPTR));
-        label_ip->setText(QApplication::translate("Equipos", "IP", Q_NULLPTR));
-        label_puertos->setText(QApplication::translate("Equipos", "Puertos abiertos", Q_NULLPTR));
-        label_tipo->setText(QApplication::translate("Equipos", "Tipo", Q_NULLPTR));
-        label_4->setText(QApplication::translate("Equipos", "TextLabel", Q_NULLPTR));
-        label_hostname->setText(QApplication::translate("Equipos", "Hostname", Q_NULLPTR));
-        label_status->setText(QApplication::translate("Equipos", "Status", Q_NULLPTR));
-        label_8->setText(QApplication::translate("Equipos", "TextLabel", Q_NULLPTR));
-        label_9->setText(QApplication::translate("Equipos", "TextLabel", Q_NULLPTR));
+        Equipos->setWindowTitle(QApplication::translate("Equipos", "Equipos", 0));
+        label->setText(QApplication::translate("Equipos", "Informaci\303\263n del Equipo", 0));
+        pushButton->setText(QApplication::translate("Equipos", "Carpeta", 0));
+        pushButton_2->setText(QApplication::translate("Equipos", "ssh", 0));
+        pushButton_3->setText(QApplication::translate("Equipos", "systemconfig", 0));
+        pushButton_4->setText(QApplication::translate("Equipos", "networkmanager", 0));
+        pushButton_5->setText(QApplication::translate("Equipos", "CUPS", 0));
+        pushButton_6->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_7->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_8->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_9->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_10->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_14->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_13->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_12->setText(QApplication::translate("Equipos", "PushButton", 0));
+        pushButton_11->setText(QApplication::translate("Equipos", "PushButton", 0));
+        label_ip->setText(QApplication::translate("Equipos", "IP", 0));
+        label_puertos->setText(QApplication::translate("Equipos", "Puertos abiertos", 0));
+        label_tipo->setText(QApplication::translate("Equipos", "Tipo", 0));
+        label_4->setText(QApplication::translate("Equipos", "TextLabel", 0));
+        label_hostname->setText(QApplication::translate("Equipos", "Hostname", 0));
+        label_status->setText(QApplication::translate("Equipos", "Status", 0));
+        label_8->setText(QApplication::translate("Equipos", "TextLabel", 0));
+        label_9->setText(QApplication::translate("Equipos", "TextLabel", 0));
     } // retranslateUi
 
 };

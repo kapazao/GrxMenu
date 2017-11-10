@@ -5,6 +5,7 @@
 #include <QSettings>
 #include <QColorDialog>
 #include <QFileDialog>
+#include <QDialogButtonBox>
 
 namespace Ui {
 class Configuracion;
@@ -108,9 +109,15 @@ private slots:
 
     void on_Btn_lupa_2_clicked();
 
+    void valoresPorDefecto();
+
+    void carga_editLine();
+
     void on_Btn_lupa_3_clicked();
 
     void on_checkBox_proxychains_toggled(bool checked);
+
+    void on_buttonBox_clicked(QAbstractButton *button);
 
 private:
 

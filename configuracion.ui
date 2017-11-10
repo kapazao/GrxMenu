@@ -39,8 +39,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>689</width>
-      <height>589</height>
+      <width>687</width>
+      <height>587</height>
      </rect>
     </property>
     <widget class="QGroupBox" name="groupBox">
@@ -70,7 +70,7 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="standardButtons">
-         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+         <set>QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults|QDialogButtonBox::Save</set>
         </property>
        </widget>
       </item>
@@ -141,13 +141,13 @@
             </size>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>10</x>
              <y>60</y>
              <width>631</width>
-             <height>221</height>
+             <height>248</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -337,13 +337,13 @@
             </size>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>12</x>
              <y>60</y>
              <width>631</width>
-             <height>231</height>
+             <height>297</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -483,6 +483,10 @@
             </item>
            </layout>
           </widget>
+          <zorder>lb_rutas</zorder>
+          <zorder>PB_rutas</zorder>
+          <zorder>layoutWidget</zorder>
+          <zorder>pushButton</zorder>
          </widget>
         </widget>
         <widget class="QWidget" name="kerberos">
@@ -510,7 +514,7 @@
              <x>20</x>
              <y>30</y>
              <width>511</width>
-             <height>36</height>
+             <height>38</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -653,7 +657,7 @@
             <string/>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -838,7 +842,7 @@
             </size>
            </property>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -939,13 +943,13 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <property name="geometry">
             <rect>
              <x>10</x>
              <y>237</y>
              <width>631</width>
-             <height>181</height>
+             <height>208</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -1325,7 +1329,7 @@
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:10pt;&quot;&gt;Buenos días.&lt;br /&gt;&lt;br /&gt;Hay una linea con problemas de conexión.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:10pt;&quot;&gt;Hemos comprobado que no es problema de su red.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:10pt;&quot;&gt;Haced el favor de echarle un vistazo.&lt;/span&gt;&lt;/p&gt;
