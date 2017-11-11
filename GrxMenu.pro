@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     equipos.cpp \
     tunel.cpp \
     ejecutahilo.cpp \
-    tabescaner.cpp
+    tabescaner.cpp \
+    clickablelabel.cpp
 
 
 HEADERS  += \
@@ -35,7 +36,8 @@ HEADERS  += \
     equipos.h \
     tunel.h \
     ejecutahilo.h \
-    tabescaner.h
+    tabescaner.h \
+    clickablelabel.h
 
 
 FORMS    += \
@@ -50,4 +52,5 @@ FORMS    += \
 LIBS += -lssh2
 
 RESOURCES += \
-    iconos.qrc
+    imagenes.qrc
+

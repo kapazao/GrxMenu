@@ -4,6 +4,7 @@
 #include <QHostAddress>
 #include <QAbstractItemModel>
 #include <QDesktopServices>
+#include "clickablelabel.h"
 Sedes::Sedes(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Sedes)
@@ -15,6 +16,7 @@ Sedes::Sedes(QWidget *parent) :
     cargaCombo();//Cargamos las sedes en los combobox
     checkBox_Enabled(false);
     checkBox_tresEstados(true);//Ponemos los checkbox con tres estados
+    carga_imagenes();
 }
 
 Sedes::~Sedes()
@@ -240,6 +242,31 @@ void Sedes::consultaNodo(const QString &nombre){
             ui->lineEdit_caudal->setText(consultar.value(24).toString());
             ui->lineEdit_equipamiento->setText(consultar.value(25).toString());
 
+
+
+            QIcon icon_escudo = QIcon(":/imagenes/Escudos/agron.svg");
+            QPixmap escudo = icon_escudo.pixmap(QSize(85,90));
+            ui->label_escudo->setPixmap(escudo);
+
+            QIcon icon_bandera = QIcon(":/imagenes/Banderas/agron.svg");
+            QPixmap bandera = icon_bandera.pixmap(QSize(100,95));
+            ui->label_bandera->setPixmap(bandera);
+
+            QIcon icon_router = QIcon(":/imagenes/Router/images.jpeg");
+            QPixmap router = icon_router.pixmap(QSize(233,95));
+           // ui->label_router->setPixmap(router);
+            ui->pB_router->setIconSize(router.rect().size());
+            ui->pB_router->setFixedSize(233,95);
+            ui->pB_router->setIcon(router);
+
+            QIcon icon_mapa = QIcon(":/imagenes/mapas/Agrón.png");
+            QPixmap mapa = icon_mapa.pixmap(QSize(151,118));
+            //ui->label_mapa->setPixmap(mapa);
+            ui->pB_mapa_2->setIconSize(mapa.rect().size());
+            ui->pB_mapa_2->setFixedSize(151,118);
+            ui->pB_mapa_2->setIcon(mapa);
+
+
             // Cargar datos de programa del año actual
             consultar_programa.prepare(QString("select * from programa where idNodo =:idNodo and anio =:idAnio"));
             consultar_programa.bindValue(":idNodo",idNodo);
@@ -374,6 +401,10 @@ void Sedes::consultaNodo(const QString &nombre){
     } else
           QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error en la consulta: \n"+consultar.lastError().text(),QMessageBox::Ok);
 
+}
+
+void Sedes::carga_imagenes(){
+  ui->frame_BanderaEscudos->setStyleSheet("background:lightgrey");
 }
 
 void Sedes::on_comboBox_extension_activated(const QString &ext)
@@ -556,46 +587,35 @@ void Sedes::on_comboBox_anio_activated(const QString &arg1)
 
 void Sedes::on_pB_web_clicked()
 {
-    /*QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_web->text());
-*/
     QDesktopServices::openUrl(QUrl(ui->lineEdit_web->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_pB_sede_clicked()
 {
-    /*QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_sede ->text());*/
     QDesktopServices::openUrl(QUrl(ui->lineEdit_sede->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_sP_tablon_clicked()
 {
-   /* QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_tablon->text());*/
     QDesktopServices::openUrl(QUrl(ui->lineEdit_tablon->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_pB_portalTransparencia_clicked()
 {
     QDesktopServices::openUrl(QUrl(ui->lineEdit_portar_transparencia->text(), QUrl::TolerantMode));
-   /* QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_portar_transparencia->text());
-    */
+
 }
 
 void Sedes::on_pB_bandera_clicked()
 {
-    QDesktopServices::openUrl(QUrl(ui->lineEdit_bandera->text(), QUrl::TolerantMode));
-  //  QProcess process;
-  //  process.startDetached("xdg-open", QStringList() << ui->lineEdit_bandera->text());
+    QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/Banderas/"+ui->comboBox_NODO->currentText()+".svg"));
+    //QDesktopServices::openUrl(QUrl(ui->lineEdit_bandera->text(), QUrl::TolerantMode));
 }
 
 void Sedes::on_pB_escudo_clicked()
 {
-    /*QProcess process;
-    process.startDetached("xdg-open", QStringList() << ui->lineEdit_escudo->text());*/
-    QDesktopServices::openUrl(QUrl(ui->lineEdit_escudo->text(), QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/Escudos/"+ui->comboBox_NODO->currentText()+".svg"));
+    //QDesktopServices::openUrl(QUrl(ui->lineEdit_escudo->text(), QUrl::TolerantMode));
 }
 
 void Sedes::cambio_estados_readonly(bool estado){
@@ -691,21 +711,21 @@ ui->checkBox_suscripcion->setStyleSheet("color:"+color);
 void Sedes::boton_edicion_apagado(){
 
     checkBox_Enabled(false);
-    ui->pb_Edicion->setStyleSheet("background-color:#00aa7f");
-    ui->pb_Edicion->setChecked(false);
+    ui->pB_Edicion->setStyleSheet("background-color:#00aa7f");
+    ui->pB_Edicion->setChecked(false);
     cambio_estados_readonly(true);
 }
 
 void Sedes::boton_edicion_encendido(){
     checkBox_Enabled(true);
-    ui->pb_Edicion->setStyleSheet("background-color:red");
-    ui->pb_Edicion->setChecked(true);
+    ui->pB_Edicion->setStyleSheet("background-color:red");
+    ui->pB_Edicion->setChecked(true);
     cambio_estados_readonly(false);
 }
 
-void Sedes::on_pb_Edicion_toggled(bool checked)
+void Sedes::on_pB_Edicion_toggled(bool checked)
 {
-    if (ui->pb_Edicion->isChecked()){
+    if (ui->pB_Edicion->isChecked()){
         boton_edicion_encendido();
     }
     else{
@@ -778,3 +798,24 @@ void Sedes::cambio_estado_checkbox(){
          cambiado = true;
 }
 
+
+void Sedes::on_pB_mapa_2_clicked()
+{
+     //QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/mapas/"+ui->comboBox_NODO->currentText()+".png"));
+    QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/mapas/Agrón.png"));
+}
+
+void Sedes::on_pB_router_clicked()
+{
+    QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/Router/images.jpeg"));
+}
+
+void Sedes::on_pB_googleMaps_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.google.es/maps/place/"+ui->comboBox_NODO->currentText()+"+Granada"));
+}
+
+void Sedes::on_pB_wikipedia_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://es.wikipedia.org/wiki/"+ui->comboBox_NODO->currentText()+"_(Granada)"));
+}

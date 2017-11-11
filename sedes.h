@@ -10,7 +10,7 @@
 #include "nmap_xml.h"
 #include "configuracion.h"
 #include <QMessageBox>
-
+#include "clickablelabel.h"
 namespace Ui {
 class Sedes;
 }
@@ -67,7 +67,7 @@ private slots:
 
     void on_comboBox_TLF_activated(const QString &arg1);
 
-    void on_pb_Edicion_toggled(bool checked);
+    void on_pB_Edicion_toggled(bool checked);
 
     void on_comboBox_NODO_currentIndexChanged(int index);
 
@@ -85,6 +85,16 @@ private slots:
 
     void cambio_estado_checkbox();
 
+    void carga_imagenes();
+
+
+    void on_pB_mapa_2_clicked();
+
+    void on_pB_router_clicked();
+
+    void on_pB_googleMaps_clicked();
+
+    void on_pB_wikipedia_clicked();
 
 private:
     Ui::Sedes *ui;

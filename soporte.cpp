@@ -123,7 +123,6 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
                 ui->lineEdit_centro->setText(consultar_centro.value(1).toString());
                 ui->lineEdit_telefono_centro->setText(consultar_centro.value(3).toString());
             }
-
    } else
           qDebug()<<"Error No se ha podido realizar la consulta "<< consultar.lastError();
 }
@@ -204,11 +203,9 @@ void Soporte::desActiva_barra_progreso(){
      ui->Estado->hide();
 }
 
-
 void Soporte::closeTab(int indice){
     if (indice>0)
         ui->tabWidget->removeTab(indice);
-
 }
 
 void Soporte::on_Btn_Limpiar_clicked()

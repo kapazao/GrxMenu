@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sedes.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -16,7 +16,6 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -51,7 +50,7 @@ public:
     QWidget *horizontalLayoutWidget_6;
     QHBoxLayout *horizontalLayout_15;
     QComboBox *comboBox_CP;
-    QPushButton *pb_Edicion;
+    QPushButton *pB_Edicion;
     QFrame *frame_3;
     QLabel *label_11;
     QLabel *label_12;
@@ -99,8 +98,8 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QLineEdit *lineEdit_via;
     QFrame *frame_4;
-    QWidget *layoutWidget_2;
-    QHBoxLayout *horizontalLayout;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_18;
     QVBoxLayout *verticalLayout;
     QLabel *label_22;
     QLabel *label_21;
@@ -108,10 +107,15 @@ public:
     QLabel *label_20;
     QLabel *label_23;
     QLabel *label_24;
+    QVBoxLayout *verticalLayout_9;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *lineEdit_adsl;
     QLineEdit *lineEdit_n_adm;
     QLineEdit *lineEdit_ip_cifrado;
+    QFrame *frame_router;
+    QPushButton *pB_router;
+    QVBoxLayout *verticalLayout_8;
     QLineEdit *lineEdit_servicio;
     QLineEdit *lineEdit_caudal;
     QLineEdit *lineEdit_equipamiento;
@@ -144,23 +148,37 @@ public:
     QLineEdit *lineEdit_web;
     QLineEdit *lineEdit_bandera;
     QLineEdit *lineEdit_escudo;
+    QFrame *frame_BanderaEscudos;
+    QLabel *label_escudo;
+    QLabel *label_bandera;
     QFrame *frame_8;
-    QLabel *label_31;
-    QLabel *label_32;
-    QWidget *layoutWidget6;
+    QFrame *frame_11;
+    QPushButton *pB_mapa_2;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_16;
     QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *label_31;
     QLineEdit *lineEdit_habitantes;
+    QVBoxLayout *verticalLayout_11;
+    QLabel *label_32;
     QLineEdit *lineEdit_superficie;
+    QVBoxLayout *verticalLayout_12;
+    QLabel *label_33;
     QLineEdit *lineEdit_altitud;
-    QWidget *layoutWidget7;
-    QGridLayout *gridLayout_2;
-    QLineEdit *lineEdit_longitud_municipio;
-    QLabel *label_37;
+    QHBoxLayout *horizontalLayout_20;
+    QHBoxLayout *horizontalLayout_19;
+    QVBoxLayout *verticalLayout_13;
     QLabel *label_36;
     QLineEdit *lineEdit_latitud_municipio;
-    QLabel *label_33;
+    QVBoxLayout *verticalLayout_14;
+    QLabel *label_37;
+    QLineEdit *lineEdit_longitud_municipio;
+    QVBoxLayout *verticalLayout_15;
+    QPushButton *pB_wikipedia;
+    QPushButton *pB_googleMaps;
     QFrame *frame_9;
-    QWidget *layoutWidget8;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_5;
     QVBoxLayout *verticalLayout_6;
     QPushButton *pB_sede;
@@ -349,9 +367,9 @@ public:
 
         horizontalLayout_15->addWidget(comboBox_CP);
 
-        pb_Edicion = new QPushButton(frame);
-        pb_Edicion->setObjectName(QStringLiteral("pb_Edicion"));
-        pb_Edicion->setGeometry(QRect(1170, 10, 71, 34));
+        pB_Edicion = new QPushButton(frame);
+        pB_Edicion->setObjectName(QStringLiteral("pB_Edicion"));
+        pB_Edicion->setGeometry(QRect(1170, 10, 71, 34));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush);
         QBrush brush7(QColor(0, 170, 127, 255));
@@ -410,10 +428,10 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush7);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        pb_Edicion->setPalette(palette1);
-        pb_Edicion->setFocusPolicy(Qt::NoFocus);
-        pb_Edicion->setCheckable(true);
-        pb_Edicion->setChecked(false);
+        pB_Edicion->setPalette(palette1);
+        pB_Edicion->setFocusPolicy(Qt::NoFocus);
+        pB_Edicion->setCheckable(true);
+        pB_Edicion->setChecked(false);
         frame_3 = new QFrame(Sedes);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 270, 621, 131));
@@ -791,52 +809,55 @@ public:
         frame_4->setPalette(palette4);
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
-        layoutWidget_2 = new QWidget(frame_4);
-        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(10, 10, 601, 196));
-        horizontalLayout = new QHBoxLayout(layoutWidget_2);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        widget = new QWidget(frame_4);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(12, 5, 601, 190));
+        horizontalLayout_18 = new QHBoxLayout(widget);
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
+        horizontalLayout_18->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(0);
+        verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label_22 = new QLabel(layoutWidget_2);
+        label_22 = new QLabel(widget);
         label_22->setObjectName(QStringLiteral("label_22"));
 
         verticalLayout->addWidget(label_22);
 
-        label_21 = new QLabel(layoutWidget_2);
+        label_21 = new QLabel(widget);
         label_21->setObjectName(QStringLiteral("label_21"));
 
         verticalLayout->addWidget(label_21);
 
-        label_19 = new QLabel(layoutWidget_2);
+        label_19 = new QLabel(widget);
         label_19->setObjectName(QStringLiteral("label_19"));
 
         verticalLayout->addWidget(label_19);
 
-        label_20 = new QLabel(layoutWidget_2);
+        label_20 = new QLabel(widget);
         label_20->setObjectName(QStringLiteral("label_20"));
 
         verticalLayout->addWidget(label_20);
 
-        label_23 = new QLabel(layoutWidget_2);
+        label_23 = new QLabel(widget);
         label_23->setObjectName(QStringLiteral("label_23"));
 
         verticalLayout->addWidget(label_23);
 
-        label_24 = new QLabel(layoutWidget_2);
+        label_24 = new QLabel(widget);
         label_24->setObjectName(QStringLiteral("label_24"));
 
         verticalLayout->addWidget(label_24);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        horizontalLayout_18->addLayout(verticalLayout);
 
+        verticalLayout_9 = new QVBoxLayout();
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(0);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        lineEdit_adsl = new QLineEdit(layoutWidget_2);
+        lineEdit_adsl = new QLineEdit(widget);
         lineEdit_adsl->setObjectName(QStringLiteral("lineEdit_adsl"));
         sizePolicy.setHeightForWidth(lineEdit_adsl->sizePolicy().hasHeightForWidth());
         lineEdit_adsl->setSizePolicy(sizePolicy);
@@ -846,7 +867,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_adsl);
 
-        lineEdit_n_adm = new QLineEdit(layoutWidget_2);
+        lineEdit_n_adm = new QLineEdit(widget);
         lineEdit_n_adm->setObjectName(QStringLiteral("lineEdit_n_adm"));
         sizePolicy.setHeightForWidth(lineEdit_n_adm->sizePolicy().hasHeightForWidth());
         lineEdit_n_adm->setSizePolicy(sizePolicy);
@@ -856,7 +877,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_n_adm);
 
-        lineEdit_ip_cifrado = new QLineEdit(layoutWidget_2);
+        lineEdit_ip_cifrado = new QLineEdit(widget);
         lineEdit_ip_cifrado->setObjectName(QStringLiteral("lineEdit_ip_cifrado"));
         sizePolicy.setHeightForWidth(lineEdit_ip_cifrado->sizePolicy().hasHeightForWidth());
         lineEdit_ip_cifrado->setSizePolicy(sizePolicy);
@@ -866,29 +887,51 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_ip_cifrado);
 
-        lineEdit_servicio = new QLineEdit(layoutWidget_2);
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
+        frame_router = new QFrame(widget);
+        frame_router->setObjectName(QStringLiteral("frame_router"));
+        frame_router->setFrameShape(QFrame::StyledPanel);
+        frame_router->setFrameShadow(QFrame::Raised);
+        pB_router = new QPushButton(frame_router);
+        pB_router->setObjectName(QStringLiteral("pB_router"));
+        pB_router->setGeometry(QRect(1, 1, 230, 88));
+        pB_router->setFlat(true);
+
+        horizontalLayout->addWidget(frame_router);
+
+
+        verticalLayout_9->addLayout(horizontalLayout);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        lineEdit_servicio = new QLineEdit(widget);
         lineEdit_servicio->setObjectName(QStringLiteral("lineEdit_servicio"));
         lineEdit_servicio->setMaxLength(64);
         lineEdit_servicio->setReadOnly(true);
 
-        verticalLayout_2->addWidget(lineEdit_servicio);
+        verticalLayout_8->addWidget(lineEdit_servicio);
 
-        lineEdit_caudal = new QLineEdit(layoutWidget_2);
+        lineEdit_caudal = new QLineEdit(widget);
         lineEdit_caudal->setObjectName(QStringLiteral("lineEdit_caudal"));
         lineEdit_caudal->setMaxLength(64);
         lineEdit_caudal->setReadOnly(true);
 
-        verticalLayout_2->addWidget(lineEdit_caudal);
+        verticalLayout_8->addWidget(lineEdit_caudal);
 
-        lineEdit_equipamiento = new QLineEdit(layoutWidget_2);
+        lineEdit_equipamiento = new QLineEdit(widget);
         lineEdit_equipamiento->setObjectName(QStringLiteral("lineEdit_equipamiento"));
         lineEdit_equipamiento->setMaxLength(128);
         lineEdit_equipamiento->setReadOnly(true);
 
-        verticalLayout_2->addWidget(lineEdit_equipamiento);
+        verticalLayout_8->addWidget(lineEdit_equipamiento);
 
 
-        horizontalLayout->addLayout(verticalLayout_2);
+        verticalLayout_9->addLayout(verticalLayout_8);
+
+
+        horizontalLayout_18->addLayout(verticalLayout_9);
 
         frame_5 = new QFrame(Sedes);
         frame_5->setObjectName(QStringLiteral("frame_5"));
@@ -1151,7 +1194,7 @@ public:
         frame_7->setFrameShadow(QFrame::Raised);
         layoutWidget5 = new QWidget(frame_7);
         layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(11, 10, 601, 111));
+        layoutWidget5->setGeometry(QRect(11, 10, 401, 111));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
@@ -1207,22 +1250,22 @@ public:
 
         horizontalLayout_4->addLayout(verticalLayout_5);
 
-        frame_8 = new QFrame(Sedes);
-        frame_8->setObjectName(QStringLiteral("frame_8"));
-        frame_8->setGeometry(QRect(10, 470, 621, 141));
+        frame_BanderaEscudos = new QFrame(frame_7);
+        frame_BanderaEscudos->setObjectName(QStringLiteral("frame_BanderaEscudos"));
+        frame_BanderaEscudos->setGeometry(QRect(419, 10, 191, 111));
         QPalette palette8;
         palette8.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush24(QColor(196, 227, 255, 255));
+        QBrush brush24(QColor(211, 215, 207, 255));
         brush24.setStyle(Qt::SolidPattern);
         palette8.setBrush(QPalette::Active, QPalette::Button, brush24);
         palette8.setBrush(QPalette::Active, QPalette::Light, brush2);
-        QBrush brush25(QColor(225, 241, 255, 255));
+        QBrush brush25(QColor(233, 235, 231, 255));
         brush25.setStyle(Qt::SolidPattern);
         palette8.setBrush(QPalette::Active, QPalette::Midlight, brush25);
-        QBrush brush26(QColor(98, 113, 127, 255));
+        QBrush brush26(QColor(105, 107, 103, 255));
         brush26.setStyle(Qt::SolidPattern);
         palette8.setBrush(QPalette::Active, QPalette::Dark, brush26);
-        QBrush brush27(QColor(131, 151, 170, 255));
+        QBrush brush27(QColor(141, 143, 138, 255));
         brush27.setStyle(Qt::SolidPattern);
         palette8.setBrush(QPalette::Active, QPalette::Mid, brush27);
         palette8.setBrush(QPalette::Active, QPalette::Text, brush);
@@ -1264,22 +1307,102 @@ public:
         palette8.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush24);
         palette8.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
         palette8.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        frame_8->setPalette(palette8);
+        frame_BanderaEscudos->setPalette(palette8);
+        frame_BanderaEscudos->setFrameShape(QFrame::StyledPanel);
+        frame_BanderaEscudos->setFrameShadow(QFrame::Sunken);
+        label_escudo = new QLabel(frame_BanderaEscudos);
+        label_escudo->setObjectName(QStringLiteral("label_escudo"));
+        label_escudo->setGeometry(QRect(10, 10, 51, 91));
+        label_bandera = new QLabel(frame_BanderaEscudos);
+        label_bandera->setObjectName(QStringLiteral("label_bandera"));
+        label_bandera->setGeometry(QRect(80, 10, 101, 91));
+        frame_8 = new QFrame(Sedes);
+        frame_8->setObjectName(QStringLiteral("frame_8"));
+        frame_8->setGeometry(QRect(10, 470, 621, 141));
+        QPalette palette9;
+        palette9.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush28(QColor(196, 227, 255, 255));
+        brush28.setStyle(Qt::SolidPattern);
+        palette9.setBrush(QPalette::Active, QPalette::Button, brush28);
+        palette9.setBrush(QPalette::Active, QPalette::Light, brush2);
+        QBrush brush29(QColor(225, 241, 255, 255));
+        brush29.setStyle(Qt::SolidPattern);
+        palette9.setBrush(QPalette::Active, QPalette::Midlight, brush29);
+        QBrush brush30(QColor(98, 113, 127, 255));
+        brush30.setStyle(Qt::SolidPattern);
+        palette9.setBrush(QPalette::Active, QPalette::Dark, brush30);
+        QBrush brush31(QColor(131, 151, 170, 255));
+        brush31.setStyle(Qt::SolidPattern);
+        palette9.setBrush(QPalette::Active, QPalette::Mid, brush31);
+        palette9.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette9.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        palette9.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette9.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette9.setBrush(QPalette::Active, QPalette::Window, brush28);
+        palette9.setBrush(QPalette::Active, QPalette::Shadow, brush);
+        palette9.setBrush(QPalette::Active, QPalette::AlternateBase, brush29);
+        palette9.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
+        palette9.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::Button, brush28);
+        palette9.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette9.setBrush(QPalette::Inactive, QPalette::Midlight, brush29);
+        palette9.setBrush(QPalette::Inactive, QPalette::Dark, brush30);
+        palette9.setBrush(QPalette::Inactive, QPalette::Mid, brush31);
+        palette9.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette9.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette9.setBrush(QPalette::Inactive, QPalette::Window, brush28);
+        palette9.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
+        palette9.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush29);
+        palette9.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
+        palette9.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
+        palette9.setBrush(QPalette::Disabled, QPalette::WindowText, brush30);
+        palette9.setBrush(QPalette::Disabled, QPalette::Button, brush28);
+        palette9.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette9.setBrush(QPalette::Disabled, QPalette::Midlight, brush29);
+        palette9.setBrush(QPalette::Disabled, QPalette::Dark, brush30);
+        palette9.setBrush(QPalette::Disabled, QPalette::Mid, brush31);
+        palette9.setBrush(QPalette::Disabled, QPalette::Text, brush30);
+        palette9.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette9.setBrush(QPalette::Disabled, QPalette::ButtonText, brush30);
+        palette9.setBrush(QPalette::Disabled, QPalette::Base, brush28);
+        palette9.setBrush(QPalette::Disabled, QPalette::Window, brush28);
+        palette9.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
+        palette9.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush28);
+        palette9.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
+        palette9.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
+        frame_8->setPalette(palette9);
         frame_8->setFrameShape(QFrame::StyledPanel);
         frame_8->setFrameShadow(QFrame::Raised);
-        label_31 = new QLabel(frame_8);
-        label_31->setObjectName(QStringLiteral("label_31"));
-        label_31->setGeometry(QRect(70, 10, 161, 17));
-        label_32 = new QLabel(frame_8);
-        label_32->setObjectName(QStringLiteral("label_32"));
-        label_32->setGeometry(QRect(250, 10, 121, 17));
-        layoutWidget6 = new QWidget(frame_8);
-        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(10, 30, 601, 34));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget6);
+        frame_11 = new QFrame(frame_8);
+        frame_11->setObjectName(QStringLiteral("frame_11"));
+        frame_11->setGeometry(QRect(450, 10, 151, 121));
+        frame_11->setFrameShape(QFrame::StyledPanel);
+        frame_11->setFrameShadow(QFrame::Raised);
+        pB_mapa_2 = new QPushButton(frame_11);
+        pB_mapa_2->setObjectName(QStringLiteral("pB_mapa_2"));
+        pB_mapa_2->setGeometry(QRect(0, 1, 149, 119));
+        pB_mapa_2->setLayoutDirection(Qt::LeftToRight);
+        pB_mapa_2->setIconSize(QSize(120, 100));
+        pB_mapa_2->setFlat(true);
+        widget1 = new QWidget(frame_8);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(11, 11, 431, 120));
+        verticalLayout_16 = new QVBoxLayout(widget1);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        verticalLayout_16->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        lineEdit_habitantes = new QLineEdit(layoutWidget6);
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        label_31 = new QLabel(widget1);
+        label_31->setObjectName(QStringLiteral("label_31"));
+
+        verticalLayout_10->addWidget(label_31);
+
+        lineEdit_habitantes = new QLineEdit(widget1);
         lineEdit_habitantes->setObjectName(QStringLiteral("lineEdit_habitantes"));
         sizePolicy1.setHeightForWidth(lineEdit_habitantes->sizePolicy().hasHeightForWidth());
         lineEdit_habitantes->setSizePolicy(sizePolicy1);
@@ -1288,9 +1411,19 @@ public:
         lineEdit_habitantes->setMaxLength(8);
         lineEdit_habitantes->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        horizontalLayout_3->addWidget(lineEdit_habitantes);
+        verticalLayout_10->addWidget(lineEdit_habitantes);
 
-        lineEdit_superficie = new QLineEdit(layoutWidget6);
+
+        horizontalLayout_3->addLayout(verticalLayout_10);
+
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        label_32 = new QLabel(widget1);
+        label_32->setObjectName(QStringLiteral("label_32"));
+
+        verticalLayout_11->addWidget(label_32);
+
+        lineEdit_superficie = new QLineEdit(widget1);
         lineEdit_superficie->setObjectName(QStringLiteral("lineEdit_superficie"));
         sizePolicy1.setHeightForWidth(lineEdit_superficie->sizePolicy().hasHeightForWidth());
         lineEdit_superficie->setSizePolicy(sizePolicy1);
@@ -1299,9 +1432,19 @@ public:
         lineEdit_superficie->setMaxLength(10);
         lineEdit_superficie->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        horizontalLayout_3->addWidget(lineEdit_superficie);
+        verticalLayout_11->addWidget(lineEdit_superficie);
 
-        lineEdit_altitud = new QLineEdit(layoutWidget6);
+
+        horizontalLayout_3->addLayout(verticalLayout_11);
+
+        verticalLayout_12 = new QVBoxLayout();
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        label_33 = new QLabel(widget1);
+        label_33->setObjectName(QStringLiteral("label_33"));
+
+        verticalLayout_12->addWidget(label_33);
+
+        lineEdit_altitud = new QLineEdit(widget1);
         lineEdit_altitud->setObjectName(QStringLiteral("lineEdit_altitud"));
         sizePolicy1.setHeightForWidth(lineEdit_altitud->sizePolicy().hasHeightForWidth());
         lineEdit_altitud->setSizePolicy(sizePolicy1);
@@ -1311,36 +1454,26 @@ public:
         lineEdit_altitud->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit_altitud->setReadOnly(true);
 
-        horizontalLayout_3->addWidget(lineEdit_altitud);
+        verticalLayout_12->addWidget(lineEdit_altitud);
 
-        layoutWidget7 = new QWidget(frame_8);
-        layoutWidget7->setObjectName(QStringLiteral("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(10, 80, 601, 46));
-        gridLayout_2 = new QGridLayout(layoutWidget7);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        lineEdit_longitud_municipio = new QLineEdit(layoutWidget7);
-        lineEdit_longitud_municipio->setObjectName(QStringLiteral("lineEdit_longitud_municipio"));
-        sizePolicy.setHeightForWidth(lineEdit_longitud_municipio->sizePolicy().hasHeightForWidth());
-        lineEdit_longitud_municipio->setSizePolicy(sizePolicy);
-        lineEdit_longitud_municipio->setMaximumSize(QSize(120, 16777215));
-        lineEdit_longitud_municipio->setMaxLength(12);
-        lineEdit_longitud_municipio->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        lineEdit_longitud_municipio->setReadOnly(true);
 
-        gridLayout_2->addWidget(lineEdit_longitud_municipio, 1, 1, 1, 1);
+        horizontalLayout_3->addLayout(verticalLayout_12);
 
-        label_37 = new QLabel(layoutWidget7);
-        label_37->setObjectName(QStringLiteral("label_37"));
 
-        gridLayout_2->addWidget(label_37, 0, 1, 1, 1);
+        verticalLayout_16->addLayout(horizontalLayout_3);
 
-        label_36 = new QLabel(layoutWidget7);
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        verticalLayout_13 = new QVBoxLayout();
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        label_36 = new QLabel(widget1);
         label_36->setObjectName(QStringLiteral("label_36"));
 
-        gridLayout_2->addWidget(label_36, 0, 0, 1, 1);
+        verticalLayout_13->addWidget(label_36);
 
-        lineEdit_latitud_municipio = new QLineEdit(layoutWidget7);
+        lineEdit_latitud_municipio = new QLineEdit(widget1);
         lineEdit_latitud_municipio->setObjectName(QStringLiteral("lineEdit_latitud_municipio"));
         sizePolicy.setHeightForWidth(lineEdit_latitud_municipio->sizePolicy().hasHeightForWidth());
         lineEdit_latitud_municipio->setSizePolicy(sizePolicy);
@@ -1349,83 +1482,125 @@ public:
         lineEdit_latitud_municipio->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit_latitud_municipio->setReadOnly(true);
 
-        gridLayout_2->addWidget(lineEdit_latitud_municipio, 1, 0, 1, 1);
+        verticalLayout_13->addWidget(lineEdit_latitud_municipio);
 
-        label_33 = new QLabel(frame_8);
-        label_33->setObjectName(QStringLiteral("label_33"));
-        label_33->setGeometry(QRect(430, 10, 121, 20));
+
+        horizontalLayout_19->addLayout(verticalLayout_13);
+
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        label_37 = new QLabel(widget1);
+        label_37->setObjectName(QStringLiteral("label_37"));
+
+        verticalLayout_14->addWidget(label_37);
+
+        lineEdit_longitud_municipio = new QLineEdit(widget1);
+        lineEdit_longitud_municipio->setObjectName(QStringLiteral("lineEdit_longitud_municipio"));
+        sizePolicy.setHeightForWidth(lineEdit_longitud_municipio->sizePolicy().hasHeightForWidth());
+        lineEdit_longitud_municipio->setSizePolicy(sizePolicy);
+        lineEdit_longitud_municipio->setMaximumSize(QSize(120, 16777215));
+        lineEdit_longitud_municipio->setMaxLength(12);
+        lineEdit_longitud_municipio->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit_longitud_municipio->setReadOnly(true);
+
+        verticalLayout_14->addWidget(lineEdit_longitud_municipio);
+
+
+        horizontalLayout_19->addLayout(verticalLayout_14);
+
+
+        horizontalLayout_20->addLayout(horizontalLayout_19);
+
+        verticalLayout_15 = new QVBoxLayout();
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        pB_wikipedia = new QPushButton(widget1);
+        pB_wikipedia->setObjectName(QStringLiteral("pB_wikipedia"));
+
+        verticalLayout_15->addWidget(pB_wikipedia);
+
+        pB_googleMaps = new QPushButton(widget1);
+        pB_googleMaps->setObjectName(QStringLiteral("pB_googleMaps"));
+
+        verticalLayout_15->addWidget(pB_googleMaps);
+
+
+        horizontalLayout_20->addLayout(verticalLayout_15);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_20);
+
         frame_9 = new QFrame(Sedes);
         frame_9->setObjectName(QStringLiteral("frame_9"));
         frame_9->setGeometry(QRect(640, 480, 621, 131));
-        QPalette palette9;
-        palette9.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        palette9.setBrush(QPalette::Active, QPalette::Button, brush1);
-        palette9.setBrush(QPalette::Active, QPalette::Light, brush2);
-        palette9.setBrush(QPalette::Active, QPalette::Midlight, brush3);
-        palette9.setBrush(QPalette::Active, QPalette::Dark, brush4);
-        palette9.setBrush(QPalette::Active, QPalette::Mid, brush5);
-        palette9.setBrush(QPalette::Active, QPalette::Text, brush);
-        palette9.setBrush(QPalette::Active, QPalette::BrightText, brush2);
-        palette9.setBrush(QPalette::Active, QPalette::ButtonText, brush);
-        palette9.setBrush(QPalette::Active, QPalette::Base, brush2);
-        palette9.setBrush(QPalette::Active, QPalette::Window, brush1);
-        palette9.setBrush(QPalette::Active, QPalette::Shadow, brush);
-        palette9.setBrush(QPalette::Active, QPalette::AlternateBase, brush3);
-        palette9.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
-        palette9.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
-        palette9.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
-        palette9.setBrush(QPalette::Inactive, QPalette::Button, brush1);
-        palette9.setBrush(QPalette::Inactive, QPalette::Light, brush2);
-        palette9.setBrush(QPalette::Inactive, QPalette::Midlight, brush3);
-        palette9.setBrush(QPalette::Inactive, QPalette::Dark, brush4);
-        palette9.setBrush(QPalette::Inactive, QPalette::Mid, brush5);
-        palette9.setBrush(QPalette::Inactive, QPalette::Text, brush);
-        palette9.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
-        palette9.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
-        palette9.setBrush(QPalette::Inactive, QPalette::Base, brush2);
-        palette9.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette9.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
-        palette9.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush3);
-        palette9.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
-        palette9.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
-        palette9.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
-        palette9.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        palette9.setBrush(QPalette::Disabled, QPalette::Light, brush2);
-        palette9.setBrush(QPalette::Disabled, QPalette::Midlight, brush3);
-        palette9.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
-        palette9.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
-        palette9.setBrush(QPalette::Disabled, QPalette::Text, brush4);
-        palette9.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
-        palette9.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
-        palette9.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette9.setBrush(QPalette::Disabled, QPalette::Window, brush1);
-        palette9.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
-        palette9.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
-        palette9.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
-        palette9.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        frame_9->setPalette(palette9);
+        QPalette palette10;
+        palette10.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette10.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette10.setBrush(QPalette::Active, QPalette::Light, brush2);
+        palette10.setBrush(QPalette::Active, QPalette::Midlight, brush3);
+        palette10.setBrush(QPalette::Active, QPalette::Dark, brush4);
+        palette10.setBrush(QPalette::Active, QPalette::Mid, brush5);
+        palette10.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette10.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        palette10.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette10.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette10.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette10.setBrush(QPalette::Active, QPalette::Shadow, brush);
+        palette10.setBrush(QPalette::Active, QPalette::AlternateBase, brush3);
+        palette10.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
+        palette10.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
+        palette10.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette10.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette10.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette10.setBrush(QPalette::Inactive, QPalette::Midlight, brush3);
+        palette10.setBrush(QPalette::Inactive, QPalette::Dark, brush4);
+        palette10.setBrush(QPalette::Inactive, QPalette::Mid, brush5);
+        palette10.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette10.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette10.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette10.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette10.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette10.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
+        palette10.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush3);
+        palette10.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
+        palette10.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
+        palette10.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
+        palette10.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette10.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette10.setBrush(QPalette::Disabled, QPalette::Midlight, brush3);
+        palette10.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
+        palette10.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
+        palette10.setBrush(QPalette::Disabled, QPalette::Text, brush4);
+        palette10.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette10.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
+        palette10.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette10.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette10.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
+        palette10.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
+        palette10.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
+        palette10.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
+        frame_9->setPalette(palette10);
         frame_9->setFrameShape(QFrame::StyledPanel);
         frame_9->setFrameShadow(QFrame::Raised);
-        layoutWidget8 = new QWidget(frame_9);
-        layoutWidget8->setObjectName(QStringLiteral("layoutWidget8"));
-        layoutWidget8->setGeometry(QRect(10, 10, 601, 106));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget8);
+        layoutWidget6 = new QWidget(frame_9);
+        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(10, 10, 601, 106));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setSpacing(0);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        pB_sede = new QPushButton(layoutWidget8);
+        pB_sede = new QPushButton(layoutWidget6);
         pB_sede->setObjectName(QStringLiteral("pB_sede"));
 
         verticalLayout_6->addWidget(pB_sede);
 
-        sP_tablon = new QPushButton(layoutWidget8);
+        sP_tablon = new QPushButton(layoutWidget6);
         sP_tablon->setObjectName(QStringLiteral("sP_tablon"));
 
         verticalLayout_6->addWidget(sP_tablon);
 
-        pB_portalTransparencia = new QPushButton(layoutWidget8);
+        pB_portalTransparencia = new QPushButton(layoutWidget6);
         pB_portalTransparencia->setObjectName(QStringLiteral("pB_portalTransparencia"));
 
         verticalLayout_6->addWidget(pB_portalTransparencia);
@@ -1436,7 +1611,7 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        lineEdit_sede = new QLineEdit(layoutWidget8);
+        lineEdit_sede = new QLineEdit(layoutWidget6);
         lineEdit_sede->setObjectName(QStringLiteral("lineEdit_sede"));
         lineEdit_sede->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_sede->setMaxLength(128);
@@ -1444,7 +1619,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_sede);
 
-        lineEdit_tablon = new QLineEdit(layoutWidget8);
+        lineEdit_tablon = new QLineEdit(layoutWidget6);
         lineEdit_tablon->setObjectName(QStringLiteral("lineEdit_tablon"));
         lineEdit_tablon->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_tablon->setMaxLength(256);
@@ -1452,7 +1627,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_tablon);
 
-        lineEdit_portar_transparencia = new QLineEdit(layoutWidget8);
+        lineEdit_portar_transparencia = new QLineEdit(layoutWidget6);
         lineEdit_portar_transparencia->setObjectName(QStringLiteral("lineEdit_portar_transparencia"));
         lineEdit_portar_transparencia->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_portar_transparencia->setMaxLength(256);
@@ -1466,63 +1641,55 @@ public:
         frame_10 = new QFrame(Sedes);
         frame_10->setObjectName(QStringLiteral("frame_10"));
         frame_10->setGeometry(QRect(10, 620, 1251, 281));
-        QPalette palette10;
-        palette10.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush28(QColor(211, 215, 207, 255));
-        brush28.setStyle(Qt::SolidPattern);
-        palette10.setBrush(QPalette::Active, QPalette::Button, brush28);
-        palette10.setBrush(QPalette::Active, QPalette::Light, brush2);
-        QBrush brush29(QColor(233, 235, 231, 255));
-        brush29.setStyle(Qt::SolidPattern);
-        palette10.setBrush(QPalette::Active, QPalette::Midlight, brush29);
-        QBrush brush30(QColor(105, 107, 103, 255));
-        brush30.setStyle(Qt::SolidPattern);
-        palette10.setBrush(QPalette::Active, QPalette::Dark, brush30);
-        QBrush brush31(QColor(141, 143, 138, 255));
-        brush31.setStyle(Qt::SolidPattern);
-        palette10.setBrush(QPalette::Active, QPalette::Mid, brush31);
-        palette10.setBrush(QPalette::Active, QPalette::Text, brush);
-        palette10.setBrush(QPalette::Active, QPalette::BrightText, brush2);
-        palette10.setBrush(QPalette::Active, QPalette::ButtonText, brush);
-        palette10.setBrush(QPalette::Active, QPalette::Base, brush2);
-        palette10.setBrush(QPalette::Active, QPalette::Window, brush28);
-        palette10.setBrush(QPalette::Active, QPalette::Shadow, brush);
-        palette10.setBrush(QPalette::Active, QPalette::AlternateBase, brush29);
-        palette10.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
-        palette10.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
-        palette10.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
-        palette10.setBrush(QPalette::Inactive, QPalette::Button, brush28);
-        palette10.setBrush(QPalette::Inactive, QPalette::Light, brush2);
-        palette10.setBrush(QPalette::Inactive, QPalette::Midlight, brush29);
-        palette10.setBrush(QPalette::Inactive, QPalette::Dark, brush30);
-        palette10.setBrush(QPalette::Inactive, QPalette::Mid, brush31);
-        palette10.setBrush(QPalette::Inactive, QPalette::Text, brush);
-        palette10.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
-        palette10.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
-        palette10.setBrush(QPalette::Inactive, QPalette::Base, brush2);
-        palette10.setBrush(QPalette::Inactive, QPalette::Window, brush28);
-        palette10.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
-        palette10.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush29);
-        palette10.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
-        palette10.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
-        palette10.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
-        palette10.setBrush(QPalette::Disabled, QPalette::Button, brush28);
-        palette10.setBrush(QPalette::Disabled, QPalette::Light, brush2);
-        palette10.setBrush(QPalette::Disabled, QPalette::Midlight, brush29);
-        palette10.setBrush(QPalette::Disabled, QPalette::Dark, brush30);
-        palette10.setBrush(QPalette::Disabled, QPalette::Mid, brush31);
-        palette10.setBrush(QPalette::Disabled, QPalette::Text, brush);
-        palette10.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
-        palette10.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
+        QPalette palette11;
+        palette11.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette11.setBrush(QPalette::Active, QPalette::Button, brush24);
+        palette11.setBrush(QPalette::Active, QPalette::Light, brush2);
+        palette11.setBrush(QPalette::Active, QPalette::Midlight, brush25);
+        palette11.setBrush(QPalette::Active, QPalette::Dark, brush26);
+        palette11.setBrush(QPalette::Active, QPalette::Mid, brush27);
+        palette11.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette11.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        palette11.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette11.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette11.setBrush(QPalette::Active, QPalette::Window, brush24);
+        palette11.setBrush(QPalette::Active, QPalette::Shadow, brush);
+        palette11.setBrush(QPalette::Active, QPalette::AlternateBase, brush25);
+        palette11.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
+        palette11.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::Button, brush24);
+        palette11.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette11.setBrush(QPalette::Inactive, QPalette::Midlight, brush25);
+        palette11.setBrush(QPalette::Inactive, QPalette::Dark, brush26);
+        palette11.setBrush(QPalette::Inactive, QPalette::Mid, brush27);
+        palette11.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette11.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette11.setBrush(QPalette::Inactive, QPalette::Window, brush24);
+        palette11.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
+        palette11.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush25);
+        palette11.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
+        palette11.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
+        palette11.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
+        palette11.setBrush(QPalette::Disabled, QPalette::Button, brush24);
+        palette11.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette11.setBrush(QPalette::Disabled, QPalette::Midlight, brush25);
+        palette11.setBrush(QPalette::Disabled, QPalette::Dark, brush26);
+        palette11.setBrush(QPalette::Disabled, QPalette::Mid, brush27);
+        palette11.setBrush(QPalette::Disabled, QPalette::Text, brush);
+        palette11.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette11.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
         QBrush brush32(QColor(238, 238, 236, 255));
         brush32.setStyle(Qt::SolidPattern);
-        palette10.setBrush(QPalette::Disabled, QPalette::Base, brush32);
-        palette10.setBrush(QPalette::Disabled, QPalette::Window, brush28);
-        palette10.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
-        palette10.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush32);
-        palette10.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
-        palette10.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
-        frame_10->setPalette(palette10);
+        palette11.setBrush(QPalette::Disabled, QPalette::Base, brush32);
+        palette11.setBrush(QPalette::Disabled, QPalette::Window, brush24);
+        palette11.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
+        palette11.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush32);
+        palette11.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
+        palette11.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
+        frame_10->setPalette(palette11);
         frame_10->setFrameShape(QFrame::StyledPanel);
         frame_10->setFrameShadow(QFrame::Raised);
         label_30 = new QLabel(frame_10);
@@ -1726,90 +1893,96 @@ public:
 
     void retranslateUi(QWidget *Sedes)
     {
-        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", 0));
+        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", Q_NULLPTR));
 #ifndef QT_NO_STATUSTIP
         Sedes->setStatusTip(QString());
 #endif // QT_NO_STATUSTIP
-        label_2->setText(QApplication::translate("Sedes", "IP", 0));
-        label->setText(QApplication::translate("Sedes", "Nodo", 0));
-        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", 0));
-        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
-        label_38->setText(QApplication::translate("Sedes", "C.P.", 0));
-        pb_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", 0));
-        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", 0));
-        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", 0));
-        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
-        label_14->setText(QApplication::translate("Sedes", "Fax", 0));
-        label_16->setText(QApplication::translate("Sedes", "Email", 0));
+        label_2->setText(QApplication::translate("Sedes", "IP", Q_NULLPTR));
+        label->setText(QApplication::translate("Sedes", "Nodo", Q_NULLPTR));
+        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", Q_NULLPTR));
+        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
+        label_38->setText(QApplication::translate("Sedes", "C.P.", Q_NULLPTR));
+        pB_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", Q_NULLPTR));
+        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", Q_NULLPTR));
+        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", Q_NULLPTR));
+        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
+        label_14->setText(QApplication::translate("Sedes", "Fax", Q_NULLPTR));
+        label_16->setText(QApplication::translate("Sedes", "Email", Q_NULLPTR));
         lineEdit_extension->setText(QString());
         lineEdit_fax->setText(QString());
-        label_8->setText(QApplication::translate("Sedes", "Piso", 0));
-        label_9->setText(QApplication::translate("Sedes", "C.P.", 0));
-        label_10->setText(QApplication::translate("Sedes", "Municipio", 0));
-        label_17->setText(QApplication::translate("Sedes", "Latitud", 0));
-        label_18->setText(QApplication::translate("Sedes", "Longitud", 0));
-        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", 0));
-        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", 0));
-        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", 0));
-        label_6->setText(QApplication::translate("Sedes", "Letra", 0));
-        label_7->setText(QApplication::translate("Sedes", "Puerta", 0));
-        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", 0));
-        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", 0));
-        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", 0));
-        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", 0));
-        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", 0));
+        label_8->setText(QApplication::translate("Sedes", "Piso", Q_NULLPTR));
+        label_9->setText(QApplication::translate("Sedes", "C.P.", Q_NULLPTR));
+        label_10->setText(QApplication::translate("Sedes", "Municipio", Q_NULLPTR));
+        label_17->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
+        label_18->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", Q_NULLPTR));
+        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", Q_NULLPTR));
+        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", Q_NULLPTR));
+        label_6->setText(QApplication::translate("Sedes", "Letra", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Sedes", "Puerta", Q_NULLPTR));
+        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", Q_NULLPTR));
+        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
+        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", Q_NULLPTR));
         lineEdit_via->setInputMask(QString());
-        label_22->setText(QApplication::translate("Sedes", "Adsl", 0));
-        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", 0));
-        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", 0));
-        label_20->setText(QApplication::translate("Sedes", "Servicio", 0));
-        label_23->setText(QApplication::translate("Sedes", "Caudal", 0));
-        label_24->setText(QApplication::translate("Sedes", "Equipamiento", 0));
-        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", 0));
-        label_26->setText(QApplication::translate("Sedes", "Comarca", 0));
-        label_27->setText(QApplication::translate("Sedes", "CIF", 0));
-        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", 0));
-        label_28->setText(QApplication::translate("Sedes", "DIR3", 0));
-        label_29->setText(QApplication::translate("Sedes", "INE", 0));
-        pB_web->setText(QApplication::translate("Sedes", "web", 0));
-        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", 0));
-        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", 0));
-        label_31->setText(QApplication::translate("Sedes", "N\303\272mero de Habitantes", 0));
-        label_32->setText(QApplication::translate("Sedes", "Superficie (km)", 0));
-        label_37->setText(QApplication::translate("Sedes", "Longitud", 0));
-        label_36->setText(QApplication::translate("Sedes", "Latitud", 0));
-        label_33->setText(QApplication::translate("Sedes", "Altitud (msnm)", 0));
-        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", 0));
-        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", 0));
-        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", 0));
-        label_30->setText(QApplication::translate("Sedes", "N\302\272", 0));
-        label_41->setText(QApplication::translate("Sedes", "Programa", 0));
-        label_46->setText(QApplication::translate("Sedes", "165", 0));
-        label_47->setText(QApplication::translate("Sedes", "166", 0));
-        label_48->setText(QApplication::translate("Sedes", "167", 0));
-        label_49->setText(QApplication::translate("Sedes", "168", 0));
-        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", 0));
-        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", 0));
-        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", 0));
-        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", 0));
-        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", 0));
-        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", 0));
-        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", 0));
-        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", 0));
-        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", 0));
-        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", 0));
-        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", 0));
-        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", 0));
-        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", 0));
-        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", 0));
-        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", 0));
-        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", 0));
-        label_44->setText(QApplication::translate("Sedes", "A\303\261o", 0));
+        label_22->setText(QApplication::translate("Sedes", "Adsl", Q_NULLPTR));
+        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", Q_NULLPTR));
+        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", Q_NULLPTR));
+        label_20->setText(QApplication::translate("Sedes", "Servicio", Q_NULLPTR));
+        label_23->setText(QApplication::translate("Sedes", "Caudal", Q_NULLPTR));
+        label_24->setText(QApplication::translate("Sedes", "Equipamiento", Q_NULLPTR));
+        pB_router->setText(QString());
+        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", Q_NULLPTR));
+        label_26->setText(QApplication::translate("Sedes", "Comarca", Q_NULLPTR));
+        label_27->setText(QApplication::translate("Sedes", "CIF", Q_NULLPTR));
+        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", Q_NULLPTR));
+        label_28->setText(QApplication::translate("Sedes", "DIR3", Q_NULLPTR));
+        label_29->setText(QApplication::translate("Sedes", "INE", Q_NULLPTR));
+        pB_web->setText(QApplication::translate("Sedes", "web", Q_NULLPTR));
+        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", Q_NULLPTR));
+        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", Q_NULLPTR));
+        label_escudo->setText(QString());
+        label_bandera->setText(QString());
+        pB_mapa_2->setText(QString());
+        label_31->setText(QApplication::translate("Sedes", "Habitantes", Q_NULLPTR));
+        label_32->setText(QApplication::translate("Sedes", "Superficie (km)", Q_NULLPTR));
+        label_33->setText(QApplication::translate("Sedes", " Altitud", Q_NULLPTR));
+        label_36->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
+        label_37->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
+        pB_wikipedia->setText(QApplication::translate("Sedes", "Wikipedia", Q_NULLPTR));
+        pB_googleMaps->setText(QApplication::translate("Sedes", "Google Maps", Q_NULLPTR));
+        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", Q_NULLPTR));
+        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", Q_NULLPTR));
+        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", Q_NULLPTR));
+        label_30->setText(QApplication::translate("Sedes", "N\302\272", Q_NULLPTR));
+        label_41->setText(QApplication::translate("Sedes", "Programa", Q_NULLPTR));
+        label_46->setText(QApplication::translate("Sedes", "165", Q_NULLPTR));
+        label_47->setText(QApplication::translate("Sedes", "166", Q_NULLPTR));
+        label_48->setText(QApplication::translate("Sedes", "167", Q_NULLPTR));
+        label_49->setText(QApplication::translate("Sedes", "168", Q_NULLPTR));
+        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", Q_NULLPTR));
+        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", Q_NULLPTR));
+        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", Q_NULLPTR));
+        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", Q_NULLPTR));
+        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", Q_NULLPTR));
+        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", Q_NULLPTR));
+        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", Q_NULLPTR));
+        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", Q_NULLPTR));
+        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", Q_NULLPTR));
+        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", Q_NULLPTR));
+        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", Q_NULLPTR));
+        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", Q_NULLPTR));
+        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", Q_NULLPTR));
+        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", Q_NULLPTR));
+        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", Q_NULLPTR));
+        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", Q_NULLPTR));
+        label_44->setText(QApplication::translate("Sedes", "A\303\261o", Q_NULLPTR));
         comboBox_anio->clear();
         comboBox_anio->insertItems(0, QStringList()
-         << QApplication::translate("Sedes", "16/17", 0)
-         << QApplication::translate("Sedes", "18/19", 0)
-         << QApplication::translate("Sedes", "20/21", 0)
+         << QApplication::translate("Sedes", "16/17", Q_NULLPTR)
+         << QApplication::translate("Sedes", "18/19", Q_NULLPTR)
+         << QApplication::translate("Sedes", "20/21", Q_NULLPTR)
         );
     } // retranslateUi
 
