@@ -54,7 +54,7 @@ private slots:
 
     void on_Btn_Atalaya_clicked();
 
-    void replyFinished(QNetworkReply*);
+   void resultado_html(QNetworkReply* p);
 
 private:
     Ui::Soporte *ui;

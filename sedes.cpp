@@ -387,7 +387,7 @@ void Sedes::consultaNodo(const QString &nombre){
                     QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error consultando email: \n"+consultar_email.lastError().text(),QMessageBox::Ok);
                 }
     }else{
-        QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error en la consulta: \n"+consultar.lastError().text(),QMessageBox::Ok);
+        QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error en la consulta: \n"+consultar_nodo.lastError().text(),QMessageBox::Ok);
     }
 }
 

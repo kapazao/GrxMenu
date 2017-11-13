@@ -227,31 +227,44 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 
 void Soporte::on_Btn_Atalaya_clicked()
 {
-    //QByteArray data=new QByteArray();
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(replyFinished(QNetworkReply*)));
+    QByteArray postData;
+    QNetworkAccessManager *manager = new QNetworkAccessManager;
+    QString postUsuario = "pma_username";
+    QString postValueUsuario = "root";
+    QString postKeyPassword = "pma_password";
+    QString postValuePassword = "Bo3d90";
 
-    manager->post(QNetworkRequest(QUrl("http://atalaya.grx")), "data");
+    postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
+    postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
+    connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(resultado_html(QNetworkReply*)));
 
-    /*
+    manager->post(QNetworkRequest(QUrl("http://localhost/phpmyadmin")), postData);
 
+
+/*
     QUrl url;
     QByteArray postData;
     QNetworkAccessManager *networkManager = new QNetworkAccessManager;
-    url.setUrl("http://atalaya.grx");
+    url.setUrl("http://localhost/phpmyadmin");
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-    QString postUsuario = "username";
-    QString postValueUsuario = "municipios";
-    QString postKeyPassword = "password";
-    QString postValuePassword = "CasaCuna";
+    QString postUsuario = "pma_username";
+    QString postValueUsuario = "root";
+    QString postKeyPassword = "pma_password";
+    QString postValuePassword = "Bo3d90";
 
     postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
     postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
 
-    networkManager->post(request,postData);
-*/
+
+    QEventLoop eLoop;
+    QNetworkReply* pReply = networkManager->post(request,postData);
+    QObject::connect( pReply, SIGNAL(finished()), this, SLOT(quit()) );
+    eLoop.exec( QEventLoop::ExcludeUserInputEvents );
+    */
 }
-void Soporte::replyFinished(QNetworkReply* m){
-   qDebug()<<m;
+
+void Soporte::resultado_html(QNetworkReply* p){
+    qDebug()<< p;
 }
+

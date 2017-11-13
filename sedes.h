@@ -195,7 +195,7 @@ private slots:
 private:
     Ui::Sedes *ui;
     //QSqlDatabase db;
-    QSqlQuery consultar;
+    //QSqlQuery consultar;
     QString municipioID;
 };
 
