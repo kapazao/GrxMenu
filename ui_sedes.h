@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sedes.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.6.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -88,17 +88,19 @@ public:
     QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_9;
     QLineEdit *lineEdit_numero;
-    QLineEdit *lineEdit_puerta;
-    QLineEdit *lineEdit_piso;
     QLineEdit *lineEdit_letra;
+    QLineEdit *lineEdit_escalera;
+    QLineEdit *lineEdit_piso;
+    QLineEdit *lineEdit_puerta;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_10;
     QLineEdit *lineEdit_direccion;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_11;
     QLineEdit *lineEdit_via;
+    QLabel *label_15;
     QFrame *frame_4;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_18;
     QVBoxLayout *verticalLayout;
     QLabel *label_22;
@@ -122,12 +124,12 @@ public:
     QFrame *frame_5;
     QLabel *label_25;
     QLabel *label_26;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_2;
     QComboBox *comboBox_mancomunidad;
     QComboBox *comboBox_comarca;
     QFrame *frame_6;
-    QWidget *layoutWidget4;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_27;
     QLineEdit *lineEdit_cif;
@@ -138,7 +140,7 @@ public:
     QLabel *label_29;
     QLineEdit *lineEdit_ine;
     QFrame *frame_7;
-    QWidget *layoutWidget5;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QPushButton *pB_web;
@@ -154,7 +156,7 @@ public:
     QFrame *frame_8;
     QFrame *frame_11;
     QPushButton *pB_mapa_2;
-    QWidget *widget1;
+    QWidget *layoutWidget7;
     QVBoxLayout *verticalLayout_16;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_10;
@@ -178,7 +180,7 @@ public:
     QPushButton *pB_wikipedia;
     QPushButton *pB_googleMaps;
     QFrame *frame_9;
-    QWidget *layoutWidget6;
+    QWidget *layoutWidget8;
     QHBoxLayout *horizontalLayout_5;
     QVBoxLayout *verticalLayout_6;
     QPushButton *pB_sede;
@@ -327,6 +329,7 @@ public:
         horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
         comboBox_IP = new QComboBox(horizontalLayoutWidget_4);
         comboBox_IP->setObjectName(QStringLiteral("comboBox_IP"));
+        comboBox_IP->setLayoutDirection(Qt::LeftToRight);
         comboBox_IP->setEditable(true);
 
         horizontalLayout_13->addWidget(comboBox_IP);
@@ -568,7 +571,7 @@ public:
 
         frame_2 = new QFrame(Sedes);
         frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(10, 80, 621, 191));
+        frame_2->setGeometry(QRect(10, 70, 621, 191));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush1);
@@ -620,7 +623,7 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         label_8 = new QLabel(frame_2);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(314, 70, 29, 17));
+        label_8->setGeometry(QRect(380, 70, 29, 17));
         label_9 = new QLabel(frame_2);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(10, 130, 56, 17));
@@ -644,10 +647,10 @@ public:
         label_4->setGeometry(QRect(10, 70, 56, 17));
         label_6 = new QLabel(frame_2);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(466, 70, 36, 17));
+        label_6->setGeometry(QRect(140, 70, 36, 17));
         label_7 = new QLabel(frame_2);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(162, 70, 46, 17));
+        label_7->setGeometry(QRect(500, 70, 46, 17));
         layoutWidget1 = new QWidget(frame_2);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(10, 150, 604, 34));
@@ -693,24 +696,11 @@ public:
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
         lineEdit_numero = new QLineEdit(layoutWidget2);
         lineEdit_numero->setObjectName(QStringLiteral("lineEdit_numero"));
+        lineEdit_numero->setMaxLength(3);
         lineEdit_numero->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit_numero->setReadOnly(true);
 
         horizontalLayout_9->addWidget(lineEdit_numero);
-
-        lineEdit_puerta = new QLineEdit(layoutWidget2);
-        lineEdit_puerta->setObjectName(QStringLiteral("lineEdit_puerta"));
-        lineEdit_puerta->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        lineEdit_puerta->setReadOnly(true);
-
-        horizontalLayout_9->addWidget(lineEdit_puerta);
-
-        lineEdit_piso = new QLineEdit(layoutWidget2);
-        lineEdit_piso->setObjectName(QStringLiteral("lineEdit_piso"));
-        lineEdit_piso->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        lineEdit_piso->setReadOnly(true);
-
-        horizontalLayout_9->addWidget(lineEdit_piso);
 
         lineEdit_letra = new QLineEdit(layoutWidget2);
         lineEdit_letra->setObjectName(QStringLiteral("lineEdit_letra"));
@@ -718,6 +708,29 @@ public:
         lineEdit_letra->setReadOnly(true);
 
         horizontalLayout_9->addWidget(lineEdit_letra);
+
+        lineEdit_escalera = new QLineEdit(layoutWidget2);
+        lineEdit_escalera->setObjectName(QStringLiteral("lineEdit_escalera"));
+        lineEdit_escalera->setMaxLength(3);
+        lineEdit_escalera->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_9->addWidget(lineEdit_escalera);
+
+        lineEdit_piso = new QLineEdit(layoutWidget2);
+        lineEdit_piso->setObjectName(QStringLiteral("lineEdit_piso"));
+        lineEdit_piso->setMaxLength(3);
+        lineEdit_piso->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit_piso->setReadOnly(true);
+
+        horizontalLayout_9->addWidget(lineEdit_piso);
+
+        lineEdit_puerta = new QLineEdit(layoutWidget2);
+        lineEdit_puerta->setObjectName(QStringLiteral("lineEdit_puerta"));
+        lineEdit_puerta->setMaxLength(3);
+        lineEdit_puerta->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit_puerta->setReadOnly(true);
+
+        horizontalLayout_9->addWidget(lineEdit_puerta);
 
         horizontalLayoutWidget = new QWidget(frame_2);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
@@ -745,6 +758,9 @@ public:
 
         horizontalLayout_11->addWidget(lineEdit_via);
 
+        label_15 = new QLabel(frame_2);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(260, 70, 59, 14));
         frame_4 = new QFrame(Sedes);
         frame_4->setObjectName(QStringLiteral("frame_4"));
         frame_4->setGeometry(QRect(640, 80, 621, 211));
@@ -809,41 +825,41 @@ public:
         frame_4->setPalette(palette4);
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
-        widget = new QWidget(frame_4);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(12, 5, 601, 190));
-        horizontalLayout_18 = new QHBoxLayout(widget);
+        layoutWidget3 = new QWidget(frame_4);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(12, 5, 601, 190));
+        horizontalLayout_18 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
         horizontalLayout_18->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label_22 = new QLabel(widget);
+        label_22 = new QLabel(layoutWidget3);
         label_22->setObjectName(QStringLiteral("label_22"));
 
         verticalLayout->addWidget(label_22);
 
-        label_21 = new QLabel(widget);
+        label_21 = new QLabel(layoutWidget3);
         label_21->setObjectName(QStringLiteral("label_21"));
 
         verticalLayout->addWidget(label_21);
 
-        label_19 = new QLabel(widget);
+        label_19 = new QLabel(layoutWidget3);
         label_19->setObjectName(QStringLiteral("label_19"));
 
         verticalLayout->addWidget(label_19);
 
-        label_20 = new QLabel(widget);
+        label_20 = new QLabel(layoutWidget3);
         label_20->setObjectName(QStringLiteral("label_20"));
 
         verticalLayout->addWidget(label_20);
 
-        label_23 = new QLabel(widget);
+        label_23 = new QLabel(layoutWidget3);
         label_23->setObjectName(QStringLiteral("label_23"));
 
         verticalLayout->addWidget(label_23);
 
-        label_24 = new QLabel(widget);
+        label_24 = new QLabel(layoutWidget3);
         label_24->setObjectName(QStringLiteral("label_24"));
 
         verticalLayout->addWidget(label_24);
@@ -857,7 +873,7 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        lineEdit_adsl = new QLineEdit(widget);
+        lineEdit_adsl = new QLineEdit(layoutWidget3);
         lineEdit_adsl->setObjectName(QStringLiteral("lineEdit_adsl"));
         sizePolicy.setHeightForWidth(lineEdit_adsl->sizePolicy().hasHeightForWidth());
         lineEdit_adsl->setSizePolicy(sizePolicy);
@@ -867,7 +883,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_adsl);
 
-        lineEdit_n_adm = new QLineEdit(widget);
+        lineEdit_n_adm = new QLineEdit(layoutWidget3);
         lineEdit_n_adm->setObjectName(QStringLiteral("lineEdit_n_adm"));
         sizePolicy.setHeightForWidth(lineEdit_n_adm->sizePolicy().hasHeightForWidth());
         lineEdit_n_adm->setSizePolicy(sizePolicy);
@@ -877,7 +893,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_n_adm);
 
-        lineEdit_ip_cifrado = new QLineEdit(widget);
+        lineEdit_ip_cifrado = new QLineEdit(layoutWidget3);
         lineEdit_ip_cifrado->setObjectName(QStringLiteral("lineEdit_ip_cifrado"));
         sizePolicy.setHeightForWidth(lineEdit_ip_cifrado->sizePolicy().hasHeightForWidth());
         lineEdit_ip_cifrado->setSizePolicy(sizePolicy);
@@ -890,13 +906,13 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_2);
 
-        frame_router = new QFrame(widget);
+        frame_router = new QFrame(layoutWidget3);
         frame_router->setObjectName(QStringLiteral("frame_router"));
         frame_router->setFrameShape(QFrame::StyledPanel);
         frame_router->setFrameShadow(QFrame::Raised);
         pB_router = new QPushButton(frame_router);
         pB_router->setObjectName(QStringLiteral("pB_router"));
-        pB_router->setGeometry(QRect(1, 1, 230, 88));
+        pB_router->setGeometry(QRect(2, 2, 230, 88));
         pB_router->setFlat(true);
 
         horizontalLayout->addWidget(frame_router);
@@ -906,21 +922,21 @@ public:
 
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        lineEdit_servicio = new QLineEdit(widget);
+        lineEdit_servicio = new QLineEdit(layoutWidget3);
         lineEdit_servicio->setObjectName(QStringLiteral("lineEdit_servicio"));
         lineEdit_servicio->setMaxLength(64);
         lineEdit_servicio->setReadOnly(true);
 
         verticalLayout_8->addWidget(lineEdit_servicio);
 
-        lineEdit_caudal = new QLineEdit(widget);
+        lineEdit_caudal = new QLineEdit(layoutWidget3);
         lineEdit_caudal->setObjectName(QStringLiteral("lineEdit_caudal"));
         lineEdit_caudal->setMaxLength(64);
         lineEdit_caudal->setReadOnly(true);
 
         verticalLayout_8->addWidget(lineEdit_caudal);
 
-        lineEdit_equipamiento = new QLineEdit(widget);
+        lineEdit_equipamiento = new QLineEdit(layoutWidget3);
         lineEdit_equipamiento->setObjectName(QStringLiteral("lineEdit_equipamiento"));
         lineEdit_equipamiento->setMaxLength(128);
         lineEdit_equipamiento->setReadOnly(true);
@@ -1001,18 +1017,18 @@ public:
         label_26 = new QLabel(frame_5);
         label_26->setObjectName(QStringLiteral("label_26"));
         label_26->setGeometry(QRect(320, 10, 151, 17));
-        layoutWidget3 = new QWidget(frame_5);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(10, 30, 601, 34));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget3);
+        layoutWidget4 = new QWidget(frame_5);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(10, 30, 601, 34));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        comboBox_mancomunidad = new QComboBox(layoutWidget3);
+        comboBox_mancomunidad = new QComboBox(layoutWidget4);
         comboBox_mancomunidad->setObjectName(QStringLiteral("comboBox_mancomunidad"));
 
         horizontalLayout_2->addWidget(comboBox_mancomunidad);
 
-        comboBox_comarca = new QComboBox(layoutWidget3);
+        comboBox_comarca = new QComboBox(layoutWidget4);
         comboBox_comarca->setObjectName(QStringLiteral("comboBox_comarca"));
 
         horizontalLayout_2->addWidget(comboBox_comarca);
@@ -1069,19 +1085,19 @@ public:
         frame_6->setPalette(palette6);
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
-        layoutWidget4 = new QWidget(frame_6);
-        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 20, 601, 34));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget4);
+        layoutWidget5 = new QWidget(frame_6);
+        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(10, 20, 601, 34));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_27 = new QLabel(layoutWidget4);
+        label_27 = new QLabel(layoutWidget5);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_27);
 
-        lineEdit_cif = new QLineEdit(layoutWidget4);
+        lineEdit_cif = new QLineEdit(layoutWidget5);
         lineEdit_cif->setObjectName(QStringLiteral("lineEdit_cif"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
@@ -1093,20 +1109,20 @@ public:
 
         horizontalLayout_7->addWidget(lineEdit_cif);
 
-        line_2 = new QFrame(layoutWidget4);
+        line_2 = new QFrame(layoutWidget5);
         line_2->setObjectName(QStringLiteral("line_2"));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_7->addWidget(line_2);
 
-        label_28 = new QLabel(layoutWidget4);
+        label_28 = new QLabel(layoutWidget5);
         label_28->setObjectName(QStringLiteral("label_28"));
         label_28->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_28);
 
-        lineEdit_dir3 = new QLineEdit(layoutWidget4);
+        lineEdit_dir3 = new QLineEdit(layoutWidget5);
         lineEdit_dir3->setObjectName(QStringLiteral("lineEdit_dir3"));
         sizePolicy.setHeightForWidth(lineEdit_dir3->sizePolicy().hasHeightForWidth());
         lineEdit_dir3->setSizePolicy(sizePolicy);
@@ -1116,26 +1132,27 @@ public:
 
         horizontalLayout_7->addWidget(lineEdit_dir3);
 
-        line_3 = new QFrame(layoutWidget4);
+        line_3 = new QFrame(layoutWidget5);
         line_3->setObjectName(QStringLiteral("line_3"));
         line_3->setFrameShape(QFrame::VLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_7->addWidget(line_3);
 
-        label_29 = new QLabel(layoutWidget4);
+        label_29 = new QLabel(layoutWidget5);
         label_29->setObjectName(QStringLiteral("label_29"));
         label_29->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_29);
 
-        lineEdit_ine = new QLineEdit(layoutWidget4);
+        lineEdit_ine = new QLineEdit(layoutWidget5);
         lineEdit_ine->setObjectName(QStringLiteral("lineEdit_ine"));
         sizePolicy.setHeightForWidth(lineEdit_ine->sizePolicy().hasHeightForWidth());
         lineEdit_ine->setSizePolicy(sizePolicy);
         lineEdit_ine->setMaximumSize(QSize(128, 16777215));
         lineEdit_ine->setInputMethodHints(Qt::ImhDigitsOnly);
         lineEdit_ine->setMaxLength(6);
+        lineEdit_ine->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit_ine->setReadOnly(true);
 
         horizontalLayout_7->addWidget(lineEdit_ine);
@@ -1192,27 +1209,27 @@ public:
         frame_7->setPalette(palette7);
         frame_7->setFrameShape(QFrame::StyledPanel);
         frame_7->setFrameShadow(QFrame::Raised);
-        layoutWidget5 = new QWidget(frame_7);
-        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(11, 10, 401, 111));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget5);
+        layoutWidget6 = new QWidget(frame_7);
+        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(11, 10, 401, 111));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(0);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        pB_web = new QPushButton(layoutWidget5);
+        pB_web = new QPushButton(layoutWidget6);
         pB_web->setObjectName(QStringLiteral("pB_web"));
 
         verticalLayout_3->addWidget(pB_web);
 
-        pB_bandera = new QPushButton(layoutWidget5);
+        pB_bandera = new QPushButton(layoutWidget6);
         pB_bandera->setObjectName(QStringLiteral("pB_bandera"));
 
         verticalLayout_3->addWidget(pB_bandera);
 
-        pB_escudo = new QPushButton(layoutWidget5);
+        pB_escudo = new QPushButton(layoutWidget6);
         pB_escudo->setObjectName(QStringLiteral("pB_escudo"));
 
         verticalLayout_3->addWidget(pB_escudo);
@@ -1223,7 +1240,7 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(0);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        lineEdit_web = new QLineEdit(layoutWidget5);
+        lineEdit_web = new QLineEdit(layoutWidget6);
         lineEdit_web->setObjectName(QStringLiteral("lineEdit_web"));
         lineEdit_web->setEnabled(true);
         lineEdit_web->setInputMethodHints(Qt::ImhUrlCharactersOnly);
@@ -1231,7 +1248,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_web);
 
-        lineEdit_bandera = new QLineEdit(layoutWidget5);
+        lineEdit_bandera = new QLineEdit(layoutWidget6);
         lineEdit_bandera->setObjectName(QStringLiteral("lineEdit_bandera"));
         lineEdit_bandera->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_bandera->setMaxLength(256);
@@ -1239,7 +1256,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_bandera);
 
-        lineEdit_escudo = new QLineEdit(layoutWidget5);
+        lineEdit_escudo = new QLineEdit(layoutWidget6);
         lineEdit_escudo->setObjectName(QStringLiteral("lineEdit_escudo"));
         lineEdit_escudo->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_escudo->setMaxLength(256);
@@ -1383,26 +1400,26 @@ public:
         frame_11->setFrameShadow(QFrame::Raised);
         pB_mapa_2 = new QPushButton(frame_11);
         pB_mapa_2->setObjectName(QStringLiteral("pB_mapa_2"));
-        pB_mapa_2->setGeometry(QRect(0, 1, 149, 119));
+        pB_mapa_2->setGeometry(QRect(0, 3, 149, 119));
         pB_mapa_2->setLayoutDirection(Qt::LeftToRight);
         pB_mapa_2->setIconSize(QSize(120, 100));
         pB_mapa_2->setFlat(true);
-        widget1 = new QWidget(frame_8);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(11, 11, 431, 120));
-        verticalLayout_16 = new QVBoxLayout(widget1);
+        layoutWidget7 = new QWidget(frame_8);
+        layoutWidget7->setObjectName(QStringLiteral("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(11, 11, 431, 120));
+        verticalLayout_16 = new QVBoxLayout(layoutWidget7);
         verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
         verticalLayout_16->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        label_31 = new QLabel(widget1);
+        label_31 = new QLabel(layoutWidget7);
         label_31->setObjectName(QStringLiteral("label_31"));
 
         verticalLayout_10->addWidget(label_31);
 
-        lineEdit_habitantes = new QLineEdit(widget1);
+        lineEdit_habitantes = new QLineEdit(layoutWidget7);
         lineEdit_habitantes->setObjectName(QStringLiteral("lineEdit_habitantes"));
         sizePolicy1.setHeightForWidth(lineEdit_habitantes->sizePolicy().hasHeightForWidth());
         lineEdit_habitantes->setSizePolicy(sizePolicy1);
@@ -1418,12 +1435,12 @@ public:
 
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        label_32 = new QLabel(widget1);
+        label_32 = new QLabel(layoutWidget7);
         label_32->setObjectName(QStringLiteral("label_32"));
 
         verticalLayout_11->addWidget(label_32);
 
-        lineEdit_superficie = new QLineEdit(widget1);
+        lineEdit_superficie = new QLineEdit(layoutWidget7);
         lineEdit_superficie->setObjectName(QStringLiteral("lineEdit_superficie"));
         sizePolicy1.setHeightForWidth(lineEdit_superficie->sizePolicy().hasHeightForWidth());
         lineEdit_superficie->setSizePolicy(sizePolicy1);
@@ -1439,12 +1456,12 @@ public:
 
         verticalLayout_12 = new QVBoxLayout();
         verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        label_33 = new QLabel(widget1);
+        label_33 = new QLabel(layoutWidget7);
         label_33->setObjectName(QStringLiteral("label_33"));
 
         verticalLayout_12->addWidget(label_33);
 
-        lineEdit_altitud = new QLineEdit(widget1);
+        lineEdit_altitud = new QLineEdit(layoutWidget7);
         lineEdit_altitud->setObjectName(QStringLiteral("lineEdit_altitud"));
         sizePolicy1.setHeightForWidth(lineEdit_altitud->sizePolicy().hasHeightForWidth());
         lineEdit_altitud->setSizePolicy(sizePolicy1);
@@ -1468,12 +1485,12 @@ public:
         horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
         verticalLayout_13 = new QVBoxLayout();
         verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
-        label_36 = new QLabel(widget1);
+        label_36 = new QLabel(layoutWidget7);
         label_36->setObjectName(QStringLiteral("label_36"));
 
         verticalLayout_13->addWidget(label_36);
 
-        lineEdit_latitud_municipio = new QLineEdit(widget1);
+        lineEdit_latitud_municipio = new QLineEdit(layoutWidget7);
         lineEdit_latitud_municipio->setObjectName(QStringLiteral("lineEdit_latitud_municipio"));
         sizePolicy.setHeightForWidth(lineEdit_latitud_municipio->sizePolicy().hasHeightForWidth());
         lineEdit_latitud_municipio->setSizePolicy(sizePolicy);
@@ -1489,12 +1506,12 @@ public:
 
         verticalLayout_14 = new QVBoxLayout();
         verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        label_37 = new QLabel(widget1);
+        label_37 = new QLabel(layoutWidget7);
         label_37->setObjectName(QStringLiteral("label_37"));
 
         verticalLayout_14->addWidget(label_37);
 
-        lineEdit_longitud_municipio = new QLineEdit(widget1);
+        lineEdit_longitud_municipio = new QLineEdit(layoutWidget7);
         lineEdit_longitud_municipio->setObjectName(QStringLiteral("lineEdit_longitud_municipio"));
         sizePolicy.setHeightForWidth(lineEdit_longitud_municipio->sizePolicy().hasHeightForWidth());
         lineEdit_longitud_municipio->setSizePolicy(sizePolicy);
@@ -1513,12 +1530,12 @@ public:
 
         verticalLayout_15 = new QVBoxLayout();
         verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        pB_wikipedia = new QPushButton(widget1);
+        pB_wikipedia = new QPushButton(layoutWidget7);
         pB_wikipedia->setObjectName(QStringLiteral("pB_wikipedia"));
 
         verticalLayout_15->addWidget(pB_wikipedia);
 
-        pB_googleMaps = new QPushButton(widget1);
+        pB_googleMaps = new QPushButton(layoutWidget7);
         pB_googleMaps->setObjectName(QStringLiteral("pB_googleMaps"));
 
         verticalLayout_15->addWidget(pB_googleMaps);
@@ -1581,26 +1598,26 @@ public:
         frame_9->setPalette(palette10);
         frame_9->setFrameShape(QFrame::StyledPanel);
         frame_9->setFrameShadow(QFrame::Raised);
-        layoutWidget6 = new QWidget(frame_9);
-        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(10, 10, 601, 106));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget6);
+        layoutWidget8 = new QWidget(frame_9);
+        layoutWidget8->setObjectName(QStringLiteral("layoutWidget8"));
+        layoutWidget8->setGeometry(QRect(10, 10, 601, 106));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget8);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setSpacing(0);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        pB_sede = new QPushButton(layoutWidget6);
+        pB_sede = new QPushButton(layoutWidget8);
         pB_sede->setObjectName(QStringLiteral("pB_sede"));
 
         verticalLayout_6->addWidget(pB_sede);
 
-        sP_tablon = new QPushButton(layoutWidget6);
+        sP_tablon = new QPushButton(layoutWidget8);
         sP_tablon->setObjectName(QStringLiteral("sP_tablon"));
 
         verticalLayout_6->addWidget(sP_tablon);
 
-        pB_portalTransparencia = new QPushButton(layoutWidget6);
+        pB_portalTransparencia = new QPushButton(layoutWidget8);
         pB_portalTransparencia->setObjectName(QStringLiteral("pB_portalTransparencia"));
 
         verticalLayout_6->addWidget(pB_portalTransparencia);
@@ -1611,7 +1628,7 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        lineEdit_sede = new QLineEdit(layoutWidget6);
+        lineEdit_sede = new QLineEdit(layoutWidget8);
         lineEdit_sede->setObjectName(QStringLiteral("lineEdit_sede"));
         lineEdit_sede->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_sede->setMaxLength(128);
@@ -1619,7 +1636,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_sede);
 
-        lineEdit_tablon = new QLineEdit(layoutWidget6);
+        lineEdit_tablon = new QLineEdit(layoutWidget8);
         lineEdit_tablon->setObjectName(QStringLiteral("lineEdit_tablon"));
         lineEdit_tablon->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_tablon->setMaxLength(256);
@@ -1627,7 +1644,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_tablon);
 
-        lineEdit_portar_transparencia = new QLineEdit(layoutWidget6);
+        lineEdit_portar_transparencia = new QLineEdit(layoutWidget8);
         lineEdit_portar_transparencia->setObjectName(QStringLiteral("lineEdit_portar_transparencia"));
         lineEdit_portar_transparencia->setInputMethodHints(Qt::ImhUrlCharactersOnly);
         lineEdit_portar_transparencia->setMaxLength(256);
@@ -1840,10 +1857,7 @@ public:
         QWidget::setTabOrder(comboBox_IP, comboBox_extension);
         QWidget::setTabOrder(comboBox_extension, lineEdit_via);
         QWidget::setTabOrder(lineEdit_via, lineEdit_numero);
-        QWidget::setTabOrder(lineEdit_numero, lineEdit_puerta);
-        QWidget::setTabOrder(lineEdit_puerta, lineEdit_piso);
-        QWidget::setTabOrder(lineEdit_piso, lineEdit_letra);
-        QWidget::setTabOrder(lineEdit_letra, lineEdit_cp);
+        QWidget::setTabOrder(lineEdit_numero, lineEdit_cp);
         QWidget::setTabOrder(lineEdit_cp, lineEdit_municipio);
         QWidget::setTabOrder(lineEdit_municipio, lineEdit_latitud);
         QWidget::setTabOrder(lineEdit_latitud, lineEdit_longitud);
@@ -1893,96 +1907,97 @@ public:
 
     void retranslateUi(QWidget *Sedes)
     {
-        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", Q_NULLPTR));
+        Sedes->setWindowTitle(QApplication::translate("Sedes", "Sedes Mulhac\303\251n", 0));
 #ifndef QT_NO_STATUSTIP
         Sedes->setStatusTip(QString());
 #endif // QT_NO_STATUSTIP
-        label_2->setText(QApplication::translate("Sedes", "IP", Q_NULLPTR));
-        label->setText(QApplication::translate("Sedes", "Nodo", Q_NULLPTR));
-        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", Q_NULLPTR));
-        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
-        label_38->setText(QApplication::translate("Sedes", "C.P.", Q_NULLPTR));
-        pB_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", Q_NULLPTR));
-        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", Q_NULLPTR));
-        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", Q_NULLPTR));
-        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", Q_NULLPTR));
-        label_14->setText(QApplication::translate("Sedes", "Fax", Q_NULLPTR));
-        label_16->setText(QApplication::translate("Sedes", "Email", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Sedes", "IP", 0));
+        label->setText(QApplication::translate("Sedes", "Nodo", 0));
+        label_34->setText(QApplication::translate("Sedes", "Tel\303\251fono", 0));
+        label_35->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
+        label_38->setText(QApplication::translate("Sedes", "C.P.", 0));
+        pB_Edicion->setText(QApplication::translate("Sedes", "Edici\303\263n", 0));
+        label_11->setText(QApplication::translate("Sedes", "Persona de contacto", 0));
+        label_12->setText(QApplication::translate("Sedes", "Tel\303\251fonos", 0));
+        label_13->setText(QApplication::translate("Sedes", "Extensi\303\263n", 0));
+        label_14->setText(QApplication::translate("Sedes", "Fax", 0));
+        label_16->setText(QApplication::translate("Sedes", "Email", 0));
         lineEdit_extension->setText(QString());
         lineEdit_fax->setText(QString());
-        label_8->setText(QApplication::translate("Sedes", "Piso", Q_NULLPTR));
-        label_9->setText(QApplication::translate("Sedes", "C.P.", Q_NULLPTR));
-        label_10->setText(QApplication::translate("Sedes", "Municipio", Q_NULLPTR));
-        label_17->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
-        label_18->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", Q_NULLPTR));
-        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", Q_NULLPTR));
-        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", Q_NULLPTR));
-        label_6->setText(QApplication::translate("Sedes", "Letra", Q_NULLPTR));
-        label_7->setText(QApplication::translate("Sedes", "Puerta", Q_NULLPTR));
-        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", Q_NULLPTR));
-        lineEdit_numero->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_puerta->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_piso->setInputMask(QApplication::translate("Sedes", "AAA", Q_NULLPTR));
-        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Sedes", "Piso", 0));
+        label_9->setText(QApplication::translate("Sedes", "C.P.", 0));
+        label_10->setText(QApplication::translate("Sedes", "Municipio", 0));
+        label_17->setText(QApplication::translate("Sedes", "Latitud", 0));
+        label_18->setText(QApplication::translate("Sedes", "Longitud", 0));
+        label_3->setText(QApplication::translate("Sedes", "Tipo v\303\255a", 0));
+        label_5->setText(QApplication::translate("Sedes", "Direcci\303\263n", 0));
+        label_4->setText(QApplication::translate("Sedes", "N\303\272mero", 0));
+        label_6->setText(QApplication::translate("Sedes", "Letra", 0));
+        label_7->setText(QApplication::translate("Sedes", "Puerta", 0));
+        lineEdit_cp->setInputMask(QApplication::translate("Sedes", "99999", 0));
+        lineEdit_numero->setInputMask(QString());
+        lineEdit_letra->setInputMask(QApplication::translate("Sedes", "A", 0));
+        lineEdit_piso->setInputMask(QString());
+        lineEdit_puerta->setInputMask(QString());
         lineEdit_via->setInputMask(QString());
-        label_22->setText(QApplication::translate("Sedes", "Adsl", Q_NULLPTR));
-        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", Q_NULLPTR));
-        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", Q_NULLPTR));
-        label_20->setText(QApplication::translate("Sedes", "Servicio", Q_NULLPTR));
-        label_23->setText(QApplication::translate("Sedes", "Caudal", Q_NULLPTR));
-        label_24->setText(QApplication::translate("Sedes", "Equipamiento", Q_NULLPTR));
+        label_15->setText(QApplication::translate("Sedes", "Escalera", 0));
+        label_22->setText(QApplication::translate("Sedes", "Adsl", 0));
+        label_21->setText(QApplication::translate("Sedes", "N. Administrativo", 0));
+        label_19->setText(QApplication::translate("Sedes", "Ip de Cifrado", 0));
+        label_20->setText(QApplication::translate("Sedes", "Servicio", 0));
+        label_23->setText(QApplication::translate("Sedes", "Caudal", 0));
+        label_24->setText(QApplication::translate("Sedes", "Equipamiento", 0));
         pB_router->setText(QString());
-        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", Q_NULLPTR));
-        label_26->setText(QApplication::translate("Sedes", "Comarca", Q_NULLPTR));
-        label_27->setText(QApplication::translate("Sedes", "CIF", Q_NULLPTR));
-        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", Q_NULLPTR));
-        label_28->setText(QApplication::translate("Sedes", "DIR3", Q_NULLPTR));
-        label_29->setText(QApplication::translate("Sedes", "INE", Q_NULLPTR));
-        pB_web->setText(QApplication::translate("Sedes", "web", Q_NULLPTR));
-        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", Q_NULLPTR));
-        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", Q_NULLPTR));
+        label_25->setText(QApplication::translate("Sedes", "Mancomunidad", 0));
+        label_26->setText(QApplication::translate("Sedes", "Comarca", 0));
+        label_27->setText(QApplication::translate("Sedes", "CIF", 0));
+        lineEdit_cif->setInputMask(QApplication::translate("Sedes", ">A9999999A", 0));
+        label_28->setText(QApplication::translate("Sedes", "DIR3", 0));
+        label_29->setText(QApplication::translate("Sedes", "INE", 0));
+        pB_web->setText(QApplication::translate("Sedes", "web", 0));
+        pB_bandera->setText(QApplication::translate("Sedes", "Bandera", 0));
+        pB_escudo->setText(QApplication::translate("Sedes", "Escudo", 0));
         label_escudo->setText(QString());
         label_bandera->setText(QString());
         pB_mapa_2->setText(QString());
-        label_31->setText(QApplication::translate("Sedes", "Habitantes", Q_NULLPTR));
-        label_32->setText(QApplication::translate("Sedes", "Superficie (km)", Q_NULLPTR));
-        label_33->setText(QApplication::translate("Sedes", " Altitud", Q_NULLPTR));
-        label_36->setText(QApplication::translate("Sedes", "Latitud", Q_NULLPTR));
-        label_37->setText(QApplication::translate("Sedes", "Longitud", Q_NULLPTR));
-        pB_wikipedia->setText(QApplication::translate("Sedes", "Wikipedia", Q_NULLPTR));
-        pB_googleMaps->setText(QApplication::translate("Sedes", "Google Maps", Q_NULLPTR));
-        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", Q_NULLPTR));
-        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", Q_NULLPTR));
-        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", Q_NULLPTR));
-        label_30->setText(QApplication::translate("Sedes", "N\302\272", Q_NULLPTR));
-        label_41->setText(QApplication::translate("Sedes", "Programa", Q_NULLPTR));
-        label_46->setText(QApplication::translate("Sedes", "165", Q_NULLPTR));
-        label_47->setText(QApplication::translate("Sedes", "166", Q_NULLPTR));
-        label_48->setText(QApplication::translate("Sedes", "167", Q_NULLPTR));
-        label_49->setText(QApplication::translate("Sedes", "168", Q_NULLPTR));
-        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", Q_NULLPTR));
-        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", Q_NULLPTR));
-        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", Q_NULLPTR));
-        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", Q_NULLPTR));
-        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", Q_NULLPTR));
-        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", Q_NULLPTR));
-        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", Q_NULLPTR));
-        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", Q_NULLPTR));
-        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", Q_NULLPTR));
-        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", Q_NULLPTR));
-        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", Q_NULLPTR));
-        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", Q_NULLPTR));
-        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", Q_NULLPTR));
-        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", Q_NULLPTR));
-        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", Q_NULLPTR));
-        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", Q_NULLPTR));
-        label_44->setText(QApplication::translate("Sedes", "A\303\261o", Q_NULLPTR));
+        label_31->setText(QApplication::translate("Sedes", "Habitantes", 0));
+        label_32->setText(QApplication::translate("Sedes", "Superficie (km)", 0));
+        label_33->setText(QApplication::translate("Sedes", " Altitud (m)", 0));
+        label_36->setText(QApplication::translate("Sedes", "Latitud", 0));
+        label_37->setText(QApplication::translate("Sedes", "Longitud", 0));
+        pB_wikipedia->setText(QApplication::translate("Sedes", "Wikipedia", 0));
+        pB_googleMaps->setText(QApplication::translate("Sedes", "Google Maps", 0));
+        pB_sede->setText(QApplication::translate("Sedes", "Sede E.", 0));
+        sP_tablon->setText(QApplication::translate("Sedes", "Tabl\303\263n", 0));
+        pB_portalTransparencia->setText(QApplication::translate("Sedes", "Portal Trans.", 0));
+        label_30->setText(QApplication::translate("Sedes", "N\302\272", 0));
+        label_41->setText(QApplication::translate("Sedes", "Programa", 0));
+        label_46->setText(QApplication::translate("Sedes", "165", 0));
+        label_47->setText(QApplication::translate("Sedes", "166", 0));
+        label_48->setText(QApplication::translate("Sedes", "167", 0));
+        label_49->setText(QApplication::translate("Sedes", "168", 0));
+        label_52->setText(QApplication::translate("Sedes", "Servicios B\303\241sicos de internet", 0));
+        label_53->setText(QApplication::translate("Sedes", "Asistencia en software de gesti\303\263n municipal", 0));
+        label_54->setText(QApplication::translate("Sedes", "Sede electr\303\263nica municipal", 0));
+        label_55->setText(QApplication::translate("Sedes", "Software gestion Colectivo Polic\303\255a Local", 0));
+        checkBox_portal_web->setText(QApplication::translate("Sedes", "A. Portal web municipal", 0));
+        checkBox_correo->setText(QApplication::translate("Sedes", "B. Correo electr\303\263nico", 0));
+        checkBox_basedatos_juridica->setText(QApplication::translate("Sedes", "C. Licencia de acceso a bases de datos jur\303\255dicas", 0));
+        checkBox_suscripcion->setText(QApplication::translate("Sedes", "D. Suscripci\303\263n al dominio reservado del municipio.es", 0));
+        checkBox_perfil_contratante->setText(QApplication::translate("Sedes", "E. Perfil del contratante", 0));
+        checkBox_gestion_municipal->setText(QApplication::translate("Sedes", "A. Gesti\303\263n propiamente municipal (Poblaci\303\263n, tributos, registro\342\200\246)", 0));
+        checkBox_gestion_economica->setText(QApplication::translate("Sedes", "B. Gesti\303\263n econ\303\263mica (SICAL)", 0));
+        checkBox_soporte->setText(QApplication::translate("Sedes", "C. A.T. y soporte explotaci\303\263n de los anteriores productos", 0));
+        checkBox_sede_electronica->setText(QApplication::translate("Sedes", "A. Sede electr\303\263nica municipal", 0));
+        checkBox_epol->setText(QApplication::translate("Sedes", "A. Programa de Gesti\303\263n de la Polic\303\255a Local (ePOL)", 0));
+        checkBox_epol_movil->setText(QApplication::translate("Sedes", "B. ePOL m\303\263vil.", 0));
+        checkBox_siapol->setText(QApplication::translate("Sedes", "C. Acceso SIAPOL (T\303\251cnicas y Protocolos de actuaci\303\263n)", 0));
+        label_44->setText(QApplication::translate("Sedes", "A\303\261o", 0));
         comboBox_anio->clear();
         comboBox_anio->insertItems(0, QStringList()
-         << QApplication::translate("Sedes", "16/17", Q_NULLPTR)
-         << QApplication::translate("Sedes", "18/19", Q_NULLPTR)
-         << QApplication::translate("Sedes", "20/21", Q_NULLPTR)
+         << QApplication::translate("Sedes", "16/17", 0)
+         << QApplication::translate("Sedes", "18/19", 0)
+         << QApplication::translate("Sedes", "20/21", 0)
         );
     } // retranslateUi
 

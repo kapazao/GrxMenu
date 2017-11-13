@@ -545,6 +545,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_13">
      <item>
       <widget class="QComboBox" name="comboBox_IP">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
        <property name="editable">
         <bool>true</bool>
        </property>
@@ -1681,7 +1684,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>70</y>
      <width>621</width>
      <height>191</height>
     </rect>
@@ -2110,7 +2113,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>314</x>
+      <x>380</x>
       <y>70</y>
       <width>29</width>
       <height>17</height>
@@ -2214,7 +2217,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>466</x>
+      <x>140</x>
       <y>70</y>
       <width>36</width>
       <height>17</height>
@@ -2227,7 +2230,7 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>162</x>
+      <x>500</x>
       <y>70</y>
       <width>46</width>
       <height>17</height>
@@ -2314,33 +2317,10 @@
      <item>
       <widget class="QLineEdit" name="lineEdit_numero">
        <property name="inputMask">
-        <string>AAA</string>
+        <string/>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_puerta">
-       <property name="inputMask">
-        <string>AAA</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_piso">
-       <property name="inputMask">
-        <string>AAA</string>
+       <property name="maxLength">
+        <number>3</number>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2354,6 +2334,48 @@
       <widget class="QLineEdit" name="lineEdit_letra">
        <property name="inputMask">
         <string>A</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_escalera">
+       <property name="maxLength">
+        <number>3</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_piso">
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>3</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_puerta">
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>3</number>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2411,6 +2433,19 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>70</y>
+      <width>59</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Escalera</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_4">
@@ -2843,7 +2878,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>12</x>
@@ -2987,8 +3022,8 @@
            <widget class="QPushButton" name="pB_router">
             <property name="geometry">
              <rect>
-              <x>1</x>
-              <y>1</y>
+              <x>2</x>
+              <y>2</y>
               <width>230</width>
               <height>88</height>
              </rect>
@@ -4074,6 +4109,9 @@
        </property>
        <property name="maxLength">
         <number>6</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -5509,7 +5547,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>1</y>
+       <y>3</y>
        <width>149</width>
        <height>119</height>
       </rect>
@@ -5531,7 +5569,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
@@ -5620,7 +5658,7 @@
          <item>
           <widget class="QLabel" name="label_33">
            <property name="text">
-            <string> Altitud</string>
+            <string> Altitud (m)</string>
            </property>
           </widget>
          </item>
@@ -7240,9 +7278,6 @@
   <tabstop>comboBox_extension</tabstop>
   <tabstop>lineEdit_via</tabstop>
   <tabstop>lineEdit_numero</tabstop>
-  <tabstop>lineEdit_puerta</tabstop>
-  <tabstop>lineEdit_piso</tabstop>
-  <tabstop>lineEdit_letra</tabstop>
   <tabstop>lineEdit_cp</tabstop>
   <tabstop>lineEdit_municipio</tabstop>
   <tabstop>lineEdit_latitud</tabstop>
