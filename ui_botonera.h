@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'botonera.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -73,75 +73,75 @@ public:
         actionUsuarios->setObjectName(QStringLiteral("actionUsuarios"));
         actionUsuarios->setEnabled(true);
         QIcon icon;
-        icon.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/usuarios.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/usuarios.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionUsuarios->setIcon(icon);
         actionUsuarios->setVisible(true);
         actionCronos = new QAction(Botonera);
         actionCronos->setObjectName(QStringLiteral("actionCronos"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/cronos.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/cronos.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionCronos->setIcon(icon1);
         actionWebmail = new QAction(Botonera);
         actionWebmail->setObjectName(QStringLiteral("actionWebmail"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/WebMail.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/WebMail.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionWebmail->setIcon(icon2);
         actionBeiro = new QAction(Botonera);
         actionBeiro->setObjectName(QStringLiteral("actionBeiro"));
         QIcon icon3;
-        icon3.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/beiro_cartera.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/beiro_cartera.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionBeiro->setIcon(icon3);
         actionGlpi = new QAction(Botonera);
         actionGlpi->setObjectName(QStringLiteral("actionGlpi"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/glpi.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/glpi.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionGlpi->setIcon(icon4);
         actionOcs = new QAction(Botonera);
         actionOcs->setObjectName(QStringLiteral("actionOcs"));
         QIcon icon5;
-        icon5.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/ocs.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/ocs.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOcs->setIcon(icon5);
         actionActiveDirectory = new QAction(Botonera);
         actionActiveDirectory->setObjectName(QStringLiteral("actionActiveDirectory"));
         QIcon icon6;
-        icon6.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/AD.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/AD.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionActiveDirectory->setIcon(icon6);
         actionSalir = new QAction(Botonera);
         actionSalir->setObjectName(QStringLiteral("actionSalir"));
         QIcon icon7;
-        icon7.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/salida.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/salida.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         actionSalir->setIcon(icon7);
         actionNuevo_Men = new QAction(Botonera);
         actionNuevo_Men->setObjectName(QStringLiteral("actionNuevo_Men"));
         QIcon icon8;
-        icon8.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionNuevo_Men->setIcon(icon8);
         actionISL = new QAction(Botonera);
         actionISL->setObjectName(QStringLiteral("actionISL"));
         QIcon icon9;
-        icon9.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/ISL50x50.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon9.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionISL->setIcon(icon9);
         actionConfigurar = new QAction(Botonera);
         actionConfigurar->setObjectName(QStringLiteral("actionConfigurar"));
         QIcon icon10;
-        icon10.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/update.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon10.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/update.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionConfigurar->setIcon(icon10);
         actionSoporte = new QAction(Botonera);
         actionSoporte->setObjectName(QStringLiteral("actionSoporte"));
         QIcon icon11;
-        icon11.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/equipos.gif"), QSize(), QIcon::Normal, QIcon::Off);
+        icon11.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/equipos.gif"), QSize(), QIcon::Normal, QIcon::Off);
         actionSoporte->setIcon(icon11);
         actionSedes = new QAction(Botonera);
         actionSedes->setObjectName(QStringLiteral("actionSedes"));
         QIcon icon12;
-        icon12.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/sedes.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon12.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/sedes.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSedes->setIcon(icon12);
         actionAcerca_de = new QAction(Botonera);
         actionAcerca_de->setObjectName(QStringLiteral("actionAcerca_de"));
         actionAtalaya = new QAction(Botonera);
         actionAtalaya->setObjectName(QStringLiteral("actionAtalaya"));
         QIcon icon13;
-        icon13.addFile(QStringLiteral("../../../usr/share/grx/asistencia/iconos/atalaya.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon13.addFile(QStringLiteral("../../../usr/share/grx/asistencia/imagenes/iconos/atalaya.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionAtalaya->setIcon(icon13);
         centralWidget = new QWidget(Botonera);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));

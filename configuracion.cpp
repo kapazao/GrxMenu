@@ -78,6 +78,7 @@ void Configuracion::valoresPorDefecto(){
     UsarTS = "True";
     UsarISL = "True";
     UsarAtalaya = "True";
+    SoloAytos = "True";
     OCS = "https://incidencias.dipgra.es/ocsreport";
     GLPI = "https://incidencias.dipgra.es/glpi";
     Beiro = "http://beiro.grx:55555/portal";
@@ -279,6 +280,13 @@ bool Configuracion::atalaya_up(){
 return false;
 }
 
+bool Configuracion::solo_aytos(){
+    if (SoloAytos =="True")
+        return true;
+return false;
+}
+
+
 QString  Configuracion::cual_es_resolucion(){
       return Resolucion;
 }
@@ -329,6 +337,8 @@ void Configuracion::carga_configuracion()
     UsarTS = s.value("Configuracion/UsarTS").toString();
     UsarISL = s.value("Configuracion/UsarISL").toString();
     UsarAtalaya = s.value("Configuracion/UsarAtalaya").toString();
+
+    SoloAytos = s.value("Configuracion/SoloAytos").toString();
 
     OCS = s.value("Configuracion/OCS").toString();
     GLPI = s.value("Configuracion/GLPI").toString();
@@ -448,6 +458,12 @@ void Configuracion::carga_editLine(){
         ui->checkBox_Atalaya->setChecked(false);
     }
 
+    if (solo_aytos()){
+        ui->checkBox_soloAytos->setChecked(true);
+    }
+    else{
+        ui->checkBox_soloAytos->setChecked(false);
+    }
     ui->tecnico->setText(Tecnico);
     ui->clave->setText(Clave);
     ui->servidor->setText(ServidorAD);
@@ -628,6 +644,11 @@ void Configuracion::on_buttonBox_accepted()
         s.setValue("Configuracion/UsarAtalaya","True");
     else
         s.setValue("Configuracion/UsarAtalaya","False");
+
+    if (ui->checkBox_soloAytos->isChecked())
+        s.setValue("Configuracion/SoloAytos","True");
+    else
+        s.setValue("Configuracion/SoloAytos","False");
 
     if (ui->rb_rdesktop->isChecked())
         s.setValue("Configuracion/Rdesktop","True");

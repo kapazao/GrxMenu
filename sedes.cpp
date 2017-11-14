@@ -97,8 +97,8 @@ void Sedes::clean_checkbox(){
 
 void Sedes::clear_comboBox(){
     ui->comboBox_IP->clear();
-    ui->comboBox_CP->clear();
-    ui->comboBox_extension->clear();
+   // ui->comboBox_CP->clear();
+   // ui->comboBox_extension->clear();
     ui->comboBox_mancomunidad->clear();
     ui->comboBox_comarca->clear();
 }
@@ -118,12 +118,19 @@ void Sedes::mascaraIP(){
 
 void Sedes::cargaCombo(){
 
+    Configuracion *configuracion = new Configuracion();
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery* query = new QSqlQuery(db);
     QSqlQuery* query_tlf = new QSqlQuery(db);
     QString sql;
     QString sql_tlf;
-    sql = "select nombre,ipLinea,codigoPostal,extension,id from nodo order by nombre";
+
+    if (configuracion->solo_aytos()){
+       sql = "select nombre,ipLinea,codigoPostal,extension,id from nodo where esAyuntamiento=1 order by nombre";
+    }
+    else{
+       sql = "select nombre,ipLinea,codigoPostal,extension,id from nodo order by nombre";
+    }
     sql_tlf = "select * from telefononodo";
     query->prepare(sql);
     query_tlf->prepare(sql_tlf);
@@ -134,10 +141,10 @@ void Sedes::cargaCombo(){
         model->setQuery(*query);
         ui->comboBox_IP->setModel(model);
         ui->comboBox_IP->setModelColumn(1);
-        ui->comboBox_CP->setModel(model);
-        ui->comboBox_CP->setModelColumn(2);
-        ui->comboBox_extension->setModel(model);
-        ui->comboBox_extension->setModelColumn(3);
+        //ui->comboBox_CP->setModel(model);
+        //ui->comboBox_CP->setModelColumn(2);
+        //ui->comboBox_extension->setModel(model);
+        //ui->comboBox_extension->setModelColumn(3);
         ui->comboBox_NODO->setModel(model);
         on_comboBox_NODO_activated(ui->comboBox_NODO->itemText(0));
         ui->comboBox_NODO->setFocus();
@@ -147,13 +154,14 @@ void Sedes::cargaCombo(){
        QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_tlf->lastError().text(),QMessageBox::Ok);
     else{
         model_tlf->setQuery(*query_tlf);
-        ui->comboBox_TLF->setModel(model_tlf);
-        ui->comboBox_TLF->setModelColumn(1);
+       // ui->comboBox_TLF->setModel(model_tlf);
+       // ui->comboBox_TLF->setModelColumn(1);
     }
     conectar_checkbox_lineEdit();
 
     delete query;
     delete query_tlf;
+    delete configuracion;
 }
 
 void Sedes::conectar_checkbox_lineEdit(){
@@ -179,6 +187,7 @@ void Sedes::conectar_checkbox_lineEdit(){
     connect(ui->lineEdit_dir3, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
     connect(ui->lineEdit_direccion, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
     connect(ui->lineEdit_equipamiento, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
+    connect(ui->lineEdit_numeroSerieRouter, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
     connect(ui->lineEdit_escudo, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
     connect(ui->lineEdit_extension, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
     connect(ui->lineEdit_fax, SIGNAL(textChanged(const QString &)), this, SLOT(cambio_estado_line()));
@@ -255,7 +264,8 @@ void Sedes::consultaNodo(const QString &nombre){
             ui->lineEdit_servicio->setText(consultar_nodo.value(nodo_servicioLinea).toString());
             ui->lineEdit_caudal->setText(consultar_nodo.value(nodo_caudal).toString());
             ui->lineEdit_equipamiento->setText(consultar_nodo.value(nodo_equipamiento).toString());
-
+            ui->lineEdit_numeroSerieRouter->setText(consultar_nodo.value(nodo_numeroSerieRouter).toString());
+            modeloRouter=consultar_nodo.value(nodo_equipamiento).toString();
             // Cargar datos de programa del año actual
             consultar_programa.prepare(QString("select * from programa where idNodo =:idNodo and anio =:idAnio"));
             consultar_programa.bindValue(":idNodo",idNodo);
@@ -288,7 +298,6 @@ void Sedes::consultaNodo(const QString &nombre){
 
             if (consultar_telefono.exec())
                 if (consultar_telefono.first()){
-                    ui->comboBox_TLF->setCurrentIndex(ui->comboBox_TLF->findText(consultar_telefono.value(1).toString()));
                     do{
                         ui->comboBox_telefonos->addItem(consultar_telefono.value(telefono_telefono).toString());
                     }while(consultar_telefono.next());
@@ -332,7 +341,7 @@ void Sedes::consultaNodo(const QString &nombre){
                             ui->lineEdit_tablon->setText(consultar_municipio.value(municipio_urlTablon).toString());
                             ui->lineEdit_portar_transparencia->setText(consultar_municipio.value(municipio_urlPortalTransparencia).toString());
 
-                            carga_imagenes(consultar_municipio.value(municipio_nombreID).toString()); //carga las imagenes de router, banderas, escudo , etc...
+                            carga_imagenes(municipioID,ui->lineEdit_equipamiento->text()); //carga las imagenes de router, banderas, escudo , etc...
 
                             // Obtener nombre de la comarca del municipio
                             consultar_comarca.prepare(QString("select nombre from comarca where id = :idComarca"));
@@ -391,7 +400,7 @@ void Sedes::consultaNodo(const QString &nombre){
     }
 }
 
-void Sedes::carga_imagenes(QString municipio){
+void Sedes::carga_imagenes(QString municipio,QString modelo_router){
 
   QString ruta_escudo="/usr/share/grx/asistencia/imagenes/escudos/"+municipio+".svg";
   QString ruta_bandera="/usr/share/grx/asistencia/imagenes/banderas/"+municipio+".svg";
@@ -412,9 +421,8 @@ void Sedes::carga_imagenes(QString municipio){
   QPixmap bandera = icon_bandera.pixmap(QSize(100,95));
   ui->label_bandera->setPixmap(bandera);
 
-  QIcon icon_router = QIcon("/usr/share/grx/asistencia/imagenes/router/images.jpeg");
+  QIcon icon_router = QIcon("/usr/share/grx/asistencia/imagenes/routers/"+modelo_router+".jpg");
   QPixmap router = icon_router.pixmap(QSize(233,85));
- // ui->label_router->setPixmap(router);
   ui->pB_router->setIconSize(router.rect().size());
   ui->pB_router->setFixedSize(235,89);
   ui->pB_router->setIcon(router);
@@ -428,26 +436,13 @@ void Sedes::carga_imagenes(QString municipio){
 
 }
 
-void Sedes::on_comboBox_extension_activated(const QString &ext)
-{
-    QSqlQuery query=model->query();
-    boton_edicion_apagado();
-    consultaNodo(query.value(0).toString());
-    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-    ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-}
-
 void Sedes::on_comboBox_NODO_activated(const QString &nombre)
 {
     QSqlQuery query=model->query();
     consultaNodo(nombre);
     boton_edicion_apagado();
     ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-    ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-}
+ }
 
 void Sedes::on_comboBox_IP_activated(const QString &ip)
 {
@@ -458,7 +453,7 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
         if ((QMessageBox::critical(this, "¿Guardar datos?", "Ha modificado algunos datos.\n¿Desea guardar los cambios?",
                                         QMessageBox::Save|QMessageBox::Cancel))==QMessageBox::Save)
         {
-            qDebug()<< "si"<<query.value(0).toString();
+            ui->textEdit_consola->setText("Guardando datos:"+query.value(0).toString());
             grabar_datos(1);
         }
 
@@ -469,11 +464,9 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
         if( myIP.setAddress(ip)){
             consultaNodo(query.value(0).toString()); //query.value(0).toString() contiene el nombre de la consulta actual
             ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-            ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-            ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
         }
             else
-                qDebug() << "Invalid IP address"<<endl;
+                ui->textEdit_consola->setText("IP no valida");
 
 }
 
@@ -492,7 +485,7 @@ void Sedes::grabar_datos(int id){
                               "puertaDireccion = :puertaDireccion, pisoDireccion = :pisoDireccion, letraDireccion = :letraDireccion,"
                               "codigoPostal = :codigoPostal, latitud =:latitud, longitud =:longitud, contacto =:contacto, adslLinea=:adslLinea, numAdministrativoLinea=:numAdministrativoLinea,"
                               "movil= :movil, extension= :extension, fax = :fax, sede = :sede, ipCifradoLinea= :ipCifradoLinea, servicioLinea=:servicioLinea, caudalLinea=:caudalLinea,"
-                              "equipamientoLinea=:equipamientoLinea, sede=:sede, fax=:fax, extension=:extension where id=:id"));
+                              "equipamientoLinea=:equipamientoLinea,numeroSerieRouter=:numeroSerieRouter, sede=:sede, fax=:fax, extension=:extension where id=:id"));
     consultar.bindValue(":id", id);
     consultar.bindValue(":tipoVia", ui->lineEdit_via->text());
     consultar.bindValue(":nombreVia", ui->lineEdit_direccion->text());
@@ -510,6 +503,8 @@ void Sedes::grabar_datos(int id){
     consultar.bindValue(":servicioLinea", ui->lineEdit_servicio->text());
     consultar.bindValue(":caudalLinea", ui->lineEdit_caudal->text());
     consultar.bindValue(":equipamientoLinea", ui->lineEdit_equipamiento->text());
+    consultar.bindValue(":numeroSerieRouter", ui->lineEdit_numeroSerieRouter->text());
+
     consultar.bindValue(":sede", ui->lineEdit_sede->text());
     consultar.bindValue(":fax", ui->lineEdit_fax->text());
     consultar.bindValue(":extension", ui->lineEdit_extension->text());
@@ -571,36 +566,6 @@ void Sedes::grabar_datos(int id){
     }
 }
 
-void Sedes::on_comboBox_CP_activated(const QString &arg1)
-{
-    QSqlQuery query=model->query();
-    boton_edicion_apagado();
-    consultaNodo(query.value(0).toString());
-    ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-    ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-    ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-
-}
-
-void Sedes::on_comboBox_TLF_activated(const QString &arg1)
-{
-    QSqlQuery query_tlf=model_tlf->query();
-    QSqlQuery query=model->query();
-    QVariant datos;
-    QString tmp;
-    datos = model->data(model->index(query_tlf.value(0).toInt()-1,0));
-    tmp = datos.toString();
-    if (tmp != ui->comboBox_NODO->currentText())
-    {
-        consultaNodo(datos.toString());
-        ui->comboBox_extension->setCurrentIndex(ui->comboBox_extension->findText(query.value(3).toString()));
-        ui->comboBox_IP->setCurrentIndex(ui->comboBox_IP->findText(query.value(1).toString()));
-        ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
-        ui->comboBox_CP->setCurrentIndex(ui->comboBox_CP->findText(query.value(2).toString()));
-    }
-
-}
-
 void Sedes::on_comboBox_anio_activated(const QString &arg1)
 {
     on_comboBox_NODO_activated(ui->comboBox_NODO->currentText());
@@ -647,6 +612,7 @@ void Sedes::cambio_estados_readonly(bool estado){
     ui->lineEdit_dir3->setReadOnly(estado);
     ui->lineEdit_direccion->setReadOnly(estado);
     ui->lineEdit_equipamiento->setReadOnly(estado);
+    ui->lineEdit_numeroSerieRouter->setReadOnly(estado);
     ui->lineEdit_escudo->setReadOnly(estado);
     ui->lineEdit_extension->setReadOnly(estado);
     ui->lineEdit_fax->setReadOnly(estado);
@@ -685,6 +651,7 @@ ui->lineEdit_cp->setStyleSheet("color:"+color);
 ui->lineEdit_dir3->setStyleSheet("color:"+color);
 ui->lineEdit_direccion->setStyleSheet("color:"+color);
 ui->lineEdit_equipamiento->setStyleSheet("color:"+color);
+ui->lineEdit_numeroSerieRouter->setStyleSheet("color:"+color);
 ui->lineEdit_escudo->setStyleSheet("color:"+color);
 ui->lineEdit_extension->setStyleSheet("color:"+color);
 ui->lineEdit_fax->setStyleSheet("color:"+color);
@@ -758,7 +725,8 @@ bool Sedes::comprueba_datos_cambiados()
                 ui->lineEdit_bandera->isModified()||
                 ui->lineEdit_caudal->isModified()||
                 ui->lineEdit_cif->isModified()||
-             //   ui->lineEdit_comarca->isModified()||
+               // ui->lineEdit_comarca->isModified()||
+                ui->lineEdit_numeroSerieRouter->isModified()||
                 ui->lineEdit_contacto->isModified()||
                 ui->lineEdit_cp->isModified()||
                 ui->lineEdit_dir3->isModified()||
@@ -791,7 +759,7 @@ bool Sedes::comprueba_datos_cambiados()
 
     {
         return true;
-        qDebug()<< "ha cambiado";
+         ui->textEdit_consola->setText("Han cambiado algunos datos");
     }
 return false;
 }
@@ -799,7 +767,7 @@ return false;
 void Sedes::on_comboBox_NODO_currentIndexChanged(int index)
 {
           if (comprueba_datos_cambiados())
-              qDebug()<<"si ha cambiado";
+               ui->textEdit_consola->setText("Han cambiado algunos datos");
 }
 
 void Sedes::cambio_estado_line(){
@@ -818,13 +786,13 @@ void Sedes::cambio_estado_checkbox(){
 
 void Sedes::on_pB_mapa_2_clicked()
 {
-    QDesktopServices::openUrl(QUrl("file:/usr/share/grx/asistencia/imagenes/mapas/"+ui->comboBox_NODO->currentText()+".png"));
+    QDesktopServices::openUrl(QUrl("file:/usr/share/grx/asistencia/imagenes/mapas/"+municipioID+".png"));
     // QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/mapas/Agrón.png"));
 }
 
 void Sedes::on_pB_router_clicked()
 {
-    QDesktopServices::openUrl(QUrl("file:/usr/share/grx/asistencia/imagenes/router/images.jpeg"));
+    QDesktopServices::openUrl(QUrl("file:/usr/share/grx/asistencia/imagenes/routers/"+modeloRouter+".jpg"));
 }
 
 void Sedes::on_pB_googleMaps_clicked()

@@ -221,7 +221,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/usuarios.png</normaloff>../../../usr/share/grx/asistencia/iconos/usuarios.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/usuarios.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/usuarios.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Usuarios</string>
@@ -239,7 +239,7 @@
   <action name="actionCronos">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/cronos.png</normaloff>../../../usr/share/grx/asistencia/iconos/cronos.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/cronos.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/cronos.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Cronos</string>
@@ -254,7 +254,7 @@
   <action name="actionWebmail">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/WebMail.png</normaloff>../../../usr/share/grx/asistencia/iconos/WebMail.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/WebMail.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/WebMail.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Webmail</string>
@@ -269,7 +269,7 @@
   <action name="actionBeiro">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/beiro_cartera.png</normaloff>../../../usr/share/grx/asistencia/iconos/beiro_cartera.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/beiro_cartera.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/beiro_cartera.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Beiro</string>
@@ -284,7 +284,7 @@
   <action name="actionGlpi">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/glpi.png</normaloff>../../../usr/share/grx/asistencia/iconos/glpi.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/glpi.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/glpi.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Glpi</string>
@@ -299,7 +299,7 @@
   <action name="actionOcs">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/ocs.png</normaloff>../../../usr/share/grx/asistencia/iconos/ocs.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ocs.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ocs.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Ocs</string>
@@ -314,7 +314,7 @@
   <action name="actionActiveDirectory">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/AD.png</normaloff>../../../usr/share/grx/asistencia/iconos/AD.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/AD.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/AD.png</iconset>
    </property>
    <property name="text">
     <string>&amp;activeDirectory</string>
@@ -329,7 +329,7 @@
   <action name="actionSalir">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/salida.jpg</normaloff>../../../usr/share/grx/asistencia/iconos/salida.jpg</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/salida.jpg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/salida.jpg</iconset>
    </property>
    <property name="text">
     <string>&amp;Salir</string>
@@ -344,7 +344,7 @@
   <action name="actionNuevo_Men">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/logo.png</normaloff>../../../usr/share/grx/asistencia/iconos/logo.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/logo.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/logo.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Nueva Botonera</string>
@@ -353,7 +353,7 @@
   <action name="actionISL">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/iconos/ISL50x50.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</iconset>
    </property>
    <property name="text">
     <string>&amp;ISL</string>
@@ -368,7 +368,7 @@
   <action name="actionConfigurar">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/update.png</normaloff>../../../usr/share/grx/asistencia/iconos/update.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/update.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/update.png</iconset>
    </property>
    <property name="text">
     <string>Co&amp;nfigurar</string>
@@ -377,7 +377,7 @@
   <action name="actionSoporte">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/equipos.gif</normaloff>../../../usr/share/grx/asistencia/iconos/equipos.gif</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/equipos.gif</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/equipos.gif</iconset>
    </property>
    <property name="text">
     <string>&amp;Soporte</string>
@@ -389,7 +389,7 @@
   <action name="actionSedes">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/sedes.png</normaloff>../../../usr/share/grx/asistencia/iconos/sedes.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/sedes.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/sedes.png</iconset>
    </property>
    <property name="text">
     <string>Sedes</string>
@@ -403,7 +403,7 @@
   <action name="actionAtalaya">
    <property name="icon">
     <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/iconos/atalaya.png</normaloff>../../../usr/share/grx/asistencia/iconos/atalaya.png</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/atalaya.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/atalaya.png</iconset>
    </property>
    <property name="text">
     <string>Atalaya</string>

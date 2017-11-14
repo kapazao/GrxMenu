@@ -206,15 +206,16 @@ public:
     QCheckBox *checkBox_ISL;
     QCheckBox *checkBox_Atalaya;
     QLabel *label_47;
+    QCheckBox *checkBox_soloAytos;
 
     void setupUi(QDialog *Configuracion)
     {
         if (Configuracion->objectName().isEmpty())
             Configuracion->setObjectName(QStringLiteral("Configuracion"));
-        Configuracion->resize(700, 590);
+        Configuracion->resize(699, 609);
         scrollArea = new QScrollArea(Configuracion);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setGeometry(QRect(0, -10, 691, 591));
+        scrollArea->setGeometry(QRect(0, -10, 691, 611));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -224,7 +225,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 689, 589));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 689, 609));
         groupBox = new QGroupBox(scrollAreaWidgetContents_2);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(10, 20, 681, 561));
@@ -251,7 +252,7 @@ public:
         fr_linux->setFrameShadow(QFrame::Raised);
         label_34 = new QLabel(fr_linux);
         label_34->setObjectName(QStringLiteral("label_34"));
-        label_34->setGeometry(QRect(10, 30, 393, 19));
+        label_34->setGeometry(QRect(10, 30, 471, 19));
         QFont font1;
         font1.setPointSize(12);
         font1.setBold(true);
@@ -1066,6 +1067,9 @@ public:
         label_47 = new QLabel(menu);
         label_47->setObjectName(QStringLiteral("label_47"));
         label_47->setGeometry(QRect(50, 420, 574, 18));
+        checkBox_soloAytos = new QCheckBox(menu);
+        checkBox_soloAytos->setObjectName(QStringLiteral("checkBox_soloAytos"));
+        checkBox_soloAytos->setGeometry(QRect(450, 80, 168, 24));
         tabWidget->addTab(menu, QString());
 
         gridLayout_2->addWidget(tabWidget, 0, 0, 1, 1);
@@ -1086,7 +1090,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Configuracion, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Configuracion, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(Configuracion);
@@ -1253,6 +1257,7 @@ public:
         checkBox_ISL->setText(QApplication::translate("Configuracion", "ISL Online", 0));
         checkBox_Atalaya->setText(QApplication::translate("Configuracion", "Atalaya - SolarWin", 0));
         label_47->setText(QApplication::translate("Configuracion", "NOTA*** Necesita reiniciar la aplicaci\303\263n para que los cambios tengan efecto", 0));
+        checkBox_soloAytos->setText(QApplication::translate("Configuracion", "Solo mostrar Aytos", 0));
         tabWidget->setTabText(tabWidget->indexOf(menu), QApplication::translate("Configuracion", "Menu", 0));
     } // retranslateUi
 

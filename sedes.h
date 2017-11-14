@@ -50,6 +50,10 @@
 #define nodo_servicioLinea 23
 #define nodo_caudal 24
 #define nodo_equipamiento 25
+#define nodo_numeroSerieRouter 26
+#define nodo_esAyuntamiento 27
+
+
 
 #define programa_id 0
 #define programa_anio 1
@@ -150,19 +154,13 @@ private slots:
 
     void grabar_datos(int id);
 
-    void on_comboBox_IP_activated(const QString &arg1);
-
     void on_pB_escudo_clicked();
-
-    void on_comboBox_extension_activated(const QString &arg1);
-
-    void on_comboBox_CP_activated(const QString &arg1);
-
-    void on_comboBox_TLF_activated(const QString &arg1);
 
     void on_pB_Edicion_toggled(bool checked);
 
     void on_comboBox_NODO_currentIndexChanged(int index);
+
+    void on_comboBox_IP_activated(const QString &arg1);
 
     bool comprueba_datos_cambiados();
 
@@ -178,7 +176,7 @@ private slots:
 
     void cambio_estado_checkbox();
 
-    void carga_imagenes(QString municipioID);
+    void carga_imagenes(QString municipioID,QString router);
 
     bool existeFichero(QString path);
 
@@ -196,7 +194,7 @@ private:
     Ui::Sedes *ui;
     //QSqlDatabase db;
     //QSqlQuery consultar;
-    QString municipioID;
+    QString municipioID, modeloRouter;
 };
 
 #endif // SEDES_H
