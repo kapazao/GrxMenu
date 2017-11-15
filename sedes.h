@@ -72,7 +72,7 @@
 
 #define poblacion_id 0
 #define poblacion_idMunicipio 1
-#define poblacion_unidad 2
+#define poblacion_idEla 2
 #define poblacion_nombre 3
 #define poblacion_nombreId 4
 
@@ -136,6 +136,8 @@ private slots:
 
     void clean_checkbox();
 
+    void activa_botones();
+
     void consultaNodo(const QString &nombre);
 
     void on_pB_web_clicked();
@@ -145,8 +147,6 @@ private slots:
     void boton_edicion_encendido();
 
     void on_pB_sede_clicked();
-
-    void on_sP_tablon_clicked();
 
     void on_pB_portalTransparencia_clicked();
 
@@ -189,6 +189,12 @@ private slots:
     void on_pB_wikipedia_clicked();
 
     void clear_comboBox();
+
+    void on_pB_bandera_2_clicked();
+
+    void on_pB_escudo_2_clicked();
+
+    void on_pB_tablon_clicked();
 
 private:
     Ui::Sedes *ui;

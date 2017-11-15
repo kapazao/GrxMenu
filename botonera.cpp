@@ -136,6 +136,7 @@ void Botonera::on_actionConfigurar_triggered()
 void Botonera::on_actionNuevo_Men_triggered()
 {
     Botonera *menu = new Botonera;
+    menu->setFixedSize(1100,135);
     menu->show();
 }
 

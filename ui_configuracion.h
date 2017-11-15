@@ -391,6 +391,7 @@ public:
 
         correoweb = new QLineEdit(layoutWidget1);
         correoweb->setObjectName(QStringLiteral("correoweb"));
+        correoweb->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_6->addWidget(correoweb);
 
@@ -406,6 +407,7 @@ public:
 
         cronos = new QLineEdit(layoutWidget1);
         cronos->setObjectName(QStringLiteral("cronos"));
+        cronos->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_12->addWidget(cronos);
 
@@ -434,6 +436,7 @@ public:
 
         ISL = new QLineEdit(layoutWidget1);
         ISL->setObjectName(QStringLiteral("ISL"));
+        ISL->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_13->addWidget(ISL);
 
@@ -449,6 +452,7 @@ public:
 
         proxychains = new QLineEdit(layoutWidget1);
         proxychains->setObjectName(QStringLiteral("proxychains"));
+        proxychains->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_14->addWidget(proxychains);
 
@@ -464,6 +468,7 @@ public:
 
         GLPI = new QLineEdit(layoutWidget1);
         GLPI->setObjectName(QStringLiteral("GLPI"));
+        GLPI->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_15->addWidget(GLPI);
 
@@ -479,6 +484,7 @@ public:
 
         OCS = new QLineEdit(layoutWidget1);
         OCS->setObjectName(QStringLiteral("OCS"));
+        OCS->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_16->addWidget(OCS);
 
@@ -494,6 +500,7 @@ public:
 
         beiro = new QLineEdit(layoutWidget1);
         beiro->setObjectName(QStringLiteral("beiro"));
+        beiro->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_17->addWidget(beiro);
 
@@ -509,6 +516,7 @@ public:
 
         atalaya = new QLineEdit(layoutWidget1);
         atalaya->setObjectName(QStringLiteral("atalaya"));
+        atalaya->setMaximumSize(QSize(420, 16777215));
 
         horizontalLayout_18->addWidget(atalaya);
 
@@ -1090,7 +1098,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Configuracion, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Configuracion, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Configuracion);
