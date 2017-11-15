@@ -9,6 +9,7 @@
 #include "nmap_xml.h"
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
+#include <QToolBar>
 namespace Ui {
 class Soporte;
 }
@@ -55,6 +56,8 @@ private slots:
     void on_Btn_Atalaya_clicked();
 
    void resultado_html(QNetworkReply* p);
+
+   void insertaTexto(QString texto);
 
 private:
     Ui::Soporte *ui;

@@ -13,24 +13,6 @@
   <property name="windowTitle">
    <string>Soporte</string>
   </property>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>10</y>
-     <width>291</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Soporte Informático</string>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -510,6 +492,38 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>imagenes/iconos/portafirmas.jpg</normaloff>imagenes/iconos/portafirmas.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+  </widget>
+  <action name="actionPortafirmas">
+   <property name="icon">
+    <iconset>
+     <normaloff>imagenes/iconos/portafirmas.jpg</normaloff>imagenes/iconos/portafirmas.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Portafirmas</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>

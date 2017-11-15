@@ -11,6 +11,14 @@
 #include "configuracion.h"
 #include "tabescaner.h"
 
+#include <QDebug>
+#include <QByteArray>
+#include <QEventLoop>
+#include <QNetworkReply>
+#include <QTextCodec>
+#include <QUrl>
+#include <QUrlQuery>
+
 
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
@@ -49,6 +57,7 @@ Soporte::Soporte(QWidget *parent) :
         ui->cb_sede->setModel(model);
         on_cb_sede_activated(ui->cb_sede->itemText(0));
     }
+
 }
 
 Soporte::~Soporte()
@@ -227,44 +236,74 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 
 void Soporte::on_Btn_Atalaya_clicked()
 {
+/*
     QByteArray postData;
     QNetworkAccessManager *manager = new QNetworkAccessManager;
+    QNetworkRequest request(QUrl(QStringLiteral("http://localhost/phpmyadmin/")));
     QString postUsuario = "pma_username";
     QString postValueUsuario = "root";
     QString postKeyPassword = "pma_password";
     QString postValuePassword = "Bo3d90";
-
+    //request.setHeader(QNetworkRequest::ContentTypeHeader,
+    //                  "application/x-www-form-urlencoded");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
     postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
     postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
     connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(resultado_html(QNetworkReply*)));
+    auto network_reply = manager->post(request, postData);
+    QEventLoop loop;
+    connect(network_reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
 
-    manager->post(QNetworkRequest(QUrl("http://localhost/phpmyadmin")), postData);
+    QByteArray raw_data;
+    if(network_reply->error() == QNetworkReply::NoError){
+         raw_data = network_reply->readAll();
+    }else{
+        insertaTexto(network_reply->errorString());
+    }
+
+    insertaTexto (QTextCodec::codecForHtml(raw_data)->toUnicode(raw_data));
+
+*/
+    QNetworkRequest request(QUrl(QStringLiteral("http://localhost/phpmyadmin/")));
+     request.setHeader(QNetworkRequest::ContentTypeHeader,
+                       "application/x-www-form-urlencoded");
+
+     QUrlQuery query;
+     query.addQueryItem("pma_username", "root");
+     query.addQueryItem("pma_password", "Bo3d90");
+
+     QUrl post_data;
+     post_data.setQuery(query);
+
+     QNetworkAccessManager network_manager;
+     auto network_reply = network_manager.post(request,query.query().toUtf8());
+
+     QEventLoop loop;
+     connect(network_reply, SIGNAL(finished()), &loop, SLOT(quit()));
+     loop.exec();
+
+     QByteArray raw_data;
+     if(network_reply->error() == QNetworkReply::NoError){
+          raw_data = network_reply->readAll();
+     }else{
+         insertaTexto(network_reply->errorString());
+     }
+
+     insertaTexto (QTextCodec::codecForHtml(raw_data)->toUnicode(raw_data));
 
 
-/*
-    QUrl url;
-    QByteArray postData;
-    QNetworkAccessManager *networkManager = new QNetworkAccessManager;
-    url.setUrl("http://localhost/phpmyadmin");
-    QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-    QString postUsuario = "pma_username";
-    QString postValueUsuario = "root";
-    QString postKeyPassword = "pma_password";
-    QString postValuePassword = "Bo3d90";
-
-    postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
-    postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
-
-
-    QEventLoop eLoop;
-    QNetworkReply* pReply = networkManager->post(request,postData);
-    QObject::connect( pReply, SIGNAL(finished()), this, SLOT(quit()) );
-    eLoop.exec( QEventLoop::ExcludeUserInputEvents );
-    */
 }
 
 void Soporte::resultado_html(QNetworkReply* p){
     qDebug()<< p;
 }
 
+
+void Soporte::insertaTexto(QString texto){
+
+    ui->TextoSalida->moveCursor (QTextCursor::End);
+    ui->TextoSalida->insertPlainText (texto);
+    ui->TextoSalida->moveCursor (QTextCursor::End);
+
+}

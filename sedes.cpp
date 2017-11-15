@@ -281,7 +281,7 @@ void Sedes::consultaNodo(const QString &nombre){
                     ui->checkBox_epol_movil->setCheckState((Qt::CheckState)consultar_programa.value(programa_epolMovil).toInt());
                     ui->checkBox_siapol->setCheckState((Qt::CheckState)consultar_programa.value(programa_siapol).toInt());
                 } else{
-                    ui->textEdit_consola->setText("Datos vacios en la consulta de programas "+consultar_nodo.value(nodo_nombre).toString());
+                    insertaTexto("Datos vacios en la consulta de programas "+consultar_nodo.value(nodo_nombre).toString());
                 }
             else
                 QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error consultando la tabla programa: \n"+consultar_programa.lastError().text(),QMessageBox::Ok);
@@ -298,7 +298,7 @@ void Sedes::consultaNodo(const QString &nombre){
                         ui->comboBox_telefonos->addItem(consultar_telefono.value(telefono_telefono).toString());
                     }while(consultar_telefono.next());
                 } else{
-                    ui->textEdit_consola->setText("Datos vacios en la consulta de telefonos "+consultar_nodo.value(nodo_nombre).toString());
+                    insertaTexto("Datos vacios en la consulta de telefonos "+consultar_nodo.value(nodo_nombre).toString());
                 }
             else
                  QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error consultando telefono: \n"+consultar_telefono.lastError().text(),QMessageBox::Ok);
@@ -367,7 +367,7 @@ void Sedes::consultaNodo(const QString &nombre){
                                     ui->comboBox_comarca->setCurrentIndex(ui->comboBox_comarca->findText(consultar_comarca.value(comarca_id).toString()));
                                     ui->comboBox_comarca->addItem(consultar_comarca.value(0).toString());
                                 } else {
-                                    ui->textEdit_consola->setText("Datos vacios en la consulta de comarca "+consultar_nodo.value(nodo_nombre).toString());
+                                    insertaTexto("Datos vacios en la consulta de comarca "+consultar_nodo.value(nodo_nombre).toString());
                                 }
                             }else
                                 QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error: \n"+consultar_comarca.lastError().text(),QMessageBox::Ok);
@@ -381,13 +381,13 @@ void Sedes::consultaNodo(const QString &nombre){
                                     ui->comboBox_mancomunidad->setCurrentIndex(ui->comboBox_mancomunidad->findText(consultar_mancomunidad.value(0).toString()));
                                     ui->comboBox_mancomunidad->addItem(consultar_mancomunidad.value(mancomunidad_id).toString());
                                 } else {
-                                    ui->textEdit_consola->setText("Datos vacios en la consulta de mancomunidad "+consultar_nodo.value(nodo_nombre).toString());
+                                    insertaTexto("Datos vacios en la consulta de mancomunidad "+consultar_nodo.value(nodo_nombre).toString());
                                 }
                             }else{
                                 QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error: \n"+consultar_mancomunidad.lastError().text(),QMessageBox::Ok);
                             }
                         }else {
-                            ui->textEdit_consola->setText("Datos vacios en la consulta de municipio "+consultar_nodo.value(nodo_nombre).toString());
+                            insertaTexto("Datos vacios en la consulta de municipio "+consultar_nodo.value(nodo_nombre).toString());
                         }
                     }
                     else{
@@ -407,7 +407,7 @@ void Sedes::consultaNodo(const QString &nombre){
                             ui->comboBox_email->addItem(consultar_email.value(emailnodo_email).toString());
                         }while(consultar_email.next());
                     else
-                        ui->textEdit_consola->setText("Ha ocurrido un error consultando email: \n"+consultar_nodo.value(nodo_nombre).toString());
+                        insertaTexto("Ha ocurrido un error consultando email: \n"+consultar_nodo.value(nodo_nombre).toString());
                 }else{
                     QMessageBox::critical(this, "Sql Error", "Ha ocurrido un error consultando email: \n"+consultar_email.lastError().text(),QMessageBox::Ok);
                 }
@@ -416,6 +416,16 @@ void Sedes::consultaNodo(const QString &nombre){
     }
     activa_botones();//activa/desactiva los botones
 }
+
+
+void Sedes::insertaTexto(QString texto){
+
+    ui->textEdit_consola->moveCursor (QTextCursor::End);
+    ui->textEdit_consola->insertPlainText (texto);
+    ui->textEdit_consola->moveCursor (QTextCursor::End);
+
+}
+
 
 void Sedes::activa_botones(){
 
@@ -501,7 +511,7 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
         if ((QMessageBox::critical(this, "¿Guardar datos?", "Ha modificado algunos datos.\n¿Desea guardar los cambios?",
                                         QMessageBox::Save|QMessageBox::Cancel))==QMessageBox::Save)
         {
-            ui->textEdit_consola->setText("Guardando datos:"+query.value(0).toString());
+            insertaTexto("Guardando datos:"+query.value(0).toString());
             grabar_datos(1);
         }
 
@@ -514,7 +524,7 @@ void Sedes::on_comboBox_IP_activated(const QString &ip)
             ui->comboBox_NODO->setCurrentIndex(ui->comboBox_NODO->findText(query.value(0).toString()));
         }
             else
-                ui->textEdit_consola->setText("IP no valida");
+                insertaTexto("IP no valida");
 
 }
 
@@ -809,7 +819,7 @@ bool Sedes::comprueba_datos_cambiados()
 
     {
         return true;
-         ui->textEdit_consola->setText("Han cambiado algunos datos");
+         insertaTexto("Han cambiado algunos datos");
     }
 return false;
 }
@@ -817,7 +827,7 @@ return false;
 void Sedes::on_comboBox_NODO_currentIndexChanged(int index)
 {
           if (comprueba_datos_cambiados())
-               ui->textEdit_consola->setText("Han cambiado algunos datos");
+               insertaTexto("Han cambiado algunos datos");
 }
 
 void Sedes::cambio_estado_line(){

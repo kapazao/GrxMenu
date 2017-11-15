@@ -196,6 +196,8 @@ private slots:
 
     void on_pB_tablon_clicked();
 
+    void insertaTexto(QString texto);
+
 private:
     Ui::Sedes *ui;
     //QSqlDatabase db;
