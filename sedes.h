@@ -198,6 +198,8 @@ private slots:
 
     void insertaTexto(QString texto);
 
+    void on_pB_Edicion_clicked();
+
 private:
     Ui::Sedes *ui;
     //QSqlDatabase db;

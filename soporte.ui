@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
+    <width>800</width>
     <height>808</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>90</y>
      <width>781</width>
      <height>231</height>
     </rect>
@@ -100,7 +100,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>761</width>
+      <width>767</width>
       <height>211</height>
      </rect>
     </property>
@@ -182,6 +182,12 @@
        </property>
        <item>
         <widget class="QComboBox" name="cb_sede">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -191,7 +197,7 @@
         <widget class="QLineEdit" name="lineEdit_ip">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -204,7 +210,7 @@
         <widget class="QLineEdit" name="lineEdit_telefono">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -214,7 +220,7 @@
         <widget class="QLineEdit" name="lineEdit_extension">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -224,7 +230,7 @@
         <widget class="QLineEdit" name="lineEdit_direccion">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -234,7 +240,7 @@
         <widget class="QLineEdit" name="lineEdit_numero">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -318,7 +324,7 @@
         <widget class="QLineEdit" name="lineEdit_adsl">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -328,7 +334,7 @@
         <widget class="QLineEdit" name="lineEdit_n_adm">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -338,7 +344,7 @@
         <widget class="QLineEdit" name="lineEdit_centro">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -348,7 +354,7 @@
         <widget class="QLineEdit" name="lineEdit_telefono_centro">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -358,7 +364,7 @@
         <widget class="QLineEdit" name="lineEdit_servicio">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -368,7 +374,7 @@
         <widget class="QLineEdit" name="lineEdit_caudal">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -383,8 +389,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
-     <width>450</width>
+     <y>330</y>
+     <width>512</width>
      <height>36</height>
     </rect>
    </property>
@@ -424,6 +430,13 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>GLPI</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="Estado">
@@ -443,9 +456,9 @@
    <property name="geometry">
     <rect>
      <x>700</x>
-     <y>305</y>
+     <y>334</y>
      <width>80</width>
-     <height>25</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -456,7 +469,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>340</y>
+     <y>380</y>
      <width>781</width>
      <height>421</height>
     </rect>
@@ -476,8 +489,8 @@
       <rect>
        <x>0</x>
        <y>1</y>
-       <width>771</width>
-       <height>381</height>
+       <width>777</width>
+       <height>390</height>
       </rect>
      </property>
      <property name="focusPolicy">
@@ -492,33 +505,333 @@
     </widget>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>41</width>
-     <height>41</height>
+     <x>90</x>
+     <y>10</y>
+     <width>571</width>
+     <height>61</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>imagenes/iconos/portafirmas.jpg</normaloff>imagenes/iconos/portafirmas.jpg</iconset>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>30</width>
-     <height>30</height>
-    </size>
-   </property>
+   <widget class="QPushButton" name="pB_gmenu">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>MOAD</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/moad.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/moad.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_gtablon">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>GTablón</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/gtablon.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/gtablon.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_isl">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>ISLOnline</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_citrix">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Citrix</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/citrix.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/citrix.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_epol">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>EPol</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/epol.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/epol.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_aytos">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Incidencias Sede</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/aytos.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/aytos.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_portafirmas">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Portafirmas</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_listin">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Listin Telefónico</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/listin.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/listin.jpeg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_perilContratante">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Portal del Contratante</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/perfilcontratante.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/perfilcontratante.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_guadaltel">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Redmine</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/guadaltel.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/guadaltel.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <zorder>pB_gmenu</zorder>
+   <zorder>pB_gtablon</zorder>
+   <zorder>pB_isl</zorder>
+   <zorder>pB_citrix</zorder>
+   <zorder>pB_epol</zorder>
+   <zorder>pB_aytos</zorder>
+   <zorder>pB_portafirmas</zorder>
+   <zorder>pB_listin</zorder>
+   <zorder>pB_perilContratante</zorder>
+   <zorder>pB_guadaltel</zorder>
+   <zorder>pB_gmenu</zorder>
+   <zorder>pB_gtablon</zorder>
+   <zorder>pB_isl</zorder>
+   <zorder>pB_citrix</zorder>
+   <zorder>pB_epol</zorder>
+   <zorder>pB_aytos</zorder>
+   <zorder>pB_portafirmas</zorder>
+   <zorder>pB_listin</zorder>
+   <zorder>pB_perilContratante</zorder>
+   <zorder>pB_guadaltel</zorder>
   </widget>
   <action name="actionPortafirmas">
    <property name="icon">
     <iconset>
-     <normaloff>imagenes/iconos/portafirmas.jpg</normaloff>imagenes/iconos/portafirmas.jpg</iconset>
+     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</iconset>
    </property>
    <property name="text">
     <string>Portafirmas</string>

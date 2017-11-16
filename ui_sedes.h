@@ -33,7 +33,7 @@ public:
     QFrame *frame;
     QPushButton *pB_Edicion;
     QTextEdit *textEdit_consola;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_22;
     QHBoxLayout *horizontalLayout_25;
     QLabel *label;
@@ -56,7 +56,7 @@ public:
     QLabel *label_13;
     QLabel *label_14;
     QLabel *label_16;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_6;
     QComboBox *comboBox_telefonos;
     QLineEdit *lineEdit_extension;
@@ -78,13 +78,13 @@ public:
     QLabel *label_4;
     QLabel *label_6;
     QLabel *label_7;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_8;
     QLineEdit *lineEdit_cp;
     QLineEdit *lineEdit_municipio;
     QLineEdit *lineEdit_latitud;
     QLineEdit *lineEdit_longitud;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_9;
     QLineEdit *lineEdit_numero;
     QLineEdit *lineEdit_letra;
@@ -99,7 +99,7 @@ public:
     QLineEdit *lineEdit_via;
     QLabel *label_15;
     QFrame *frame_4;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_21;
     QVBoxLayout *verticalLayout;
     QLabel *label_22;
@@ -132,12 +132,12 @@ public:
     QFrame *frame_5;
     QLabel *label_25;
     QLabel *label_26;
-    QWidget *layoutWidget4;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_2;
     QComboBox *comboBox_mancomunidad;
     QComboBox *comboBox_comarca;
     QFrame *frame_6;
-    QWidget *layoutWidget5;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_27;
     QLineEdit *lineEdit_cif;
@@ -148,7 +148,7 @@ public:
     QLabel *label_29;
     QLineEdit *lineEdit_ine;
     QFrame *frame_7;
-    QWidget *layoutWidget6;
+    QWidget *layoutWidget7;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QPushButton *pB_web;
@@ -166,7 +166,7 @@ public:
     QFrame *frame_8;
     QFrame *frame_11;
     QPushButton *pB_mapa_2;
-    QWidget *layoutWidget7;
+    QWidget *layoutWidget8;
     QVBoxLayout *verticalLayout_16;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_10;
@@ -190,7 +190,7 @@ public:
     QPushButton *pB_wikipedia;
     QPushButton *pB_googleMaps;
     QFrame *frame_9;
-    QWidget *layoutWidget8;
+    QWidget *layoutWidget9;
     QHBoxLayout *horizontalLayout_5;
     QVBoxLayout *verticalLayout_6;
     QPushButton *pB_sede;
@@ -306,7 +306,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         pB_Edicion = new QPushButton(frame);
         pB_Edicion->setObjectName(QStringLiteral("pB_Edicion"));
-        pB_Edicion->setEnabled(false);
+        pB_Edicion->setEnabled(true);
         pB_Edicion->setGeometry(QRect(1170, 10, 71, 41));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush);
@@ -373,22 +373,22 @@ public:
         textEdit_consola = new QTextEdit(frame);
         textEdit_consola->setObjectName(QStringLiteral("textEdit_consola"));
         textEdit_consola->setGeometry(QRect(930, 10, 221, 41));
-        widget = new QWidget(frame);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 10, 908, 41));
-        horizontalLayout_22 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(frame);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 908, 41));
+        horizontalLayout_22 = new QHBoxLayout(layoutWidget);
         horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
         horizontalLayout_22->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_25 = new QHBoxLayout();
         horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_25->addWidget(label);
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        comboBox_NODO = new QComboBox(widget);
+        comboBox_NODO = new QComboBox(layoutWidget);
         comboBox_NODO->setObjectName(QStringLiteral("comboBox_NODO"));
         comboBox_NODO->setMinimumSize(QSize(250, 0));
         QFont font;
@@ -406,14 +406,14 @@ public:
 
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         horizontalLayout_13->addWidget(label_2);
 
         verticalLayout_24 = new QVBoxLayout();
         verticalLayout_24->setObjectName(QStringLiteral("verticalLayout_24"));
-        comboBox_IP = new QComboBox(widget);
+        comboBox_IP = new QComboBox(layoutWidget);
         comboBox_IP->setObjectName(QStringLiteral("comboBox_IP"));
         comboBox_IP->setMinimumSize(QSize(180, 0));
         comboBox_IP->setFont(font);
@@ -430,13 +430,14 @@ public:
 
         horizontalLayout_15 = new QHBoxLayout();
         horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
-        label_35 = new QLabel(widget);
+        label_35 = new QLabel(layoutWidget);
         label_35->setObjectName(QStringLiteral("label_35"));
 
         horizontalLayout_15->addWidget(label_35);
 
-        lineEdit_TLF = new QLineEdit(widget);
+        lineEdit_TLF = new QLineEdit(layoutWidget);
         lineEdit_TLF->setObjectName(QStringLiteral("lineEdit_TLF"));
+        lineEdit_TLF->setMinimumSize(QSize(166, 0));
         lineEdit_TLF->setMaximumSize(QSize(170, 16777215));
         lineEdit_TLF->setFont(font);
         lineEdit_TLF->setReadOnly(true);
@@ -448,15 +449,16 @@ public:
 
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
-        label_34 = new QLabel(widget);
+        label_34 = new QLabel(layoutWidget);
         label_34->setObjectName(QStringLiteral("label_34"));
 
         horizontalLayout_14->addWidget(label_34);
 
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        lineEdit_extension2 = new QLineEdit(widget);
+        lineEdit_extension2 = new QLineEdit(layoutWidget);
         lineEdit_extension2->setObjectName(QStringLiteral("lineEdit_extension2"));
+        lineEdit_extension2->setMinimumSize(QSize(127, 0));
         lineEdit_extension2->setMaximumSize(QSize(130, 16777215));
         lineEdit_extension2->setFont(font);
         lineEdit_extension2->setReadOnly(true);
@@ -469,10 +471,6 @@ public:
 
         horizontalLayout_22->addLayout(horizontalLayout_14);
 
-        pB_Edicion->raise();
-        textEdit_consola->raise();
-        label_34->raise();
-        lineEdit_TLF->raise();
         frame_3 = new QFrame(Sedes);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 270, 621, 131));
@@ -493,13 +491,13 @@ public:
         label_16 = new QLabel(frame_3);
         label_16->setObjectName(QStringLiteral("label_16"));
         label_16->setGeometry(QRect(310, 10, 231, 17));
-        layoutWidget = new QWidget(frame_3);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 90, 601, 34));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget);
+        layoutWidget1 = new QWidget(frame_3);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 90, 601, 34));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        comboBox_telefonos = new QComboBox(layoutWidget);
+        comboBox_telefonos = new QComboBox(layoutWidget1);
         comboBox_telefonos->setObjectName(QStringLiteral("comboBox_telefonos"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -511,7 +509,7 @@ public:
 
         horizontalLayout_6->addWidget(comboBox_telefonos);
 
-        lineEdit_extension = new QLineEdit(layoutWidget);
+        lineEdit_extension = new QLineEdit(layoutWidget1);
         lineEdit_extension->setObjectName(QStringLiteral("lineEdit_extension"));
         sizePolicy.setHeightForWidth(lineEdit_extension->sizePolicy().hasHeightForWidth());
         lineEdit_extension->setSizePolicy(sizePolicy);
@@ -522,7 +520,7 @@ public:
 
         horizontalLayout_6->addWidget(lineEdit_extension);
 
-        lineEdit_fax = new QLineEdit(layoutWidget);
+        lineEdit_fax = new QLineEdit(layoutWidget1);
         lineEdit_fax->setObjectName(QStringLiteral("lineEdit_fax"));
         sizePolicy.setHeightForWidth(lineEdit_fax->sizePolicy().hasHeightForWidth());
         lineEdit_fax->setSizePolicy(sizePolicy);
@@ -642,13 +640,13 @@ public:
         label_7 = new QLabel(frame_2);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(500, 70, 46, 17));
-        layoutWidget1 = new QWidget(frame_2);
-        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 150, 604, 34));
-        horizontalLayout_8 = new QHBoxLayout(layoutWidget1);
+        layoutWidget2 = new QWidget(frame_2);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 150, 604, 34));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        lineEdit_cp = new QLineEdit(layoutWidget1);
+        lineEdit_cp = new QLineEdit(layoutWidget2);
         lineEdit_cp->setObjectName(QStringLiteral("lineEdit_cp"));
         lineEdit_cp->setInputMethodHints(Qt::ImhDigitsOnly);
         lineEdit_cp->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -656,14 +654,14 @@ public:
 
         horizontalLayout_8->addWidget(lineEdit_cp);
 
-        lineEdit_municipio = new QLineEdit(layoutWidget1);
+        lineEdit_municipio = new QLineEdit(layoutWidget2);
         lineEdit_municipio->setObjectName(QStringLiteral("lineEdit_municipio"));
         lineEdit_municipio->setMaxLength(64);
         lineEdit_municipio->setReadOnly(true);
 
         horizontalLayout_8->addWidget(lineEdit_municipio);
 
-        lineEdit_latitud = new QLineEdit(layoutWidget1);
+        lineEdit_latitud = new QLineEdit(layoutWidget2);
         lineEdit_latitud->setObjectName(QStringLiteral("lineEdit_latitud"));
         lineEdit_latitud->setMaxLength(12);
         lineEdit_latitud->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -671,7 +669,7 @@ public:
 
         horizontalLayout_8->addWidget(lineEdit_latitud);
 
-        lineEdit_longitud = new QLineEdit(layoutWidget1);
+        lineEdit_longitud = new QLineEdit(layoutWidget2);
         lineEdit_longitud->setObjectName(QStringLiteral("lineEdit_longitud"));
         lineEdit_longitud->setMaxLength(12);
         lineEdit_longitud->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -679,13 +677,13 @@ public:
 
         horizontalLayout_8->addWidget(lineEdit_longitud);
 
-        layoutWidget2 = new QWidget(frame_2);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(10, 90, 604, 34));
-        horizontalLayout_9 = new QHBoxLayout(layoutWidget2);
+        layoutWidget3 = new QWidget(frame_2);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(10, 90, 604, 34));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        lineEdit_numero = new QLineEdit(layoutWidget2);
+        lineEdit_numero = new QLineEdit(layoutWidget3);
         lineEdit_numero->setObjectName(QStringLiteral("lineEdit_numero"));
         lineEdit_numero->setMaxLength(3);
         lineEdit_numero->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -693,21 +691,21 @@ public:
 
         horizontalLayout_9->addWidget(lineEdit_numero);
 
-        lineEdit_letra = new QLineEdit(layoutWidget2);
+        lineEdit_letra = new QLineEdit(layoutWidget3);
         lineEdit_letra->setObjectName(QStringLiteral("lineEdit_letra"));
         lineEdit_letra->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit_letra->setReadOnly(true);
 
         horizontalLayout_9->addWidget(lineEdit_letra);
 
-        lineEdit_escalera = new QLineEdit(layoutWidget2);
+        lineEdit_escalera = new QLineEdit(layoutWidget3);
         lineEdit_escalera->setObjectName(QStringLiteral("lineEdit_escalera"));
         lineEdit_escalera->setMaxLength(3);
         lineEdit_escalera->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_9->addWidget(lineEdit_escalera);
 
-        lineEdit_piso = new QLineEdit(layoutWidget2);
+        lineEdit_piso = new QLineEdit(layoutWidget3);
         lineEdit_piso->setObjectName(QStringLiteral("lineEdit_piso"));
         lineEdit_piso->setMaxLength(3);
         lineEdit_piso->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -715,7 +713,7 @@ public:
 
         horizontalLayout_9->addWidget(lineEdit_piso);
 
-        lineEdit_puerta = new QLineEdit(layoutWidget2);
+        lineEdit_puerta = new QLineEdit(layoutWidget3);
         lineEdit_puerta->setObjectName(QStringLiteral("lineEdit_puerta"));
         lineEdit_puerta->setMaxLength(3);
         lineEdit_puerta->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -816,41 +814,41 @@ public:
         frame_4->setPalette(palette3);
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
-        layoutWidget3 = new QWidget(frame_4);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(13, 3, 611, 211));
-        horizontalLayout_21 = new QHBoxLayout(layoutWidget3);
+        layoutWidget4 = new QWidget(frame_4);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(13, 3, 611, 211));
+        horizontalLayout_21 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
         horizontalLayout_21->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(1);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label_22 = new QLabel(layoutWidget3);
+        label_22 = new QLabel(layoutWidget4);
         label_22->setObjectName(QStringLiteral("label_22"));
 
         verticalLayout->addWidget(label_22);
 
-        label_21 = new QLabel(layoutWidget3);
+        label_21 = new QLabel(layoutWidget4);
         label_21->setObjectName(QStringLiteral("label_21"));
 
         verticalLayout->addWidget(label_21);
 
-        label_19 = new QLabel(layoutWidget3);
+        label_19 = new QLabel(layoutWidget4);
         label_19->setObjectName(QStringLiteral("label_19"));
 
         verticalLayout->addWidget(label_19);
 
-        label_20 = new QLabel(layoutWidget3);
+        label_20 = new QLabel(layoutWidget4);
         label_20->setObjectName(QStringLiteral("label_20"));
 
         verticalLayout->addWidget(label_20);
 
-        label_23 = new QLabel(layoutWidget3);
+        label_23 = new QLabel(layoutWidget4);
         label_23->setObjectName(QStringLiteral("label_23"));
 
         verticalLayout->addWidget(label_23);
 
-        label_24 = new QLabel(layoutWidget3);
+        label_24 = new QLabel(layoutWidget4);
         label_24->setObjectName(QStringLiteral("label_24"));
 
         verticalLayout->addWidget(label_24);
@@ -870,7 +868,7 @@ public:
         verticalLayout_20 = new QVBoxLayout();
         verticalLayout_20->setSpacing(1);
         verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
-        lineEdit_adsl = new QLineEdit(layoutWidget3);
+        lineEdit_adsl = new QLineEdit(layoutWidget4);
         lineEdit_adsl->setObjectName(QStringLiteral("lineEdit_adsl"));
         sizePolicy.setHeightForWidth(lineEdit_adsl->sizePolicy().hasHeightForWidth());
         lineEdit_adsl->setSizePolicy(sizePolicy);
@@ -887,7 +885,7 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(1);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        lineEdit_n_adm = new QLineEdit(layoutWidget3);
+        lineEdit_n_adm = new QLineEdit(layoutWidget4);
         lineEdit_n_adm->setObjectName(QStringLiteral("lineEdit_n_adm"));
         sizePolicy.setHeightForWidth(lineEdit_n_adm->sizePolicy().hasHeightForWidth());
         lineEdit_n_adm->setSizePolicy(sizePolicy);
@@ -904,7 +902,7 @@ public:
         verticalLayout_18 = new QVBoxLayout();
         verticalLayout_18->setSpacing(1);
         verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
-        lineEdit_ip_cifrado = new QLineEdit(layoutWidget3);
+        lineEdit_ip_cifrado = new QLineEdit(layoutWidget4);
         lineEdit_ip_cifrado->setObjectName(QStringLiteral("lineEdit_ip_cifrado"));
         sizePolicy.setHeightForWidth(lineEdit_ip_cifrado->sizePolicy().hasHeightForWidth());
         lineEdit_ip_cifrado->setSizePolicy(sizePolicy);
@@ -921,7 +919,7 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_19);
 
-        frame_router = new QFrame(layoutWidget3);
+        frame_router = new QFrame(layoutWidget4);
         frame_router->setObjectName(QStringLiteral("frame_router"));
         frame_router->setFrameShape(QFrame::StyledPanel);
         frame_router->setFrameShadow(QFrame::Raised);
@@ -941,7 +939,7 @@ public:
         verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setSpacing(1);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        lineEdit_servicio = new QLineEdit(layoutWidget3);
+        lineEdit_servicio = new QLineEdit(layoutWidget4);
         lineEdit_servicio->setObjectName(QStringLiteral("lineEdit_servicio"));
         lineEdit_servicio->setMaxLength(64);
         lineEdit_servicio->setReadOnly(true);
@@ -954,7 +952,7 @@ public:
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(1);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        lineEdit_caudal = new QLineEdit(layoutWidget3);
+        lineEdit_caudal = new QLineEdit(layoutWidget4);
         lineEdit_caudal->setObjectName(QStringLiteral("lineEdit_caudal"));
         lineEdit_caudal->setMaxLength(64);
         lineEdit_caudal->setReadOnly(true);
@@ -968,7 +966,7 @@ public:
         horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
         verticalLayout_17 = new QVBoxLayout();
         verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
-        lineEdit_equipamiento = new QLineEdit(layoutWidget3);
+        lineEdit_equipamiento = new QLineEdit(layoutWidget4);
         lineEdit_equipamiento->setObjectName(QStringLiteral("lineEdit_equipamiento"));
         lineEdit_equipamiento->setMaxLength(128);
         lineEdit_equipamiento->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -981,7 +979,7 @@ public:
 
         verticalLayout_21 = new QVBoxLayout();
         verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
-        lineEdit_numeroSerieRouter = new QLineEdit(layoutWidget3);
+        lineEdit_numeroSerieRouter = new QLineEdit(layoutWidget4);
         lineEdit_numeroSerieRouter->setObjectName(QStringLiteral("lineEdit_numeroSerieRouter"));
         lineEdit_numeroSerieRouter->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -1010,18 +1008,18 @@ public:
         label_26 = new QLabel(frame_5);
         label_26->setObjectName(QStringLiteral("label_26"));
         label_26->setGeometry(QRect(320, 10, 151, 17));
-        layoutWidget4 = new QWidget(frame_5);
-        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 30, 601, 34));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget4);
+        layoutWidget5 = new QWidget(frame_5);
+        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(10, 30, 601, 34));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        comboBox_mancomunidad = new QComboBox(layoutWidget4);
+        comboBox_mancomunidad = new QComboBox(layoutWidget5);
         comboBox_mancomunidad->setObjectName(QStringLiteral("comboBox_mancomunidad"));
 
         horizontalLayout_2->addWidget(comboBox_mancomunidad);
 
-        comboBox_comarca = new QComboBox(layoutWidget4);
+        comboBox_comarca = new QComboBox(layoutWidget5);
         comboBox_comarca->setObjectName(QStringLiteral("comboBox_comarca"));
 
         horizontalLayout_2->addWidget(comboBox_comarca);
@@ -1086,19 +1084,19 @@ public:
         frame_6->setPalette(palette4);
         frame_6->setFrameShape(QFrame::StyledPanel);
         frame_6->setFrameShadow(QFrame::Raised);
-        layoutWidget5 = new QWidget(frame_6);
-        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(10, 10, 611, 31));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget5);
+        layoutWidget6 = new QWidget(frame_6);
+        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(10, 10, 611, 31));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_27 = new QLabel(layoutWidget5);
+        label_27 = new QLabel(layoutWidget6);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_27);
 
-        lineEdit_cif = new QLineEdit(layoutWidget5);
+        lineEdit_cif = new QLineEdit(layoutWidget6);
         lineEdit_cif->setObjectName(QStringLiteral("lineEdit_cif"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
@@ -1110,20 +1108,20 @@ public:
 
         horizontalLayout_7->addWidget(lineEdit_cif);
 
-        line_2 = new QFrame(layoutWidget5);
+        line_2 = new QFrame(layoutWidget6);
         line_2->setObjectName(QStringLiteral("line_2"));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_7->addWidget(line_2);
 
-        label_28 = new QLabel(layoutWidget5);
+        label_28 = new QLabel(layoutWidget6);
         label_28->setObjectName(QStringLiteral("label_28"));
         label_28->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_28);
 
-        lineEdit_dir3 = new QLineEdit(layoutWidget5);
+        lineEdit_dir3 = new QLineEdit(layoutWidget6);
         lineEdit_dir3->setObjectName(QStringLiteral("lineEdit_dir3"));
         sizePolicy.setHeightForWidth(lineEdit_dir3->sizePolicy().hasHeightForWidth());
         lineEdit_dir3->setSizePolicy(sizePolicy);
@@ -1133,20 +1131,20 @@ public:
 
         horizontalLayout_7->addWidget(lineEdit_dir3);
 
-        line_3 = new QFrame(layoutWidget5);
+        line_3 = new QFrame(layoutWidget6);
         line_3->setObjectName(QStringLiteral("line_3"));
         line_3->setFrameShape(QFrame::VLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_7->addWidget(line_3);
 
-        label_29 = new QLabel(layoutWidget5);
+        label_29 = new QLabel(layoutWidget6);
         label_29->setObjectName(QStringLiteral("label_29"));
         label_29->setMaximumSize(QSize(40, 16777215));
 
         horizontalLayout_7->addWidget(label_29);
 
-        lineEdit_ine = new QLineEdit(layoutWidget5);
+        lineEdit_ine = new QLineEdit(layoutWidget6);
         lineEdit_ine->setObjectName(QStringLiteral("lineEdit_ine"));
         sizePolicy.setHeightForWidth(lineEdit_ine->sizePolicy().hasHeightForWidth());
         lineEdit_ine->setSizePolicy(sizePolicy);
@@ -1210,27 +1208,27 @@ public:
         frame_7->setPalette(palette5);
         frame_7->setFrameShape(QFrame::StyledPanel);
         frame_7->setFrameShadow(QFrame::Raised);
-        layoutWidget6 = new QWidget(frame_7);
-        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(11, 10, 401, 111));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget6);
+        layoutWidget7 = new QWidget(frame_7);
+        layoutWidget7->setObjectName(QStringLiteral("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(11, 10, 401, 111));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(0);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        pB_web = new QPushButton(layoutWidget6);
+        pB_web = new QPushButton(layoutWidget7);
         pB_web->setObjectName(QStringLiteral("pB_web"));
 
         verticalLayout_3->addWidget(pB_web);
 
-        pB_bandera = new QPushButton(layoutWidget6);
+        pB_bandera = new QPushButton(layoutWidget7);
         pB_bandera->setObjectName(QStringLiteral("pB_bandera"));
 
         verticalLayout_3->addWidget(pB_bandera);
 
-        pB_escudo = new QPushButton(layoutWidget6);
+        pB_escudo = new QPushButton(layoutWidget7);
         pB_escudo->setObjectName(QStringLiteral("pB_escudo"));
 
         verticalLayout_3->addWidget(pB_escudo);
@@ -1241,7 +1239,7 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(0);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        lineEdit_web = new QLineEdit(layoutWidget6);
+        lineEdit_web = new QLineEdit(layoutWidget7);
         lineEdit_web->setObjectName(QStringLiteral("lineEdit_web"));
         lineEdit_web->setEnabled(true);
         QFont font1;
@@ -1252,7 +1250,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_web);
 
-        lineEdit_bandera = new QLineEdit(layoutWidget6);
+        lineEdit_bandera = new QLineEdit(layoutWidget7);
         lineEdit_bandera->setObjectName(QStringLiteral("lineEdit_bandera"));
         lineEdit_bandera->setFont(font1);
         lineEdit_bandera->setInputMethodHints(Qt::ImhUrlCharactersOnly);
@@ -1261,7 +1259,7 @@ public:
 
         verticalLayout_5->addWidget(lineEdit_bandera);
 
-        lineEdit_escudo = new QLineEdit(layoutWidget6);
+        lineEdit_escudo = new QLineEdit(layoutWidget7);
         lineEdit_escudo->setObjectName(QStringLiteral("lineEdit_escudo"));
         lineEdit_escudo->setFont(font1);
         lineEdit_escudo->setInputMethodHints(Qt::ImhUrlCharactersOnly);
@@ -1422,22 +1420,22 @@ public:
         pB_mapa_2->setLayoutDirection(Qt::LeftToRight);
         pB_mapa_2->setIconSize(QSize(120, 100));
         pB_mapa_2->setFlat(true);
-        layoutWidget7 = new QWidget(frame_8);
-        layoutWidget7->setObjectName(QStringLiteral("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(11, 11, 431, 120));
-        verticalLayout_16 = new QVBoxLayout(layoutWidget7);
+        layoutWidget8 = new QWidget(frame_8);
+        layoutWidget8->setObjectName(QStringLiteral("layoutWidget8"));
+        layoutWidget8->setGeometry(QRect(11, 11, 431, 120));
+        verticalLayout_16 = new QVBoxLayout(layoutWidget8);
         verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
         verticalLayout_16->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        label_31 = new QLabel(layoutWidget7);
+        label_31 = new QLabel(layoutWidget8);
         label_31->setObjectName(QStringLiteral("label_31"));
 
         verticalLayout_10->addWidget(label_31);
 
-        lineEdit_habitantes = new QLineEdit(layoutWidget7);
+        lineEdit_habitantes = new QLineEdit(layoutWidget8);
         lineEdit_habitantes->setObjectName(QStringLiteral("lineEdit_habitantes"));
         sizePolicy1.setHeightForWidth(lineEdit_habitantes->sizePolicy().hasHeightForWidth());
         lineEdit_habitantes->setSizePolicy(sizePolicy1);
@@ -1453,12 +1451,12 @@ public:
 
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        label_32 = new QLabel(layoutWidget7);
+        label_32 = new QLabel(layoutWidget8);
         label_32->setObjectName(QStringLiteral("label_32"));
 
         verticalLayout_11->addWidget(label_32);
 
-        lineEdit_superficie = new QLineEdit(layoutWidget7);
+        lineEdit_superficie = new QLineEdit(layoutWidget8);
         lineEdit_superficie->setObjectName(QStringLiteral("lineEdit_superficie"));
         sizePolicy1.setHeightForWidth(lineEdit_superficie->sizePolicy().hasHeightForWidth());
         lineEdit_superficie->setSizePolicy(sizePolicy1);
@@ -1474,12 +1472,12 @@ public:
 
         verticalLayout_12 = new QVBoxLayout();
         verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
-        label_33 = new QLabel(layoutWidget7);
+        label_33 = new QLabel(layoutWidget8);
         label_33->setObjectName(QStringLiteral("label_33"));
 
         verticalLayout_12->addWidget(label_33);
 
-        lineEdit_altitud = new QLineEdit(layoutWidget7);
+        lineEdit_altitud = new QLineEdit(layoutWidget8);
         lineEdit_altitud->setObjectName(QStringLiteral("lineEdit_altitud"));
         sizePolicy1.setHeightForWidth(lineEdit_altitud->sizePolicy().hasHeightForWidth());
         lineEdit_altitud->setSizePolicy(sizePolicy1);
@@ -1503,12 +1501,12 @@ public:
         horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
         verticalLayout_13 = new QVBoxLayout();
         verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
-        label_36 = new QLabel(layoutWidget7);
+        label_36 = new QLabel(layoutWidget8);
         label_36->setObjectName(QStringLiteral("label_36"));
 
         verticalLayout_13->addWidget(label_36);
 
-        lineEdit_latitud_municipio = new QLineEdit(layoutWidget7);
+        lineEdit_latitud_municipio = new QLineEdit(layoutWidget8);
         lineEdit_latitud_municipio->setObjectName(QStringLiteral("lineEdit_latitud_municipio"));
         sizePolicy.setHeightForWidth(lineEdit_latitud_municipio->sizePolicy().hasHeightForWidth());
         lineEdit_latitud_municipio->setSizePolicy(sizePolicy);
@@ -1524,12 +1522,12 @@ public:
 
         verticalLayout_14 = new QVBoxLayout();
         verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        label_37 = new QLabel(layoutWidget7);
+        label_37 = new QLabel(layoutWidget8);
         label_37->setObjectName(QStringLiteral("label_37"));
 
         verticalLayout_14->addWidget(label_37);
 
-        lineEdit_longitud_municipio = new QLineEdit(layoutWidget7);
+        lineEdit_longitud_municipio = new QLineEdit(layoutWidget8);
         lineEdit_longitud_municipio->setObjectName(QStringLiteral("lineEdit_longitud_municipio"));
         sizePolicy.setHeightForWidth(lineEdit_longitud_municipio->sizePolicy().hasHeightForWidth());
         lineEdit_longitud_municipio->setSizePolicy(sizePolicy);
@@ -1548,12 +1546,12 @@ public:
 
         verticalLayout_15 = new QVBoxLayout();
         verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        pB_wikipedia = new QPushButton(layoutWidget7);
+        pB_wikipedia = new QPushButton(layoutWidget8);
         pB_wikipedia->setObjectName(QStringLiteral("pB_wikipedia"));
 
         verticalLayout_15->addWidget(pB_wikipedia);
 
-        pB_googleMaps = new QPushButton(layoutWidget7);
+        pB_googleMaps = new QPushButton(layoutWidget8);
         pB_googleMaps->setObjectName(QStringLiteral("pB_googleMaps"));
 
         verticalLayout_15->addWidget(pB_googleMaps);
@@ -1616,26 +1614,26 @@ public:
         frame_9->setPalette(palette8);
         frame_9->setFrameShape(QFrame::StyledPanel);
         frame_9->setFrameShadow(QFrame::Raised);
-        layoutWidget8 = new QWidget(frame_9);
-        layoutWidget8->setObjectName(QStringLiteral("layoutWidget8"));
-        layoutWidget8->setGeometry(QRect(10, 10, 611, 106));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget8);
+        layoutWidget9 = new QWidget(frame_9);
+        layoutWidget9->setObjectName(QStringLiteral("layoutWidget9"));
+        layoutWidget9->setGeometry(QRect(10, 10, 611, 106));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget9);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setSpacing(0);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        pB_sede = new QPushButton(layoutWidget8);
+        pB_sede = new QPushButton(layoutWidget9);
         pB_sede->setObjectName(QStringLiteral("pB_sede"));
 
         verticalLayout_6->addWidget(pB_sede);
 
-        pB_tablon = new QPushButton(layoutWidget8);
+        pB_tablon = new QPushButton(layoutWidget9);
         pB_tablon->setObjectName(QStringLiteral("pB_tablon"));
 
         verticalLayout_6->addWidget(pB_tablon);
 
-        pB_portalTransparencia = new QPushButton(layoutWidget8);
+        pB_portalTransparencia = new QPushButton(layoutWidget9);
         pB_portalTransparencia->setObjectName(QStringLiteral("pB_portalTransparencia"));
 
         verticalLayout_6->addWidget(pB_portalTransparencia);
@@ -1646,7 +1644,7 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        lineEdit_sede = new QLineEdit(layoutWidget8);
+        lineEdit_sede = new QLineEdit(layoutWidget9);
         lineEdit_sede->setObjectName(QStringLiteral("lineEdit_sede"));
         lineEdit_sede->setFont(font1);
         lineEdit_sede->setInputMethodHints(Qt::ImhUrlCharactersOnly);
@@ -1655,7 +1653,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_sede);
 
-        lineEdit_tablon = new QLineEdit(layoutWidget8);
+        lineEdit_tablon = new QLineEdit(layoutWidget9);
         lineEdit_tablon->setObjectName(QStringLiteral("lineEdit_tablon"));
         lineEdit_tablon->setFont(font1);
         lineEdit_tablon->setInputMethodHints(Qt::ImhUrlCharactersOnly);
@@ -1664,7 +1662,7 @@ public:
 
         verticalLayout_4->addWidget(lineEdit_tablon);
 
-        lineEdit_portar_transparencia = new QLineEdit(layoutWidget8);
+        lineEdit_portar_transparencia = new QLineEdit(layoutWidget9);
         lineEdit_portar_transparencia->setObjectName(QStringLiteral("lineEdit_portar_transparencia"));
         lineEdit_portar_transparencia->setFont(font1);
         lineEdit_portar_transparencia->setInputMethodHints(Qt::ImhUrlCharactersOnly);

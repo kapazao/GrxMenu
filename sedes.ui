@@ -451,7 +451,7 @@
    </property>
    <widget class="QPushButton" name="pB_Edicion">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -906,7 +906,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -996,6 +996,12 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_TLF">
+         <property name="minimumSize">
+          <size>
+           <width>166</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>170</width>
@@ -1027,6 +1033,12 @@ p, li { white-space: pre-wrap; }
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
           <widget class="QLineEdit" name="lineEdit_extension2">
+           <property name="minimumSize">
+            <size>
+             <width>127</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>130</width>
@@ -1049,15 +1061,6 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
-   <zorder>pB_Edicion</zorder>
-   <zorder>textEdit_consola</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>lineEdit_extension_2</zorder>
-   <zorder>label_34</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>lineEdit_TLF</zorder>
-   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">

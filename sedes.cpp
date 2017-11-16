@@ -6,6 +6,7 @@
 #include <QDesktopServices>
 #include "clickablelabel.h"
 #include "qdebug.h"
+#include "basedatos.h"
 Sedes::Sedes(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Sedes)
@@ -887,5 +888,12 @@ void Sedes::on_pB_escudo_2_clicked()
 
 
 
+
+}
+
+void Sedes::on_pB_Edicion_clicked()
+{
+    BaseDatos *basedatos   = new BaseDatos;
+    basedatos->show();
 
 }

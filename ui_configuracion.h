@@ -1098,7 +1098,7 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Configuracion, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Configuracion, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(Configuracion);
@@ -1245,12 +1245,12 @@ public:
         cuerpo->setHtml(QApplication::translate("Configuracion", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Buenos d\303\255as.<br /><br />Hay una linea con problemas de conexi\303\263n.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Haced el favor de echarle un vistazo.</span></p>\n"
-"<p style=\"-qt-p"
-                        "aragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", 0));
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10pt;\">Buenos d\303\255as.<br /><br />Hay una linea con problemas de conexi\303\263n.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10pt;\">Hemos comprobado que no es problema de su red.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:10p"
+                        "t;\">Haced el favor de echarle un vistazo.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;\"><br /></p></body></html>", 0));
         tabWidget->setTabText(tabWidget->indexOf(correo), QApplication::translate("Configuracion", "Correo", 0));
         label_46->setText(QApplication::translate("Configuracion", "Mostrar los Botones en el men\303\272", 0));
         checkBox_Usuarios->setText(QApplication::translate("Configuracion", "Usuarios", 0));

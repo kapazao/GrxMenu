@@ -59,6 +59,26 @@ private slots:
 
    void insertaTexto(QString texto);
 
+   void on_pB_gmenu_clicked();
+
+   void on_pB_portafirmas_clicked();
+
+   void on_pB_gtablon_clicked();
+
+   void on_pB_epol_clicked();
+
+   void on_pB_guadaltel_clicked();
+
+   void on_pB_perilContratante_clicked();
+
+   void on_pB_citrix_clicked();
+
+   void on_pB_aytos_clicked();
+
+   void on_pB_isl_clicked();
+
+   void on_pB_listin_clicked();
+
 private:
     Ui::Soporte *ui;
     QSqlDatabase db;

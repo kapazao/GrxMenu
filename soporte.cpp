@@ -237,41 +237,13 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 void Soporte::on_Btn_Atalaya_clicked()
 {
 /*
-    QByteArray postData;
-    QNetworkAccessManager *manager = new QNetworkAccessManager;
-    QNetworkRequest request(QUrl(QStringLiteral("http://localhost/phpmyadmin/")));
-    QString postUsuario = "pma_username";
-    QString postValueUsuario = "root";
-    QString postKeyPassword = "pma_password";
-    QString postValuePassword = "Bo3d90";
-    //request.setHeader(QNetworkRequest::ContentTypeHeader,
-    //                  "application/x-www-form-urlencoded");
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-    postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
-    postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
-    connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(resultado_html(QNetworkReply*)));
-    auto network_reply = manager->post(request, postData);
-    QEventLoop loop;
-    connect(network_reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-
-    QByteArray raw_data;
-    if(network_reply->error() == QNetworkReply::NoError){
-         raw_data = network_reply->readAll();
-    }else{
-        insertaTexto(network_reply->errorString());
-    }
-
-    insertaTexto (QTextCodec::codecForHtml(raw_data)->toUnicode(raw_data));
-
-*/
-    QNetworkRequest request(QUrl(QStringLiteral("http://localhost/phpmyadmin/")));
+    QNetworkRequest request(QUrl(QStringLiteral("http://atalaya.grx/Orion/Login.aspx?autologin=no")));
      request.setHeader(QNetworkRequest::ContentTypeHeader,
                        "application/x-www-form-urlencoded");
 
      QUrlQuery query;
-     query.addQueryItem("pma_username", "root");
-     query.addQueryItem("pma_password", "Bo3d90");
+     query.addQueryItem("ctl00$BodyContent$Username", "municipios");
+     query.addQueryItem("ctl00$BodyContent$Password", "CasaCuna");
 
      QUrl post_data;
      post_data.setQuery(query);
@@ -292,7 +264,9 @@ void Soporte::on_Btn_Atalaya_clicked()
 
      insertaTexto (QTextCodec::codecForHtml(raw_data)->toUnicode(raw_data));
 
+*/
 
+QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:438", QUrl::TolerantMode));
 }
 
 void Soporte::resultado_html(QNetworkReply* p){
@@ -306,4 +280,54 @@ void Soporte::insertaTexto(QString texto){
     ui->TextoSalida->insertPlainText (texto);
     ui->TextoSalida->moveCursor (QTextCursor::End);
 
+}
+
+void Soporte::on_pB_gmenu_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_portafirmas_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/moad/pfirma-moad/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_gtablon_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/moad/Gtablon-moad/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_epol_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://10.1.100.114/ePolV2/LoginNuevo!input.do", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_guadaltel_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.guadaltel.es/redmine/login", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_perilContratante_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://195.57.47.5:8080/pdc_srvGRA/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_citrix_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://ctx.dipgra.es/Citrix/XenApp/auth/login.aspx", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_aytos_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://areacliente.aytos.es/areacliente/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_isl_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.islonline.com/login/login.htm?wid=W409945021&rand=101138538&page=login&hl=es", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_listin_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://www.dipgra.es/listin", QUrl::TolerantMode));
 }
