@@ -21,8 +21,7 @@ class BaseDatos : public QMainWindow
 public:
     explicit BaseDatos(QWidget *parent = 0);
     ~BaseDatos();
-    //QSqlQueryModel *model_municipio = new QSqlQueryModel(); Si usamos la busqueda sql
-
+    QSqlQueryModel *model_consulta = new QSqlQueryModel();
     QSqlTableModel *model_municipio = new QSqlTableModel();
     QSqlTableModel *model_nodo = new QSqlTableModel();
     QSqlTableModel *model_poblacion = new QSqlTableModel();
@@ -38,6 +37,9 @@ public:
 private slots:
     void cabeceras();
     void inicia();
+    void on_pB_sql_clicked();
+    void on_comboBox_consulta_activated(const QString &arg1);
+
 private:
     Ui::BaseDatos *ui;
 };

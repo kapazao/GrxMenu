@@ -121,7 +121,8 @@ void BaseDatos::cabeceras()
 void BaseDatos::inicia(){
 
     QSqlDatabase db = QSqlDatabase::database();
-
+    QSqlQuery* query_consulta = new QSqlQuery(db);
+ /*
     QSqlQuery* query_municipio = new QSqlQuery(db);
     QSqlQuery* query_poblacion = new QSqlQuery(db);
     QSqlQuery* query_nodo = new QSqlQuery(db);
@@ -133,7 +134,7 @@ void BaseDatos::inicia(){
     QSqlQuery* query_mancomunidad = new QSqlQuery(db);
     QSqlQuery* query_diafestivopoblacion = new QSqlQuery(db);
     QSqlQuery* query_aplicaciones = new QSqlQuery(db);
-
+*/
     model_municipio->setTable("municipio");
     model_municipio->select();
     ui->tableView_municipio->setModel(model_municipio);
@@ -175,16 +176,38 @@ void BaseDatos::inicia(){
     model_mancomunidad->select();
     ui->tableView_mancomunidad->setModel(model_mancomunidad);
 
-}
-/* Ejemplo de como hacerlo con consultas sql
-QString sql_poblacion;
-sql_poblacion = "select * from poblacion";
-query_poblacion->prepare(sql_poblacion);
 
-if(!query_poblacion->exec())
-   QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_poblacion->lastError().text(),QMessageBox::Ok);
-else{
-    model_poblacion->setQuery(*query_poblacion);
-    ui->tableView_poblacion->setModel(model_poblacion);
+
 }
-*/
+
+void BaseDatos::on_pB_sql_clicked()
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery* query_consulta = new QSqlQuery(db);
+    QString sql_consulta;
+    sql_consulta = ui->comboBox_consulta->currentText();
+    query_consulta->prepare(sql_consulta);
+
+    if(!query_consulta->exec())
+       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_consulta->lastError().text(),QMessageBox::Ok);
+    else{
+        model_consulta->setQuery(*query_consulta);
+        ui->tableView_consulta->setModel(model_consulta);
+    }
+}
+
+void BaseDatos::on_comboBox_consulta_activated(const QString &arg1)
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery* query_consulta = new QSqlQuery(db);
+    QString sql_consulta;
+    sql_consulta = arg1;
+    query_consulta->prepare(sql_consulta);
+
+    if(!query_consulta->exec())
+       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_consulta->lastError().text(),QMessageBox::Ok);
+    else{
+        model_consulta->setQuery(*query_consulta);
+        ui->tableView_consulta->setModel(model_consulta);
+    }
+}

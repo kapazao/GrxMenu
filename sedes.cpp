@@ -770,12 +770,14 @@ void Sedes::boton_edicion_encendido(){
 
 void Sedes::on_pB_Edicion_toggled(bool checked)
 {
+    /*
     if (ui->pB_Edicion->isChecked()){
         boton_edicion_encendido();
     }
     else{
         boton_edicion_apagado();
     }
+    */
 }
 
 bool Sedes::comprueba_datos_cambiados()
@@ -884,10 +886,6 @@ void Sedes::on_pB_escudo_2_clicked()
         QDesktopServices::openUrl(QUrl("/usr/share/grx/asistencia/imagenes/escudos/"+municipioID+".svg",QUrl::TolerantMode));
      else
          QDesktopServices::openUrl(QUrl("/usr/share/grx/asistencia/imagenes/escudos/0_constitucional.svg",QUrl::TolerantMode));
-
-
-
-
 
 }
 
