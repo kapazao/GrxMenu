@@ -89,6 +89,7 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
     QSqlQuery consultar_poblacion;
     QSqlQuery consultar_municipio;
     QSqlQuery consultar_centro;
+    QSqlQuery consultar_aplicaciones;
 
     QString idNodo;
     QString idMunicipio;
@@ -125,6 +126,14 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
                 }
             }
+            consultar_aplicaciones.prepare(QString("select * from aplicaciones where idNodo =:idNodo"));
+            consultar_aplicaciones.bindValue(":idNodo", idNodo);
+            if (consultar_aplicaciones.exec())
+                    if (consultar_aplicaciones.first()){
+                        atalaya = consultar_aplicaciones.value(1).toInt();
+                        glpi = consultar_aplicaciones.value(2).toInt();
+                        ocs = consultar_aplicaciones.value(3).toInt();
+                    }
             consultar_centro.prepare(QString("select * from centro where id =:idCentro"));
             consultar_centro.bindValue(":idCentro", consultar.value(2).toString());
             if (consultar_centro.exec() and consultar_centro.first()){
@@ -236,6 +245,12 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 
 void Soporte::on_Btn_Atalaya_clicked()
 {
+
+    //QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+atalaya, QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("http://localhost/"+atalaya, QUrl::TolerantMode));
+
+}
+
 /*
     QNetworkRequest request(QUrl(QStringLiteral("http://atalaya.grx/Orion/Login.aspx?autologin=no")));
      request.setHeader(QNetworkRequest::ContentTypeHeader,
@@ -266,8 +281,6 @@ void Soporte::on_Btn_Atalaya_clicked()
 
 */
 
-QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:438", QUrl::TolerantMode));
-}
 
 void Soporte::resultado_html(QNetworkReply* p){
     qDebug()<< p;

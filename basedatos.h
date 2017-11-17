@@ -6,6 +6,9 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <QSqlQueryModel>
+#include <QSqlTableModel>
+#include <QTableView>
+
 #include <QMessageBox>
 namespace Ui {
 class BaseDatos;
@@ -18,17 +21,19 @@ class BaseDatos : public QMainWindow
 public:
     explicit BaseDatos(QWidget *parent = 0);
     ~BaseDatos();
-    QSqlQueryModel *model_municipio = new QSqlQueryModel();
-    QSqlQueryModel *model_nodo = new QSqlQueryModel();
-    QSqlQueryModel *model_poblacion = new QSqlQueryModel();
-    QSqlQueryModel *model_programa = new QSqlQueryModel();
-    QSqlQueryModel *model_emailnodo = new QSqlQueryModel();
-    QSqlQueryModel *model_telefononodo = new QSqlQueryModel();
-    QSqlQueryModel *model_comarca = new QSqlQueryModel();
-    QSqlQueryModel *model_mancomunidad = new QSqlQueryModel();
-    QSqlQueryModel *model_centro = new QSqlQueryModel();
-    QSqlQueryModel *model_diafestivopoblacion = new QSqlQueryModel();
-    QSqlQueryModel *model_aplicaciones = new QSqlQueryModel();
+    //QSqlQueryModel *model_municipio = new QSqlQueryModel(); Si usamos la busqueda sql
+
+    QSqlTableModel *model_municipio = new QSqlTableModel();
+    QSqlTableModel *model_nodo = new QSqlTableModel();
+    QSqlTableModel *model_poblacion = new QSqlTableModel();
+    QSqlTableModel *model_programa = new QSqlTableModel();
+    QSqlTableModel *model_emailnodo = new QSqlTableModel();
+    QSqlTableModel *model_telefononodo = new QSqlTableModel();
+    QSqlTableModel *model_comarca = new QSqlTableModel();
+    QSqlTableModel *model_mancomunidad = new QSqlTableModel();
+    QSqlTableModel *model_centro = new QSqlTableModel();
+    QSqlTableModel *model_diafestivopoblacion = new QSqlTableModel();
+    QSqlTableModel *model_aplicaciones = new QSqlTableModel();
 
 private slots:
     void cabeceras();

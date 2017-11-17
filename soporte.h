@@ -85,6 +85,8 @@ private:
     QSqlQuery consultar;
     QProcess *ping;
     QString terminal="x-terminal-emulator";
+    int atalaya, glpi, ocs;
+
  };
 
 

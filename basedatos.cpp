@@ -134,117 +134,57 @@ void BaseDatos::inicia(){
     QSqlQuery* query_diafestivopoblacion = new QSqlQuery(db);
     QSqlQuery* query_aplicaciones = new QSqlQuery(db);
 
-    QString sql_municipio;
-    sql_municipio = "select * from municipio";
-    query_municipio->prepare(sql_municipio);
+    model_municipio->setTable("municipio");
+    model_municipio->select();
+    ui->tableView_municipio->setModel(model_municipio);
 
-    if(!query_municipio->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_municipio->lastError().text(),QMessageBox::Ok);
-    else{
-        model_municipio->setQuery(*query_municipio);
-        ui->tableView_municipio->setModel(model_municipio);
-    }
+    model_nodo->setTable("nodo");
+    model_nodo->select();
+    ui->tableView_nodo->setModel(model_nodo);
 
 
-    QString sql_poblacion;
-    sql_poblacion = "select * from poblacion";
-    query_poblacion->prepare(sql_poblacion);
+    model_poblacion->setTable("poblacion");
+    model_poblacion->select();
+    ui->tableView_poblacion->setModel(model_poblacion);
 
-    if(!query_poblacion->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_poblacion->lastError().text(),QMessageBox::Ok);
-    else{
-        model_poblacion->setQuery(*query_poblacion);
-        ui->tableView_poblacion->setModel(model_poblacion);
-    }
+    model_centro->setTable("centro");
+    model_centro->select();
+    ui->tableView_centro->setModel(model_centro);
 
-    QString sql_nodo;
-    sql_nodo = "select * from nodo";
-    query_nodo->prepare(sql_nodo);
+    model_aplicaciones->setTable("aplicaciones");
+    model_aplicaciones->select();
+    ui->tableView_aplicaciones->setModel(model_aplicaciones);
 
-    if(!query_nodo->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_nodo->lastError().text(),QMessageBox::Ok);
-    else{
-        model_nodo->setQuery(*query_nodo);
-        ui->tableView_nodo->setModel(model_nodo);
-        ui->tableView_nodo->setSelectionMode(QAbstractItemView::SingleSelection);
-        ui->tableView_nodo->setEditTriggers(QAbstractItemView::DoubleClicked);
-    }
+    model_programa->setTable("programa");
+    model_programa->select();
+    ui->tableView_programa->setModel(model_programa);
 
-    QString sql_programa;
-    sql_programa = "select * from programa";
-    query_programa->prepare(sql_programa);
+    model_emailnodo->setTable("emailnodo");
+    model_emailnodo->select();
+    ui->tableView_emailnodo->setModel(model_emailnodo);
 
-    if(!query_programa->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_programa->lastError().text(),QMessageBox::Ok);
-    else{
-        model_programa->setQuery(*query_programa);
-        ui->tableView_programa->setModel(model_programa);
-    }
+    model_telefononodo->setTable("telefononodo");
+    model_telefononodo->select();
+    ui->tableView_telefononodo->setModel(model_telefononodo);
 
-    QString sql_emailnodo;
-    sql_emailnodo = "select * from emailnodo";
-    query_emailnodo->prepare(sql_emailnodo);
+    model_comarca->setTable("comarca");
+    model_comarca->select();
+    ui->tableView_comarca->setModel(model_comarca);
 
-    if(!query_emailnodo->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_emailnodo->lastError().text(),QMessageBox::Ok);
-    else{
-        model_emailnodo->setQuery(*query_emailnodo);
-        ui->tableView_emailnodo->setModel(model_emailnodo);
-    }
-
-    QString sql_telefononodo;
-    sql_telefononodo = "select * from telefononodo";
-    query_telefononodo->prepare(sql_telefononodo);
-
-    if(!query_telefononodo->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_telefononodo->lastError().text(),QMessageBox::Ok);
-    else{
-        model_telefononodo->setQuery(*query_telefononodo);
-        ui->tableView_telefononodo->setModel(model_telefononodo);
-    }
-
-    QString sql_centro;
-    sql_centro = "select * from centro";
-    query_centro->prepare(sql_centro);
-
-    if(!query_centro->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_centro->lastError().text(),QMessageBox::Ok);
-    else{
-        model_centro->setQuery(*query_centro);
-        ui->tableView_centro->setModel(model_centro);
-    }
-
-    QString sql_mancomunidad;
-    sql_mancomunidad = "select * from mancomunidad";
-    query_mancomunidad->prepare(sql_mancomunidad);
-
-    if(!query_mancomunidad->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_mancomunidad->lastError().text(),QMessageBox::Ok);
-    else{
-        model_mancomunidad->setQuery(*query_mancomunidad);
-        ui->tableView_mancomunidad->setModel(model_mancomunidad);
-    }
-
-    QString sql_comarca;
-    sql_comarca = "select * from comarca";
-    query_comarca->prepare(sql_comarca);
-
-    if(!query_comarca->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_comarca->lastError().text(),QMessageBox::Ok);
-    else{
-        model_comarca->setQuery(*query_comarca);
-        ui->tableView_comarca->setModel(model_comarca);
-    }
-
-    QString sql_aplicaciones;
-    sql_aplicaciones = "select * from aplicaciones";
-    query_aplicaciones->prepare(sql_aplicaciones);
-
-    if(!query_aplicaciones->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_aplicaciones->lastError().text(),QMessageBox::Ok);
-    else{
-        model_aplicaciones->setQuery(*query_aplicaciones);
-        ui->tableView_aplicaciones->setModel(model_aplicaciones);
-    }
+    model_mancomunidad->setTable("mancomunidad");
+    model_mancomunidad->select();
+    ui->tableView_mancomunidad->setModel(model_mancomunidad);
 
 }
+/* Ejemplo de como hacerlo con consultas sql
+QString sql_poblacion;
+sql_poblacion = "select * from poblacion";
+query_poblacion->prepare(sql_poblacion);
+
+if(!query_poblacion->exec())
+   QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_poblacion->lastError().text(),QMessageBox::Ok);
+else{
+    model_poblacion->setQuery(*query_poblacion);
+    ui->tableView_poblacion->setModel(model_poblacion);
+}
+*/
