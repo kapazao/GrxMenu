@@ -2,9 +2,8 @@
 #include "ui_sedes.h"
 #include <QSqlQuery>
 #include <QHostAddress>
-#include <QAbstractItemModel>
+//#include <QAbstractItemModel>
 #include <QDesktopServices>
-#include "clickablelabel.h"
 #include "qdebug.h"
 #include "basedatos.h"
 Sedes::Sedes(QWidget *parent) :
@@ -849,7 +848,6 @@ void Sedes::cambio_estado_checkbox(){
 void Sedes::on_pB_mapa_2_clicked()
 {
     QDesktopServices::openUrl(QUrl("file:/usr/share/grx/asistencia/imagenes/mapas/"+municipioID+".png"));
-    // QDesktopServices::openUrl(QUrl("file:/home/alberto/GrxMenu/imagenes/mapas/Agrón.png"));
 }
 
 void Sedes::on_pB_router_clicked()

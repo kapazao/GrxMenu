@@ -23,7 +23,9 @@ SOURCES += main.cpp \
     tunel.cpp \
     ejecutahilo.cpp \
     tabescaner.cpp \
-    basedatos.cpp
+    basedatos.cpp \
+    acerdade.cpp \
+    botones.cpp
 
 
 
@@ -38,7 +40,9 @@ HEADERS  += \
     tunel.h \
     ejecutahilo.h \
     tabescaner.h \
-    basedatos.h
+    basedatos.h \
+    acerdade.h \
+    botones.h
 
 
 
@@ -49,7 +53,8 @@ FORMS    += \
     sedes.ui \
     soporte.ui \
     equipos.ui \
-    basedatos.ui
+    basedatos.ui \
+    acerdade.ui
 
 
 LIBS += -lssh2

@@ -8,8 +8,9 @@
 #include <QSqlQueryModel>
 #include <QSqlTableModel>
 #include <QTableView>
-
 #include <QMessageBox>
+
+
 namespace Ui {
 class BaseDatos;
 }
@@ -19,6 +20,7 @@ class BaseDatos : public QMainWindow
     Q_OBJECT
 
 public:
+    QString sql[10];
     explicit BaseDatos(QWidget *parent = 0);
     ~BaseDatos();
     QSqlQueryModel *model_consulta = new QSqlQueryModel();

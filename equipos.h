@@ -13,28 +13,39 @@ class Equipos : public QWidget
 
 public:
     explicit Equipos(Host *host,QWidget *parent = 0);
-    QString host_ports_open_string(Host*);
     QList <QString> host_ports_open(Host *host);
     ~Equipos();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_5_clicked();
 
     int puerto_libre();
 
     int host_ports_open_int(Host *host);
 
+    void on_pB_carpeta_clicked();
+
+    void on_pB_web_clicked();
+
+    void on_pB_webssl_clicked();
+
+    void on_pB_telnet_clicked();
+
+    void on_pB_ssh_clicked();
+
+    void on_pB_systemconfig_clicked();
+
+    void on_pB_networkManager_clicked();
+
+    void on_pB_cups_clicked();
+
+    void on_pB_vnc_clicked();
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::Equipos *ui;
     QString ip;
+    Host *host_tmp;
 };
 
 #endif // EQUIPOS_H

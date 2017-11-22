@@ -192,7 +192,7 @@ class NMap : public QXmlStreamReader {
 public:
     NMap();
     NMap(NMapScan datos);
-    QString arg_host_find;
+
 virtual ~NMap();
 
     void copy_nmapscan(NMapScan &tmp_nmapscan);
@@ -216,8 +216,8 @@ virtual ~NMap();
     QString what_is(QString ip);
     int what_is_int(QString ip);
     QList<QString> host_ports_open(Host host);
-    QString host_ports_open_string(Host host);
-    int host_ports_open_int(Host &host);
+    QString host_ports_open_string(Host *host); //Puertos abiertos
+    int host_ports_open_int(Host &host); //Numero de puerto abiertos del host
 
 private:
     NMapScan nmapscan;

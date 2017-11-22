@@ -19,13 +19,14 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Soporte)
 {
     ui->setupUi(this);
     //Vamos a poner en el constructor la máscara para validar la ip introducida
+
+    ui->tabWidget->setMovable(false);
 
     QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
     QRegExp ipRegex ("^" + ipRange
@@ -171,7 +172,6 @@ void Soporte::resultados(QList<NMapScan> res){
     NMapScan nmapscan;
     nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
     NMap *nmap =new NMap(nmapscan);
-    QWidget *pp=nullptr;
     ui->TextoSalida->appendPlainText("Equipos Buscados: "+QString::number(nmap->nmap_num_host_find()));
     ui->TextoSalida->appendPlainText("Equipos Encontrados: "+QString::number(nmap->nmap_num_host_up()));
     ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
@@ -246,9 +246,7 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 void Soporte::on_Btn_Atalaya_clicked()
 {
 
-    //QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+atalaya, QUrl::TolerantMode));
-    QDesktopServices::openUrl(QUrl("http://localhost/"+atalaya, QUrl::TolerantMode));
-
+    QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+atalaya, QUrl::TolerantMode));
 }
 
 /*

@@ -79,6 +79,7 @@ private slots:
 
    void on_pB_listin_clicked();
 
+
 private:
     Ui::Soporte *ui;
     QSqlDatabase db;

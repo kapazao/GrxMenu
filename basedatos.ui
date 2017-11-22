@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tablas de la DB</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>1100</width>
-         <height>650</height>
+         <height>647</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
@@ -148,6 +148,12 @@
                 <height>40</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -159,8 +165,8 @@
                 <rect>
                  <x>10</x>
                  <y>15</y>
-                 <width>75</width>
-                 <height>14</height>
+                 <width>85</width>
+                 <height>17</height>
                 </rect>
                </property>
                <property name="text">
@@ -193,9 +199,9 @@
               <widget class="QComboBox" name="comboBox_consulta">
                <property name="geometry">
                 <rect>
-                 <x>100</x>
+                 <x>110</x>
                  <y>5</y>
-                 <width>901</width>
+                 <width>891</width>
                  <height>31</height>
                 </rect>
                </property>
@@ -204,164 +210,52 @@
                </property>
                <item>
                 <property name="text">
-                 <string># Consulta de extensiones, teléfonos e email de ayuntamientos
-
-SELECT n.nombre as Nodo,
-    n.extension as Extensión,
-    GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,
-    GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email,
-    n.ipLinea as IP
-FROM asismun.nodo n 
-INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id
-LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo
-LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo
-WHERE n.esAyuntamiento = 1 
-GROUP BY n.id 
-ORDER BY n.nombre;
-</string>
+                 <string/>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de datos de programas, mostrando letras identificativas
-
-SELECT n.nombre, pro.anio,
-pro.portalWeb as 165_A,
-pro.email as B,
-pro.baseDatosJuridica as C,
-pro.suscripcionDominio as D,
-pro.perfilContratante as E,
-pro.gestionMunicipal as 166_A,
-pro.gestionEconomica as B,
-pro.soporte as C,
-pro.sedeElectronica as 167_A,
-pro.epol as 168_A,
-pro.epolMovil as B,
-pro.siapol as C
-FROM asismun.programa pro
-INNER JOIN nodo n ON pro.idNodo = n.id
-ORDER BY n.nombre ASC, pro.anio ASC;</string>
+                 <string>Consulta de extensiones, teléfonos e email de ayuntamientos</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de nodos a los que les falta información de contacto (faltan teléfono o dirección)
-
-SELECT n.id as idNodo,
-    n.nombre as Nodo,
-	p.nombre as Población,
-    GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,
-    n.fax as Fax,
-    GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email,
-    n.web as Web,
-    n.tipoVia as TipoVia,
-    n.nombreVia as NombreVia,
-    n.numeroDireccion as NumeroVia,
-    n.codigoPostal as CódigoPostal
-FROM asismun.nodo n 
-INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id
-LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo
-LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo
-WHERE n.tipoVia is null or tn.idNodo is null
-GROUP BY n.id 
-ORDER BY n.nombre;
-</string>
+                 <string>Consulta de datos de programas, mostrando letras identificativas</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de nodos de centros
-
-SELECT c.nombre as Centro,
-    GROUP_CONCAT(DISTINCT n.nombre ORDER BY n.nombre SEPARATOR ' | ') as Nodo
-FROM asismun.centro c
-LEFT JOIN nodo n ON c.id = n.idCentro
-GROUP BY c.id
-ORDER BY c.nombre;</string>
+                 <string>Consulta de nodos a los que les falta información de contacto (faltan teléfono o dirección)</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>
-# Consulta de datos de contacto con ayuntamientos
-# Datos necesarios para la página de Diputación
-
-SELECT n.id as idNodo,
-    case when ela.id is null
-		then n.nombre else CONCAT(n.nombre, &quot; (ELA)&quot;)
-	end as Nodo,
-    case when ela.id is null
-		then m.nombre else ela.nombre
-	end as Municipio,
-	p.nombre as Población,
-    GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,
-    n.fax as Fax,
-    GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email,
-    n.web as Web,
-    n.tipoVia as TipoVia,
-    n.nombreVia as NombreVia,
-    n.numeroDireccion as NumeroVia,
-    n.codigoPostal as CódigoPostal,
-    case when (ela.id is null and m.urlEscudo is not null) or (ela.id is not null and ela.urlEscudo is not null)
-		then &quot;SÍ&quot; else null
-	end as escudo
-FROM asismun.nodo n 
-INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id
-INNER JOIN asismun.municipio m ON p.idMunicipio = m.id
-LEFT JOIN asismun.municipio ela ON p.idEla = ela.id
-LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo
-LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo
-WHERE n.ipLinea LIKE &quot;%10.100%&quot; 
-GROUP BY n.id 
-ORDER BY n.nombre;
-</string>
+                 <string>Consulta de nodos de centros</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de programas
-
-SELECT n.nombre as Nodo, p.*
-FROM asismun.programa p
-INNER JOIN nodo n ON p.idNodo = n.id
-ORDER BY n.nombre;</string>
+                 <string>Consulta de datos de contacto con ayuntamientos.  Datos necesarios para la página de Diputación</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de poblaciones por municipios
-
-SELECT m.nombre as Municipio, 
-    GROUP_CONCAT(DISTINCT p.nombre ORDER BY p.nombre SEPARATOR ' | ') as Población
-FROM municipio m
-INNER JOIN poblacion p ON m.id = p.idMunicipio
-GROUP BY m.id
-ORDER BY m.nombre;</string>
+                 <string>Consulta de programas</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de nodos por poblaciones
-
-SELECT p.nombre as Población, 
-    GROUP_CONCAT(DISTINCT n.nombre ORDER BY n.nombre SEPARATOR ' | ') as Nodo
-FROM asismun.poblacion p
-INNER JOIN nodo n ON p.id = n.idPoblacion
-GROUP BY p.id
-ORDER BY p.nombre;
-</string>
+                 <string>Consulta de poblaciones por municipios</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string># Consulta de total de routers por tipo
-
-SELECT n.equipamientoLinea as Router, 
-	count(*) as Total,
-    GROUP_CONCAT(DISTINCT n.caudalLinea ORDER BY n.caudalLinea SEPARATOR ' | ') as Caudales
-FROM nodo n
-GROUP BY n.equipamientoLinea
-ORDER BY n.equipamientoLinea;</string>
+                 <string>Consulta de nodos por poblaciones</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Consulta de total de routers por tipo</string>
                 </property>
                </item>
               </widget>
@@ -386,7 +280,7 @@ ORDER BY n.equipamientoLinea;</string>
      <x>0</x>
      <y>0</y>
      <width>1120</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

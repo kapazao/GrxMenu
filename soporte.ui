@@ -6,19 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>808</height>
+    <width>841</width>
+    <height>804</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Soporte</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color= red;</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>90</y>
-     <width>781</width>
+     <width>821</width>
      <height>231</height>
     </rect>
    </property>
@@ -100,7 +103,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>767</width>
+      <width>785</width>
       <height>211</height>
      </rect>
     </property>
@@ -389,14 +392,20 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>330</y>
-     <width>512</width>
-     <height>36</height>
+     <y>325</y>
+     <width>517</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QPushButton" name="Btn_Buscar">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Escanear</string>
       </property>
@@ -404,6 +413,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Ping">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Ping</string>
       </property>
@@ -411,6 +426,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Incidencia">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Incidencia</string>
       </property>
@@ -418,6 +439,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Mtr">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>mtr</string>
       </property>
@@ -425,6 +452,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Atalaya">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>SolarWinds</string>
       </property>
@@ -432,6 +465,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>GLPI</string>
       </property>
@@ -442,10 +481,10 @@
   <widget class="QLabel" name="Estado">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>300</y>
-     <width>31</width>
-     <height>31</height>
+     <x>560</x>
+     <y>330</y>
+     <width>41</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -465,54 +504,20 @@
     <string>Limpiar</string>
    </property>
   </widget>
-  <widget class="QTabWidget" name="tabWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>380</y>
-     <width>781</width>
-     <height>421</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color=blue</string>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="consola">
-    <attribute name="title">
-     <string>Consola</string>
-    </attribute>
-    <widget class="QPlainTextEdit" name="TextoSalida">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>1</y>
-       <width>777</width>
-       <height>390</height>
-      </rect>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color=blue</string>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </widget>
-  </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>130</x>
      <y>10</y>
      <width>571</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>570</width>
+     <height>61</height>
+    </size>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -595,7 +600,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/ISL50x50.png</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/ISL50x50.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -711,7 +716,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/portafirmas_50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/portafirmas_50x50.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -807,36 +812,62 @@
      </size>
     </property>
    </widget>
-   <zorder>pB_gmenu</zorder>
-   <zorder>pB_gtablon</zorder>
-   <zorder>pB_isl</zorder>
-   <zorder>pB_citrix</zorder>
-   <zorder>pB_epol</zorder>
-   <zorder>pB_aytos</zorder>
-   <zorder>pB_portafirmas</zorder>
-   <zorder>pB_listin</zorder>
-   <zorder>pB_perilContratante</zorder>
-   <zorder>pB_guadaltel</zorder>
-   <zorder>pB_gmenu</zorder>
-   <zorder>pB_gtablon</zorder>
-   <zorder>pB_isl</zorder>
-   <zorder>pB_citrix</zorder>
-   <zorder>pB_epol</zorder>
-   <zorder>pB_aytos</zorder>
-   <zorder>pB_portafirmas</zorder>
-   <zorder>pB_listin</zorder>
-   <zorder>pB_perilContratante</zorder>
-   <zorder>pB_guadaltel</zorder>
   </widget>
-  <action name="actionPortafirmas">
-   <property name="icon">
-    <iconset>
-     <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/portafirmas.jpg</iconset>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>380</y>
+     <width>811</width>
+     <height>421</height>
+    </rect>
    </property>
-   <property name="text">
-    <string>Portafirmas</string>
+   <property name="widgetResizable">
+    <bool>true</bool>
    </property>
-  </action>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>809</width>
+      <height>419</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="styleSheet">
+        <string notr="true">color=blue</string>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="consola">
+        <attribute name="title">
+         <string>Consola</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QPlainTextEdit" name="TextoSalida">
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color=blue</string>
+           </property>
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections>

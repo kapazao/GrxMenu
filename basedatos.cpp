@@ -1,6 +1,7 @@
 #include "basedatos.h"
 #include "ui_basedatos.h"
-
+#include <QStandardItemModel>
+#include <QTreeView>
 BaseDatos::BaseDatos(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::BaseDatos)
@@ -122,19 +123,7 @@ void BaseDatos::inicia(){
 
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery* query_consulta = new QSqlQuery(db);
- /*
-    QSqlQuery* query_municipio = new QSqlQuery(db);
-    QSqlQuery* query_poblacion = new QSqlQuery(db);
-    QSqlQuery* query_nodo = new QSqlQuery(db);
-    QSqlQuery* query_programa = new QSqlQuery(db);
-    QSqlQuery* query_emailnodo = new QSqlQuery(db);
-    QSqlQuery* query_telefononodo = new QSqlQuery(db);
-    QSqlQuery* query_centro = new QSqlQuery(db);
-    QSqlQuery* query_comarca = new QSqlQuery(db);
-    QSqlQuery* query_mancomunidad = new QSqlQuery(db);
-    QSqlQuery* query_diafestivopoblacion = new QSqlQuery(db);
-    QSqlQuery* query_aplicaciones = new QSqlQuery(db);
-*/
+
     model_municipio->setTable("municipio");
     model_municipio->select();
     ui->tableView_municipio->setModel(model_municipio);
@@ -176,9 +165,77 @@ void BaseDatos::inicia(){
     model_mancomunidad->select();
     ui->tableView_mancomunidad->setModel(model_mancomunidad);
 
+    sql[0]="";
 
+    sql[1]="SELECT n.nombre as Nodo, n.extension as Extensión,GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,"
+                         " GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email, n.ipLinea as IP FROM asismun.nodo n "
+                         "INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo"
+                         " LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo WHERE n.esAyuntamiento = 1 GROUP BY n.id ORDER BY n.nombre;";
 
+    sql[2]="SELECT n.id as idNodo, case when ela.id is null then n.nombre else CONCAT(n.nombre, ' (ELA)') end as Nodo, case when ela.id is null "
+          " then m.nombre else ela.nombre end as Municipio, p.nombre as Población, GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,"
+          " n.fax as Fax, GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email, n.web as Web, n.tipoVia as TipoVia, n.nombreVia as NombreVia, "
+          " n.numeroDireccion as NumeroVia, n.codigoPostal as CódigoPostal, case when (ela.id is null and m.urlEscudo is not null) or (ela.id is not null and ela.urlEscudo is not null) "
+          " then 'SI' else null end as escudo FROM asismun.nodo n INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id INNER JOIN asismun.municipio m ON p.idMunicipio = m.id "
+          " LEFT JOIN asismun.municipio ela ON p.idEla = ela.id LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo "
+          " WHERE n.ipLinea LIKE '%10.100%' GROUP BY n.id ORDER BY n.nombre;";
+    sql[3]="SELECT n.nombre, pro.anio,"
+           "pro.portalWeb as 165_A,"
+           "pro.email as B,"
+           "pro.baseDatosJuridica as C,"
+           "pro.suscripcionDominio as D,"
+           "pro.perfilContratante as E,"
+           "pro.gestionMunicipal as 166_A,"
+           "pro.gestionEconomica as B,"
+           "pro.soporte as C,"
+           "pro.sedeElectronica as 167_A,"
+           "pro.epol as 168_A,"
+           "pro.epolMovil as B,"
+           "pro.siapol as C "
+           "FROM asismun.programa pro INNER JOIN nodo n ON pro.idNodo = n.id "
+           "ORDER BY n.nombre ASC, pro.anio ASC;";
+    sql[4]="SELECT n.id as idNodo,"
+           "n.nombre as Nodo,"
+            "p.nombre as Población,"
+            "GROUP_CONCAT(DISTINCT tn.telefono ORDER BY tn.telefono SEPARATOR ' | ') as Teléfono,"
+            "n.fax as Fax,"
+            "GROUP_CONCAT(DISTINCT en.email ORDER BY en.email SEPARATOR ' | ') as Email,"
+            "n.web as Web,"
+            "n.tipoVia as TipoVia,"
+            "n.nombreVia as NombreVia,"
+            "n.numeroDireccion as NumeroVia,"
+            "n.codigoPostal as CódigoPostal "
+            "FROM asismun.nodo n "
+            "INNER JOIN asismun.poblacion p ON n.idPoblacion = p.id "
+            "LEFT JOIN asismun.telefononodo tn ON n.id = tn.idNodo "
+            "LEFT JOIN asismun.emailnodo en ON n.id = en.idNodo "
+            "WHERE n.tipoVia is null or tn.idNodo is null "
+            "GROUP BY n.id "
+            "ORDER BY n.nombre;";
+
+    sql[5]="SELECT c.nombre as Centro,"
+            "GROUP_CONCAT(DISTINCT n.nombre ORDER BY n.nombre SEPARATOR ' | ') as Nodo "
+            "FROM asismun.centro c "
+            "LEFT JOIN nodo n ON c.id = n.idCentro "
+            "GROUP BY c.id "
+            "ORDER BY c.nombre;";
+    sql[6]="SELECT n.nombre as Nodo, p.* FROM asismun.programa p INNER JOIN nodo n ON p.idNodo = n.id ORDER BY n.nombre;";
+
+    sql[7]="SELECT m.nombre as Municipio,"
+            "GROUP_CONCAT(DISTINCT p.nombre ORDER BY p.nombre SEPARATOR ' | ') as Población "
+            "FROM municipio m "
+            "INNER JOIN poblacion p ON m.id = p.idMunicipio "
+            "GROUP BY m.id "
+            "ORDER BY m.nombre;";
+    sql[8]="SELECT p.nombre as Población,GROUP_CONCAT(DISTINCT n.nombre ORDER BY n.nombre SEPARATOR ' | ') as Nodo FROM asismun.poblacion p INNER JOIN nodo n ON p.id = n.idPoblacion GROUP BY p.id ORDER BY p.nombre;";
+    sql[9]="SELECT n.equipamientoLinea as Router, "
+            "count(*) as Total,"
+            "GROUP_CONCAT(DISTINCT n.caudalLinea ORDER BY n.caudalLinea SEPARATOR ' | ') as Caudales "
+            "FROM nodo n "
+            "GROUP BY n.equipamientoLinea "
+            "ORDER BY n.equipamientoLinea;";
 }
+
 
 void BaseDatos::on_pB_sql_clicked()
 {
@@ -201,13 +258,23 @@ void BaseDatos::on_comboBox_consulta_activated(const QString &arg1)
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery* query_consulta = new QSqlQuery(db);
     QString sql_consulta;
-    sql_consulta = arg1;
-    query_consulta->prepare(sql_consulta);
+    int indice=ui->comboBox_consulta->currentIndex();
 
-    if(!query_consulta->exec())
-       QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_consulta->lastError().text(),QMessageBox::Ok);
-    else{
-        model_consulta->setQuery(*query_consulta);
-        ui->tableView_consulta->setModel(model_consulta);
+    if ((indice>0)&&(indice<10)){
+        sql_consulta = sql[indice];
     }
+    else {
+        sql_consulta = arg1;
+    }
+    if (!sql_consulta.isNull()){
+        query_consulta->prepare(sql_consulta);
+        if(!query_consulta->exec())
+            QMessageBox::critical(this, "Sql Error", "Error en la consulta: \n"+query_consulta->lastError().text(),QMessageBox::Ok);
+        else{
+            model_consulta->setQuery(*query_consulta);
+            ui->tableView_consulta->setModel(model_consulta);
+        }
+     }
 }
+
+
