@@ -150,10 +150,11 @@ void Equipos::on_pB_vnc_clicked()
     QString puerto = QString::number(puerto_libre());
 
     ssh.startDetached("ssh -t -p "+config.cual_es_puerto()+" -L "+puerto+":localhost:5900 "+config.cual_es_usuario_remoto()+"@"+ip+" /usr/bin/remoto.sh");
-    QDesktopServices::openUrl(QUrl("http://localhost:"+puerto));
+    //ssh.startDetached("ssh -t -p 22 -L 30000:localhost:5900 alberto@10.100.251.30 /usr/bin/remoto.sh");
     espera.start("sleep 1");
     espera.waitForFinished();
-    vnc.startDetached("/usr/bin/remoto-cli.sh "+config.cual_es_clave_remoto()+" "+puerto);
+    vnc.startDetached("/usr/bin/remoto-cli.sh "+puerto);
+    //vnc.startDetached("/usr/bin/remoto-cli.sh 30000");
 }
 
 void Equipos::on_pushButton_12_clicked()

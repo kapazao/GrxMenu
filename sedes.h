@@ -107,7 +107,6 @@
 #include "nmap_xml.h"
 #include "configuracion.h"
 #include <QMessageBox>
-#include "clickablelabel.h"
 namespace Ui {
 class Sedes;
 }

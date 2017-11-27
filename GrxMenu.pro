@@ -25,7 +25,7 @@ SOURCES += main.cpp \
     tabescaner.cpp \
     basedatos.cpp \
     acerdade.cpp \
-    botones.cpp
+
 
 
 
@@ -42,7 +42,6 @@ HEADERS  += \
     tabescaner.h \
     basedatos.h \
     acerdade.h \
-    botones.h
 
 
 

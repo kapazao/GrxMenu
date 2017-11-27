@@ -127,10 +127,11 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
                 }
             }
-            consultar_aplicaciones.prepare(QString("select * from aplicaciones where idNodo =:idNodo"));
+            consultar_aplicaciones.prepare(QString("select * from aplicacion where idNodo =:idNodo"));
             consultar_aplicaciones.bindValue(":idNodo", idNodo);
             if (consultar_aplicaciones.exec())
                     if (consultar_aplicaciones.first()){
+
                         atalaya = consultar_aplicaciones.value(1).toInt();
                         glpi = consultar_aplicaciones.value(2).toInt();
                         ocs = consultar_aplicaciones.value(3).toInt();
@@ -245,8 +246,7 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 
 void Soporte::on_Btn_Atalaya_clicked()
 {
-
-    QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+atalaya, QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+QString::number(atalaya)));
 }
 
 /*
@@ -341,4 +341,11 @@ void Soporte::on_pB_isl_clicked()
 void Soporte::on_pB_listin_clicked()
 {
     QDesktopServices::openUrl(QUrl("http://www.dipgra.es/listin", QUrl::TolerantMode));
+}
+
+void Soporte::on_pushButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://incidencias.dipgra.es/glpi/front/central.php?active_entity="+QString::number(glpi)));
+    QDesktopServices::openUrl(QUrl("https://incidencias.dipgra.es/glpi/front/ticket.form.php"));
+
 }
