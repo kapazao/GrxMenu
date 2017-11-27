@@ -8,6 +8,7 @@
 #include "configuracion.h"
 #include "QtDebug"
 #include <QtSql/QSqlDatabase>
+#include "acerdade.h"
 
 namespace Ui {
 class Botonera;
@@ -63,6 +64,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_actionAtalaya_triggered();
+
+    void on_actionAcerca_de_triggered();
 
 private:
     Ui::Botonera *ui;

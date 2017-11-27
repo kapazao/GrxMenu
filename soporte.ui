@@ -6,37 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
-    <height>808</height>
+    <width>841</width>
+    <height>804</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Soporte</string>
   </property>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>10</y>
-     <width>291</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>22</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Soporte Informático</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">color= red;</string>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
-     <width>781</width>
+     <y>90</y>
+     <width>821</width>
      <height>231</height>
     </rect>
    </property>
@@ -118,7 +103,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>761</width>
+      <width>785</width>
       <height>211</height>
      </rect>
     </property>
@@ -200,6 +185,12 @@
        </property>
        <item>
         <widget class="QComboBox" name="cb_sede">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -209,7 +200,7 @@
         <widget class="QLineEdit" name="lineEdit_ip">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -222,7 +213,7 @@
         <widget class="QLineEdit" name="lineEdit_telefono">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -232,7 +223,7 @@
         <widget class="QLineEdit" name="lineEdit_extension">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -242,7 +233,7 @@
         <widget class="QLineEdit" name="lineEdit_direccion">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -252,7 +243,7 @@
         <widget class="QLineEdit" name="lineEdit_numero">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -336,7 +327,7 @@
         <widget class="QLineEdit" name="lineEdit_adsl">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -346,7 +337,7 @@
         <widget class="QLineEdit" name="lineEdit_n_adm">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -356,7 +347,7 @@
         <widget class="QLineEdit" name="lineEdit_centro">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -366,7 +357,7 @@
         <widget class="QLineEdit" name="lineEdit_telefono_centro">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -376,7 +367,7 @@
         <widget class="QLineEdit" name="lineEdit_servicio">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -386,7 +377,7 @@
         <widget class="QLineEdit" name="lineEdit_caudal">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>320</width>
            <height>27</height>
           </size>
          </property>
@@ -401,14 +392,20 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
-     <width>450</width>
-     <height>36</height>
+     <y>325</y>
+     <width>517</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QPushButton" name="Btn_Buscar">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Escanear</string>
       </property>
@@ -416,6 +413,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Ping">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Ping</string>
       </property>
@@ -423,6 +426,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Incidencia">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>Incidencia</string>
       </property>
@@ -430,6 +439,12 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Mtr">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>mtr</string>
       </property>
@@ -437,8 +452,27 @@
     </item>
     <item>
      <widget class="QPushButton" name="Btn_Atalaya">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
       <property name="text">
        <string>SolarWinds</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>GLPI</string>
       </property>
      </widget>
     </item>
@@ -447,10 +481,10 @@
   <widget class="QLabel" name="Estado">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>300</y>
-     <width>31</width>
-     <height>31</height>
+     <x>560</x>
+     <y>330</y>
+     <width>41</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -461,53 +495,377 @@
    <property name="geometry">
     <rect>
      <x>700</x>
-     <y>305</y>
+     <y>334</y>
      <width>80</width>
-     <height>25</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Limpiar</string>
    </property>
   </widget>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>340</y>
-     <width>781</width>
+     <x>130</x>
+     <y>10</y>
+     <width>571</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>570</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pB_gmenu">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>MOAD</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/moad.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/moad.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_gtablon">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>GTablón</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/gtablon.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/gtablon.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_isl">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>ISLOnline</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/ISL50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/ISL50x50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_citrix">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Citrix</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/citrix.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/citrix.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_epol">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>EPol</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/epol.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/epol.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_aytos">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Incidencias Sede</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/aytos.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/aytos.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_portafirmas">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Portafirmas</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/portafirmas_50x50.png</normaloff>../../../usr/share/grx/asistencia/imagenes/soporte/portafirmas_50x50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_listin">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Listin Telefónico</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/listin.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/listin.jpeg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_perilContratante">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Portal del Contratante</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/perfilcontratante.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/perfilcontratante.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_guadaltel">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Redmine</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/guadaltel.png</normaloff>../../../usr/share/grx/asistencia/imagenes/iconos/guadaltel.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>380</y>
+     <width>811</width>
      <height>421</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">color=blue</string>
+   <property name="widgetResizable">
+    <bool>true</bool>
    </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="consola">
-    <attribute name="title">
-     <string>Consola</string>
-    </attribute>
-    <widget class="QPlainTextEdit" name="TextoSalida">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>1</y>
-       <width>771</width>
-       <height>381</height>
-      </rect>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color=blue</string>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-    </widget>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>809</width>
+      <height>419</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="styleSheet">
+        <string notr="true">color=blue</string>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="consola">
+        <attribute name="title">
+         <string>Consola</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QPlainTextEdit" name="TextoSalida">
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color=blue</string>
+           </property>
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

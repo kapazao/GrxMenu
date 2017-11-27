@@ -6,268 +6,510 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1255</width>
-    <height>714</height>
+    <width>1038</width>
+    <height>813</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Equipos</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>10</y>
-     <width>252</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Información del Equipo</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>310</y>
-     <width>311</width>
-     <height>215</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Carpeta</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>ssh</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>systemconfig</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="text">
-         <string>networkmanager</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="text">
-         <string>CUPS</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_6">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_7">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QPushButton" name="pushButton_8">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_9">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_10">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_14">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_13">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_12">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_11">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>21</x>
-     <y>43</y>
-     <width>661</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_4">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+  <property name="styleSheet">
+   <string notr="true">&quot;background-color:red&quot;</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>Información del Equipo</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
-         <widget class="QLabel" name="label_ip">
-          <property name="text">
-           <string>IP</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_ip">
+                <property name="text">
+                 <string>IP</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_tipo">
+                <property name="text">
+                 <string>Tipo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_puertos">
+                <property name="text">
+                 <string>Puertos abiertos</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Puertos buscados</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ip">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_tipo">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_puertos">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_puertosBuscados">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLabel" name="label_hostname">
+                <property name="text">
+                 <string>Hostname</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_status">
+                <property name="text">
+                 <string>Status</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_hostname">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_status">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_7">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_8">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_puertos">
-          <property name="text">
-           <string>Puertos abiertos</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_tipo">
-          <property name="text">
-           <string>Tipo</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QPushButton" name="pB_carpeta">
+              <property name="text">
+               <string>Carpeta</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/carpeta_personal.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/carpeta_personal.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_ssh">
+              <property name="text">
+               <string>ssh</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/ssh.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/ssh.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_vnc">
+              <property name="text">
+               <string>VNC</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/vnc.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/vnc.jpeg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_7">
+              <property name="text">
+               <string>Update</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/update.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/update.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QPushButton" name="pB_CUPS">
+              <property name="text">
+               <string>CUPS</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/cups32.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/cups32.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_web">
+              <property name="text">
+               <string>web</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/web.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/web.jpeg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_webssl">
+              <property name="text">
+               <string>web-ssl</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/web.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/web.jpeg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_telnet">
+              <property name="text">
+               <string>Telnet</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/telnet.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/telnet.jpeg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QPushButton" name="pB_systemconfig">
+              <property name="text">
+               <string>systemconfig</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/hardware.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/hardware.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pB_networkManager">
+              <property name="text">
+               <string>netmanager</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/net.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/net.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_12">
+              <property name="text">
+               <string>Procesos</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/procesos.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/procesos.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_11">
+              <property name="text">
+               <string>Usuarios</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/usuarios/usuarios_35.png</normaloff>../../../usr/share/grx/asistencia/imagenes/usuarios/usuarios_35.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QPushButton" name="pushButton_14">
+              <property name="text">
+               <string>Discos</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/discos.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/discos.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_13">
+              <property name="text">
+               <string>Equipo</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/info_equipo.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/info_equipo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Instala</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/instala.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/instala.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>Konekta</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/konekta.png</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/konekta.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QLineEdit" name="lineEdit_ip"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_puertos"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_tipo"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_4"/>
-        </item>
-       </layout>
-      </item>
      </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_6">
-        <item>
-         <widget class="QLabel" name="label_hostname">
-          <property name="text">
-           <string>Hostname</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_status">
-          <property name="text">
-           <string>Status</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <item>
-         <widget class="QLineEdit" name="lineEdit_hostname"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_status"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_7"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_8"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <property name="tabletTracking" stdset="0">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/telnet.jpeg</normaloff>../../../usr/share/grx/asistencia/imagenes/equipos/telnet.jpeg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Consola</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QTextEdit" name="textEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

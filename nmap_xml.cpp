@@ -71,7 +71,7 @@ QString NMap::nmap_arg_find() {
 }
 
 /****************host_ports_open****************************
- * Devuelve los puerto abiertos del host pasado por parametro
+ * Devuelve los puertos buscados del host pasado por parametro
  * *******************************************************/
 
 
@@ -86,16 +86,13 @@ QList <QString> NMap::host_ports_open(Host host){
  * *******************************************************/
 
 
-QString host_ports_open_string(Host host){
+QString NMap::host_ports_open_string(Host *host){
     QString lista;
-    for (int i=0;i<host.ports.port.count();i++)
-           lista.append(host.ports.port.at(i).portid);
+    for (int i=0;i<host->ports.port.count();i++)
+            if (host->ports.port.at(i).state.state=="open")
+                lista.append(host->ports.port.at(i).portid);
     return lista;
-
-
 }
-
-
 
 /****************host_ports_open****************************
  * Devuelve los puerto abiertos del host pasado por parametro
@@ -105,9 +102,6 @@ QString host_ports_open_string(Host host){
 int NMap::host_ports_open_int(Host &host){
     return host.ports.port.count();
 }
-
-
-
 
 /******************************nmap_num_host_up********************************
  * Devuelve el número de equipos encendidos

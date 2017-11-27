@@ -129,13 +129,14 @@ void Botonera::on_actionISL_triggered()
 void Botonera::on_actionConfigurar_triggered()
 {
     Configuracion *configuracion= new Configuracion;
-    configuracion->setFixedSize(690,590);
+    configuracion->setFixedSize(690,690);
     configuracion->show();
 }
 
 void Botonera::on_actionNuevo_Men_triggered()
 {
     Botonera *menu = new Botonera;
+    menu->setFixedSize(1100,135);
     menu->show();
 }
 
@@ -397,3 +398,10 @@ void Botonera::on_pushButton_clicked()
     cargaVariables();
 }
 
+
+void Botonera::on_actionAcerca_de_triggered()
+{
+    AcerdaDe *acerca = new AcerdaDe;
+    acerca->show();
+
+}

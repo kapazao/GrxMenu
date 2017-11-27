@@ -11,6 +11,13 @@
 #include "configuracion.h"
 #include "tabescaner.h"
 
+#include <QDebug>
+#include <QByteArray>
+#include <QEventLoop>
+#include <QNetworkReply>
+#include <QTextCodec>
+#include <QUrl>
+#include <QUrlQuery>
 
 Soporte::Soporte(QWidget *parent) :
     QDialog(parent),
@@ -18,6 +25,8 @@ Soporte::Soporte(QWidget *parent) :
 {
     ui->setupUi(this);
     //Vamos a poner en el constructor la máscara para validar la ip introducida
+
+    ui->tabWidget->setMovable(false);
 
     QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
     QRegExp ipRegex ("^" + ipRange
@@ -49,6 +58,7 @@ Soporte::Soporte(QWidget *parent) :
         ui->cb_sede->setModel(model);
         on_cb_sede_activated(ui->cb_sede->itemText(0));
     }
+
 }
 
 Soporte::~Soporte()
@@ -80,6 +90,7 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
     QSqlQuery consultar_poblacion;
     QSqlQuery consultar_municipio;
     QSqlQuery consultar_centro;
+    QSqlQuery consultar_aplicaciones;
 
     QString idNodo;
     QString idMunicipio;
@@ -116,6 +127,15 @@ void Soporte::on_cb_sede_activated(const QString &nombre)
 
                 }
             }
+            consultar_aplicaciones.prepare(QString("select * from aplicacion where idNodo =:idNodo"));
+            consultar_aplicaciones.bindValue(":idNodo", idNodo);
+            if (consultar_aplicaciones.exec())
+                    if (consultar_aplicaciones.first()){
+
+                        atalaya = consultar_aplicaciones.value(1).toInt();
+                        glpi = consultar_aplicaciones.value(2).toInt();
+                        ocs = consultar_aplicaciones.value(3).toInt();
+                    }
             consultar_centro.prepare(QString("select * from centro where id =:idCentro"));
             consultar_centro.bindValue(":idCentro", consultar.value(2).toString());
             if (consultar_centro.exec() and consultar_centro.first()){
@@ -153,7 +173,6 @@ void Soporte::resultados(QList<NMapScan> res){
     NMapScan nmapscan;
     nmapscan = res[0];//Lo fijamos a cero porque sólo puede haber uno
     NMap *nmap =new NMap(nmapscan);
-    QWidget *pp=nullptr;
     ui->TextoSalida->appendPlainText("Equipos Buscados: "+QString::number(nmap->nmap_num_host_find()));
     ui->TextoSalida->appendPlainText("Equipos Encontrados: "+QString::number(nmap->nmap_num_host_up()));
     ui->TextoSalida->appendPlainText("Tiempo tardado: "+nmap->nmap_time_elapsed()+" Segundos");
@@ -227,31 +246,106 @@ QDesktopServices::openUrl(QUrl("mailto:"+para+"?subject="+asunto+"&body="+cuerpo
 
 void Soporte::on_Btn_Atalaya_clicked()
 {
-    //QByteArray data=new QByteArray();
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(replyFinished(QNetworkReply*)));
-
-    manager->post(QNetworkRequest(QUrl("http://atalaya.grx")), "data");
-
-    /*
-
-    QUrl url;
-    QByteArray postData;
-    QNetworkAccessManager *networkManager = new QNetworkAccessManager;
-    url.setUrl("http://atalaya.grx");
-    QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-    QString postUsuario = "username";
-    QString postValueUsuario = "municipios";
-    QString postKeyPassword = "password";
-    QString postValuePassword = "CasaCuna";
-
-    postData.append(postUsuario).append("=").append(postValueUsuario).append("&");
-    postData.append(postKeyPassword).append("=").append(postValuePassword).append("&");
-
-    networkManager->post(request,postData);
-*/
+    QDesktopServices::openUrl(QUrl("http://atalaya.grx/Orion/NetPerfMon/NodeDetails.aspx?NetObject=N:"+QString::number(atalaya)));
 }
-void Soporte::replyFinished(QNetworkReply* m){
-   qDebug()<<m;
+
+/*
+    QNetworkRequest request(QUrl(QStringLiteral("http://atalaya.grx/Orion/Login.aspx?autologin=no")));
+     request.setHeader(QNetworkRequest::ContentTypeHeader,
+                       "application/x-www-form-urlencoded");
+
+     QUrlQuery query;
+     query.addQueryItem("ctl00$BodyContent$Username", "municipios");
+     query.addQueryItem("ctl00$BodyContent$Password", "CasaCuna");
+
+     QUrl post_data;
+     post_data.setQuery(query);
+
+     QNetworkAccessManager network_manager;
+     auto network_reply = network_manager.post(request,query.query().toUtf8());
+
+     QEventLoop loop;
+     connect(network_reply, SIGNAL(finished()), &loop, SLOT(quit()));
+     loop.exec();
+
+     QByteArray raw_data;
+     if(network_reply->error() == QNetworkReply::NoError){
+          raw_data = network_reply->readAll();
+     }else{
+         insertaTexto(network_reply->errorString());
+     }
+
+     insertaTexto (QTextCodec::codecForHtml(raw_data)->toUnicode(raw_data));
+
+*/
+
+
+void Soporte::resultado_html(QNetworkReply* p){
+    qDebug()<< p;
+}
+
+
+void Soporte::insertaTexto(QString texto){
+
+    ui->TextoSalida->moveCursor (QTextCursor::End);
+    ui->TextoSalida->insertPlainText (texto);
+    ui->TextoSalida->moveCursor (QTextCursor::End);
+
+}
+
+void Soporte::on_pB_gmenu_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_portafirmas_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/moad/pfirma-moad/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_gtablon_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://moad.dipgra.es/moad/Gtablon-moad/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_epol_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://10.1.100.114/ePolV2/LoginNuevo!input.do", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_guadaltel_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.guadaltel.es/redmine/login", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_perilContratante_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://195.57.47.5:8080/pdc_srvGRA/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_citrix_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://ctx.dipgra.es/Citrix/XenApp/auth/login.aspx", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_aytos_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://areacliente.aytos.es/areacliente/", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_isl_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.islonline.com/login/login.htm?wid=W409945021&rand=101138538&page=login&hl=es", QUrl::TolerantMode));
+}
+
+void Soporte::on_pB_listin_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://www.dipgra.es/listin", QUrl::TolerantMode));
+}
+
+void Soporte::on_pushButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://incidencias.dipgra.es/glpi/front/central.php?active_entity="+QString::number(glpi)));
+    QDesktopServices::openUrl(QUrl("https://incidencias.dipgra.es/glpi/front/ticket.form.php"));
+
 }

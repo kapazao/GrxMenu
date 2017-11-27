@@ -9,6 +9,7 @@
 #include "nmap_xml.h"
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
+#include <QToolBar>
 namespace Ui {
 class Soporte;
 }
@@ -54,7 +55,32 @@ private slots:
 
     void on_Btn_Atalaya_clicked();
 
-    void replyFinished(QNetworkReply*);
+   void resultado_html(QNetworkReply* p);
+
+   void insertaTexto(QString texto);
+
+   void on_pB_gmenu_clicked();
+
+   void on_pB_portafirmas_clicked();
+
+   void on_pB_gtablon_clicked();
+
+   void on_pB_epol_clicked();
+
+   void on_pB_guadaltel_clicked();
+
+   void on_pB_perilContratante_clicked();
+
+   void on_pB_citrix_clicked();
+
+   void on_pB_aytos_clicked();
+
+   void on_pB_isl_clicked();
+
+   void on_pB_listin_clicked();
+
+
+   void on_pushButton_clicked();
 
 private:
     Ui::Soporte *ui;
@@ -62,6 +88,8 @@ private:
     QSqlQuery consultar;
     QProcess *ping;
     QString terminal="x-terminal-emulator";
+    int atalaya, glpi, ocs;
+
  };
 
 

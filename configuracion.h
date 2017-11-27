@@ -61,6 +61,7 @@ public:
     bool ts_up();
     bool isl_up();
     bool atalaya_up();
+    bool solo_aytos();
 
     QString cual_es_rdesktop();
     QString cual_es_resolucion();
@@ -175,6 +176,7 @@ private:
     QString Cuerpo;
     QString UsarProxyChains;
     QString ProxyChains;
+    QString SoloAytos;
 
     Ui::Configuracion *ui;
 };

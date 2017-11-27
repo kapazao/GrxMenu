@@ -23,7 +23,10 @@ SOURCES += main.cpp \
     tunel.cpp \
     ejecutahilo.cpp \
     tabescaner.cpp \
-    clickablelabel.cpp
+    basedatos.cpp \
+    acerdade.cpp \
+
+
 
 
 HEADERS  += \
@@ -37,7 +40,9 @@ HEADERS  += \
     tunel.h \
     ejecutahilo.h \
     tabescaner.h \
-    clickablelabel.h
+    basedatos.h \
+    acerdade.h \
+
 
 
 FORMS    += \
@@ -47,10 +52,9 @@ FORMS    += \
     sedes.ui \
     soporte.ui \
     equipos.ui \
+    basedatos.ui \
+    acerdade.ui
 
 
 LIBS += -lssh2
-
-RESOURCES += \
-    imagenes.qrc
 
